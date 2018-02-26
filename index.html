@@ -262,6 +262,217 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/Git学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王嘉熙">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王嘉熙的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/26/Git学习笔记/" itemprop="url">Git学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T21:04:55+08:00">
+                2018-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/02/26/Git学习笔记/" class="leancloud_visitors" data-flag-title="Git学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  577
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>创建空目录<br>$mkdir learngit<br>$cd learngit<br>$pwd(显示)</p>
+<p>初始化仓库<br>$git init </p>
+<p>添加与提交文件<br>$git addr readme.txt<br>$git commit –m “…….”</p>
+<p>查看仓库状态<br>$git status</p>
+<p>查看修改痕迹<br>$git diff readme.txt</p>
+<p>查看文件历史记录<br>$git log<br>$git log –pretty=oneline(精简信息)</p>
+<p>文件版本回退<br>$git reset –hard HEAD^(^^)</p>
+<p>$git reset –hard commit_id</p>
+<p>记录每一次命令<br>$git reflog</p>
+<p>查看版本内容<br>$cat readme.txt</p>
+<p>版本库</p>
+<p><img src="https://i.imgur.com/yvm4wkt.jpg" alt=""><br>$git add 工作区—-暂存区</p>
+<p>$git commit  暂存区—-当前分支</p>
+<p>撤销修改(回到最近一次commit或add时的状态)</p>
+<p>$git checkout – readme.txt(撤销工作区修改)</p>
+<p>$git reset HEAD readme.txt（撤销暂存区修改）</p>
+<p>删除文件<br>$rm readme.txt </p>
+<p>工作区和版本库不一致：</p>
+<p>版本库删除并提交<br>$git rm readme.txt<br>   $git commit –m”…..</p>
+<p>远程仓库</p>
+<p>创建ssh key<br>$ ssh-keygen –t rsa –C”your <a href="mailto:email@example.com" target="_blank" rel="noopener">email@example.com</a>”</p>
+<p>本地仓库内容推送GitHub仓库</p>
+<p>$git remote add orign <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:08163182/learngit.git</p>
+<p>$git push –u origin master(第一次推送加-u关联远程库 默认名字origin)<br>$git push origin master</p>
+<p>从远程库克隆<br>$git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:08163182/gitskills.git</p>
+<p>分支管理<br> <img src="https://i.imgur.com/5ydEr3H.png" alt=""><br>HEAD指向master    master指向提交</p>
+<p>创建并切换dev分支<br>$git checkout –b dev == $git branch dev<br> $git checkout dev</p>
+<p>查看当前分支<br>$git branch</p>
+<p>合并指定分支到当前分支<br>$git merge dev</p>
+<p>删除分支<br>$git branch –d dev</p>
+<p>合并分支的—no—ff模式  </p>
+<p>禁用Fast forward<br>$git merge –no—ff –m “…….” dev  (-m因为创建了一个新的commit) </p>
+<p>BUG分支</p>
+<p>保护现场</p>
+<p>$git stash</p>
+<p>查看工作现场<br>$git stash list</p>
+<p>恢复现场<br>$git stash pop</p>
+<p>丢弃未合并分支<br>$git branch –D  <name></name></p>
+<p>查看远程库信息<br>$git remote<br>$git remote –v (详细信息)</p>
+<p>多人协作</p>
+<p>推送分支<br>$git push origin master<br>($git push origin dev)</p>
+<p>推送失败$git pull(合并)<br>$git push origin master</p>
+<p>$git branch –set-upstream master origin(本地分支与远程分支建立联系)</p>
+<p>创建标签</p>
+<p>$git branch</p>
+<p>$git checkout master</p>
+<p>$git tag v1.0</p>
+<p>命令标签<br>$<br>git tag v0.9 commit-id/HEAD<br>查看标签信息</p>
+<p>$git show v0.9<br>$git tag –a v0.1 –m”….”  指定标签信息<br>$git tag –a v0.1 –m”….”  PGP私匙签名标签<br>查看所有标签<br>$git tag<br>删除标签<br>$git tag –d v0,1<br>推送标签<br>$git push origin v1.0<br>             –tags推送所有<br>$git push origin :refs/tags/<tagname>删除远程标签</tagname></p>
+<p>使用GitHub<br> <img src="https://i.imgur.com/hNS80f5.png" alt=""><br>1 GitHub Fork别人仓库<br>2 git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:08163182/bootstrap.git</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/大吉大利/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -625,7 +836,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
