@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="IO编程  ==== ##文件读写##oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.wri">
+<meta name="description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.write())">
 <meta name="keywords" content="Fighting">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记1">
 <meta property="og:url" content="http://yoursite.com/2018/03/20/Python笔记1/index.html">
 <meta property="og:site_name" content="王嘉熙的博客">
-<meta property="og:description" content="IO编程  ==== ##文件读写##oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.wri">
+<meta property="og:description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.write())">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T08:47:01.230Z">
+<meta property="og:updated_time" content="2018-03-29T14:10:14.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记1">
-<meta name="twitter:description" content="IO编程  ==== ##文件读写##oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.wri">
+<meta name="twitter:description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.write())">
 
 
 
@@ -372,20 +372,16 @@
       
 
       
-        <pre><code>IO编程 
-</code></pre><p>====</p>
-<p>##文件读写##<br><code>oepn(&#39;/x.txt&#39;,&#39;r&#39;,encoding=&#39;gbk&#39;)</code>读非UTF-8文件<br>‘r’换成’w’写文件’wb’写二进制文件<br><code>write()</code>写文件 <code>read()</code>读取文件 <code>close()</code>关闭文件</p>
+        <h1 id="IO编程"><a href="#IO编程" class="headerlink" title="IO编程"></a>IO编程</h1><h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p><code>oepn(&#39;/x.txt&#39;,&#39;r&#39;,encoding=&#39;gbk&#39;)</code>读非UTF-8文件<br>‘r’换成’w’写文件’wb’写二进制文件<br><code>write()</code>写文件 <code>read()</code>读取文件 <code>close()</code>关闭文件</p>
 <pre><code>with open(&apos;x.txt&apos;,&apos;w&apos;) as f:
 print(f.write())        
-</code></pre><p>##StringIO和BytesIO##</p>
-<pre><code>from io import StringIO/BytesIO    
+</code></pre><h2 id="StringIO和BytesIO"><a href="#StringIO和BytesIO" class="headerlink" title="StringIO和BytesIO"></a>StringIO和BytesIO</h2><pre><code>from io import StringIO/BytesIO    
 f=StringIO/BytesIO()     
 f.write(&apos;&apos;)           写入内存/写入二进制数据     
 print(f.getvalue())         
 </code></pre><p><code>seek()</code> :移动文件读写指针到指定位置 （offest:需要向前或向后的字节数，正为向后，负为向前；  whence）:选值，默认为0，表示文件开头，1表示相对于当前的位置，2表示文件末尾)      </p>
 <p>tell() :获取当前文件读取指针的位置     </p>
-<p>##操作文件和目录##</p>
-<pre><code>import os     
+<h2 id="操作文件和目录"><a href="#操作文件和目录" class="headerlink" title="操作文件和目录"></a>操作文件和目录</h2><pre><code>import os     
 os.path.abspath(&apos;.&apos;) 查看目录绝对路径     
 os.path.join(&apos;&apos;,&apos;&apos;)合并路径     
 os.mkdir(&apos;&apos;)创建目录     
@@ -395,8 +391,7 @@ os.path.splitext(&apos;&apos;)得到文件扩展名
 os.rename(&apos;&apos;,&apos;&apos;)文件重命名    
 os.remove(&apos;&apos;)删掉文件     
 </code></pre><hr>
-<p>##序列化##</p>
-<p><strong>import pickle</strong>      </p>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p><strong>import pickle</strong>      </p>
 <pre><code>pickle.dumps(d)   把对象序列化一个bytes写入文件    
 pickle.dump(d,f)              file-like-Object    
 pickle.load(f)从file-like-object反序列化对象读取    
@@ -411,8 +406,7 @@ Python对象转换到JSON格式
 <pre><code>json_str = &apos;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&apos;        
 print(json.loads(json_str,object_hook=dict2student))
 </code></pre><hr>
-<p>#进程和线程#</p>
-<p><strong>多进程</strong><br>Windows创建子进程       </p>
+<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p><strong>多进程</strong><br>Windows创建子进程       </p>
 <p><code>&#39;sep&#39;.join(seq)</code>连接字符串数组<br><code>os.path.join(path1[,path2[,...]])</code> 将多个路径组合后返回<br><code>os._exit()</code>线程退出  直接终止程序<br><code>sys.exit()</code>主线程退出  引发异常SystemExit     </p>
 <p>Linux系统<code>fork()</code> 实现 多进程<br>Windows系统 multiprocessing模块实现多进程<br>Queue Pipes  实现进程间通信                </p>
 <pre><code>from multiprocessing import Process,Queue
@@ -455,24 +449,21 @@ finally:
 <pre><code>local_school = threading.local()
 </code></pre><p>全局变量local_school可看作ThreadLocal对象 而local_shool.student为线程局部变量</p>
 <p>  group: 线程组，目前还没有实现，库引用中提示必须是None；<br>　　target: 要执行的方法；<br>　　name: 线程名；<br>　　args/kwargs: 要传入方法的参数。   </p>
-<p>##分布式进程##</p>
-<p><strong>6</strong>正则表达式<br><strong>\s</strong> 匹配一个空格   + 至少一个字符 ? 0或1个字符<br>\d 匹配数字 \w 匹配字母或数字  {m,n}数字范围<br>.匹配任意字符</p>
+<h2 id="分布式进程"><a href="#分布式进程" class="headerlink" title="分布式进程"></a>分布式进程</h2><p><strong>6</strong>正则表达式<br><strong>\s</strong> 匹配一个空格   + 至少一个字符 ? 0或1个字符<br>\d 匹配数字 \w 匹配字母或数字  {m,n}数字范围<br>.匹配任意字符</p>
 <p>^行开头 $行结束<br>re模块<br><code>re.split()</code>切分字符串<br><code>re.match</code>(r’^(\d+)，t)贪婪匹配  \d+? 非贪婪匹配</p>
 <hr>
-<p>#常用内建模块#<br><strong>datetime</strong><br><code>from datetime import datetime</code>导入datetime类    </p>
+<h1 id="常用内建模块"><a href="#常用内建模块" class="headerlink" title="常用内建模块"></a>常用内建模块</h1><p><strong>datetime</strong><br><code>from datetime import datetime</code>导入datetime类    </p>
 <pre><code>dt = datetime(,,,)      
 dt.timestamp()       
 </code></pre><p>datetime–&gt;timestamp<br><code>fromtimestamp()</code> timestamp—&gt;datetime<br><code>datetime.strptime()</code> str–&gt;datetime<br><code>datetime.strftime()</code> datetime–&gt;str<br>timedelta(x=?)datime加减<br><code>utcnow()</code>获取当前UTC时间<br><code>astimezone()</code>转换时区</p>
-<p>##collections##<br><code>popitem()</code>随机返回并删除字典中一对键和值<br><code>Counter()</code>函数可做简单计数器<br><code>OrderedDict</code>可保持字典顺序<br><code>defaultdict（lambda:xx）</code> 对于dict可返回一默认值<br><code>deque()</code>可实现高效操作的双向链表(<code>append(),pop     (),appendleft(),popleft()</code>)<br><code>namedtuple(&#39;&#39;,[])</code>定义一种数据类型，用属性引用tuple某个元素</p>
-<p>##base64##</p>
-<p><code>base64.b64encode(b&#39;&#39;)</code><br><code>base64.b64decode(b&#39;&#39;)</code><br><code>base64.urlsafe_b64endode</code>   +/ —&gt; –__<br>b’=’在url,cookie会产生歧义，故把’=’去掉<br>解码需加上’=’将Base64字符串的长度变为4的倍数<br><code>b&#39;str&#39;</code>表示字节</p>
-<p>##struct##</p>
-<pre><code>import struct
+<h2 id="collections"><a href="#collections" class="headerlink" title="collections"></a>collections</h2><p><code>popitem()</code>随机返回并删除字典中一对键和值<br><code>Counter()</code>函数可做简单计数器<br><code>OrderedDict</code>可保持字典顺序<br><code>defaultdict（lambda:xx）</code> 对于dict可返回一默认值<br><code>deque()</code>可实现高效操作的双向链表(<code>append(),pop     (),appendleft(),popleft()</code>)<br><code>namedtuple(&#39;&#39;,[])</code>定义一种数据类型，用属性引用tuple某个元素</p>
+<h2 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h2><p><code>base64.b64encode(b&#39;&#39;)</code><br><code>base64.b64decode(b&#39;&#39;)</code><br><code>base64.urlsafe_b64endode</code>   +/ —&gt; –__<br>b’=’在url,cookie会产生歧义，故把’=’去掉<br>解码需加上’=’将Base64字符串的长度变为4的倍数<br><code>b&#39;str&#39;</code>表示字节</p>
+<h2 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h2><pre><code>import struct
 struct.pack(&apos;&gt;I&apos;, 10240099)
 </code></pre><blockquote>
 <p>表示大端法，I表示4字节无符号整数，H表示2字节无符号整数   参数个数要和处理指令一致<br><code>pack()</code> 数据类型-bytes  <code>unpack()</code>bytes-数据类型</p>
 </blockquote>
-<p>##hashlib##<br>哈希算法    </p>
+<h2 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h2><p>哈希算法    </p>
 <pre><code>import hashlib
 md5=hashlib.md5()
 md2.update(&apos;&apos;.encode(&apos;utf-8&apos;))
@@ -483,14 +474,14 @@ print(md5.hexdigest())
 a=np.randow.randint(5,size(2,3))
 a
 </code></pre><p><code>numpy.random.seed()</code> <code>numpy.random.RandomState()</code><br>随机生成数一样<br><code>numpy.random.rand(m,n)</code> 创建数组分配随机样本</p>
-<p>##hmac##<br>hmac算法<br>    import hmac, random</p>
+<h2 id="hmac"><a href="#hmac" class="headerlink" title="hmac"></a>hmac</h2><p>hmac算法<br>    import hmac, random</p>
 <pre><code>def hmac_md5(key, s):
     return hmac.new(key.encode(&apos;utf-8&apos;), s.encode(&apos;utf-8&apos;), &apos;MD5&apos;).hexdigest()
 </code></pre><p><strong>itertools</strong><br>无限迭代器</p>
 <pre><code>import itertools
 natuals=itertools.count(1)
 </code></pre><p><code>cout()</code>创建无限迭代器<br> <code>cycle()</code>将传入的序列无限重复<br><code>repeat()</code>将元素重复，可限定参数<br><code>itertools.takewhile(lambda x: ...,natuals)</code>可根据条件截取有限序列<br><code>chain(m,n)</code>将对象串联形成更大迭代器<br><code>groupby(&#39;&#39;)</code>将相邻重复元素挑出放在一起     </p>
-<p>##contextlib##<br><strong>enter</strong> <strong>exit</strong>实现上下文管理</p>
+<h2 id="contextlib"><a href="#contextlib" class="headerlink" title="contextlib"></a>contextlib</h2><p><strong>enter</strong> <strong>exit</strong>实现上下文管理</p>
 <pre><code>from contextlib import contextmanager
 class Query(object)
 
@@ -523,8 +514,7 @@ def closing(thing):
         yield thing
     finally:
         thing.close()
-</code></pre><p>##urllib##</p>
-<pre><code>from urllib import request
+</code></pre><h2 id="urllib"><a href="#urllib" class="headerlink" title="urllib"></a>urllib</h2><pre><code>from urllib import request
 
 with request.urlopen(&apos;https://api.douban.com/v2/book/2129650&apos;) as f:
     data = f.read()
@@ -535,7 +525,7 @@ with request.urlopen(&apos;https://api.douban.com/v2/book/2129650&apos;) as f:
 </code></pre><p>对豆瓣的一个url进行抓取</p>
 <p>Post发送请求，把参数data以bytes形式传入</p>
 <pre><code>with request.urlopen(req, data=login_data.encode(&apos;utf-8&apos;)) as f:
-</code></pre><p>##XML##<br><code>from xml.parsers.expat import ParserCreate</code><br><code>&lt;a href=&quot;/&quot;&gt;python&lt;/a&gt;</code></p>
+</code></pre><h2 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h2><p><code>from xml.parsers.expat import ParserCreate</code><br><code>&lt;a href=&quot;/&quot;&gt;python&lt;/a&gt;</code></p>
 <p>start_element事件，在读取<code>&lt;a href=&quot;/&quot;&gt;</code>时；</p>
 <p>char_data事件，在读取<code>python</code>时；</p>
 <p>end_element事件，在读取<code>&lt;/a&gt;</code>时。</p>
@@ -556,7 +546,7 @@ parser.StartElementHandler = handler.start_element
 parser.EndElementHandler = handler.end_element
 parser.CharacterDataHandler = handler.char_data
 parser.Parse(xml)
-</code></pre><p>##HTMLParser##<br>attrs 属性集合<br>attrs 是一个tuple的list，每个tuple[0]是属性名，tuple[1]是属性值</p>
+</code></pre><h2 id="HTMLParser"><a href="#HTMLParser" class="headerlink" title="HTMLParser"></a>HTMLParser</h2><p>attrs 属性集合<br>attrs 是一个tuple的list，每个tuple[0]是属性名，tuple[1]是属性值</p>
 <pre><code>from html.parser import HTMLParser
 from html.entities import name2codepoint
 </code></pre>
@@ -618,10 +608,6 @@ from html.entities import name2codepoint
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/26/Git学习笔记/" rel="next" title="Git学习笔记">
-                <i class="fa fa-chevron-left"></i> Git学习笔记
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
@@ -682,8 +668,17 @@ from html.entities import name2codepoint
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -702,7 +697,7 @@ from html.entities import name2codepoint
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -766,6 +761,22 @@ from html.entities import name2codepoint
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IO编程"><span class="nav-number">1.</span> <span class="nav-text">IO编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件读写"><span class="nav-number">1.1.</span> <span class="nav-text">文件读写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringIO和BytesIO"><span class="nav-number">1.2.</span> <span class="nav-text">StringIO和BytesIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作文件和目录"><span class="nav-number">1.3.</span> <span class="nav-text">操作文件和目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列化"><span class="nav-number">1.4.</span> <span class="nav-text">序列化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程和线程"><span class="nav-number">2.</span> <span class="nav-text">进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式进程"><span class="nav-number">2.1.</span> <span class="nav-text">分布式进程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用内建模块"><span class="nav-number">3.</span> <span class="nav-text">常用内建模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#collections"><span class="nav-number">3.1.</span> <span class="nav-text">collections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#base64"><span class="nav-number">3.2.</span> <span class="nav-text">base64</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#struct"><span class="nav-number">3.3.</span> <span class="nav-text">struct</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashlib"><span class="nav-number">3.4.</span> <span class="nav-text">hashlib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hmac"><span class="nav-number">3.5.</span> <span class="nav-text">hmac</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#contextlib"><span class="nav-number">3.6.</span> <span class="nav-text">contextlib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib"><span class="nav-number">3.7.</span> <span class="nav-text">urllib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML"><span class="nav-number">3.8.</span> <span class="nav-text">XML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTMLParser"><span class="nav-number">3.9.</span> <span class="nav-text">HTMLParser</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

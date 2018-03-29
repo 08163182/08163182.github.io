@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="#第三方模块# ##Pillow## ###如何自定义字母生成照片##安装第三方模块 pip install modulename from PIL import ImageFilter, Image, ImageDraw, ImageFont  import random  def rndChar():     return chr(random.randint(65,90)) def rndC">
+<meta name="description" content="第三方模块Pillow如何自定义字母生成照片安装第三方模块 pip install modulename from PIL import ImageFilter, Image, ImageDraw, ImageFont  import random  def rndChar():     return chr(random.randint(65,90)) def rndColor():     r">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python笔记2">
 <meta property="og:url" content="http://yoursite.com/2018/03/29/Python笔记2/index.html">
 <meta property="og:site_name" content="王嘉熙的博客">
-<meta property="og:description" content="#第三方模块# ##Pillow## ###如何自定义字母生成照片##安装第三方模块 pip install modulename from PIL import ImageFilter, Image, ImageDraw, ImageFont  import random  def rndChar():     return chr(random.randint(65,90)) def rndC">
+<meta property="og:description" content="第三方模块Pillow如何自定义字母生成照片安装第三方模块 pip install modulename from PIL import ImageFilter, Image, ImageDraw, ImageFont  import random  def rndChar():     return chr(random.randint(65,90)) def rndColor():     r">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T08:48:28.858Z">
+<meta property="og:updated_time" content="2018-03-29T14:05:28.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python笔记2">
-<meta name="twitter:description" content="#第三方模块# ##Pillow## ###如何自定义字母生成照片##安装第三方模块 pip install modulename from PIL import ImageFilter, Image, ImageDraw, ImageFont  import random  def rndChar():     return chr(random.randint(65,90)) def rndC">
+<meta name="twitter:description" content="第三方模块Pillow如何自定义字母生成照片安装第三方模块 pip install modulename from PIL import ImageFilter, Image, ImageDraw, ImageFont  import random  def rndChar():     return chr(random.randint(65,90)) def rndColor():     r">
 
 
 
@@ -371,9 +371,7 @@
       
 
       
-        <p>#第三方模块#</p>
-<p>##Pillow##</p>
-<p>###如何自定义字母生成照片##<br>安装第三方模块 pip install modulename</p>
+        <h1 id="第三方模块"><a href="#第三方模块" class="headerlink" title="第三方模块"></a>第三方模块</h1><h2 id="Pillow"><a href="#Pillow" class="headerlink" title="Pillow"></a>Pillow</h2><h3 id="如何自定义字母生成照片"><a href="#如何自定义字母生成照片" class="headerlink" title="如何自定义字母生成照片"></a>如何自定义字母生成照片</h3><p>安装第三方模块 pip install modulename</p>
 <pre><code>from PIL import ImageFilter, Image, ImageDraw, ImageFont
 
 import random
@@ -401,8 +399,10 @@ for t in range(4):
 
 image = image.filter(ImageFilter.BLUR)
 image.save(&apos;code.jpg&apos;,&apos;jpeg&apos;)
-</code></pre><p>###模糊效果###<br>    i=Image.open(‘’)<br>    i2=i.filter(ImageFilter.BLUR)<br>    i2.save(‘’,’’)</p>
-<p>##requests##<br>Get请求</p>
+</code></pre><h3 id="模糊效果"><a href="#模糊效果" class="headerlink" title="模糊效果"></a>模糊效果</h3><pre><code>i=Image.open(&apos;&apos;)
+i2=i.filter(ImageFilter.BLUR)
+i2.save(&apos;&apos;,&apos;&apos;)
+</code></pre><h2 id="requests"><a href="#requests" class="headerlink" title="requests"></a>requests</h2><p>Get请求</p>
 <pre><code>import requests
 
 r=requests.get(&apos;https://www.douban.com/&apos;，param={},
@@ -424,15 +424,27 @@ files ={&apos;file&apos;: open(&apos;report.xls&apos;,&apos;rb&apos;)}
 r.requests.post(url, files=files)
 r.text
 </code></pre><p>响应状态码 <code>r.status_code</code><br>使用Get/Opptions/Post/Put/Patch/Delete禁用重定向<br>    allow_redirects=false<br>使用HEAD启用重定向<br>    allow_redirects=true<br>超时设置(连接过程有效)<br>    timeout=0.001<br>传入Cookies 用dict传入cookies参数<br>    cs={‘’:’’}<br>    r=requests.get(url,cookies=cs)</p>
-<p>##chardet##<br>检测GBK编码<br>    data =’一家人’.encode(‘gbk’)<br>    chardet.detect(data)</p>
+<h2 id="chardet"><a href="#chardet" class="headerlink" title="chardet"></a>chardet</h2><p>检测GBK编码<br>    data =’一家人’.encode(‘gbk’)<br>    chardet.detect(data)</p>
 <p>‘gbk’–’utf-8’–’euc-jp’（日文）不同编码检测</p>
-<p>##psutil##<br>    psutil.virtual_memory()#获取物理内存<br>    psutil.swap_memory()#交换内存<br>    psutil.disk_partitions() #磁盘分区信息<br>    psutil.disk_usage(‘/‘) # 磁盘使用情况<br>    psutil.disk_io_counters() # 磁盘IO<br>    psutil.net_io_counters() # 获取网络读写字节／包的个数<br>    psutil.net_io_counters() # 获取网络读写字节／包的个数<br>    psutil.net_if_stats() # 获取网络接口状态psutil.net_connections()#获取网络连接信息<br>    psutil.pids() # 所有进程ID<br>    pids-name-exe-cwd-cmdline-ppid-parent-uername-create_time-terminal-cpu_times-memory_info-open_files-<br>    connections-cpu_threads-threads</p>
-<p>##virtualenv##<br>创建目录    </p>
+<h2 id="psutil"><a href="#psutil" class="headerlink" title="psutil"></a>psutil</h2><pre><code>psutil.virtual_memory()#获取物理内存
+psutil.swap_memory()#交换内存
+psutil.disk_partitions() #磁盘分区信息
+psutil.disk_usage(&apos;/&apos;) # 磁盘使用情况
+psutil.disk_io_counters() # 磁盘IO
+psutil.net_io_counters() # 获取网络读写字节／包的个数
+psutil.net_io_counters() # 获取网络读写字节／包的个数
+psutil.net_if_stats() # 获取网络接口状态psutil.net_connections()#获取网络连接信息
+psutil.pids() # 所有进程ID
+pids-name-exe-cwd-cmdline-ppid-parent-uername-create_time-terminal-cpu_times-memory_info-open_files-
+connections-cpu_threads-threads
+</code></pre><h2 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h2><p>创建目录    </p>
 <pre><code>mkdir myproject
 cd myproject/
 </code></pre><p>创建独立Python环境<br><code>virtualenv --no-site-packages venv</code><br>进入环境<br><code>venv/bin/activate</code><br>环境运行pip和python命令<br><code>pip install jinja2</code><br><code>python myapp.py</code><br>退出环境<br><code>deactivate</code>     </p>
-<p>##图形界面GUI##<br>    from tkinter import *<br>    import tkinter.messagebox as messagebox</p>
-<pre><code>class Application(Frame):
+<h2 id="图形界面GUI"><a href="#图形界面GUI" class="headerlink" title="图形界面GUI"></a>图形界面GUI</h2><pre><code>from tkinter import *
+import tkinter.messagebox as messagebox
+
+class Application(Frame):
     def __init__(self, master=None):
         Frame.__init__(self, master)
         self.pack()
@@ -453,11 +465,10 @@ app = Application()
 app.master.title(&apos;Hello World&apos;)
 # 主消息循环:
 app.mainloop()
-</code></pre><p>#网络编程#</p>
-<p>##TCP/IP简介##<br>TCP和IP协议<br>IP协议负责数据在计算机之间的传送，数据被分割通过IP包发送，多条线路通过路由器转发,IP地址有IPv4(32位整数),IPv6（128位整数）。        </p>
+</code></pre><h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><h2 id="TCP-IP简介"><a href="#TCP-IP简介" class="headerlink" title="TCP/IP简介"></a>TCP/IP简介</h2><p>TCP和IP协议<br>IP协议负责数据在计算机之间的传送，数据被分割通过IP包发送，多条线路通过路由器转发,IP地址有IPv4(32位整数),IPv6（128位整数）。        </p>
 <p>IP地址对应的实际上是计算机的网络接口，通常是网卡。</p>
 <p>TCP协议则是建立在IP协议之上的，TCP报文包含要传输的数据，源IP地址和目标IP地址，源端口和目标端口。</p>
-<p>##TCP编程##<br>客户端</p>
+<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><p>客户端</p>
 <pre><code>import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #创建套接字socket
 s.connect((&apos;www.sina.com.cn&apos;,80))    #建立连接
@@ -493,7 +504,7 @@ while True:
     sock,addr = s.accept()   #接受连接
     t=threading.Thread(target=tcplink,args=(sock, addr))
     t.start() #运行线程
-</code></pre><p>##UDP编程##<br>面向无连接协议<br>服务器端</p>
+</code></pre><h2 id="UDP编程"><a href="#UDP编程" class="headerlink" title="UDP编程"></a>UDP编程</h2><p>面向无连接协议<br>服务器端</p>
 <pre><code>import socket
 s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 s.bind((&apos;127.0.0.1&apos;,9999))
@@ -513,8 +524,8 @@ s.close()
 <p>从网络或磁盘读取的字节流bytes变为str通过decode()解码</p>
 <p><code>tcpCliSock.send(data.encode())</code><br><code>data = tcpCliSock.recv(BUFSIZ).decode()</code></p>
 <p>Python3中套接字使用的是原始字符串编码bytes 发送数据需编码成<strong>bytes</strong>,打印数据需解码<strong>str</strong>（Unicode编码）</p>
-<p>#电子邮件#<br>电子邮件旅程<br>发件人 -&gt; MUA -&gt; MTA -&gt; MTA -&gt; 若干个MTA -&gt; MDA &lt;- MUA &lt;- 收件人<br>写MUA把邮件发送到MTA；<br>编写MUA从MDA收邮件<br>发送邮件：  协议SMTP<br>收邮件： POP和IMAP</p>
-<p>#数据库#<br>SQLite</p>
+<h1 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h1><p>电子邮件旅程<br>发件人 -&gt; MUA -&gt; MTA -&gt; MTA -&gt; 若干个MTA -&gt; MDA &lt;- MUA &lt;- 收件人<br>写MUA把邮件发送到MTA；<br>编写MUA从MDA收邮件<br>发送邮件：  协议SMTP<br>收邮件： POP和IMAP</p>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>SQLite</p>
 <pre><code>import sqlite3 
 
 def get_score_in(low, high):
@@ -594,10 +605,6 @@ return name
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/29/Web安全入门/" rel="prev" title="Web安全入门">
-                Web安全入门 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -648,8 +655,17 @@ return name
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -668,7 +684,7 @@ return name
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -732,6 +748,22 @@ return name
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方模块"><span class="nav-number">1.</span> <span class="nav-text">第三方模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pillow"><span class="nav-number">1.1.</span> <span class="nav-text">Pillow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何自定义字母生成照片"><span class="nav-number">1.1.1.</span> <span class="nav-text">如何自定义字母生成照片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模糊效果"><span class="nav-number">1.1.2.</span> <span class="nav-text">模糊效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requests"><span class="nav-number">1.2.</span> <span class="nav-text">requests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chardet"><span class="nav-number">1.3.</span> <span class="nav-text">chardet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#psutil"><span class="nav-number">1.4.</span> <span class="nav-text">psutil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virtualenv"><span class="nav-number">1.5.</span> <span class="nav-text">virtualenv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形界面GUI"><span class="nav-number">1.6.</span> <span class="nav-text">图形界面GUI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络编程"><span class="nav-number">2.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP简介"><span class="nav-number">2.1.</span> <span class="nav-text">TCP/IP简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP编程"><span class="nav-number">2.2.</span> <span class="nav-text">TCP编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP编程"><span class="nav-number">2.3.</span> <span class="nav-text">UDP编程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#电子邮件"><span class="nav-number">3.</span> <span class="nav-text">电子邮件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">4.</span> <span class="nav-text">数据库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
