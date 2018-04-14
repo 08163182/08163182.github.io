@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="学习," />
+  <meta name="keywords" content="人生苦短，我学Python," />
 
 
 
@@ -80,17 +80,17 @@
 
 
 <meta name="description" content="Python语法基础： 基础字符串和编码编码：ASCII-Unicode-UTF-8记事本编辑：文件(abc.txt)UTF-8编码–记事本(内存)Unicode编码网页浏览：服务器Unicode—浏览器UTF-8字符串:ord()字符整数表示;chr()编码转换字符；网络传输或保存磁盘     str-&amp;gt;bytesx=b&amp;#39;ABC&amp;#39; &amp;#39;ABC&amp;#39;.encode(">
-<meta name="keywords" content="学习">
+<meta name="keywords" content="人生苦短，我学Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="语法基础">
+<meta property="og:title" content="Python语法基础">
 <meta property="og:url" content="http://yoursite.com/2018/04/14/Python语法基础/index.html">
 <meta property="og:site_name" content="王嘉熙的博客">
 <meta property="og:description" content="Python语法基础： 基础字符串和编码编码：ASCII-Unicode-UTF-8记事本编辑：文件(abc.txt)UTF-8编码–记事本(内存)Unicode编码网页浏览：服务器Unicode—浏览器UTF-8字符串:ord()字符整数表示;chr()编码转换字符；网络传输或保存磁盘     str-&amp;gt;bytesx=b&amp;#39;ABC&amp;#39; &amp;#39;ABC&amp;#39;.encode(">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/OBU0NlP.png">
-<meta property="og:updated_time" content="2018-04-14T08:16:29.412Z">
+<meta property="og:updated_time" content="2018-04-14T08:24:54.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="语法基础">
+<meta name="twitter:title" content="Python语法基础">
 <meta name="twitter:description" content="Python语法基础： 基础字符串和编码编码：ASCII-Unicode-UTF-8记事本编辑：文件(abc.txt)UTF-8编码–记事本(内存)Unicode编码网页浏览：服务器Unicode—浏览器UTF-8字符串:ord()字符整数表示;chr()编码转换字符；网络传输或保存磁盘     str-&amp;gt;bytesx=b&amp;#39;ABC&amp;#39; &amp;#39;ABC&amp;#39;.encode(">
 <meta name="twitter:image" content="https://i.imgur.com/OBU0NlP.png">
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>语法基础 | 王嘉熙的博客</title>
+  <title>Python语法基础 | 王嘉熙的博客</title>
   
 
 
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">语法基础</h1>
+          <h1 class="post-title" itemprop="name headline">Python语法基础</h1>
         
 
         <div class="post-meta">
@@ -312,7 +312,7 @@
 
           
           
-             <span id="/2018/04/14/Python语法基础/" class="leancloud_visitors" data-flag-title="语法基础">
+             <span id="/2018/04/14/Python语法基础/" class="leancloud_visitors" data-flag-title="Python语法基础">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -421,7 +421,8 @@ print(k, &apos;=&apos;, v)
     return &apos;done&apos;   
 </code></pre><p><code>genator</code>调用<code>next()</code>执行,遇yield语句中断返回迭代值。再次执行从返回的yield下一条继续执行。得到返回值捕获<code>StopIteration</code>错误<br><code>range(n)</code>产生（0-n）的数，不包括n，range(0)无输出 。</p>
 <h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>for循环可迭代对象： Iterable<br><code>next()</code>调用返回下一个值： <code>Iterator</code>  （惰性序列）<br><code>list/dict/st</code>r是Iterable不是Iterator,通过<code>iter()</code>可获得Iterator对象<br>for循环本质通过调用<code>next()</code>函数实现</p>
-<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><p>##高阶函数<br>变量可以指向函数；<br><code>abs()</code> abs是函数本身，<code>abs()</code>是函数调用。<br>函数名也是变量；<br>abs是变量指向一个计算绝对值函数<br>传入函数;<br>函数作为参数传入,这样的函数称为高阶函数。</p>
+<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><p>##高阶函数</p>
+<p>变量可以指向函数；<br><code>abs()</code> abs是函数本身，<code>abs()</code>是函数调用。<br>函数名也是变量；<br>abs是变量指向一个计算绝对值函数<br>传入函数;<br>函数作为参数传入,这样的函数称为高阶函数。</p>
 <h3 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h3><p><code>map(函数，Iterable序列)</code><br>函数作用于序列每个元素，结果作为新的Iterator返回。<br><code>reduce(f,[x1,x2,x3,x4]) = f(f(f(x1,x2),x3),x4)</code><br>reduce函数接收两个参数并把结果和序列的下一个元素做累积计算。</p>
 <h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p><code>filter(函数，Iterable序列)</code><br>函数作用于序列每个元素，根据结果为True或者False筛选。<br>strip()移除字符串头尾指定字符。<br>求素数的函数：</p>
 <pre><code>def primes():
@@ -602,7 +603,7 @@ ValueError:
       
         <div class="post-tags">
           
-            <a href="/tags/学习/" rel="tag"># 学习</a>
+            <a href="/tags/人生苦短，我学Python/" rel="tag"># 人生苦短，我学Python</a>
           
         </div>
       
