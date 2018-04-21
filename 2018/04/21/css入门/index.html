@@ -86,12 +86,10 @@
 <meta property="og:site_name" content="王嘉熙的博客">
 <meta property="og:description" content="基础基础语法selector {property: value} 继承子类继承父类 派生选择器根据文档的上下文关系确定某个标签样式 DOM：标准文档对象模型id属性为一个元素分配一个唯一的名字同一HTML文档中，可使用多次class，只能使用一次id.对代码进行模块化，可提高代码的复用性。# sidebar p {} id选择器#red {color:red;} 类选择器.center {text">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/i/tulip_ballade_s.jpg">
-<meta property="og:updated_time" content="2018-04-21T06:49:35.685Z">
+<meta property="og:updated_time" content="2018-04-21T07:06:52.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css入门">
 <meta name="twitter:description" content="基础基础语法selector {property: value} 继承子类继承父类 派生选择器根据文档的上下文关系确定某个标签样式 DOM：标准文档对象模型id属性为一个元素分配一个唯一的名字同一HTML文档中，可使用多次class，只能使用一次id.对代码进行模块化，可提高代码的复用性。# sidebar p {} id选择器#red {color:red;} 类选择器.center {text">
-<meta name="twitter:image" content="http://yoursite.com/i/tulip_ballade_s.jpg">
 
 
 
@@ -336,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  11
+                  1,521
                 </span>
               
 
@@ -352,7 +350,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -425,43 +423,76 @@ table,th,td
 <li>outline 轮廓属性</li>
 <li>outline-color 轮廓颜色</li>
 <li>outline-style 轮廓样式</li>
-<li><p>outline-width 轮廓宽度</p>
-<h1 id="框模型"><a href="#框模型" class="headerlink" title="框模型"></a>框模型</h1><p><code>element: 元素</code><br><code>padding: 内边距</code><br><code>border: 边框</code><br><code>margin: 外边距</code><br><code>padding-top：上边距</code><br><code>padding-right：右边距</code><br><code>padding-bottom： 下边距</code><br><code>padding-left： 左边距</code><br>边框出现必须声明一个边框样式<br>默认顺序 top-right-bottom-left<br>  p<br>  {<br>  border-style:solid;<br>  border-width:5px;<br>  }<br><code>border-style/width/color/bottom</code><br><code>border-bottom-color/style/width</code><br>值赋值：<br><code>上对下/左对右</code><br><code>margin-top/right/bottom/left</code><br>外边距合并：两个垂直外边距相遇将形成一个外边距</p>
+<li>outline-width 轮廓宽度<h1 id="框模型"><a href="#框模型" class="headerlink" title="框模型"></a>框模型</h1><code>element: 元素</code><br><code>padding: 内边距</code><br><code>border: 边框</code><br><code>margin: 外边距</code><br><code>padding-top：上边距</code><br><code>padding-right：右边距</code><br><code>padding-bottom： 下边距</code><br><code>padding-left： 左边距</code><br>边框出现必须声明一个边框样式<br>默认顺序 top-right-bottom-left<br>  p<br>  {<br>  border-style:solid;<br>  border-width:5px;<br>  }<br><code>border-style/width/color/bottom</code><br><code>border-bottom-color/style/width</code><br>值赋值：<br><code>上对下/左对右</code><br><code>margin-top/right/bottom/left</code><br>外边距合并：两个垂直外边距相遇将形成一个外边距</li>
+</ul>
 <h1 id="CSS定位"><a href="#CSS定位" class="headerlink" title="CSS定位"></a>CSS定位</h1><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>display属性改变生成框的类型<br>CSS三种定位机制: 普通流、浮动、绝对定位<br>position:static/relative/absolute/fixed<br>overflow:元素内容溢出时的事件<br>clip: 元素形状<br>vertical-align: 元素垂直对齐方式<br>z-index:元素堆叠顺序</p>
-<h2 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h2><p>  #box_relative{</p>
-<pre><code>position: relative;
-left: 30px;
-top: 20px;
-}
+<h2 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h2><pre><code>\#box_relative{
+    position: relative;
+    left: 30px;
+    top: 20px;
+    }
 </code></pre><p>相对定位“相对”元素在文档初始位置<br>绝对定位“相对”最近的已定位祖先元素    </p>
 <h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><p><code>float</code>元素浮动<br><code>clear</code>包围元素视觉上包围浮动元素</p>
 <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h2 id="选择器分组"><a href="#选择器分组" class="headerlink" title="选择器分组"></a>选择器分组</h2><p>通配符选择器：<code>* {color:red;}</code><br>选择器可进行分组；<br>声明可进行分组； </p>
-<h2 id="类选择器-1"><a href="#类选择器-1" class="headerlink" title="类选择器"></a>类选择器</h2><p>  </p><h1 class="important"><br>  This hedaing is vert important<br>  </h1><br>  *.important {color:red;}<br>  .important {color:red;}<p></p>
-<h2 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h2><p>  #intro {font-weight: bold;}<br>ID只能使用一次，可包含更多含义   </p>
-<h2 id="属性选择器-1"><a href="#属性选择器-1" class="headerlink" title="属性选择器"></a>属性选择器</h2><p>  a[href][title] {color:red;}<br>  planet[moons] {color:red;}<br>  a[href=”jasonwjx.com/“}[title:”Python”] {color:red;}<br><code>class~=&quot;def&quot;</code>包含指定词汇<br><code>abc^=&quot;def&quot;</code>以指定值开头<br><code>abc$=&quot;def&quot;</code> 以指定值结尾<br><code>abc*=&quot;def&quot;</code> 包含指定值<br><code>*[lang|=&quot;en&quot;]</code>{color:red;} 选择lang属性等于en或以en- 开头元素</p>
+<h2 id="类选择器-1"><a href="#类选择器-1" class="headerlink" title="类选择器"></a>类选择器</h2><pre><code>&lt;h1 class=&quot;important&quot;&gt;
+This hedaing is vert important
+&lt;/h1&gt;
+*.important {color:red;}
+.important {color:red;}
+</code></pre><h2 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h2><pre><code>#intro {font-weight: bold;}   
+</code></pre><p>ID只能使用一次，可包含更多含义   </p>
+<h2 id="属性选择器-1"><a href="#属性选择器-1" class="headerlink" title="属性选择器"></a>属性选择器</h2><pre><code>a[href][title] {color:red;}
+planet[moons] {color:red;}
+a[href=&quot;jasonwjx.com/&quot;}[title:&quot;Python&quot;] {color:red;}
+</code></pre><p><code>class~=&quot;def&quot;</code>包含指定词汇<br><code>abc^=&quot;def&quot;</code>以指定值开头<br><code>abc$=&quot;def&quot;</code> 以指定值结尾<br><code>abc*=&quot;def&quot;</code> 包含指定值<br><code>*[lang|=&quot;en&quot;]</code>{color:red;} 选择lang属性等于en或以en- 开头元素</p>
 <h2 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h2><p><code>h1 em {color:red;}</code></p>
 <h2 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h2><p><code>h1 &gt; strong {color:red;}</code><br>只在h1元素子元素的strong元素里有效</p>
 <h2 id="相邻选择兄弟选择器"><a href="#相邻选择兄弟选择器" class="headerlink" title="相邻选择兄弟选择器"></a>相邻选择兄弟选择器</h2><p><code>h1 + p {margin-top:50px;}</code><br>选择紧接在h1元素后出现的段落<br>一个结合符只能选择两个相邻兄弟中的第二个元素<br>li + li {font-weight:bold;}</p>
 <h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p>锚伪类：<code>link-visited-hover-active</code>固定顺序<br>伪类：<code>selector: pseudo-class {property: value}</code><br><code>:active</code> 被激活元素添加样式<br><code>:focus</code> 拥有键盘输入焦点元素添加样式<br><code>:hover</code> 鼠标悬浮在元素上方，向元素添加样式<br><code>:link</code> 未被访问链接添加样式<br><code>:visited</code>以访问<br><code>:first-child</code> 元素的第一个子元素<br><code>:lang</code> 带有指定lang属性   </p>
 <h2 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h2><p><code>:first-letter</code> 首字母添加特殊样式<br><code>:first-line</code> 首行添加特殊样式<br><code>:before</code>元素前添加内容<br><code>:after</code> 元素后添加内容  </p>
 <h1 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h1><h2 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h2><p>margin 水平对齐 position 左右对齐 float 左右对齐</p>
-<h2 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h2><p>  height 元素高度 line-height行高 max-height 最大高度<br>  max-width 最大宽度 min-width 最小宽度 width 宽度</p>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>cursor 指向某元素之上显示的指针类型<br>visibility 元素是否可见<br>导航栏=链接列表</p>
-<p>  <ul><br>  <li><a href="default.asp">Home</a></li><br>  ul<br>  {life-style-type:nonel;<br>   margin:0;<br>   padding:0;<br>  }<br>垂直导航栏<br>a{}</ul></p>
-<h2 id="图片库"><a href="#图片库" class="headerlink" title="图片库"></a>图片库</h2><p>  <html><br>  <head><br>  <style><br>  div.img</p>
-<pre><code>{
-margin:3px;
-border:1px solid #bebebe;
-height:auto;
-width:auto;
-float:left;
-text-align:center;
+<h2 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h2><pre><code>height 元素高度 line-height行高 max-height 最大高度
+max-width 最大宽度 min-width 最小宽度 width 宽度
+</code></pre><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>cursor 指向某元素之上显示的指针类型<br>visibility 元素是否可见<br>导航栏=链接列表</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;default.asp&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+ul
+{life-style-type:nonel;
+ margin:0;
+ padding:0;
 }
-</code></pre><p>  </style><br>  </head><br>  <body><br>  <div class="img"><br>  <a target="_blank" href="/i/tulip_ballade.jpg"><br>  <img src="/i/tulip_ballade_s.jpg" alt="Ballade" width="160" height="160"><br>  </a><br>  <div class="desc">在此处添加对图像的描述</div><br>  </div></body></html></p>
-<h2 id="图像透明度"><a href="#图像透明度" class="headerlink" title="图像透明度"></a>图像透明度</h2><p>  img<br>  {<br>  opacity:o.4#值越小越透明<br>  filter: alpha(opacity=40)<br>  }<br>  img:hover<br>  {<br>  opacity:1.0#鼠标位于图像上不透明<br>  }</p>
-<h2 id="CSS媒介类型"><a href="#CSS媒介类型" class="headerlink" title="CSS媒介类型"></a>CSS媒介类型</h2><p>@media 在相同样式表使用不同样式规则来针对不同媒介<br>screen： 电脑显示器<br>all: 所有媒介设备<br>handheld: 小的手持设备<br>projection: 方案展示</p>
-</li>
-</ul>
+</code></pre><p>垂直导航栏<br>a{}</p>
+<h2 id="图片库"><a href="#图片库" class="headerlink" title="图片库"></a>图片库</h2><pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div.img
+  {
+  margin:3px;
+  border:1px solid #bebebe;
+  height:auto;
+  width:auto;
+  float:left;
+  text-align:center;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;img&quot;&gt;
+&lt;a target=&quot;_blank&quot; href=&quot;/i/tulip_ballade.jpg&quot;&gt;
+&lt;img src=&quot;/i/tulip_ballade_s.jpg&quot; alt=&quot;Ballade&quot; width=&quot;160&quot; height=&quot;160&quot;&gt;
+&lt;/a&gt;
+&lt;div class=&quot;desc&quot;&gt;在此处添加对图像的描述&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h2 id="图像透明度"><a href="#图像透明度" class="headerlink" title="图像透明度"></a>图像透明度</h2><pre><code>img
+{
+opacity:o.4#值越小越透明
+filter: alpha(opacity=40)    
+}
+img:hover
+{
+opacity:1.0#鼠标位于图像上不透明
+}
+</code></pre><h2 id="CSS媒介类型"><a href="#CSS媒介类型" class="headerlink" title="CSS媒介类型"></a>CSS媒介类型</h2><p>@media 在相同样式表使用不同样式规则来针对不同媒介<br>screen： 电脑显示器<br>all: 所有媒介设备<br>handheld: 小的手持设备<br>projection: 方案展示   </p>
 
       
     </div>
@@ -678,7 +709,7 @@ text-align:center;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法"><span class="nav-number">1.1.</span> <span class="nav-text">基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">1.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#派生选择器"><span class="nav-number">1.3.</span> <span class="nav-text">派生选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id选择器"><span class="nav-number">1.4.</span> <span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类选择器"><span class="nav-number">1.5.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器"><span class="nav-number">1.6.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css创建"><span class="nav-number">1.7.</span> <span class="nav-text">css创建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css样式"><span class="nav-number">2.</span> <span class="nav-text">css样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">2.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-number">2.2.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">2.3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">2.4.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">2.5.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.6.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轮廓"><span class="nav-number">2.7.</span> <span class="nav-text">轮廓</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框模型"><span class="nav-number">3.</span> <span class="nav-text">框模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS定位"><span class="nav-number">4.</span> <span class="nav-text">CSS定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">4.1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相对定位"><span class="nav-number">4.2.</span> <span class="nav-text">相对定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动"><span class="nav-number">4.3.</span> <span class="nav-text">浮动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器分组"><span class="nav-number">5.1.</span> <span class="nav-text">选择器分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类选择器-1"><span class="nav-number">5.2.</span> <span class="nav-text">类选择器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">  This hedaing is vert important  </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ID选择器"><span class="nav-number">6.1.</span> <span class="nav-text">ID选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器-1"><span class="nav-number">6.2.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后代选择器"><span class="nav-number">6.3.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子元素选择器"><span class="nav-number">6.4.</span> <span class="nav-text">子元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相邻选择兄弟选择器"><span class="nav-number">6.5.</span> <span class="nav-text">相邻选择兄弟选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类"><span class="nav-number">6.6.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪元素"><span class="nav-number">6.7.</span> <span class="nav-text">伪元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级"><span class="nav-number">7.</span> <span class="nav-text">高级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐"><span class="nav-number">7.1.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尺寸"><span class="nav-number">7.2.</span> <span class="nav-text">尺寸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">7.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片库"><span class="nav-number">7.4.</span> <span class="nav-text">图片库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像透明度"><span class="nav-number">7.5.</span> <span class="nav-text">图像透明度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS媒介类型"><span class="nav-number">7.6.</span> <span class="nav-text">CSS媒介类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法"><span class="nav-number">1.1.</span> <span class="nav-text">基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">1.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#派生选择器"><span class="nav-number">1.3.</span> <span class="nav-text">派生选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id选择器"><span class="nav-number">1.4.</span> <span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类选择器"><span class="nav-number">1.5.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器"><span class="nav-number">1.6.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css创建"><span class="nav-number">1.7.</span> <span class="nav-text">css创建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css样式"><span class="nav-number">2.</span> <span class="nav-text">css样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">2.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-number">2.2.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">2.3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">2.4.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">2.5.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.6.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轮廓"><span class="nav-number">2.7.</span> <span class="nav-text">轮廓</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框模型"><span class="nav-number">3.</span> <span class="nav-text">框模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS定位"><span class="nav-number">4.</span> <span class="nav-text">CSS定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">4.1.</span> <span class="nav-text">定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相对定位"><span class="nav-number">4.2.</span> <span class="nav-text">相对定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动"><span class="nav-number">4.3.</span> <span class="nav-text">浮动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器分组"><span class="nav-number">5.1.</span> <span class="nav-text">选择器分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类选择器-1"><span class="nav-number">5.2.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID选择器"><span class="nav-number">5.3.</span> <span class="nav-text">ID选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器-1"><span class="nav-number">5.4.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后代选择器"><span class="nav-number">5.5.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子元素选择器"><span class="nav-number">5.6.</span> <span class="nav-text">子元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相邻选择兄弟选择器"><span class="nav-number">5.7.</span> <span class="nav-text">相邻选择兄弟选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类"><span class="nav-number">5.8.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪元素"><span class="nav-number">5.9.</span> <span class="nav-text">伪元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级"><span class="nav-number">6.</span> <span class="nav-text">高级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐"><span class="nav-number">6.1.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尺寸"><span class="nav-number">6.2.</span> <span class="nav-text">尺寸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">6.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片库"><span class="nav-number">6.4.</span> <span class="nav-text">图片库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像透明度"><span class="nav-number">6.5.</span> <span class="nav-text">图像透明度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS媒介类型"><span class="nav-number">6.6.</span> <span class="nav-text">CSS媒介类型</span></a></li></ol></li></ol></div>
             
 
           </div>
