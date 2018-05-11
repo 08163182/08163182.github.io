@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="王嘉熙的博客">
 <meta property="og:description" content="操作系统概论进程管理：进程如何使用CPU存储管理：管理内存资源设备管理：管理输入输出设备文件管理：对文件进行组织、管理，向用户提供方便的存取访问和可靠共享    操作系统接口分为程序接口和操作接口程序接口包括系统调用和API操作接口包括命令界面、图形界面、作业控制命令 应用程序获得系统服务，就必须利用系统调用：用户进程-&amp;gt;系统调用-&amp;gt;内核；系统调用由中断驱动，机制为“陷阱或异常处理机制">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-10T00:35:26.104Z">
+<meta property="og:updated_time" content="2018-05-11T01:23:32.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统知识点">
 <meta name="twitter:description" content="操作系统概论进程管理：进程如何使用CPU存储管理：管理内存资源设备管理：管理输入输出设备文件管理：对文件进行组织、管理，向用户提供方便的存取访问和可靠共享    操作系统接口分为程序接口和操作接口程序接口包括系统调用和API操作接口包括命令界面、图形界面、作业控制命令 应用程序获得系统服务，就必须利用系统调用：用户进程-&amp;gt;系统调用-&amp;gt;内核；系统调用由中断驱动，机制为“陷阱或异常处理机制">
@@ -335,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,417
+                  1,585
                 </span>
               
 
@@ -417,15 +417,32 @@
 <li><strong>拥有资源</strong>： 进程是拥有资源的独立单位，线程一般不拥有资源，可共享进程资源    </li>
 <li><strong>系统开销</strong>： 进程创建和撤销远大于线程      </li>
 </ol>
+<p>调度算法： </p>
+<ul>
+<li>FCFS先来先服务（到达越早越先执行）</li>
+<li>SJF短作业优先（CPU时间最短-非抢占式）</li>
+<li>SRTF最短剩余时间优先（CPU时间最短-抢占式）</li>
+<li>FCFS高响应比优先（响应比=1+（已等待时间/估计运行时间））</li>
+<li>HPF优先权（优先权高-抢占式）</li>
+</ul>
 <h2 id="PV操作："><a href="#PV操作：" class="headerlink" title="PV操作："></a>PV操作：</h2><p>P(S) S=S-1;<br>S&gt;=0;程序继续执行<br>S&lt;0,程序进程被阻塞，放入信号量等待队列；    </p>
 <p>V(S）S=S+1;<br>S&gt;0;程序继续执行<br>S&lt;=0,信号量等待队列中移出队首进程，使其变为就绪状态；    </p>
+<p>PV操作问题： 生产者-消费者 读者-写者；</p>
 <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h2 id="分区内存管理"><a href="#分区内存管理" class="headerlink" title="分区内存管理"></a>分区内存管理</h2><p>包括单一连续内存管理、固定分区内存管理、可变分区内存管理</p>
 <h2 id="非连续内存分配方式"><a href="#非连续内存分配方式" class="headerlink" title="非连续内存分配方式"></a>非连续内存分配方式</h2><p>包括页式存储管理和段式存储管理</p>
 <h3 id="页式存储管理"><a href="#页式存储管理" class="headerlink" title="页式存储管理"></a>页式存储管理</h3><p>物理块: 物理内存划分成与页大小相等的区<br>页：逻辑地址空间划分成大小相等的区<br>内存分配的基本单位——页<br>进程的逻辑地址用页号和页内偏移表示；页大小与物理块大小相等<br>页号 P=INT[A/L] 页内偏移 d=[A]MOD L    </p>
 <p>地址转换：<br><strong>页号*页表项长度+页表起始地址=页表项在页表所在位置</strong>      </p>
 <p>物理地址：<br><strong>物理块号*块长+块内偏移</strong></p>
+<h2 id="段式存储管理"><a href="#段式存储管理" class="headerlink" title="段式存储管理"></a>段式存储管理</h2><p>物理地址:<br><strong>内存的起始地址+段内地址（段内偏移）</strong></p>
 <p>分段和分页的区别：<br>段是信息的逻辑单位； 页是信息的物理单位；<br>段式存储基于应用程序的结构；页式存储基于存储器的物理结构；<br>段页式存储管理是在段式存储管理的基础上实现分页存储管理；        </p>
 <p>缺页中断率: vt=(1-p)<em>ma+p</em>st(ma:对内存一个页面访问时间；st:缺页处理时间)；    </p>
+<p>页面置换算法:</p>
+<ul>
+<li>FIFO；先进先出 </li>
+<li>OPT； 最佳页面置换（将来长时间不用）</li>
+<li>LRU；最近最久未使用（过去长时间不用）</li>
+<li>clock 时钟置换</li>
+</ul>
 <h1 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h1><p>缓冲包括单缓冲、双缓冲和多缓冲<br>作用：</p>
 <ul>
 <li>一定程度上改善CPU和I/O设备之间的速度不匹配</li>
@@ -673,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统概论"><span class="nav-number">1.</span> <span class="nav-text">操作系统概论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程管理"><span class="nav-number">2.</span> <span class="nav-text">进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PV操作："><span class="nav-number">2.1.</span> <span class="nav-text">PV操作：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存管理"><span class="nav-number">3.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分区内存管理"><span class="nav-number">3.1.</span> <span class="nav-text">分区内存管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非连续内存分配方式"><span class="nav-number">3.2.</span> <span class="nav-text">非连续内存分配方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页式存储管理"><span class="nav-number">3.2.1.</span> <span class="nav-text">页式存储管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设备管理"><span class="nav-number">4.</span> <span class="nav-text">设备管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件管理"><span class="nav-number">5.</span> <span class="nav-text">文件管理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统概论"><span class="nav-number">1.</span> <span class="nav-text">操作系统概论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程管理"><span class="nav-number">2.</span> <span class="nav-text">进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PV操作："><span class="nav-number">2.1.</span> <span class="nav-text">PV操作：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存管理"><span class="nav-number">3.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分区内存管理"><span class="nav-number">3.1.</span> <span class="nav-text">分区内存管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非连续内存分配方式"><span class="nav-number">3.2.</span> <span class="nav-text">非连续内存分配方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页式存储管理"><span class="nav-number">3.2.1.</span> <span class="nav-text">页式存储管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段式存储管理"><span class="nav-number">3.3.</span> <span class="nav-text">段式存储管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设备管理"><span class="nav-number">4.</span> <span class="nav-text">设备管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件管理"><span class="nav-number">5.</span> <span class="nav-text">文件管理</span></a></li></ol></div>
             
 
           </div>
