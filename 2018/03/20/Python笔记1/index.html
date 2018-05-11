@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="王嘉熙的博客">
 <meta property="og:description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.write())">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T08:40:16.092Z">
+<meta property="og:updated_time" content="2018-05-11T09:11:41.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记1">
 <meta name="twitter:description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.write())">
@@ -463,13 +463,13 @@ struct.pack(&apos;&gt;I&apos;, 10240099)
 </code></pre><blockquote>
 <p>表示大端法，I表示4字节无符号整数，H表示2字节无符号整数   参数个数要和处理指令一致<br><code>pack()</code> 数据类型-bytes  <code>unpack()</code>bytes-数据类型</p>
 </blockquote>
-<h2 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h2><p>哈希算法    </p>
+<h2 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h2><p>哈希算法</p>
 <pre><code>import hashlib
 md5=hashlib.md5()
 md2.update(&apos;&apos;.encode(&apos;utf-8&apos;))
 print(md5.hexdigest())
 </code></pre><p>MD5算法  类似SHA1算法</p>
-<p><code>numpy.random.randint(low,high=None,size=None.dtype)</code><br>生成在[low,high)离散均匀分布的整数值，若high=None，则取值区间变为[0,low) </p>
+<p><code>numpy.random.randint(low,high=None,size=None.dtype)</code><br>生成在[low,high)离散均匀分布的整数值，若high=None，则取值区间变为[0,low)</p>
 <pre><code>import numpy as np
 a=np.randow.randint(5,size(2,3))
 a
@@ -497,7 +497,7 @@ def create_query(name):
     print(&apos;Begin&apos;)
     q = Query(name)
        yield q
-        print(&apos;End&apos;)    
+        print(&apos;End&apos;)
 with create_query(&apos;Bob&apos;) as q:
     q.query()
 </code></pre><p><code>contextlib</code>模块含有<code>contextmanager</code>对象实现上下文管理<br><code>@contextmanager</code>装饰器decorator可接受生成器generator</p>
