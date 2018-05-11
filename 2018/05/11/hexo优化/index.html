@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="鼠标出♥ 把love.js放到 \themes\next\source\js\src 文件目录下  找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：        代码优化./config.yml highlight:   enable: false   line_number: true   autoi_detect: tr">
+<meta name="description" content="鼠标出♥ 把love.js放到 \themes\next\source\js\src 文件目录下  找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：       &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/src/love.js&amp;quot;&amp;gt;&amp;lt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+next优化">
 <meta property="og:url" content="http://yoursite.com/2018/05/11/hexo优化/index.html">
 <meta property="og:site_name" content="王嘉熙的博客">
-<meta property="og:description" content="鼠标出♥ 把love.js放到 \themes\next\source\js\src 文件目录下  找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：        代码优化./config.yml highlight:   enable: false   line_number: true   autoi_detect: tr">
+<meta property="og:description" content="鼠标出♥ 把love.js放到 \themes\next\source\js\src 文件目录下  找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：       &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/src/love.js&amp;quot;&amp;gt;&amp;lt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T10:12:07.038Z">
+<meta property="og:updated_time" content="2018-05-11T10:35:15.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+next优化">
-<meta name="twitter:description" content="鼠标出♥ 把love.js放到 \themes\next\source\js\src 文件目录下  找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：        代码优化./config.yml highlight:   enable: false   line_number: true   autoi_detect: tr">
+<meta name="twitter:description" content="鼠标出♥ 把love.js放到 \themes\next\source\js\src 文件目录下  找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：       &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/src/love.js&amp;quot;&amp;gt;&amp;lt;">
 
 
 
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  123
+                  432
                 </span>
               
 
@@ -350,7 +350,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -374,90 +374,86 @@
         <h1 id="鼠标出♥"><a href="#鼠标出♥" class="headerlink" title="鼠标出♥"></a>鼠标出♥</h1><ol>
 <li><p>把love.js放到 \themes\next\source\js\src 文件目录下</p>
 </li>
-<li><p>找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：</p>
- <!-- 页面点击小心心 -->
- <script type="text/javascript" src="/js/src/love.js"></script>
-
+<li><p>找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：     </p>
+<pre><code> &lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/love.js&quot;&gt;&lt;/script&gt;
+</code></pre><h1 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h1><p>./config.yml</p>
+<p> highlight:<br>   enable: false<br>   line_number: true<br>   autoi_detect: true<br>   tab_replace:</p>
+<h2 id="编辑主题源文件"><a href="#编辑主题源文件" class="headerlink" title="编辑主题源文件"></a>编辑主题源文件</h2><p>./themes/layout/_layout.swing</p>
 </li>
 </ol>
-<h1 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h1><p>./config.yml</p>
-<pre><code>highlight:
-  enable: false
-  line_number: true
-  autoi_detect: true
-  tab_replace:
-</code></pre><h2 id="编辑主题源文件"><a href="#编辑主题源文件" class="headerlink" title="编辑主题源文件"></a>编辑主题源文件</h2><p>./themes/layout/_layout.swing</p>
-<p>atom编辑器样式<br>rel=”stylesheet” href=”//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css”&gt;</p>
-<p>初始化highlight.js:</p>
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script type="text/javascript">
+<p>atom编辑器样式</p>
+<pre><code>    rel=&quot;stylesheet&quot; href=&quot;//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css&quot;&gt;
+</code></pre><p>初始化highlight.js:</p>
+<pre><code>&lt;script src=&quot;//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
   $(function() {
-    hljs.initHighlighting();
-    $('pre code').each(function() {
-      var lines = $(this).text().split('\n').length - 1;
-      var $numbering = $('<ul/>').addClass('pre-numbering');
-      $(this)
-        .addClass('has-numbering')//自动添加class块
-        .parent()
-        .append($numbering);
-      for (i = 1; i <= lines; i++) {
-        $numbering.append($('<li/>'));
-      }
-    });
+hljs.initHighlighting();
+$(&#39;pre code&#39;).each(function() {
+  var lines = $(this).text().split(&#39;\n&#39;).length - 1;
+  var $numbering = $(&#39;&lt;ul/&gt;&#39;).addClass(&#39;pre-numbering&#39;);
+  $(this)
+    .addClass(&#39;has-numbering&#39;)//自动添加class块
+    .parent()
+    .append($numbering);
+  for (i = 1; i &lt;= lines; i++) {
+    $numbering.append($(&#39;&lt;li/&gt;&#39;));
+  }
+});
   });
 
-</script>
-
-<h2 id="去class块"><a href="#去class块" class="headerlink" title="去class块"></a>去class块</h2><style>
+&lt;/script&gt;
+</code></pre><h2 id="去class块"><a href="#去class块" class="headerlink" title="去class块"></a>去class块</h2><pre><code>&lt;style&gt;
   pre {
-    position: relative;
-    padding: 0;
+position: relative;
+padding: 0;
   }
 
   code.has-numbering {
-    margin-left: 2.5rem;
+margin-left: 2.5rem;
   }
 
   code.has-numbering::-webkit-scrollbar {
-    display: none;
+display: none;
   }
 
   .pre-numbering {
-    margin: 0;
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+margin: 0;
+position: absolute;
+top: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+height: 100%;
   }
 
   .pre-numbering li {
-    list-style-type: decimal-leading-zero !important;
+list-style-type: decimal-leading-zero !important;
   }
 
   @media (max-width: 760px) {
-    .post-body pre {
-      padding: 0px;
+.post-body pre {
+  padding: 0px;
     }
 
     .post-body .pre-numbering {
-      display: none;
+  display: none;
     }
 
-    code.has-numbering {
-      margin: 0;
-    }
+code.has-numbering {
+  margin: 0;
+}
   }
 
-</style>
-
-
-<h1 id="网站运行时间"><a href="#网站运行时间" class="headerlink" title="网站运行时间"></a>网站运行时间</h1><p>./themes/layout/_parrials/footer.swing</p>
-
-<p><div>前加<br></div></p>
-<p>文末加</p>
-<script>
+&lt;/style&gt;
+</code></pre><h1 id="网站运行时间"><a href="#网站运行时间" class="headerlink" title="网站运行时间"></a>网站运行时间</h1><p>./themes/layout/_parrials/footer.swing</p>
+<pre><code>{% if theme.footer.theme.enable %}
+	/* ... */
+	{% endif %}
+</code></pre><p><div>前加</div></p>
+<pre><code>&lt;span&gt;   |   &lt;/span&gt;
+&lt;span id=&quot;showDays&quot;&gt;&lt;/span&gt;
+</code></pre><p>文末加</p>
+<pre><code>&lt;script&gt;
   var seconds = 1000;
   var minutes = seconds * 60;
   var hours = minutes * 60;
@@ -465,25 +461,24 @@
   var years = days * 365;
   var birthDay = Date.UTC(2016,07,30,00,00,00); // 这里设置建站时间
   setInterval(function() {
-    var today = new Date();
-    var todayYear = today.getFullYear();
-    var todayMonth = today.getMonth()+1;
-    var todayDate = today.getDate();
-    var todayHour = today.getHours();
-    var todayMinute = today.getMinutes();
-    var todaySecond = today.getSeconds();
-    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
-    var diff = now - birthDay;
-    var diffYears = Math.floor(diff/years);
-    var diffDays = Math.floor((diff/days)-diffYears*365);
-    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
-    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
-    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-      document.getElementById('showDays').innerHTML="本站已运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+var today = new Date();
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth()+1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+var diff = now - birthDay;
+var diffYears = Math.floor(diff/years);
+var diffDays = Math.floor((diff/days)-diffYears*365);
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+  document.getElementById(&#39;showDays&#39;).innerHTML=&quot;本站已运行 &quot;+diffYears+&quot; 年 &quot;+diffDays+&quot; 天 &quot;+diffHours+&quot; 小时 &quot;+diffMinutes+&quot; 分钟 &quot;+diffSeconds+&quot; 秒&quot;;
   }, 1000);
-</script>
-
-<h1 id="动画效果："><a href="#动画效果：" class="headerlink" title="动画效果："></a>动画效果：</h1><p>canvas-nest: true</p>
+&lt;/script&gt;
+</code></pre><h1 id="动画效果："><a href="#动画效果：" class="headerlink" title="动画效果："></a>动画效果：</h1><p>canvas-nest: true</p>
 
       
     </div>
