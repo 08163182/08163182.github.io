@@ -1745,8 +1745,8 @@ s
           #Web客户端和服务器
 ##urlparse处理URL字符串：   
 import urllib.parse
-print(urllib.parse.urlparse(&apos;http://www.python.org/doc/FAQ.html&apos;))
-ParseResult(scheme
+print(urllib.parse.urlparse(&#39;http://www.python.org/doc/FAQ.html&#39;))
+ParseResult(scheme=&
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2397,5 +2397,26 @@ HTTP协议GET/HTTP/1.1GET读取请求，/URL路径，HTTP/1.1 HTTP协议版本1.
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

@@ -393,7 +393,7 @@
 <h2 id="iterable"><a href="#iterable" class="headerlink" title="iterable"></a>iterable</h2><p>Array/Map/Set都属于iterable类型<br>iterable内置forEach方法，迭代回调该函数</p>
 <pre><code>a.forEach(function(element,index,array))
 {
-console.log(element+&apos;index=&apos;+index)_
+console.log(element+&#39;index=&#39;+index)_
 } 
 </code></pre><p>对象分为内建对象(语言定义)和宿主对象（浏览器定义）</p>
 <h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><p><code>document object model</code><br>一个网络就是由一些节点构成的集合，节点包括元素节点，文本节点，属性节点</p>
@@ -423,19 +423,19 @@ $行结束    \d$数字结束
 </code></pre><p>正则匹配<br><code>var re1=/ABC\-001/;</code><br><code>var re2= new RegExp(&#39;ABC\\-001&#39;);</code><br>RegExp对象可用<code>exec()</code>方法提取字符串<br>贪婪匹配<br><code>var re= /^(\d+?)(0*)$/;</code> \d后加？变非贪婪匹配；<br>全局搜素<br>加上g表示全局匹配，可多次执行exec()方法；每次运行会更新lastIndex属性<br><code>var r1=/test/g;</code><br><code>var r2=new RegExp(&#39;test&#39;,&#39;g&#39;);</code><br>i忽略大小写 m表示多行匹配</p>
 <h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>数据交换格式，字符串和类的键使用双引号“ ”</p>
 <pre><code>var xiaoming={
-name:&apos;小明&apos;,
+name:&#39;小明&#39;,
 age: 14,
 
-skills:[&apos;JavaScript&apos;,...]};
+skills:[&#39;JavaScript&#39;,...]};
 
-var s= JSON.stringify(xiaoming,[&apos;name&apos;,&apos;skills&apos;],  &apos; &apos; );//把对象序列化JSON格式的字符串
+var s= JSON.stringify(xiaoming,[&#39;name&#39;,&#39;skills&#39;],  &#39; &#39; );//把对象序列化JSON格式的字符串
 </code></pre><p>第二个参数筛选对象键值<br>反序列化：<br>字符串可通过<code>JSON.parse()</code>把它变成一个JavaScript对象.<br>JSON.parse()可接收函数，转换解析出的属性</p>
 <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><p>JavaScript不区分类和实例，通过原型实现面向对象编程。<br>继承关系即把一个对象原型指向另一个对象，Object.create()传入原型对象并基于该原型创建新对象；</p>
 <pre><code>var Student = {
-    name: &apos;Robot&apos;,
+    name: &#39;Robot&#39;,
     height: 1.2,
     run: function () {
-        console.log(this.name + &apos; is running...&apos;);
+        console.log(this.name + &#39; is running...&#39;);
     }
 };
 
@@ -445,7 +445,7 @@ function createStudent(name) {
     s.name = name;
     return s;
 }
-var xiaoming = createStudent(&apos;小明&apos;);
+var xiaoming = createStudent(&#39;小明&#39;);
 xiaoming.run(); // 小明 is running...
 xiaoming.__proto__ === Student; // true
 </code></pre><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><p>obj.xxx访问一个对象属性会查找他的原型链<br>例如xiaoming:<br>xiaoming —-&gt; Student.prototype —-&gt; Object.prototype —-&gt; null<br>构造函数：<br>原型对象有个属性<code>constructor</code>指向Student          </p>
@@ -453,10 +453,10 @@ xiaoming.__proto__ === Student; // true
     this.name=name;
     }
     Student.prototype.hello=function(){
-        alert(&apos;Hello, &apos; +this.name + &apos;!&apos;);
+        alert(&#39;Hello, &#39; +this.name + &#39;!&#39;);
         };//对象可共享hello函数
 
-var xiaoming = new Student(&apos;小明&apos;)；//new调用函数就变成构造函数；
+var xiaoming = new Student(&#39;小明&#39;)；//new调用函数就变成构造函数；
 </code></pre><p><img src="https://i.imgur.com/o8uGdVM.png" alt=""></p>
 <h2 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h2><p><img src="https://i.imgur.com/2Z0XzT2.png" alt=""><br>继承Student的属性可通过新建空函数F进行桥接</p>
 <pre><code>function PrimaryStudent(props) {
@@ -472,7 +472,7 @@ return this.grade;
 };//在PrimaryStudent原型上定义方法
 
 var xiaoming = new PrimaryStudent({
-name: &apos;小明&apos;,
+name: &#39;小明&#39;,
 grade: 2
 });
 </code></pre><p>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Student.prototype —-&gt; Object.prototype —-&gt; null<br>inherits()函数可封装F</p>
@@ -491,7 +491,7 @@ constructor(name);
 super(name);调用父类构造方法
 }
 say(){
-    return(&apos;Hello,&apos; +this.name+&apos;!&apos;);
+    return(&#39;Hello,&#39; +this.name+&#39;!&#39;);
     }
 }
 </code></pre>
@@ -1046,5 +1046,26 @@ say(){
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

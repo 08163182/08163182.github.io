@@ -389,9 +389,9 @@
 &lt;/style&gt;
 &lt;/head&gt;
 </code></pre><p>内联样式：</p>
-<pre><code>&lt;p style=&quot;&quot;&gt;
-   ...
-   &lt;/p&gt;
+<pre><code> &lt;p style=&quot;&quot;&gt;
+    ...
+    &lt;/p&gt;
 </code></pre><p>多重样式:<br>内部样式与外部样式链接，颜色属性继承外部，文字排列和字体尺寸被内部样式表规则取代。   </p>
 <h1 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>背景颜色<code>p {backgroud-color: gray;}</code><br>背景图像<code>body {background-image: url(i/eg.gif);}</code><br>背景位置<code>body {background-position:center;}</code><br>【center/top/bottom/right/left】<br>【50% 50%（图像对应点位）/50px 100px(左上角向右50，向下100偏移)】<br>背景关联<code>background-attachment:fixed</code><br>背景不重复<code>background-repeat:no-repeat;</code><br><strong>背景属性不能继承</strong>   </p>
 <h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><p><code>p {text-indent: -5em; padding-left: 5em}</code>实现文本缩进<br><code>text-align</code>文本行水平对齐<br><code>justify</code>水平对齐<br><code>p.spread{working-spacing: 30px;}</code>字间隔<br><code>left-spacing</code>字母间隔<br><code>text-transform</code>(none/uppercase/lowercase/capitalize)字符转换<br><code>text-decoration</code>(none/underline/overline/line-through/blink)<strong>值会替换而不累积</strong><br><code>p {white-space: normal;}</code>处理空白符（合并空白符忽略换行符）</p>
@@ -1045,5 +1045,26 @@ opacity:1.0#鼠标位于图像上不透明
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

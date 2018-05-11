@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="#Web客户端和服务器 ##urlparse处理URL字符串：    import urllib.parse print(urllib.parse.urlparse(&amp;apos;http://www.python.org/doc/FAQ.html&amp;apos;)) ParseResult(scheme=&amp;#39;http&amp;#39;, netloc=&amp;#39;www.python.org&amp;#39;,">
+<meta name="description" content="#Web客户端和服务器 ##urlparse处理URL字符串：    import urllib.parse print(urllib.parse.urlparse(&amp;#39;http://www.python.org/doc/FAQ.html&amp;#39;)) ParseResult(scheme=&amp;#39;http&amp;#39;, netloc=&amp;#39;www.python.org&amp;#39;, pa">
 <meta name="keywords" content="Python核心编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web编程">
 <meta property="og:url" content="http://yoursite.com/2018/04/01/Web编程/index.html">
 <meta property="og:site_name" content="王嘉熙的博客">
-<meta property="og:description" content="#Web客户端和服务器 ##urlparse处理URL字符串：    import urllib.parse print(urllib.parse.urlparse(&amp;apos;http://www.python.org/doc/FAQ.html&amp;apos;)) ParseResult(scheme=&amp;#39;http&amp;#39;, netloc=&amp;#39;www.python.org&amp;#39;,">
+<meta property="og:description" content="#Web客户端和服务器 ##urlparse处理URL字符串：    import urllib.parse print(urllib.parse.urlparse(&amp;#39;http://www.python.org/doc/FAQ.html&amp;#39;)) ParseResult(scheme=&amp;#39;http&amp;#39;, netloc=&amp;#39;www.python.org&amp;#39;, pa">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-04-10T09:23:14.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web编程">
-<meta name="twitter:description" content="#Web客户端和服务器 ##urlparse处理URL字符串：    import urllib.parse print(urllib.parse.urlparse(&amp;apos;http://www.python.org/doc/FAQ.html&amp;apos;)) ParseResult(scheme=&amp;#39;http&amp;#39;, netloc=&amp;#39;www.python.org&amp;#39;,">
+<meta name="twitter:description" content="#Web客户端和服务器 ##urlparse处理URL字符串：    import urllib.parse print(urllib.parse.urlparse(&amp;#39;http://www.python.org/doc/FAQ.html&amp;#39;)) ParseResult(scheme=&amp;#39;http&amp;#39;, netloc=&amp;#39;www.python.org&amp;#39;, pa">
 
 
 
@@ -375,7 +375,7 @@
         <p>#Web客户端和服务器</p>
 <p>##urlparse<br>处理URL字符串：   </p>
 <pre><code>import urllib.parse
-print(urllib.parse.urlparse(&apos;http://www.python.org/doc/FAQ.html&apos;))
+print(urllib.parse.urlparse(&#39;http://www.python.org/doc/FAQ.html&#39;))
 </code></pre><p><code>ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.python.org&#39;, path=&#39;/doc/FAQ.html&#39;, params=&#39;&#39;, query=&#39;&#39;)</code><br>scheme: 下载方案<br>path:/分割文件或CGI应用路径<br>params:可选参数<br>query：连接符&amp;分割的键值对<br>frag：指定文档特定锚部门   </p>
 <p>net_loc字符串： user:passwd@host:port<br>host:远程Web服务器计算机名称或地址 port:端口号   </p>
 <p>##urljoin<br>    import urllib.parse<br>    urllib.parse.urljoin(‘<a href="http://www.python.org/doc/FAQ.html&#39;,&#39;current/lib/lib.htm&#39;" target="_blank" rel="noopener">http://www.python.org/doc/FAQ.html&#39;,&#39;current/lib/lib.htm&#39;</a>)<br>net_loc及其前面完整路径与newurl链接</p>
@@ -389,10 +389,10 @@ urllib.request.urlopen( )
 <p>HTTP验证脚本</p>
 <pre><code>import urllib.request, urllib.error, urllib.parse
 
-LOGIN =&apos;wesley&apos;
-PASSWD = &quot;you&apos;llNeverGuess&quot;
-URL = &apos;http://localhost&apos;
-REALM = &apos;Secure Archive&apos;
+LOGIN =&#39;wesley&#39;
+PASSWD = &quot;you&#39;llNeverGuess&quot;
+URL = &#39;http://localhost&#39;
+REALM = &#39;Secure Archive&#39;
 
 def handler_version(url):
        hdlr = urllib.request.HTTPBasicAuthHandler()
@@ -404,15 +404,15 @@ def handler_version(url):
 def request_version(url):
     from base64 import encodestring
     req = urllib.request.Request(url)
-    b64str= encodestring(bytes (&apos;%s : %s&apos; % (LOGIN, PASSWD), &apos;utf-8&apos;))[:-1]
+    b64str= encodestring(bytes (&#39;%s : %s&#39; % (LOGIN, PASSWD), &#39;utf-8&#39;))[:-1]
     req.add_header(&quot;Authorization&quot;, &quot;Basic %s&quot; % b64str)
     return req
 
-for funcType in(&apos;handler&apos;, &apos;request&apos;):
-    print(&apos;*** Using %s:&apos; % funcType.upper())
-    url = eval(&apos;%s_version&apos; % funcType)(URL)
+for funcType in(&#39;handler&#39;, &#39;request&#39;):
+    print(&#39;*** Using %s:&#39; % funcType.upper())
+    url = eval(&#39;%s_version&#39; % funcType)(URL)
     f = urllib.request.urlopen(url)
-    print(str(f.readline(), &apos;utf-8&apos;))
+    print(str(f.readline(), &#39;utf-8&#39;))
     f.close()
 </code></pre>
       
@@ -947,5 +947,26 @@ for funcType in(&apos;handler&apos;, &apos;request&apos;):
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

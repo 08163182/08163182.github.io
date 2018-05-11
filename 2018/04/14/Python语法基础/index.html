@@ -387,17 +387,17 @@
 <h2 id="dict和set"><a href="#dict和set" class="headerlink" title="dict和set"></a>dict和set</h2><p>dict的key是不可变对象(key-value)存储<br>dict:<br><code>d = {&#39;Michael&#39;: 95, &#39;Bob&#39;: 75, &#39;Tracy&#39;: 85}</code><br>查看key值是否存在<br><code>in or get()</code><br>set:<br>一组key集合，不存储value;<br><code>remove(key)</code>删除元素<br><code>s = set([1, 2, 3])</code><br>可进行交并数学运算<br><code>b = a.replace(&#39;a&#39;, &#39;A&#39;)</code>创建新的对象并返回  </p>
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>isinstance()判断类型<br>位置参数：<br>按位置传入数值<br>默认参数：<br>必须指向不变对象   </p>
 <p>  def add_end(L=None):</p>
-<pre><code>if L is None:
-    L = []
-L.append(&apos;END&apos;)
-return L
+<pre><code>  if L is None:
+      L = []
+  L.append(&#39;END&#39;)
+  return L
 </code></pre><p>可变参数：<br>*<em>args，接收tuple<br>list或tuple前加</em>号  </p>
 <p>  def person(name, age, **kw):</p>
-<pre><code>print(&apos;name:&apos;, name, &apos;age:&apos;, age, &apos;other:&apos;, kw)
+<pre><code>   print(&#39;name:&#39;, name, &#39;age:&#39;, age, &#39;other:&#39;, kw)
 </code></pre><p><strong>extera把extra这个dict所有key-value用关键字参数传入**kw参数<br>关键字参数：   
 </strong>kw,接收dict<br>没有可变参数时,加*作为特殊分隔符</p>
 <p>  def person(name, age, *, city, job):</p>
-<pre><code>print(name, age, city, job)
+<pre><code>  print(name, age, city, job)
 </code></pre></li>
 </ul>
 <p>参数组合：<br>必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</p>
@@ -405,12 +405,12 @@ return L
 <h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><p><code>L[0:3]/L[:3]</code>索引0开始取,到3结束不包括3;<br><code>L[-1:-3]</code>索引倒着取,最后一个元素-1;<br>L[:10:2]前10个数每2个取1个；</p>
 <h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>for循环遍历<br>判断对象是否可迭代:</p>
 <pre><code>from collections import Iterable
-isinstance(&apos;abc&apos;, Iterable)
+isinstance(&#39;abc&#39;, Iterable)
 </code></pre><p><code>enumerate()</code>在for循环迭代索引和元素本身</p>
 <h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p><code>[x * x for x in range(1, 11)]</code>生成式在列表前<br>dict的<code>items()</code>可同时迭代<code>key</code>和<code>value</code></p>
-<pre><code>d = {&apos;x&apos;: &apos;A&apos;, &apos;y&apos;: &apos;B&apos;, &apos;z&apos;: &apos;C&apos; }
+<pre><code>d = {&#39;x&#39;: &#39;A&#39;, &#39;y&#39;: &#39;B&#39;, &#39;z&#39;: &#39;C&#39; }
 for k, v in d.items():
-print(k, &apos;=&apos;, v)
+print(k, &#39;=&#39;, v)
 </code></pre><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>[]–&gt;()可创建generator(可迭代对象)<br>斐波拉契数列：</p>
 <pre><code>def fib(max):
     n, a, b = 0, 0, 1
@@ -418,7 +418,7 @@ print(k, &apos;=&apos;, v)
         yield b
         a, b = b, a + b
         n = n + 1
-    return &apos;done&apos;   
+    return &#39;done&#39;   
 </code></pre><p><code>genator</code>调用<code>next()</code>执行,遇yield语句中断返回迭代值。再次执行从返回的yield下一条继续执行。得到返回值捕获<code>StopIteration</code>错误<br><code>range(n)</code>产生（0-n）的数，不包括n，range(0)无输出 。</p>
 <h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>for循环可迭代对象： Iterable<br><code>next()</code>调用返回下一个值： <code>Iterator</code>  （惰性序列）<br><code>list/dict/st</code>r是Iterable不是Iterator,通过<code>iter()</code>可获得Iterator对象<br>for循环本质通过调用<code>next()</code>函数实现</p>
 <h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>变量可以指向函数；<br><code>abs()</code> abs是函数本身，<code>abs()</code>是函数调用。<br>函数名也是变量；<br>abs是变量指向一个计算绝对值函数<br>传入函数;<br>函数作为参数传入,这样的函数称为高阶函数。</p>
@@ -443,16 +443,16 @@ print(k, &apos;=&apos;, v)
 </code></pre><p>f是求和函数；f()返回最终结果；返回一个函数时函数并未执行；每次调用都返回新的函数；<br><strong>闭包：返回函数不要引用任何循环变量或后续会发生变化的变量。</strong><br>内部函数可以修改外部list中的元素，内部函数修改外部函数参数需声明<code>nonlocal</code>.</p>
 <h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p><code>lambda x: x*x</code> 返回值为表达式结果，可赋值给变量，利用变量调用函数。</p>
 <h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>decorator:</p>
-<pre><code>@log(&apos;execute&apos;)
+<pre><code>@log(&#39;execute&#39;)
 def now():
-    print(&apos;2016&apos;)
+    print(&#39;2016&#39;)
 import functools
 
 def log(text):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kw):
-            print(&apos;%s %s():&apos; % (text, func.__name__))
+            print(&#39;%s %s():&#39; % (text, func.__name__))
             return func(*args, **kw)
             return wrapper
     return decorator
@@ -466,7 +466,7 @@ def log(text):
         self.score = score#初始化实例（类的对象）的属性
 
     def print_score(self):
-        print(&apos;%s: %s&apos; % (self.name, self.score))#建立对象的方法
+        print(&#39;%s: %s&#39; % (self.name, self.score))#建立对象的方法
 </code></pre><p><code>__init__</code>方法将属性绑定到<code>self</code>,<code>self</code>指向实例本身。传参数时不用穿self，Python会自动传入</p>
 <p>数据封装:<br>访问数据直接在类内定义访问数据的函数—&gt;类的方法</p>
 <h2 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h2><pre><code>class Student(object):
@@ -478,22 +478,22 @@ def log(text):
 <h2 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h2><p>1 子类继承父类，子类可调用父类方法<br>2 多态性，重新定义方法覆盖继承父类的方法（开闭原则）<br>4 动态语言’鸭子类型’“看起来像鸭子，走起路来像鸭子”。定义的类保证传入的对象有相同方法便可继承      </p>
 <h2 id="获取对象信息"><a href="#获取对象信息" class="headerlink" title="获取对象信息"></a>获取对象信息</h2><p><code>type()</code>判断对象类型<br><code>isinstance()</code>对于类中的继承判断对象类型<br><code>dir()</code>获得对象的所有属性和方法<br><code>getattr(obj,&#39;z&#39;,404)</code>传入default参数，属性不存在返回默认值<br><code>hasattr(fp, &#39;read&#39;)</code>判断文件流fp是否存在read()方法<br><code>setattr()</code>  </p>
 <h2 id="实例属性和类属性"><a href="#实例属性和类属性" class="headerlink" title="实例属性和类属性"></a>实例属性和类属性</h2><pre><code>class Student(object):
-    name=&apos;Student&apos;  #类属性所有实例均可访问。
+    name=&#39;Student&#39;  #类属性所有实例均可访问。
 </code></pre><h1 id="面向对象高级编程"><a href="#面向对象高级编程" class="headerlink" title="面向对象高级编程"></a>面向对象高级编程</h1><h2 id="slots"><a href="#slots" class="headerlink" title="slots"></a><strong>slots</strong></h2><pre><code>class Student(object):
-        __slots__ = (&apos;name&apos;, &apos;age&apos;)  
+        __slots__ = (&#39;name&#39;, &#39;age&#39;)  
 </code></pre><p><strong>slots</strong>定义的属性仅对当前类实例起作用，可限制实例属性。</p>
 <h2 id="propetry"><a href="#propetry" class="headerlink" title="@propetry"></a>@propetry</h2><p>@propetry装饰器可把方法变成属性调用<br>定义只读属性 脂定义getter方法而不定义setter方法<br>    class Student(object):</p>
-<pre><code>@property
-def birth(self):
-    return self._birth
+<pre><code>    @property
+    def birth(self):
+        return self._birth
 
-@birth.setter
-def birth(self, value):
-    self._birth = value
+    @birth.setter
+    def birth(self, value):
+        self._birth = value
 
-@property
-def age(self):
-    return 2015 - self._birth
+    @property
+    def age(self):
+        return 2015 - self._birth
 </code></pre><h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><p>多重继承，子类可同时获得多个父类的所有功能。<br>Mixln:通过多重继承来组合多个Mixln功能<br>多进程TCP服务：</p>
 <pre><code>class MyTCPServer(TCPServer, ForkingMixIn):
     pass
@@ -505,14 +505,14 @@ def age(self):
     pass
 </code></pre><p><strong>拓扑排序</strong><br>DAG图选择入度为0顶点输出，删除顶点所对应有向边，重复直到DAG图为空。<br>Python多重继承遵循C3算法<br><img src="https://i.imgur.com/OBU0NlP.png" alt=""><br>执行顺序{D,C1,C2,A,B,object}</p>
 <h2 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h2><p><code>__str__()</code>返回用户看到的字符串<br><code>__repr__()</code>返回程序开发者看到的字符串（变量调用这个方法）<br><code>__iter__</code>返回一个迭代对象，for循环调用对象<code>__next__()</code>方法，遇<code>StopIteration</code>错误退出循环<br><code>__getitem__()</code>可用于list按下标取元素，参数可以作为key的object（str）<br><code>__setitem__()</code>把对象看作list或dict对集合赋值<br><code>__delitem__()</code>删除某个元素<br><code>__getattr__(self,attr)</code>动态返回一个属性<br><code>__call__</code>直接对实例进行调用<br><code>callable()</code>判断对象是否是”可调用”对象     </p>
-<pre><code>def __init__(self, path=&apos;&apos;):
+<pre><code>def __init__(self, path=&#39;&#39;):
     self._path = path#接收变量
 
 def __call__(self, param):
-    return Chain(&apos;%s/:%s&apos; % (self._path, param))#函数调用
+    return Chain(&#39;%s/:%s&#39; % (self._path, param))#函数调用
 
 def __getattr__(self, path):
-    return Chain(&apos;%s/%s&apos; % (self._path, path))#传递类未定义的变量
+    return Chain(&#39;%s/%s&#39; % (self._path, path))#传递类未定义的变量
 
 def __str__(self):
     return self._path
@@ -520,10 +520,10 @@ def __str__(self):
 __repr__ = __str__
 print(Chain().status.user.timeline.list)
 
-print(Chain().users(&apos;michael&apos;).repos)
+print(Chain().users(&#39;michael&#39;).repos)
 </code></pre><p>users调用getattr方法 ； (‘michael’)调用call方法</p>
 <h2 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h2><pre><code>from enum import Enum, unique
-Month=Enum(&apos;Month&apos;,(&apos;Jan&apos;,&apos;Feb&apos;....))
+Month=Enum(&#39;Month&#39;,(&#39;Jan&#39;,&#39;Feb&#39;....))
 </code></pre><p>获得Month枚举类，可用成员名称或value值引用枚举常量也可枚举成员。<br>    for name, member in Month.<strong>members</strong>.items():<br>        print(name, ‘=&gt;’, member, ‘,’, member.value)<br>派生自定义类</p>
 <pre><code>class Weekday(Enum):
 </code></pre><p>Enum把一组相关常量定义在一个class中，class不可变且成员可相互比较  </p>
@@ -538,16 +538,16 @@ logging.basicConfig(level=logging.INFO)
 pdb.set_trace()#自动暂停 c继续执行
 </code></pre><h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>unittest<br>编写测试类从<code>unittest.TestCase</code>继承，以<code>test</code>开头方法为测试方法，测试的时候会被执行。<br>内置条件判断<code>assertEqual()</code><br>d.[‘empty’]访问不存在的key  </p>
 <pre><code>with self.assertRaises(KeyError):
-    value=d[&apos;empty&apos;]
+    value=d[&#39;empty&#39;]
 </code></pre><p>d.empty访问不存在的key</p>
 <pre><code>with self.assertRaises(AttributeError):
     value = d.empty
 </code></pre><p>运行单元测试</p>
-<pre><code>if __name__ == &apos;__main__&apos;:
+<pre><code>if __name__ == &#39;__main__&#39;:
     unittest.main()
 </code></pre><p>命令行加 <code>-m unittest</code><br>测试前执行<code>setUp()</code>  测试后执行<code>teadDown()</code></p>
 <h2 id="文档测试"><a href="#文档测试" class="headerlink" title="文档测试"></a>文档测试</h2><p>doctest可用来测试也可作为示例代码</p>
-<pre><code>if __name__==&apos;__main__&apos;:
+<pre><code>if __name__==&#39;__main__&#39;:
     import doctest
     doctest.testmod()
 </code></pre><p>模块正常导入时，doctest不会被执行。</p>
@@ -1113,5 +1113,26 @@ ValueError:
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

@@ -727,7 +727,7 @@ def rndChar():
         
           
           IO编程文件读写oepn(&#39;/x.txt&#39;,&#39;r&#39;,encoding=&#39;gbk&#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件
-with open(&apos;x.txt
+    with open(&#39;x.
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1550,5 +1550,26 @@ with open(&apos;x.txt
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

@@ -374,9 +374,9 @@
       
         <h1 id="踩坑区"><a href="#踩坑区" class="headerlink" title="踩坑区"></a>踩坑区</h1><p>mysql root密码忘记解决办法：<br>管理员模式：<br><code>net stop mysql</code><br>cmd窗口执行:<code>mysqld --skip-grant-tables</code>(跳过安全检查)<br>新打开第二个cmd窗口root连接mysql：<code>mysql -u root</code><br>切换数据库： <code>use mysql;</code><br>设置新密码：    </p>
 <pre><code>update mysql.user
-set authentication_string=password(&apos;wjx666&apos;)    
-  where user=&apos;root&apos; and Host =
-&apos;localhost&apos;;
+set authentication_string=password(&#39;wjx666&#39;)    
+  where user=&#39;root&#39; and Host =
+&#39;localhost&#39;;
 flush privileges;(刷新权限)
 quit;(退出登陆)
 </code></pre><p>重新登陆：<br><code>mysql -u root -p</code></p>
@@ -938,5 +938,26 @@ quit;(退出登陆)
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

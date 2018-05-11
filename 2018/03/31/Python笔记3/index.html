@@ -405,13 +405,13 @@ body data
 <pre><code>from wsgiref.simple_server import make_server
 from ja import application
 
-httpd=make_server(&apos;&apos;,8000,application)
-print(&apos;Serving HTTP on port 8000&apos;)
+httpd=make_server(&#39;&#39;,8000,application)
+print(&#39;Serving HTTP on port 8000&#39;)
 httpd.serve_forever()    
 </code></pre><p>浏览器</p>
 <pre><code>def application(environ, start_response):
-    start_response(&apos;200 OK&apos;, [(&apos;Content-Type&apos;, &apos;text/html&apos;)])
-    return [b&apos;&lt;h1&gt;Hello, web!&lt;/h1&gt;&apos;]
+    start_response(&#39;200 OK&#39;, [(&#39;Content-Type&#39;, &#39;text/html&#39;)])
+    return [b&#39;&lt;h1&gt;Hello, web!&lt;/h1&gt;&#39;]
 </code></pre><p>environ:HTTP请求信息的dict对象<br>start_response:发送HTTP响应函数</p>
 <p><strong>Web应用本质：</strong></p>
 <p><strong>1浏览器发送一个HTTP请求；</strong></p>
@@ -434,19 +434,19 @@ from flask import request
 
 app = Flask(__name__)
 
-@app.route(&apos;/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])
+@app.route(&#39;/&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])
 def home():
      pass
 
-@app.route(&apos;/signin&apos;, methods=[&apos;GET&apos;])
+@app.route(&#39;/signin&#39;, methods=[&#39;GET&#39;])
 def signin_form():
      pass
 
-@app.route(&apos;/signin&apos;, methods=[&apos;POST&apos;])
+@app.route(&#39;/signin&#39;, methods=[&#39;POST&#39;])
 def signin():
     pass
 
-if __name__ == &apos;__main__&apos;:
+if __name__ == &#39;__main__&#39;:
     app.run()
 </code></pre><p>app.py 处理三个请求<br>GET /：首页，返回Home；   </p>
 <p>GET /signin：登录页，显示登录表单；  </p>
@@ -456,18 +456,18 @@ if __name__ == &apos;__main__&apos;:
 <pre><code>from flask import Flask, request, render_template
 app = Flask(__name__)
 
-@app.route(&apos;/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])
+@app.route(&#39;/&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])
 def home():
-return render_template(&apos;home.html&apos;)
+return render_template(&#39;home.html&#39;)
 
-@app.route(&apos;/signin&apos;, methods=[&apos;GET&apos;])
+@app.route(&#39;/signin&#39;, methods=[&#39;GET&#39;])
 def signin_form()：
-    return render_template(&apos;form.html&apos;)
+    return render_template(&#39;form.html&#39;)
 
-@app.route(&apos;/signin&apos;, methods=[&apos;POST&apos;])
+@app.route(&#39;/signin&#39;, methods=[&#39;POST&#39;])
 def signin():
     pass
-if __name__ == &apos;__main__&apos;:
+if __name__ == &#39;__main__&#39;:
     app.run()
 </code></pre><p>home.html</p>
 <pre><code>&lt;html&gt;
@@ -490,9 +490,9 @@ import asyncio
 
 @asyncio.coroutine
 def hello():
-    print(&apos;Hello world! (%s)&apos; % threading.currentThread())
+    print(&#39;Hello world! (%s)&#39; % threading.currentThread())
     yield from asyncio.sleep(1)
-    print(&apos;Hello again! (%s)&apos; % threading.currentThread())
+    print(&#39;Hello again! (%s)&#39; % threading.currentThread())
 
 loop = asyncio.get_event_loop()
 tasks = [hello(), hello()]
@@ -513,19 +513,19 @@ from aiohttp import web
 
 async def index(request):
     await asyncio.sleep(0.5)
-    return web.Response(body=b&apos;&lt;h1&gt;Index&lt;/h1&gt;&apos;)
+    return web.Response(body=b&#39;&lt;h1&gt;Index&lt;/h1&gt;&#39;)
 
 async def hello(request):
     await asyncio.sleep(0.5)
-    text = &apos;&lt;h1&gt;hello, %s!&lt;/h1&gt;&apos; % request.match_info[&apos;name&apos;]
-    return web.Response(body=text.encode(&apos;utf-8&apos;))
+    text = &#39;&lt;h1&gt;hello, %s!&lt;/h1&gt;&#39; % request.match_info[&#39;name&#39;]
+    return web.Response(body=text.encode(&#39;utf-8&#39;))
 
 async def init(loop):
     app = web.Application(loop=loop)
-    app.router.add_route(&apos;GET&apos;, &apos;/&apos;, index)
-    app.router.add_route(&apos;GET&apos;, &apos;/hello/{name}&apos;, hello)
-    srv = await loop.create_server(app.make_handler(), &apos;127.0.0.1&apos;, 8000) #创建TCP服务
-    print(&apos;Server started at http://127.0.0.1:8000...&apos;)
+    app.router.add_route(&#39;GET&#39;, &#39;/&#39;, index)
+    app.router.add_route(&#39;GET&#39;, &#39;/hello/{name}&#39;, hello)
+    srv = await loop.create_server(app.make_handler(), &#39;127.0.0.1&#39;, 8000) #创建TCP服务
+    print(&#39;Server started at http://127.0.0.1:8000...&#39;)
     return srv
 
 loop = asyncio.get_event_loop()
@@ -540,14 +540,14 @@ from datetime import datetime
 from aiohttp import web
 
 def index(request):
-return web.Response(body=&apos;&lt;h1&gt;Awesome&lt;/h1&gt;&apos;,  headers={&apos;content-type&apos;:&apos;text/html&apos;})
+return web.Response(body=&#39;&lt;h1&gt;Awesome&lt;/h1&gt;&#39;,  headers={&#39;content-type&#39;:&#39;text/html&#39;})
 
 @asyncio.coroutine
 def init(loop):
     app = web.Application(loop=loop)
-       app.router.add_route(&apos;GET&apos;, &apos;/&apos;, index)
-    srv = yield from loop.create_server(app.make_handler(), &apos;127.0.0.1&apos;, 9000)
-    logging.info(&apos;server started at http://127.0.0.1:9000...&apos;)
+       app.router.add_route(&#39;GET&#39;, &#39;/&#39;, index)
+    srv = yield from loop.create_server(app.make_handler(), &#39;127.0.0.1&#39;, 9000)
+    logging.info(&#39;server started at http://127.0.0.1:9000...&#39;)
         return srv
 
 loop = asyncio.get_event_loop()
@@ -1111,5 +1111,26 @@ loop.run_forever()
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.write())">
+<meta name="description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件     with open(&amp;#39;x.txt&amp;#39;,&amp;#39;w&amp;#39;) as f:     print(f.write())">
 <meta name="keywords" content="Fighting">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记1">
 <meta property="og:url" content="http://yoursite.com/2018/03/20/Python笔记1/index.html">
 <meta property="og:site_name" content="王嘉熙的博客">
-<meta property="og:description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.write())">
+<meta property="og:description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件     with open(&amp;#39;x.txt&amp;#39;,&amp;#39;w&amp;#39;) as f:     print(f.write())">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-11T09:11:41.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记1">
-<meta name="twitter:description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件 with open(&amp;apos;x.txt&amp;apos;,&amp;apos;w&amp;apos;) as f: print(f.write())">
+<meta name="twitter:description" content="IO编程文件读写oepn(&amp;#39;/x.txt&amp;#39;,&amp;#39;r&amp;#39;,encoding=&amp;#39;gbk&amp;#39;)读非UTF-8文件‘r’换成’w’写文件’wb’写二进制文件write()写文件 read()读取文件 close()关闭文件     with open(&amp;#39;x.txt&amp;#39;,&amp;#39;w&amp;#39;) as f:     print(f.write())">
 
 
 
@@ -373,23 +373,23 @@
 
       
         <h1 id="IO编程"><a href="#IO编程" class="headerlink" title="IO编程"></a>IO编程</h1><h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p><code>oepn(&#39;/x.txt&#39;,&#39;r&#39;,encoding=&#39;gbk&#39;)</code>读非UTF-8文件<br>‘r’换成’w’写文件’wb’写二进制文件<br><code>write()</code>写文件 <code>read()</code>读取文件 <code>close()</code>关闭文件</p>
-<pre><code>with open(&apos;x.txt&apos;,&apos;w&apos;) as f:
-print(f.write())        
-</code></pre><h2 id="StringIO和BytesIO"><a href="#StringIO和BytesIO" class="headerlink" title="StringIO和BytesIO"></a>StringIO和BytesIO</h2><pre><code>from io import StringIO/BytesIO    
-f=StringIO/BytesIO()     
-f.write(&apos;&apos;)           写入内存/写入二进制数据     
-print(f.getvalue())         
+<pre><code>    with open(&#39;x.txt&#39;,&#39;w&#39;) as f:
+    print(f.write())        
+</code></pre><h2 id="StringIO和BytesIO"><a href="#StringIO和BytesIO" class="headerlink" title="StringIO和BytesIO"></a>StringIO和BytesIO</h2><pre><code>    from io import StringIO/BytesIO    
+    f=StringIO/BytesIO()     
+    f.write(&#39;&#39;)           写入内存/写入二进制数据     
+    print(f.getvalue())         
 </code></pre><p><code>seek()</code> :移动文件读写指针到指定位置 （offest:需要向前或向后的字节数，正为向后，负为向前；  whence）:选值，默认为0，表示文件开头，1表示相对于当前的位置，2表示文件末尾)      </p>
 <p>tell() :获取当前文件读取指针的位置     </p>
 <h2 id="操作文件和目录"><a href="#操作文件和目录" class="headerlink" title="操作文件和目录"></a>操作文件和目录</h2><pre><code>import os     
-os.path.abspath(&apos;.&apos;) 查看目录绝对路径     
-os.path.join(&apos;&apos;,&apos;&apos;)合并路径     
-os.mkdir(&apos;&apos;)创建目录     
-os.rmdir(&apos;&apos;)删除目录     
-os.path.split(&apos;&apos;)拆分路径    
-os.path.splitext(&apos;&apos;)得到文件扩展名      
-os.rename(&apos;&apos;,&apos;&apos;)文件重命名    
-os.remove(&apos;&apos;)删掉文件     
+os.path.abspath(&#39;.&#39;) 查看目录绝对路径     
+os.path.join(&#39;&#39;,&#39;&#39;)合并路径     
+os.mkdir(&#39;&#39;)创建目录     
+os.rmdir(&#39;&#39;)删除目录     
+os.path.split(&#39;&#39;)拆分路径    
+os.path.splitext(&#39;&#39;)得到文件扩展名      
+os.rename(&#39;&#39;,&#39;&#39;)文件重命名    
+os.remove(&#39;&#39;)删掉文件     
 </code></pre><hr>
 <h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p><strong>import pickle</strong>      </p>
 <pre><code>pickle.dumps(d)   把对象序列化一个bytes写入文件    
@@ -403,7 +403,7 @@ d=dict(.....)
 json.dumps(d,default=x)   
 Python对象转换到JSON格式    
 </code></pre><p><strong><em>反序列化</em></strong></p>
-<pre><code>json_str = &apos;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&apos;        
+<pre><code>json_str = &#39;{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}&#39;        
 print(json.loads(json_str,object_hook=dict2student))
 </code></pre><hr>
 <h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p><strong>多进程</strong><br>Windows创建子进程       </p>
@@ -412,19 +412,19 @@ print(json.loads(json_str,object_hook=dict2student))
 <pre><code>from multiprocessing import Process,Queue
     import os, time, random
 def write(q):
-    print(&apos;Process to write :%s&apos; % os.getpid())
-    for value in [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]:
-    print(&apos;Put %s to queue...&apos; %value)
+    print(&#39;Process to write :%s&#39; % os.getpid())
+    for value in [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]:
+    print(&#39;Put %s to queue...&#39; %value)
     q.put(value)
     time.sleep(random.random())
 
 def read(q):
-    print(&apos;Process to read: %s&apos; % os.getpid())
+    print(&#39;Process to read: %s&#39; % os.getpid())
     while True:
         value = q.get(True)
-        print(&apos;Get %s from queue.&apos; % value)
+        print(&#39;Get %s from queue.&#39; % value)
 
-if __name__== &apos;__main__&apos;:
+if __name__== &#39;__main__&#39;:
     q = Queue()
     pw = Process(target=write, args=(q,))
     pr = Process(target=read, args=(q,))
@@ -435,18 +435,18 @@ if __name__== &apos;__main__&apos;:
 </code></pre><p>执行完毕,结束跳转执行下一个线程join函数，也可加入一个参数设置超时      </p>
 <p>—threading低级模块 threading高级模块</p>
 <p>启动线程 传入函数创捷Thread实例，调用start()执行</p>
-<pre><code>t2 = threading.Thread(target=run_thread, args=(x,))
-t2.start()
-t2.join()
+<pre><code>    t2 = threading.Thread(target=run_thread, args=(x,))
+    t2.start()
+    t2.join()
 </code></pre><p>多线程共享数据时加锁      </p>
-<pre><code>lock=threading.lock()
-lock.acquire获得请求
-try:
-    change()
-finally:
-    lock.release()
+<pre><code>    lock=threading.lock()
+    lock.acquire获得请求
+    try:
+        change()
+    finally:
+        lock.release()
 </code></pre><p>ThreadLocal线程只能读取自己的独立副本，可解决参数在一个线程各个函数传递<br>创建ThreadLoal对象</p>
-<pre><code>local_school = threading.local()
+<pre><code>    local_school = threading.local()
 </code></pre><p>全局变量local_school可看作ThreadLocal对象 而local_shool.student为线程局部变量</p>
 <p>  group: 线程组，目前还没有实现，库引用中提示必须是None；<br>　　target: 要执行的方法；<br>　　name: 线程名；<br>　　args/kwargs: 要传入方法的参数。   </p>
 <h2 id="分布式进程"><a href="#分布式进程" class="headerlink" title="分布式进程"></a>分布式进程</h2><p><strong>6</strong>正则表达式<br><strong>\s</strong> 匹配一个空格   + 至少一个字符 ? 0或1个字符<br>\d 匹配数字 \w 匹配字母或数字  {m,n}数字范围<br>.匹配任意字符</p>
@@ -459,14 +459,14 @@ dt.timestamp()
 <h2 id="collections"><a href="#collections" class="headerlink" title="collections"></a>collections</h2><p><code>popitem()</code>随机返回并删除字典中一对键和值<br><code>Counter()</code>函数可做简单计数器<br><code>OrderedDict</code>可保持字典顺序<br><code>defaultdict（lambda:xx）</code> 对于dict可返回一默认值<br><code>deque()</code>可实现高效操作的双向链表(<code>append(),pop     (),appendleft(),popleft()</code>)<br><code>namedtuple(&#39;&#39;,[])</code>定义一种数据类型，用属性引用tuple某个元素</p>
 <h2 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h2><p><code>base64.b64encode(b&#39;&#39;)</code><br><code>base64.b64decode(b&#39;&#39;)</code><br><code>base64.urlsafe_b64endode</code>   +/ —&gt; –__<br>b’=’在url,cookie会产生歧义，故把’=’去掉<br>解码需加上’=’将Base64字符串的长度变为4的倍数<br><code>b&#39;str&#39;</code>表示字节</p>
 <h2 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h2><pre><code>import struct
-struct.pack(&apos;&gt;I&apos;, 10240099)
+struct.pack(&#39;&gt;I&#39;, 10240099)
 </code></pre><blockquote>
 <p>表示大端法，I表示4字节无符号整数，H表示2字节无符号整数   参数个数要和处理指令一致<br><code>pack()</code> 数据类型-bytes  <code>unpack()</code>bytes-数据类型</p>
 </blockquote>
 <h2 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h2><p>哈希算法</p>
 <pre><code>import hashlib
 md5=hashlib.md5()
-md2.update(&apos;&apos;.encode(&apos;utf-8&apos;))
+md2.update(&#39;&#39;.encode(&#39;utf-8&#39;))
 print(md5.hexdigest())
 </code></pre><p>MD5算法  类似SHA1算法</p>
 <p><code>numpy.random.randint(low,high=None,size=None.dtype)</code><br>生成在[low,high)离散均匀分布的整数值，若high=None，则取值区间变为[0,low)</p>
@@ -475,8 +475,8 @@ a=np.randow.randint(5,size(2,3))
 a
 </code></pre><p><code>numpy.random.seed()</code> <code>numpy.random.RandomState()</code><br>随机生成数一样<br><code>numpy.random.rand(m,n)</code> 创建数组分配随机样本</p>
 <h2 id="hmac"><a href="#hmac" class="headerlink" title="hmac"></a>hmac</h2><p>hmac算法<br>    import hmac, random</p>
-<pre><code>def hmac_md5(key, s):
-    return hmac.new(key.encode(&apos;utf-8&apos;), s.encode(&apos;utf-8&apos;), &apos;MD5&apos;).hexdigest()
+<pre><code>    def hmac_md5(key, s):
+        return hmac.new(key.encode(&#39;utf-8&#39;), s.encode(&#39;utf-8&#39;), &#39;MD5&#39;).hexdigest()
 </code></pre><p><strong>itertools</strong><br>无限迭代器</p>
 <pre><code>import itertools
 natuals=itertools.count(1)
@@ -490,22 +490,22 @@ def __init__(self, name):
     self.name = name
 
 def query(self):
-    print(&apos;Query info about %s...&apos; % self.name)
+    print(&#39;Query info about %s...&#39; % self.name)
 
 @contextmanager
 def create_query(name):
-    print(&apos;Begin&apos;)
+    print(&#39;Begin&#39;)
     q = Query(name)
        yield q
-        print(&apos;End&apos;)
-with create_query(&apos;Bob&apos;) as q:
+        print(&#39;End&#39;)
+with create_query(&#39;Bob&#39;) as q:
     q.query()
 </code></pre><p><code>contextlib</code>模块含有<code>contextmanager</code>对象实现上下文管理<br><code>@contextmanager</code>装饰器decorator可接受生成器generator</p>
 <p><code>@closing</code>对象也可实现上下文管理 经过<code>@contextmanager</code>装饰的generator</p>
 <pre><code>from contextlib import closing
 from urllib.request import urlopen
 
-with closing(urlopen(&apos;https://www.python.org&apos;)) as page:
+with closing(urlopen(&#39;https://www.python.org&#39;)) as page:
     for line in page:
         print(line)
 @contextmanager
@@ -516,15 +516,15 @@ def closing(thing):
         thing.close()
 </code></pre><h2 id="urllib"><a href="#urllib" class="headerlink" title="urllib"></a>urllib</h2><pre><code>from urllib import request
 
-with request.urlopen(&apos;https://api.douban.com/v2/book/2129650&apos;) as f:
+with request.urlopen(&#39;https://api.douban.com/v2/book/2129650&#39;) as f:
     data = f.read()
-    print(&apos;Status:&apos;, f.status, f.reason)
+    print(&#39;Status:&#39;, f.status, f.reason)
     for k, v in f.getheaders():
-        print(&apos;%s: %s&apos; % (k, v))
-    print(&apos;Data:&apos;, data.decode(&apos;utf-8&apos;))
+        print(&#39;%s: %s&#39; % (k, v))
+    print(&#39;Data:&#39;, data.decode(&#39;utf-8&#39;))
 </code></pre><p>对豆瓣的一个url进行抓取</p>
 <p>Post发送请求，把参数data以bytes形式传入</p>
-<pre><code>with request.urlopen(req, data=login_data.encode(&apos;utf-8&apos;)) as f:
+<pre><code>with request.urlopen(req, data=login_data.encode(&#39;utf-8&#39;)) as f:
 </code></pre><h2 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h2><p><code>from xml.parsers.expat import ParserCreate</code><br><code>&lt;a href=&quot;/&quot;&gt;python&lt;/a&gt;</code></p>
 <p>start_element事件，在读取<code>&lt;a href=&quot;/&quot;&gt;</code>时；</p>
 <p>char_data事件，在读取<code>python</code>时；</p>
@@ -532,13 +532,13 @@ with request.urlopen(&apos;https://api.douban.com/v2/book/2129650&apos;) as f:
 <pre><code>from xml.parsers.expat import ParserCreate
 class DefaultSaxHandler(object):
 def start_element(self, name, attrs):
-    print(&apos;sax:start_element: %s, attrs: %s&apos; % (name, str(attrs)))
+    print(&#39;sax:start_element: %s, attrs: %s&#39; % (name, str(attrs)))
 
 def end_element(self, name):
-    print(&apos;sax:end_element: %s&apos; % name)
+    print(&#39;sax:end_element: %s&#39; % name)
 
 def char_data(self, text):
-    print(&apos;sax:char_data: %s&apos; % text)
+    print(&#39;sax:char_data: %s&#39; % text)
 
 handler = DefaultSaxHandler()
 parser = ParserCreate()
@@ -1107,5 +1107,26 @@ from html.entities import name2codepoint
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>

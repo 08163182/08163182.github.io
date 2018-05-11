@@ -428,16 +428,16 @@ arsort()值降序 ksort()键降序
 $con= mysql_connect(&quot;localhost&quot;,&quot;wjx&quot;,&quot;abc111&quot;);
 if (!$con)
 {
-die(&apos;Could not connect:&apos;.mysql_error());
+die(&#39;Could not connect:&#39;.mysql_error());
 }
 mysql_select_db(&quot;my_db&quot;,$con);
 
 $result = mysql_query(&quot;SELECT * FROM Persons
-WHERE FirstName=&apos;Peter&apos;&quot;);
+WHERE FirstName=&#39;Peter&#39;&quot;);
 
 while($row= mysql_fetch_array($result))
 {
-echo $row[&apos;FirstName&apos;. &quot; &quot;. $row[&apos;LastName&apos;];
+echo $row[&#39;FirstName&#39;. &quot; &quot;. $row[&#39;LastName&#39;];
 echo &quot;&lt;br /&gt;&quot;;    
 }    
 mysql_close($con);
@@ -1027,5 +1027,26 @@ echo(&quot;变量值在合法范围内&quot;)
 
 <!-- 页面点击小心心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
 
 </html>
