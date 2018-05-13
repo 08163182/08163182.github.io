@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/2viix2P.jpg">
 <meta property="og:image" content="https://i.imgur.com/Lpwfp9Y.jpg">
-<meta property="og:updated_time" content="2018-05-13T01:11:11.002Z">
+<meta property="og:updated_time" content="2018-05-13T03:28:24.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统知识点">
 <meta name="twitter:description" content="操作系统概论进程管理：进程如何使用CPU存储管理：管理内存资源设备管理：管理输入输出设备文件管理：对文件进行组织、管理，向用户提供方便的存取访问和可靠共享    操作系统接口分为程序接口和操作接口程序接口包括系统调用和API操作接口包括命令界面、图形界面、作业控制命令 应用程序获得系统服务，就必须利用系统调用：用户进程-&amp;gt;系统调用-&amp;gt;内核；系统调用由中断驱动，机制为“陷阱或异常处理机制">
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,609
+                  1,684
                 </span>
               
 
@@ -439,8 +439,9 @@
 <p>地址转换：<br><strong>页号*页表项长度+页表起始地址=页表项在页表所在位置</strong>      </p>
 <p>物理地址：<br><strong>物理块号*块长+块内偏移</strong></p>
 <h2 id="段式存储管理"><a href="#段式存储管理" class="headerlink" title="段式存储管理"></a>段式存储管理</h2><p>物理地址:<br><strong>内存的起始地址+段内地址（段内偏移）</strong></p>
-<p>分段式存储管理不会产生内部碎片；      </p>
-<p>分段和分页的区别：<br>段是信息的逻辑单位； 页是信息的物理单位；<br>段式存储基于应用程序的结构；页式存储基于存储器的物理结构；<br>段页式存储管理是在段式存储管理的基础上实现分页存储管理；        </p>
+<p>分页式是系统对内存的分割，那么分段式就是用户对程序数据的分割。<br>分页式不会产生外部碎片；分段式存储管理不会产生内部碎片；<br>页式、段式两次访问内存，段页式三次访问内存；      </p>
+<p>分段和分页的区别：<br>段是信息的逻辑单位； 页是信息的物理单位；<br>段式存储基于应用程序的结构；页式存储基于存储器的物理结构；<br>段式地址空间二维；页式地址空间一维；</p>
+<p>段页式存储管理是在段式存储管理的基础上实现分页存储管理；        </p>
 <p>缺页中断率: vt=(1-p)<em>ma+p</em>st(ma:对内存一个页面访问时间；st:缺页处理时间)；    </p>
 <p>页面置换算法:</p>
 <ul>
