@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/2viix2P.jpg">
 <meta property="og:image" content="https://i.imgur.com/Lpwfp9Y.jpg">
-<meta property="og:updated_time" content="2018-05-11T02:58:39.261Z">
+<meta property="og:updated_time" content="2018-05-13T01:11:11.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统知识点">
 <meta name="twitter:description" content="操作系统概论进程管理：进程如何使用CPU存储管理：管理内存资源设备管理：管理输入输出设备文件管理：对文件进行组织、管理，向用户提供方便的存取访问和可靠共享    操作系统接口分为程序接口和操作接口程序接口包括系统调用和API操作接口包括命令界面、图形界面、作业控制命令 应用程序获得系统服务，就必须利用系统调用：用户进程-&amp;gt;系统调用-&amp;gt;内核；系统调用由中断驱动，机制为“陷阱或异常处理机制">
@@ -427,7 +427,7 @@
 <li>FCFS先来先服务（到达越早越先执行）</li>
 <li>SJF短作业优先（CPU时间最短-非抢占式）</li>
 <li>SRTF最短剩余时间优先（CPU时间最短-抢占式）</li>
-<li>FCFS高响应比优先（响应比=1+（已等待时间/估计运行时间））</li>
+<li>HRRF高响应比优先（响应比=1+（已等待时间/估计运行时间））</li>
 <li>HPF优先权（优先权高-抢占式）</li>
 </ul>
 <h2 id="PV操作："><a href="#PV操作：" class="headerlink" title="PV操作："></a>PV操作：</h2><p>P(S) S=S-1;<br>S&gt;=0;程序继续执行<br>S&lt;0,程序进程被阻塞，放入信号量等待队列；    </p>
