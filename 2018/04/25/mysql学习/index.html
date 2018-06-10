@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：     update mysql.user set authentication_string=password">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T02:14:02.145Z">
+<meta property="og:updated_time" content="2018-05-23T15:19:07.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql踩过的坑">
 <meta name="twitter:description" content="踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：     update mysql.user set authentication_string=password">
@@ -335,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  94
+                  374
                 </span>
               
 
@@ -380,6 +380,14 @@ set authentication_string=password(&#39;wjx666&#39;)
 flush privileges;(刷新权限)
 quit;(退出登陆)
 </code></pre><p>重新登陆：<br><code>mysql -u root -p</code></p>
+<hr>
+<h1 id="Windows下mysql命令"><a href="#Windows下mysql命令" class="headerlink" title="Windows下mysql命令"></a>Windows下mysql命令</h1><p>执行<code>mysql -u root -p</code>(第一次为空)<br><code>mysqladmin -u root -p password</code>设置密码<br>修改root密码<code>set password for root@localhost = password(&#39;1234&#39;);</code>     </p>
+<p>启动:<code>net start MySQL</code></p>
+<p>停止:<code>net stop MySQL</code></p>
+<p>卸载: <code>sc delete MySQL</code></p>
+<p><code>mysql -h 主机名 -u 用户名 -p</code></p>
+<p>创建数据库<code>CREATE DATABASE menagerie DEFAULT CHARSET utf8</code></p>
+<p>事物的4个属性:<br>原子性：事务是一个不可分割的工作单位，事务中包括的诸操作要么都做，要么都不做<br>一致性：事务必须使数据库从一个一致性状态变到另一个一致性状态。一致性与原子性是密切相关的<br>隔离性:一个事务的执行不能被其他事务干扰，即一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰<br>持久性:持续性也称永久性（permanence），指一个事务一旦提交，它对数据库中数据的改变就应该是永久性的。接下来的其他操作或故障不应该对其有任何影响    </p>
 
       
     </div>
@@ -532,7 +540,7 @@ quit;(退出登陆)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -606,7 +614,7 @@ quit;(退出登陆)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑区"><span class="nav-number">1.</span> <span class="nav-text">踩坑区</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑区"><span class="nav-number">1.</span> <span class="nav-text">踩坑区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows下mysql命令"><span class="nav-number">2.</span> <span class="nav-text">Windows下mysql命令</span></a></li></ol></div>
             
 
           </div>

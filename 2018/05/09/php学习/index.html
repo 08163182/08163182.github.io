@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="语法&amp;lt;?php echo &amp;quot;Hello World!&amp;quot;; ?&amp;gt; echo输出文本;变量对大小写敏感;global声明全局变量；static声明静态变量函数执行完不会被删除；echo可输出多个字符串，print只能输出一个字符串，返回值为1； php=&amp;gt;类似指针，通常用于数组操作，array(key=&amp;gt;value)；-&amp;gt;用于类、对象操作，调用类方法；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T02:13:00.339Z">
+<meta property="og:updated_time" content="2018-05-29T15:01:10.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php基础语法">
 <meta name="twitter:description" content="语法&amp;lt;?php echo &amp;quot;Hello World!&amp;quot;; ?&amp;gt; echo输出文本;变量对大小写敏感;global声明全局变量；static声明静态变量函数执行完不会被删除；echo可输出多个字符串，print只能输出一个字符串，返回值为1； php=&amp;gt;类似指针，通常用于数组操作，array(key=&amp;gt;value)；-&amp;gt;用于类、对象操作，调用类方法；">
@@ -335,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,203
+                  1,271
                 </span>
               
 
@@ -468,8 +468,21 @@ else
 echo(&quot;变量值在合法范围内&quot;)
 }
 &gt;?
-</code></pre><h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p><code>json_encode</code>编码<br><code>json_decode</code>解码<br><code>json_last_error</code>返回最后发生错误<br><code>string json_encode($value[,$options =0])</code><br><code>mixed json_decode($json[,$assoc=false[,$depth=512[,$options=0]]])</code><br>accoc为true返回数组,false返回对象      </p>
+</code></pre><h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p><code>json_encode</code>编码<br><code>json_decode</code>解码<br><code>json_last_error</code>返回最后发生错误<br><code>string json_encode($value[,$options =0])</code><br><code>mixed json_decode($json[,$assoc=false[,$depth=512[,$options=0]]])</code><br>accoc为true返回数组,false返回对象     </p>
+<p><code>- &gt;</code>符号是“插入式解引用操作符” ,调用由引用传递参数的子程序的方法.<br><code>=&gt;</code>操作符通常用于数组操作中 key =&gt; value<br><code>-&gt;</code>操作符通常用于数组操作中x`</p>
+<pre><code>&lt;?php
+class foo
+{
+function do_foo()
+{
+echo &quot;Doing foo.&quot;;
+}
+}
 
+$bar = new foo;
+$bar-&gt;do_foo();
+?&gt; 
+</code></pre>
       
     </div>
     
@@ -621,7 +634,7 @@ echo(&quot;变量值在合法范围内&quot;)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

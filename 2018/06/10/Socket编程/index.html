@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="Nothing is impossible">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jason&#39;s sky">
-<meta property="og:url" content="http://yoursite.com/archives/2018/03/index.html">
+<meta name="description" content="Python 提供了两个基本的 socket 模块：             Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                    Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Socket 编程详细介绍">
+<meta property="og:url" content="http://yoursite.com/2018/06/10/Socket编程/index.html">
 <meta property="og:site_name" content="Jason&#39;s sky">
-<meta property="og:description" content="Nothing is impossible">
+<meta property="og:description" content="Python 提供了两个基本的 socket 模块：             Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                    Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-10T08:23:44.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jason&#39;s sky">
-<meta name="twitter:description" content="Nothing is impossible">
+<meta name="twitter:title" content="Python Socket 编程详细介绍">
+<meta name="twitter:description" content="Python 提供了两个基本的 socket 模块：             Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                    Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/03/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/10/Socket编程/"/>
 
 
 
 
 
-  <title>归档 | Jason's sky</title>
+  <title>Python Socket 编程详细介绍 | Jason's sky</title>
   
 
 
@@ -143,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,222 +248,297 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/Socket编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王嘉熙">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's sky">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Python Socket 编程详细介绍</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T14:38:53+08:00">
+                2018-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 18 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
+             <span id="/2018/06/10/Socket编程/" class="leancloud_visitors" data-flag-title="Python Socket 编程详细介绍">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/31/Python笔记3/" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">Python笔记3</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,433
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-31T11:35:29+08:00"
-              content="2018-03-31" >
-          03-31
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/29/Web安全入门/" itemprop="url">
-              
-                <span itemprop="name">Web安全入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-29T21:33:59+08:00"
-              content="2018-03-29" >
-          03-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <p>Python 提供了两个基本的 socket 模块：            </p>
+<p>Socket 它提供了标准的BSD Socket API。<br>SocketServer 它提供了服务器重心，可以简化网络服务器的开发。<br>下面讲解下 Socket模块功能。                   </p>
+<h1 id="Socket-类型"><a href="#Socket-类型" class="headerlink" title="Socket 类型"></a>Socket 类型</h1><p>套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为0）来创建套接字                  </p>
+<p>socket 类型    描述<br>socket.AF_UNIX    用于同一台机器上的进程通信（既本机通信）<br>socket.AF_INET    用于服务器与服务器之间的网络通信<br>socket.AF_INET6    基于IPV6方式的服务器与服务器之间的网络通信<br>socket.SOCK_STREAM    基于TCP的流式socket通信<br>socket.SOCK_DGRAM    基于UDP的数据报式socket通信<br>socket.SOCK_RAW    原始套接字，普通的套接字无法处理ICMP、IGMP等网络报文，而SOCK_RAW可以；其次SOCK_RAW也可以处理特殊的IPV4报文；此外，利用原始套接字，可以通过IP_HDRINCL套接字选项由用户构造IP头<br>socket.SOCK_SEQPACKET    可靠的连续数据包服务<br>创建TCP Socket：    </p>
+<p>sock = socket.socket(socket.AF_INET,     socket.SOCK_STREAM)<br>创建UDP Socket：       </p>
+<p>sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</p>
+<h1 id="Socket-函数"><a href="#Socket-函数" class="headerlink" title="Socket 函数"></a>Socket 函数</h1><p>TCP发送数据时，已建立好TCP链接，所以不需要指定地址，而UDP是面向无连接的，每次发送都需要指定发送给谁。<br>服务器与客户端不能直接发送列表，元素，字典等带有数据类型的格式，发送的内容必须是字符串数据。    </p>
+<h2 id="服务器端-Socket-函数"><a href="#服务器端-Socket-函数" class="headerlink" title="服务器端 Socket 函数"></a>服务器端 Socket 函数</h2><ul>
+<li>Socket 函数    描述    </li>
+<li>s.bind(address)    将套接字绑定到地址，在AF_INET下，以tuple(host, port)的方式传入，如s.bind((host, port))     </li>
+<li>s.listen(backlog)    开始监听TCP传入连接，backlog指定在拒绝链接前，操作系统可以挂起的最大连接数，该值最少为1，大部分应用程序设为5就够用了     </li>
+<li>s.accept()    接受TCP链接并返回（conn, address），其中conn是新的套接字对象，可以用来接收和发送数据，address是链接客户端的地址。    <h2 id="客户端-Socket-函数"><a href="#客户端-Socket-函数" class="headerlink" title="客户端 Socket 函数"></a>客户端 Socket 函数</h2></li>
+</ul>
+<p>Socket 函数    描述<br>s.connect(address)    链接到address处的套接字，一般address的格式为tuple(host, port)，如果链接出错，则返回socket.error错误<br>s.connect_ex(address)    功能与s.connect(address)相同，但成功返回0，失败返回errno的值<br>公共 Socket 函数      </p>
+<ul>
+<li>Socket 函数    描述       </li>
+<li>s.recv(bufsize[, flag])    接受TCP套接字的数据，数据以字符串形式返回，buffsize指定要接受的最大数据量，flag提供有关消息的其他信息，通常可以忽略  </li>
+<li>s.send(string[, flag])    发送TCP数据，将字符串中的数据发送到链接的套接字，返回值是要发送的字节数量，该数量可能小于string的字节大小     </li>
+<li>s.sendall(string[, flag])    完整发送TCP数据，将字符串中的数据发送到链接的套接字，但在返回之前尝试发送所有数据。成功返回None，失败则抛出异常     </li>
+<li>s.recvfrom(bufsize[, flag])    接受UDP套接字的数据u，与recv()类似，但返回值是tuple(data, address)。其中data是包含接受数据的字符串，address是发送数据的套接字地址          </li>
+<li>s.sendto(string[, flag], address)    发送UDP数据，将数据发送到套接字，address形式为tuple(ipaddr, port)，指定远程地址发送，返回值是发送的字节数</li>
+<li>s.close()    关闭套接字</li>
+<li>s.getpeername()    返回套接字的远程地址，返回值通常是一个tuple(ipaddr, port)</li>
+<li>s.getsockname()    返回套接字自己的地址，返回值通常是一个tuple(ipaddr, port)</li>
+<li>s.setsockopt(level, optname, value)    设置给定套接字选项的值</li>
+<li>s.getsockopt(level, optname[, buflen])    返回套接字选项的值</li>
+<li>s.settimeout(timeout)    设置套接字操作的超时时间，timeout是一个浮点数，单位是秒，值为None则表示永远不会超时。一般超时期应在刚创建套接字时设置，因为他们可能用于连接的操作，如- - - - s.connect()       </li>
+<li>s.gettimeout()    返回当前超时值，单位是秒，如果没有设置超时则返回None         </li>
+<li>s.fileno()    返回套接字的文件描述          </li>
+<li>s.setblocking(flag)    如果flag为0，则将套接字设置为非阻塞模式，否则将套接字设置为阻塞模式（默认值）。非阻塞模式下，如果调用recv()没有发现任何数据，或send()调用无法立即发送数据，那么将引起socket.error异常。    </li>
+<li>s.makefile()    创建一个与该套接字相关的文件            <h1 id="Socket-编程思想"><a href="#Socket-编程思想" class="headerlink" title="Socket 编程思想"></a>Socket 编程思想</h1>TCP 服务器 1、创建套接字，绑定套接字到本地IP与端口        </li>
+</ul>
+<p>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>s.bind()<br>2、开始监听链接   </p>
+<p>s.listen()<br>3、进入循环，不断接受客户端的链接请求    </p>
+<p>While True:<br>    s.accept()<br>4、接收客户端传来的数据，并且发送给对方发送数据     </p>
+<p>s.recv()<br>s.sendall()<br>5、传输完毕后，关闭套接字      </p>
+<p>s.close()<br>TCP 客户端 1、创建套接字并链接至远端地址         </p>
+<p>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>s.connect()<br>2、链接后发送数据和接收数据  </p>
+<p>s.sendall()<br>s.recv()<br>3、传输完毕后，关闭套接字   </p>
+<h1 id="Socket-编程实践之服务器端代码"><a href="#Socket-编程实践之服务器端代码" class="headerlink" title="Socket 编程实践之服务器端代码"></a>Socket 编程实践之服务器端代码</h1><pre><code>from socket import *
+from time import ctime
 
-        
-        
+host = &#39;&#39;
+port = 2156
+buff = 1024
+ADDR = (host,port)
 
-        
+tcpSerSock = socket(AF_INET, SOCK_STREAM)
+tcpSerSock.bind(ADDR)
+tcpSerSock.listen(5)
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+while True:
+    print(&#39;Waiting for connection...&#39;)
+    tcpCliSock, addr = tcpSerSock.accept()
+    print(&#39;connect from:&#39;,addr)
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/29/Python笔记2/" itemprop="url">
-              
-                <span itemprop="name">Python笔记2</span>
-              
-            </a>
-        
-      </h2>
+    while True:
+        data=tcpCliSock.recv(buff).decode(&#39;utf-8&#39;)
+        if not data:
+            break
+        data = &#39;[%s] %s&#39; %(ctime(),data)
+        tcpCliSock.send(data.encode(&#39;utf-8&#39;))
+    tcpCliSock.close()
+    tcpSerSock.close()
+</code></pre><h1 id="Socket-编程实践之客户端代码"><a href="#Socket-编程实践之客户端代码" class="headerlink" title="Socket 编程实践之客户端代码"></a>Socket 编程实践之客户端代码</h1><pre><code>from socket import *
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-29T16:30:30+08:00"
-              content="2018-03-29" >
-          03-29
-        </time>
-      </div>
+host =&#39;localhost&#39;
+port = 2156
+buff = 1024
+ADDR = (host,port)
 
-    </header>
-  </article>
+tcpCliSock = socket(AF_INET, SOCK_STREAM)
+tcpCliSock.connect(ADDR)
 
-
+while True:
+    data = input(&#39;&gt;&#39;)
+    if not data:
+        break
+    tcpCliSock.send(data.encode(&#39;utf-8&#39;))
+    data = tcpCliSock.recv(buff)
+    if not data:
+        break
+    print(data.decode(&#39;utf-8&#39;))
+tcpCliSock.close() 
+</code></pre><h1 id="str-to-bytes"><a href="#str-to-bytes" class="headerlink" title="str to bytes"></a>str to bytes</h1><p> str.encode(s)  </p>
+<h1 id="bytes-to-str"><a href="#bytes-to-str" class="headerlink" title="bytes to str"></a>bytes to str</h1><p> bytes.decode(b)  </p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/20/Python笔记1/" itemprop="url">
-              
-                <span itemprop="name">Python学习笔记1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-20T18:25:29+08:00"
-              content="2018-03-20" >
-          03-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/01/读《百年孤独》有感/" itemprop="url">
-              
-                <span itemprop="name">百年孤独有感</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-01T13:10:17+08:00"
-              content="2018-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="王嘉熙 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="王嘉熙 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/20/Wireshark/" rel="next" title="Wireshark使用">
+                <i class="fa fa-chevron-left"></i> Wireshark使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -470,6 +546,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -490,8 +570,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -574,6 +663,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Socket-类型"><span class="nav-number">1.</span> <span class="nav-text">Socket 类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Socket-函数"><span class="nav-number">2.</span> <span class="nav-text">Socket 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端-Socket-函数"><span class="nav-number">2.1.</span> <span class="nav-text">服务器端 Socket 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端-Socket-函数"><span class="nav-number">2.2.</span> <span class="nav-text">客户端 Socket 函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Socket-编程思想"><span class="nav-number">3.</span> <span class="nav-text">Socket 编程思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Socket-编程实践之服务器端代码"><span class="nav-number">4.</span> <span class="nav-text">Socket 编程实践之服务器端代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Socket-编程实践之客户端代码"><span class="nav-number">5.</span> <span class="nav-text">Socket 编程实践之客户端代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#str-to-bytes"><span class="nav-number">6.</span> <span class="nav-text">str to bytes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bytes-to-str"><span class="nav-number">7.</span> <span class="nav-text">bytes to str</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -748,6 +853,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
