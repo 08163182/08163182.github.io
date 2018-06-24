@@ -79,19 +79,17 @@
 
 
 
-<meta name="description" content="Tcp三次握手： 过滤规则1.协议过滤tcp or http2.IP过滤ip.src == 192.168.1.102源地址ip.dst == 192.168.1.102目的地址3.端口过滤tcp.port == 80tcp.srcport == 80,3 http模式过滤http.request.method == “GET”4 逻辑运算符 AND/OR       封包详细信息Frame:">
+<meta name="description" content="WireShark 主要分为这几个界面  Display Filter(显示过滤器)，  用于过滤  Packet List Pane(封包列表)， 显示捕获到的封包， 有源地址和目标地址，端口号。 颜色不同，代表  Packet Details Pane(封包详细信息), 显示封包中的字段  Dissector Pane(16进制数据)  Miscellanous(地址栏，杂项)   捕捉过滤器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wireshark使用">
-<meta property="og:url" content="http://yoursite.com/2018/05/20/Wireshark/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/06/13/Wireshark学习/index.html">
 <meta property="og:site_name" content="Jason&#39;s sky">
-<meta property="og:description" content="Tcp三次握手： 过滤规则1.协议过滤tcp or http2.IP过滤ip.src == 192.168.1.102源地址ip.dst == 192.168.1.102目的地址3.端口过滤tcp.port == 80tcp.srcport == 80,3 http模式过滤http.request.method == “GET”4 逻辑运算符 AND/OR       封包详细信息Frame:">
+<meta property="og:description" content="WireShark 主要分为这几个界面  Display Filter(显示过滤器)，  用于过滤  Packet List Pane(封包列表)， 显示捕获到的封包， 有源地址和目标地址，端口号。 颜色不同，代表  Packet Details Pane(封包详细信息), 显示封包中的字段  Dissector Pane(16进制数据)  Miscellanous(地址栏，杂项)   捕捉过滤器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/OdqOpcf.png">
-<meta property="og:updated_time" content="2018-05-20T12:43:13.712Z">
+<meta property="og:updated_time" content="2018-06-12T16:07:39.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wireshark使用">
-<meta name="twitter:description" content="Tcp三次握手： 过滤规则1.协议过滤tcp or http2.IP过滤ip.src == 192.168.1.102源地址ip.dst == 192.168.1.102目的地址3.端口过滤tcp.port == 80tcp.srcport == 80,3 http模式过滤http.request.method == “GET”4 逻辑运算符 AND/OR       封包详细信息Frame:">
-<meta name="twitter:image" content="https://i.imgur.com/OdqOpcf.png">
+<meta name="twitter:description" content="WireShark 主要分为这几个界面  Display Filter(显示过滤器)，  用于过滤  Packet List Pane(封包列表)， 显示捕获到的封包， 有源地址和目标地址，端口号。 颜色不同，代表  Packet Details Pane(封包详细信息), 显示封包中的字段  Dissector Pane(16进制数据)  Miscellanous(地址栏，杂项)   捕捉过滤器">
 
 
 
@@ -121,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/20/Wireshark/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/13/Wireshark学习/"/>
 
 
 
@@ -264,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/20/Wireshark/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/Wireshark学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王嘉熙">
@@ -293,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T20:43:13+08:00">
-                2018-05-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T00:07:39+08:00">
+                2018-06-13
               </time>
             
 
@@ -311,7 +309,7 @@
 
           
           
-             <span id="/2018/05/20/Wireshark/" class="leancloud_visitors" data-flag-title="Wireshark使用">
+             <span id="/2018/06/13/Wireshark学习/" class="leancloud_visitors" data-flag-title="Wireshark使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -336,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  148
+                  484
                 </span>
               
 
@@ -352,7 +350,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -373,13 +371,51 @@
       
 
       
-        <p>Tcp三次握手：</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://i.imgur.com/OdqOpcf.png" alt=""></h2><h1 id="过滤规则"><a href="#过滤规则" class="headerlink" title="过滤规则"></a>过滤规则</h1><p>1.协议过滤<br>tcp or http<br>2.IP过滤<br>ip.src == 192.168.1.102源地址<br>ip.dst == 192.168.1.102目的地址<br>3.端口过滤<br>tcp.port == 80<br>tcp.srcport == 80,<br>3 http模式过滤<br>http.request.method == “GET”<br>4 逻辑运算符 AND/OR      </p>
-<h1 id="封包详细信息"><a href="#封包详细信息" class="headerlink" title="封包详细信息"></a>封包详细信息</h1><p>Frame:   物理层的数据帧概况</p>
-<p>Ethernet II: 数据链路层以太网帧头部信息</p>
-<p>Internet Protocol Version 4: 互联网层IP包头部信息</p>
-<p>Transmission Control Protocol:  传输层T的数据段头部信息，此处是TCP</p>
-<p>Hypertext Transfer Protocol:  应用层的信息，此处是HTTP协议</p>
+        <p>WireShark 主要分为这几个界面</p>
+<ol>
+<li><p>Display Filter(显示过滤器)，  用于过滤</p>
+</li>
+<li><p>Packet List Pane(封包列表)， 显示捕获到的封包， 有源地址和目标地址，端口号。 颜色不同，代表</p>
+</li>
+<li><p>Packet Details Pane(封包详细信息), 显示封包中的字段</p>
+</li>
+<li><p>Dissector Pane(16进制数据)</p>
+</li>
+<li><p>Miscellanous(地址栏，杂项)</p>
+</li>
+</ol>
+<p>捕捉过滤器（CaptureFilters）：用于决定将什么样的信息记录在捕捉结果中。需要在开始捕捉前设置。</p>
+<p>显示过滤器（DisplayFilters）：在捕捉结果中进行详细查找。他们可以在得到捕捉结果后随意修改。</p>
+<h1 id="捕捉过滤器"><a href="#捕捉过滤器" class="headerlink" title="捕捉过滤器"></a>捕捉过滤器</h1><p>Protocol Direction Host Value Logical Operations expression  协议+方向+主机+逻辑运算<br>tcp            dst        101.1.180    and tcp</p>
+<h1 id="过滤表达式规则"><a href="#过滤表达式规则" class="headerlink" title="过滤表达式规则"></a>过滤表达式规则</h1><h2 id="协议过滤"><a href="#协议过滤" class="headerlink" title="协议过滤"></a>协议过滤</h2><p>TCP 只显示TCP协议</p>
+<h2 id="IP过滤"><a href="#IP过滤" class="headerlink" title="IP过滤"></a>IP过滤</h2><p>ip.src = 192.168.1.102<br>ip.dst = 192.168.1.102</p>
+<h2 id="端口过滤"><a href="#端口过滤" class="headerlink" title="端口过滤"></a>端口过滤</h2><p>tcp.port=80 / tcp.srcport=80</p>
+<h2 id="Http模式过滤"><a href="#Http模式过滤" class="headerlink" title="Http模式过滤"></a>Http模式过滤</h2><p>http.request.method == “GET”</p>
+<h2 id="逻辑运算符-AND-OR"><a href="#逻辑运算符-AND-OR" class="headerlink" title="逻辑运算符 AND/OR"></a>逻辑运算符 AND/OR</h2><p>ip.src ==192.168.1.102 or ip.dst == 192.168.1.102</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>http.request.uri matches “.gif$” </li>
+</ol>
+<p>注意区别：http.request.uri contains “.gif$” 与此不同，contains是包含字符串”.gif$”（5个字节）。匹配过滤HTTP的请求URI中含有”.gif$”字符串的http请求数据包（这里$是字符，不是结尾符）</p>
+<ol>
+<li><p>搜索过滤MAC地址前3个字节是0x001e4f的数据包。<br>eth.addr[0:3]==00:1e:4f </p>
+</li>
+<li><p>搜索按条件过滤tcp的数据段payload（数字20是表示tcp头部有20个字节，数据部分从第21个字节开始tcp[20:]）</p>
+</li>
+</ol>
+<p>tcp[20:] matches “^GET [ -~]*HTTP/1.1\x0d\x0a”</p>
+<p>等同http matches “^GET [ -~]*HTTP/1.1\x0d\x0a”</p>
+<h1 id="封包详细信息"><a href="#封包详细信息" class="headerlink" title="封包详细信息"></a>封包详细信息</h1><ul>
+<li><p>Frame:   物理层的数据帧概况</p>
+</li>
+<li><p>Ethernet II: 数据链路层以太网帧头部信息</p>
+</li>
+<li><p>Internet Protocol Version 4: 互联网层IP包头部信息</p>
+</li>
+<li><p>Transmission Control Protocol:  传输层T的数据段头部信息，此处是TCP</p>
+</li>
+<li><p>Hypertext Transfer Protocol:  应用层的信息，此处是HTTP协议</p>
+</li>
+</ul>
 
       
     </div>
@@ -433,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/11/hexo优化/" rel="next" title="hexo+next优化">
-                <i class="fa fa-chevron-left"></i> hexo+next优化
+              <a href="/2018/06/10/Socket编程/" rel="next" title="Python Socket 编程详细介绍">
+                <i class="fa fa-chevron-left"></i> Python Socket 编程详细介绍
               </a>
             
           </div>
@@ -443,8 +479,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/01/Python爬虫/" rel="prev" title="爬虫">
-                爬虫 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/18/后期PS/" rel="prev" title="摄影后期干货">
+                摄影后期干货 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -600,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过滤规则"><span class="nav-number"></span> <span class="nav-text">过滤规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封包详细信息"><span class="nav-number"></span> <span class="nav-text">封包详细信息</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#捕捉过滤器"><span class="nav-number">1.</span> <span class="nav-text">捕捉过滤器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过滤表达式规则"><span class="nav-number">2.</span> <span class="nav-text">过滤表达式规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#协议过滤"><span class="nav-number">2.1.</span> <span class="nav-text">协议过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP过滤"><span class="nav-number">2.2.</span> <span class="nav-text">IP过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口过滤"><span class="nav-number">2.3.</span> <span class="nav-text">端口过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Http模式过滤"><span class="nav-number">2.4.</span> <span class="nav-text">Http模式过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符-AND-OR"><span class="nav-number">2.5.</span> <span class="nav-text">逻辑运算符 AND/OR</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封包详细信息"><span class="nav-number">4.</span> <span class="nav-text">封包详细信息</span></a></li></ol></div>
             
 
           </div>
