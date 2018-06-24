@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入  CODE SEGMENT ASSUME CS:CODE  ;8253初始化 MOV DX, 283H MOV AL, 00110101B ;通道0方式2控制口送控制字 OUT DX, AL MOV DX, 280H  MO">
+<meta name="description" content="显示一段以$结尾字符串;利用9号功能调用显示 DATA    SEGMENT MESS    DB &amp;quot;HELLO$&amp;quot; DATA    ENDS  CODE    SEGMENT ASSUME    CS:CODE,DS:DATA  START: MOV AX,DATA MOV    DX,AX LEA    DX,MESS MOV    AH,9 INT    21H MOV">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微机实验代码">
 <meta property="og:url" content="http://yoursite.com/2018/06/24/微机原理实验代码/index.html">
 <meta property="og:site_name" content="Jason&#39;s sky">
-<meta property="og:description" content="基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入  CODE SEGMENT ASSUME CS:CODE  ;8253初始化 MOV DX, 283H MOV AL, 00110101B ;通道0方式2控制口送控制字 OUT DX, AL MOV DX, 280H  MO">
+<meta property="og:description" content="显示一段以$结尾字符串;利用9号功能调用显示 DATA    SEGMENT MESS    DB &amp;quot;HELLO$&amp;quot; DATA    ENDS  CODE    SEGMENT ASSUME    CS:CODE,DS:DATA  START: MOV AX,DATA MOV    DX,AX LEA    DX,MESS MOV    AH,9 INT    21H MOV">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-24T05:55:40.035Z">
+<meta property="og:updated_time" content="2018-06-24T07:55:26.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微机实验代码">
-<meta name="twitter:description" content="基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入  CODE SEGMENT ASSUME CS:CODE  ;8253初始化 MOV DX, 283H MOV AL, 00110101B ;通道0方式2控制口送控制字 OUT DX, AL MOV DX, 280H  MO">
+<meta name="twitter:description" content="显示一段以$结尾字符串;利用9号功能调用显示 DATA    SEGMENT MESS    DB &amp;quot;HELLO$&amp;quot; DATA    ENDS  CODE    SEGMENT ASSUME    CS:CODE,DS:DATA  START: MOV AX,DATA MOV    DX,AX LEA    DX,MESS MOV    AH,9 INT    21H MOV">
 
 
 
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  794
+                  975
                 </span>
               
 
@@ -350,7 +350,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -371,7 +371,65 @@
       
 
       
-        <h1 id="基于8253和8255的跑马灯"><a href="#基于8253和8255的跑马灯" class="headerlink" title="基于8253和8255的跑马灯"></a>基于8253和8255的跑马灯</h1><pre><code>8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波）
+        <h1 id="显示一段以-结尾字符串"><a href="#显示一段以-结尾字符串" class="headerlink" title="显示一段以$结尾字符串"></a>显示一段以$结尾字符串</h1><pre><code>;利用9号功能调用显示
+DATA    SEGMENT
+MESS    DB &quot;HELLO$&quot;
+DATA    ENDS
+
+CODE    SEGMENT
+ASSUME    CS:CODE,DS:DATA
+
+START:
+MOV AX,DATA
+MOV    DX,AX
+LEA    DX,MESS
+MOV    AH,9
+INT    21H
+MOV    AH,4CH
+INT    21H
+CODE    ENDS
+END    START
+</code></pre><h1 id="实现加法运算"><a href="#实现加法运算" class="headerlink" title="实现加法运算"></a>实现加法运算</h1><pre><code>;转换BCD输出，十进制字符加32
+CODE    SEGMENT
+START:
+MOV AH,00H
+MOV    AL,11H
+MOV    BL,1BH
+ADD    AL,BL
+MOV CH,0AH
+CBW
+IDIV
+MOV    BL,AH
+OR    AL,30H
+MOV    DX,AL
+MOV    AH,02H
+INT    21H
+MOV    AH,BL
+MOV DX,AH
+MOV    AH,02H
+INT    21H
+MOV    AH,4CH
+INT    21H
+CODE    ENDS
+END    START
+</code></pre><h1 id="8255控制LED灯"><a href="#8255控制LED灯" class="headerlink" title="8255控制LED灯"></a>8255控制LED灯</h1><pre><code>;A口输入B口输出C口置0
+CODE    SEGMENT
+ASSUME    CS:CODE
+MOV DX,283H
+MOV    AL,10010000B
+OUT    DX,AL
+
+TEST_IT:
+MOV    DX,280H
+IN    AL,DX
+MOV    DX,281H
+OUT    AL,DX
+JMP    TEST_IT
+MOV AH,4CH
+INT    21H
+CODE    ENDS
+END    START
+</code></pre><h1 id="基于8253和8255的跑马灯"><a href="#基于8253和8255的跑马灯" class="headerlink" title="基于8253和8255的跑马灯"></a>基于8253和8255的跑马灯</h1><pre><code>8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波）
 8255 A口输入，B口输出，C口延时输入
 
 CODE SEGMENT
@@ -773,7 +831,7 @@ END
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8253和8255的跑马灯"><span class="nav-number">1.</span> <span class="nav-text">基于8253和8255的跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8255跑马灯"><span class="nav-number">2.</span> <span class="nav-text">基于8255跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四成四回显键盘"><span class="nav-number">3.</span> <span class="nav-text">四成四回显键盘</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#显示一段以-结尾字符串"><span class="nav-number">1.</span> <span class="nav-text">显示一段以$结尾字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现加法运算"><span class="nav-number">2.</span> <span class="nav-text">实现加法运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8255控制LED灯"><span class="nav-number">3.</span> <span class="nav-text">8255控制LED灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8253和8255的跑马灯"><span class="nav-number">4.</span> <span class="nav-text">基于8253和8255的跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8255跑马灯"><span class="nav-number">5.</span> <span class="nav-text">基于8255跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四成四回显键盘"><span class="nav-number">6.</span> <span class="nav-text">四成四回显键盘</span></a></li></ol></div>
             
 
           </div>

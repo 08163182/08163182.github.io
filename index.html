@@ -336,7 +336,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  794
+                  975
                 </span>
               
 
@@ -352,7 +352,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -375,15 +375,17 @@
       
         
           
-          基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波）
-8255 A口输入，B口输出，C口延时输入
+          显示一段以$结尾字符串;利用9号功能调用显示
+DATA    SEGMENT
+MESS    DB &quot;HELLO$&quot;
+DATA    ENDS
 
-CODE SEGMENT
-ASSUME CS:CODE
+CODE    SEGMENT
+ASSUME    CS:CODE,DS:DATA
 
-;8253初始化
-MOV DX, 283H
-MOV AL, 00
+START:
+MOV AX,DATA
+MOV  
           ...
           <!--noindex-->
           <div class="post-button text-center">
