@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="显示一段以$结尾字符串;利用9号功能调用显示 DATA    SEGMENT MESS    DB &amp;quot;HELLO$&amp;quot; DATA    ENDS  CODE    SEGMENT ASSUME    CS:CODE,DS:DATA  START: MOV AX,DATA MOV    DX,AX LEA    DX,MESS MOV    AH,9 INT    21H MOV">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-24T07:55:26.972Z">
+<meta property="og:updated_time" content="2018-06-24T08:07:34.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微机实验代码">
 <meta name="twitter:description" content="显示一段以$结尾字符串;利用9号功能调用显示 DATA    SEGMENT MESS    DB &amp;quot;HELLO$&amp;quot; DATA    ENDS  CODE    SEGMENT ASSUME    CS:CODE,DS:DATA  START: MOV AX,DATA MOV    DX,AX LEA    DX,MESS MOV    AH,9 INT    21H MOV">
@@ -387,7 +387,7 @@ MOV    AH,9
 INT    21H
 MOV    AH,4CH
 INT    21H
-CODE    ENDS
+CODE ENDS
 END    START
 </code></pre><h1 id="实现加法运算"><a href="#实现加法运算" class="headerlink" title="实现加法运算"></a>实现加法运算</h1><pre><code>;转换BCD输出，十进制字符加32
 CODE    SEGMENT
@@ -399,7 +399,7 @@ ADD    AL,BL
 MOV CH,0AH
 CBW
 IDIV
-MOV    BL,AH
+MOV BL,AH
 OR    AL,30H
 MOV    DX,AL
 MOV    AH,02H
@@ -410,7 +410,7 @@ MOV    AH,02H
 INT    21H
 MOV    AH,4CH
 INT    21H
-CODE    ENDS
+CODE ENDS
 END    START
 </code></pre><h1 id="8255控制LED灯"><a href="#8255控制LED灯" class="headerlink" title="8255控制LED灯"></a>8255控制LED灯</h1><pre><code>;A口输入B口输出C口置0
 CODE    SEGMENT
