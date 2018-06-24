@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入  CODE SEGMENT ASSUME CS:CODE  ;8253初始化 MOV DX, 283H MOV AL, 00110101B ;通道0方式2控制口送控制字 OUT DX, AL MOV DX, 280H  MO">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-24T03:29:44.915Z">
+<meta property="og:updated_time" content="2018-06-24T05:55:40.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微机实验代码">
 <meta name="twitter:description" content="基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入  CODE SEGMENT ASSUME CS:CODE  ;8253初始化 MOV DX, 283H MOV AL, 00110101B ;通道0方式2控制口送控制字 OUT DX, AL MOV DX, 280H  MO">
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  359
+                  794
                 </span>
               
 
@@ -350,7 +350,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -400,31 +400,33 @@ OUT DX, AL
 MOV DX,28BH
 MOV AL,10000000B ;A口输入B口输出C口延时输入
 OUT DX,AL
-MOV AL,01H
+MOV BL,01H
 
 RUN：
 MOV DX,281H    ;跑马灯从左边开始亮起
+MOV AL, BL        ;用BL防止死循环
 OUT DX, AL
-MOV BL, AL        ;用BL防止死循环,保存AL地址
+
 
 DELAY1:
-MOV DX,283H
-IN  AL,DX     ;PCO低位变高位跳出
-CMP AL,00H
+MOV DX,282H
+IN  AL,DX     ;PCO低电平变高电平跳出
+AND    AL,01H
+CMP AL,01H
 JZ DELAY1
 
 DELAY2:
-MOV DX,283H
-IN  AL,DX        ;PCO高位变低位跳出
-CMP AL,00H
+MOV DX,282H
+IN  AL,DX
+AND,AL,01H        ;PCO高电平变低电平跳出
+CMP AL,01H
 JNZ DELAY2
 
-MOV AL,BL
-ROL AL,1    ；左移循环
+ROL BL,1    ；左移循环
 JMP RUN
 
-END CODE
-ENDS
+CODE ENDS
+END
 </code></pre><h1 id="基于8255跑马灯"><a href="#基于8255跑马灯" class="headerlink" title="基于8255跑马灯"></a>基于8255跑马灯</h1><pre><code>PORT_A EQU 280H
 PORT_B EQU 281H
 PORT_C EQU 282H
@@ -453,6 +455,107 @@ JNZ DELAY
 JMP RUN
 
 CODE ENDS
+END
+</code></pre><h1 id="四成四回显键盘"><a href="#四成四回显键盘" class="headerlink" title="四成四回显键盘"></a>四成四回显键盘</h1><p>1.检查键是否都松开<br>2.检查是否有键压下<br>3.有键压下消除抖动<br>4.编码压下的键，转换成16进制码确定哪个键被压下<br>5.释放键重复2步骤</p>
+<pre><code>；端口地址
+PORT_A EQU OFF9H
+PORT_B EQU OFFBH
+PORT_CTL EQU OFFFH
+;数据段，键盘扫描码表
+DATA    SEGMENT
+;            0    1    2    3    4    5    6    7
+TABLE    DB    77H,7BH,7DH,7EH,0B7H,0BBH,0BDH,0BEH
+        8    9    A    B    C    D    E    F
+    DB    0D7H,0DBH,0DDH,0DEH,0E7H,0EBH,0EDH,0EEH
+TABLE1      DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,7FH,6FH,77H,7CH
+       DB 39h,5EH,79h,71h,0ffh   ;LED段码表，0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f
+;堆栈段
+STACK    SEGMENT    STACK
+    DW 50    DUP(0)
+TOP_STACK    LABEL    WORD
+STACK    ENDS
+;代码段
+CODE    SEGMENT
+ASSUME    CS:CODE,DS:DATA,SS:STACK
+START:    
+MOV AX,STACK
+MOV SS,AX
+LEA SP,TOP_STACK
+MOV    AX,DATA
+MOV DS,AX
+
+;初始化8255A，方式0，A口输出，B口和C口输入
+MOV    DX,PORT_CTL
+MOV AL,10001011B
+OUT DX,AL
+
+;向所有行送0
+SEND:
+MOV DX,PORT_A
+MOV AL,00H
+OUT DX,AL
+
+;读列，查看是否有键松开
+MOV DX,PORT_B
+WAIT_OPEN:
+IN    AL,DX
+AND    AL,0FH
+CMP    AL,0FH
+JNE    WAIT_OPEN
+
+;各键已松开，查列是否有0，是否有键压下
+WAIT_PRES:
+IN    AL,DX
+AND    AL,OFH
+CMP    AL,0FH
+JE    WAIT_PRES
+
+;有键压下，延时20ms,消除抖动
+MOV    CX,16EAH
+DELAY:    LOOP DELAY
+
+;查看列，键是否仍被压着
+IN    AL,DX
+AND    AL.0FH
+CMP    AL,0FH
+JE    WAIT_PRES
+
+;键仍被压着,确定哪一个键被压下
+MOV AL,0FEH ;D0=0
+MOC    CL,AL
+
+NETX_ROW:
+MOV    DX,PORT_A
+OUT    DX,AL
+MOV DX,PORT_B
+IN    AL,DX
+AND    AL,0FH
+CMP    AL,0FH
+JNE    ENCODE
+ROL CL,01
+MOV    AL,CL
+JMP    NEXT_ROW
+
+ENCODE:
+MOV BX,OOOFH
+IN    AL,DX
+
+NETX_TRY:
+CMP    AL,TABLE[BX]
+JE    DONE
+DEC BX
+JNS    NETX_TRY
+MOV    AH,01
+JMP    EXIT
+
+DONE:
+CMP    AL,TABLE1[BX]
+MOV    DX,282H
+OUT    DX,AL
+JMP    SEND
+
+EIXT:    HLT
+CODE    ENDS
 END
 </code></pre>
       
@@ -670,7 +773,7 @@ END
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8253和8255的跑马灯"><span class="nav-number">1.</span> <span class="nav-text">基于8253和8255的跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8255跑马灯"><span class="nav-number">2.</span> <span class="nav-text">基于8255跑马灯</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8253和8255的跑马灯"><span class="nav-number">1.</span> <span class="nav-text">基于8253和8255的跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8255跑马灯"><span class="nav-number">2.</span> <span class="nav-text">基于8255跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四成四回显键盘"><span class="nav-number">3.</span> <span class="nav-text">四成四回显键盘</span></a></li></ol></div>
             
 
           </div>
