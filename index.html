@@ -281,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/24/微机原理实验代码/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/06/24/微机原理实验代码/" itemprop="url">微机实验代码</a></h1>
         
 
         <div class="post-meta">
@@ -311,7 +311,7 @@
 
           
           
-             <span id="/2018/06/24/微机原理实验代码/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/06/24/微机原理实验代码/" class="leancloud_visitors" data-flag-title="微机实验代码">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -336,7 +336,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  366
+                  359
                 </span>
               
 
@@ -375,11 +375,15 @@
       
         
           
-          
-title： 微机实验代码基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波）
+          基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波）
 8255 A口输入，B口输出，C口延时输入
-CODE SEGMENTASSUME CS:CODE
-;8253初始化MOV DX, 283HM
+
+CODE SEGMENT
+ASSUME CS:CODE
+
+;8253初始化
+MOV DX, 283H
+MOV AL, 00
           ...
           <!--noindex-->
           <div class="post-button text-center">

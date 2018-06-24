@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="title： 微机实验代码基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入 CODE SEGMENTASSUME CS:CODE ;8253初始化MOV DX, 283HMOV AL, 00110101B ;通道0方式2控制口送控制字OUT DX, ALMOV DX, 2">
+<meta name="description" content="基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入  CODE SEGMENT ASSUME CS:CODE  ;8253初始化 MOV DX, 283H MOV AL, 00110101B ;通道0方式2控制口送控制字 OUT DX, AL MOV DX, 280H  MO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jason&#39;s sky">
+<meta property="og:title" content="微机实验代码">
 <meta property="og:url" content="http://yoursite.com/2018/06/24/微机原理实验代码/index.html">
 <meta property="og:site_name" content="Jason&#39;s sky">
-<meta property="og:description" content="title： 微机实验代码基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入 CODE SEGMENTASSUME CS:CODE ;8253初始化MOV DX, 283HMOV AL, 00110101B ;通道0方式2控制口送控制字OUT DX, ALMOV DX, 2">
+<meta property="og:description" content="基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入  CODE SEGMENT ASSUME CS:CODE  ;8253初始化 MOV DX, 283H MOV AL, 00110101B ;通道0方式2控制口送控制字 OUT DX, AL MOV DX, 280H  MO">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-24T03:25:01.365Z">
+<meta property="og:updated_time" content="2018-06-24T03:29:44.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jason&#39;s sky">
-<meta name="twitter:description" content="title： 微机实验代码基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入 CODE SEGMENTASSUME CS:CODE ;8253初始化MOV DX, 283HMOV AL, 00110101B ;通道0方式2控制口送控制字OUT DX, ALMOV DX, 2">
+<meta name="twitter:title" content="微机实验代码">
+<meta name="twitter:description" content="基于8253和8255的跑马灯8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波） 8255 A口输入，B口输出，C口延时输入  CODE SEGMENT ASSUME CS:CODE  ;8253初始化 MOV DX, 283H MOV AL, 00110101B ;通道0方式2控制口送控制字 OUT DX, AL MOV DX, 280H  MO">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title> | Jason's sky</title>
+  <title>微机实验代码 | Jason's sky</title>
   
 
 
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">微机实验代码</h1>
         
 
         <div class="post-meta">
@@ -309,7 +309,7 @@
 
           
           
-             <span id="/2018/06/24/微机原理实验代码/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/06/24/微机原理实验代码/" class="leancloud_visitors" data-flag-title="微机实验代码">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  366
+                  359
                 </span>
               
 
@@ -371,25 +371,90 @@
       
 
       
-        <hr>
-<h2 id="title：-微机实验代码"><a href="#title：-微机实验代码" class="headerlink" title="title： 微机实验代码"></a>title： 微机实验代码</h2><h1 id="基于8253和8255的跑马灯"><a href="#基于8253和8255的跑马灯" class="headerlink" title="基于8253和8255的跑马灯"></a>基于8253和8255的跑马灯</h1><pre><code>8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波）
+        <h1 id="基于8253和8255的跑马灯"><a href="#基于8253和8255的跑马灯" class="headerlink" title="基于8253和8255的跑马灯"></a>基于8253和8255的跑马灯</h1><pre><code>8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波）
 8255 A口输入，B口输出，C口延时输入
-</code></pre><p>CODE SEGMENT<br>ASSUME CS:CODE</p>
-<p>;8253初始化<br>MOV DX, 283H<br>MOV AL, 00110101B ;通道0方式2控制口送控制字<br>OUT DX, AL<br>MOV DX, 280H<br>MOV AL, 00H   ;A输入口送低字节<br>OUT DX, AL<br>MOV AL, 10H   ;A输入口送高字节<br>OUT DX, AL</p>
-<p>MOV DX, 283H<br>MOV AL, 01110111B ;通道1方式3控制口送控制字<br>OUT DX, AL<br>MOV DX, 281H<br>MOV AL, 00H  ;B输出口送低字节<br>OUT DX, AL<br>MOV AL, 10H     ;B输出口送高字节<br>OUT DX, AL</p>
-<p>;8255初始化<br>MOV DX,28BH<br>MOV AL,10000000B ;A口输入B口输出C口延时输入<br>OUT DX,AL<br>MOV AL,01H</p>
-<p>RUN：<br>MOV DX,281H    ;跑马灯从左边开始亮起<br>OUT DX, AL<br>MOV BL, AL        ;用BL防止死循环,保存AL地址</p>
-<p>DELAY1:<br>MOV DX,283H<br>IN  AL,DX     ;PCO低位变高位跳出<br>CMP AL,00H<br>JZ DELAY1</p>
-<p>DELAY2:<br>MOV DX,283H<br>IN  AL,DX        ;PCO高位变低位跳出<br>CMP AL,00H<br>JNZ DELAY2</p>
-<p>MOV AL,BL<br>ROL AL,1    ；左移循环<br>JMP RUN</p>
-<p>END CODE<br>ENDS</p>
-<h1 id="基于8255跑马灯"><a href="#基于8255跑马灯" class="headerlink" title="基于8255跑马灯"></a>基于8255跑马灯</h1><p>PORT_A EQU 280H<br>PORT_B EQU 281H<br>PORT_C EQU 282H<br>PORT_CRL EQU 283H</p>
-<p>CODE SEGEMENT<br>ASSUME CS:CODE</p>
-<p>MOV AL,89H<br>MOV DX,PORT_CRL<br>OUT DX,AL<br>MOV AL,O1H</p>
-<p>RUN:<br>MOV DX,PORT_A<br>OUT DX,AL<br>ROL AL,1    ；左移<br>MOV BX,20  ；速度</p>
-<p>DELAY:<br>MOV CX,0FFFFH    ；循环<br>DELAY1: LOOP DELAY<br>DEC BX<br>JNZ DELAY<br>JMP RUN</p>
-<p>CODE ENDS<br>END</p>
 
+CODE SEGMENT
+ASSUME CS:CODE
+
+;8253初始化
+MOV DX, 283H
+MOV AL, 00110101B ;通道0方式2控制口送控制字
+OUT DX, AL
+MOV DX, 280H 
+MOV AL, 00H   ;A输入口送低字节    
+OUT DX, AL
+MOV AL, 10H   ;A输入口送高字节
+OUT DX, AL
+
+MOV DX, 283H
+MOV AL, 01110111B ;通道1方式3控制口送控制字
+OUT DX, AL
+MOV DX, 281H
+MOV AL, 00H  ;B输出口送低字节
+OUT DX, AL
+MOV AL, 10H     ;B输出口送高字节
+OUT DX, AL
+
+;8255初始化
+MOV DX,28BH
+MOV AL,10000000B ;A口输入B口输出C口延时输入
+OUT DX,AL
+MOV AL,01H
+
+RUN：
+MOV DX,281H    ;跑马灯从左边开始亮起
+OUT DX, AL
+MOV BL, AL        ;用BL防止死循环,保存AL地址
+
+DELAY1:
+MOV DX,283H
+IN  AL,DX     ;PCO低位变高位跳出
+CMP AL,00H
+JZ DELAY1
+
+DELAY2:
+MOV DX,283H
+IN  AL,DX        ;PCO高位变低位跳出
+CMP AL,00H
+JNZ DELAY2
+
+MOV AL,BL
+ROL AL,1    ；左移循环
+JMP RUN
+
+END CODE
+ENDS
+</code></pre><h1 id="基于8255跑马灯"><a href="#基于8255跑马灯" class="headerlink" title="基于8255跑马灯"></a>基于8255跑马灯</h1><pre><code>PORT_A EQU 280H
+PORT_B EQU 281H
+PORT_C EQU 282H
+PORT_CRL EQU 283H
+
+CODE SEGEMENT
+ASSUME CS:CODE
+
+MOV AL,89H
+MOV DX,PORT_CRL
+OUT DX,AL
+MOV AL,O1H
+
+RUN:
+MOV DX,PORT_A
+OUT DX,AL
+ROL AL,1    ；左移
+MOV BX,20  ；速度
+
+DELAY:
+MOV CX,0FFFFH    ；循环
+DELAY1: 
+LOOP DELAY
+DEC BX
+JNZ DELAY
+JMP RUN
+
+CODE ENDS
+END
+</code></pre>
       
     </div>
     
@@ -605,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title：-微机实验代码"><span class="nav-number">1.</span> <span class="nav-text">title： 微机实验代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8253和8255的跑马灯"><span class="nav-number"></span> <span class="nav-text">基于8253和8255的跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8255跑马灯"><span class="nav-number"></span> <span class="nav-text">基于8255跑马灯</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8253和8255的跑马灯"><span class="nav-number">1.</span> <span class="nav-text">基于8253和8255的跑马灯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于8255跑马灯"><span class="nav-number">2.</span> <span class="nav-text">基于8255跑马灯</span></a></li></ol></div>
             
 
           </div>
