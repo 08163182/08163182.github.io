@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="显示一段以$结尾字符串;利用9号功能调用显示 DATA    SEGMENT MESS    DB &amp;quot;HELLO$&amp;quot; DATA    ENDS  CODE    SEGMENT ASSUME    CS:CODE,DS:DATA  START: MOV AX,DATA MOV    DX,AX LEA    DX,MESS MOV    AH,9 INT    21H MOV">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-01T09:17:51.723Z">
+<meta property="og:updated_time" content="2018-07-08T15:02:59.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微机实验代码">
 <meta name="twitter:description" content="显示一段以$结尾字符串;利用9号功能调用显示 DATA    SEGMENT MESS    DB &amp;quot;HELLO$&amp;quot; DATA    ENDS  CODE    SEGMENT ASSUME    CS:CODE,DS:DATA  START: MOV AX,DATA MOV    DX,AX LEA    DX,MESS MOV    AH,9 INT    21H MOV">
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,439
+                  1,354
                 </span>
               
 
@@ -350,7 +350,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  6
                 </span>
               
             </div>
@@ -416,70 +416,66 @@ END    START
 ASSUME CS:CODE
 MOV    AL,89H    ;控制字，A口方式0输出，B口方式0输出，C口输入
 MOV    DX,283H    ;指向控制口寄存器
-OUT    DX,AL    ;
+OUT    DX,AL
 MOV    AL,01    ;置高位
 MOV    DX,281H    ;指向B口寄存器
 AGAIN:
-OUT    DX,AL    ；B口控制LED灯亮
-ROL    AL,1    ；LED亮灯循环左移
-MOV    BX,30    ；
+OUT    DX,AL    ;B口控制LED灯亮
+ROL    AL,1    ;LED亮灯循环左移
+MOV    BX,30    
 DELAY:MOV        CX,16EAH
-DELAY1:LOOP    DELAY    ；延时20ms
+DELAY1:LOOP    DELAY    ;延时20ms
 DEC    BX            
 JNZ    DELAY    ;调用第二重延时
-JMP    AGAIN    ；循环
+JMP    AGAIN    ;循环
 CODE ENDS
-END            
-</code></pre><h1 id="基于8253硬延时跑马灯"><a href="#基于8253硬延时跑马灯" class="headerlink" title="基于8253硬延时跑马灯"></a>基于8253硬延时跑马灯</h1><pre><code>8253级联方式; 选择通道0方式2作为第一次输入（负脉冲），选择通道1方式3作为第二次输入（方波）
-8255 A口输入，B口输出，C口延时输入
-
-CODE SEGMENT
+END                   
+</code></pre><h1 id="基于8253硬延时跑马灯"><a href="#基于8253硬延时跑马灯" class="headerlink" title="基于8253硬延时跑马灯"></a>基于8253硬延时跑马灯</h1><pre><code>CODE SEGMENT
 ASSUME CS:CODE
 START:
-；8253初始化
-MOV    DX,28BH        ；指向控制口寄存器
+MOV    DX,28BH        ;指向控制口寄存器
 MOV    AL,00110101B    
-；通道控制字，先写低字节，后写高字节，方式2，BCD计数
-OUT    DX,AL    ；写入控制字
-MOV    DX,288H    ；指向A口寄存器
-MOV    AL,00H    ；计数初值低字节
-OUT    DX,AL    ；
-MOV    AL,50H    ；计数初值高字节
-OUT    DX,AL    ；
+;通道0，先写低字节，后写高字节，方式2，BCD计数
+OUT    DX,AL    ;写入控制字
+MOV    DX,288H    ;指向A口寄存器
+MOV    AL,00H    ;计数初值低字节
+OUT    DX,AL    
+MOV    AL,50H    ;计数初值高字节
+OUT    DX,AL    
 
-MOV    DX,28BH    ；指向控制口寄存器
+MOV    DX,28BH    ;指向控制口寄存器
 MOV    AL,01110111B    
-；通道1，先写低字节，后高字节，方式3，BCD计数
+;通道1，先写低字节，后高字节，方式3，BCD计数
 OUT    DX,AL    ;
-MOV    DX,289H    ；指向B口
-MOV    AL,00H    ；计数初值低字节
-OUT    DX,AL    ；
-MOV    AL,10H    ；计数初值高字节
-OUT    DX,AL    ；
-；8255初始化
-MOV    DX,283H    ；     
-MOV    AL,10011001B     ；A口方式0输入，B口方式0输出，C口输入
+MOV    DX,289H    ;指向B口
+MOV    AL,00H    ;计数初值低字节
+OUT    DX,AL    
+MOV    AL,10H    ;计数初值高字节
+OUT    DX,AL    
+MOV    DX,283H        
+MOV    AL,10011001B     ;A口方式0输入，B口方式0输出，C口输入
 OUT    DX,AL
-MOV    BL,01H    ；置高位；    
+MOV    BL,01H    ;置高位
+
 
 DELAY1:
-MOV    DX,282H    ；指向C口
+MOV    DX,282H    ;指向C口
 IN     AL,DX    ;输入
 TEST    AL,01H
-JNZ    DELAY1    ；低电平跳出                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+JNZ    DELAY1    ;低电平跳出                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
 RUN1:
-MOV    DX,281H    ；指向B口
+MOV    DX,281H    ;指向B口
 MOV    AL,BL    
-OUT    DX,AL    ；输出
+OUT    DX,AL    ;输出
 
 DELAY2:
-MOV    DX,282H    ；指向C口
-IN    AL,DX    ；输入
+MOV    DX,282H    ;指向C口
+IN    AL,DX    ;输入
 TEST    AL,01H                                                                               
-JZ    DELAY2    ；高电平跳出
-ROL BL,1        ；循环左移
-JMP DELAY1        ；延时
+JZ    DELAY2    ;高电平跳出
+ROL BL,1        ;循环左移
+JMP DELAY1        ;延时
 CODE ENDS
 END START
 </code></pre><h1 id="四成四回显键盘"><a href="#四成四回显键盘" class="headerlink" title="四成四回显键盘"></a>四成四回显键盘</h1><p>1.检查键是否都松开<br>2.检查是否有键压下<br>3.有键压下消除抖动<br>4.编码压下的键，转换成16进制码确定哪个键被压下<br>5.释放键重复2步骤</p>
@@ -490,12 +486,11 @@ PCTL  EQU         283H
 ;数据段键盘扫码表
 DATA    SEGMENT
 ;            0    1    2    3    4      5       6    7
-TABLE    DB  77H,  7BH,  7DH,  7EH,  0B7H,   0BBH,  0BDH,0BEH
+TABLE    DB 77H, 7BH, 7DH, 7EH, 0B7H, 0BBH, 0BDH,0BEH
 ;             8    9      A       B       C         D      E      F
-        DB 0D7H,0DBH,0DDH, 0DEH, 0E7H,   0EBH,  0EDH,  0EEH
-TABLE1      
-DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,7FH,6FH,77H,7CH
-  DB 39h,5EH,79h,71h,0ffh   ;LED段码表，0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f
+    DB 0D7H,0DBH,0DDH, 0DEH, 0E7H, 0EBH, 0EDH, 0EEH
+TABLE1   DB 3FH,06H,5BH,4FH,66H,6DH,7DH,07H,
+  DB 7FH,6FH,77H,7CH,39H,5EH,79H,71H   ;LED段码表，共阳极
 DATA    ENDS
 ;堆栈段
 STACK    SEGMENT        STACK
@@ -511,25 +506,25 @@ START:    MOV AX,STACK
         MOV AX,DATA
         MOV DS,AX
     ;初始化8255A，方式0，A口输出，B口输入，C口输出
-        MOV DX,PCTL    ；控制口
-        MOV AL,10000010B    ；控制字
+        MOV DX,PCTL    ;控制口
+        MOV AL,10000010B    ;控制字
         OUT DX,AL
     ;向所有行送0
-SEND:     MOV DX,PA        ；A口
+SEND:     MOV DX,PA        ;A口
         MOV AL,00H
-        OUT DX,AL    ；向A口各位输出0
+        OUT DX,AL    ;向A口各位输出0
     ;读列，查看是否所有键松开
         MOV DX,PB
 WAIT_OPEN: IN  AL,DX    ;读入B口
-        AND AL,0FH        ；查低4位
-        CMP AL,0FH        ；是否都为1
-        JNE WAIT_OPEN    ；否，继续查
+        AND AL,0FH        ;查低4位
+        CMP AL,0FH        ;是否都为1
+        JNE WAIT_OPEN    ;否，继续查
     ;查各列是否有0，即有键按下
 WAIT_PRES: MOV DX,PB
-        IN  AL,DX        ；读B口
-        AND AL,0FH        ；查低4位
-        CMP AL,0FH        ；是否有键压下
-        JE  WAIT_PRES        ；无，等待
+        IN  AL,DX        ;读B口
+        AND AL,0FH        ;查低4位
+        CMP AL,0FH        ;是否有键压下
+        JE  WAIT_PRES        ;无，等待
     ;消抖20ms
         MOV CX,16EAH    
 DELAY:  LOOP DELAY    ;延时20ms
@@ -539,69 +534,67 @@ DELAY:  LOOP DELAY    ;延时20ms
         CMP AL,0FH
         JE  WAIT_PRES        ;松开，转出等待压键
     ;确定哪一个键被按下
-        MOV AL,0FEH    ；D0=0
-        MOV CL,AL    ；CL=1111 1110B
-NEXT_ROW: MOV DX,PA    ；A口
-        OUT DX,AL    ；一行输出低电平
-        MOV DX,PB    ；B口
-        IN  AL,DX    ；读入
-        AND AL,0FH        ；截取列值
-        CMP AL,0FH        ；是否为1
-        JNE ENCODE    否，有键压下，转去编码
-        ROL CL,01    循环，下行输出0
+        MOV AL,0FEH    ;D0=0
+        MOV CL,AL    ;CL=1111 1110B
+NEXT_ROW: MOV DX,PA    ;A口
+        OUT DX,AL    ;一行输出低电平
+        MOV DX,PB    ;B口
+        IN  AL,DX    ;读入
+        AND AL,0FH        ;截取列值
+        CMP AL,0FH        ;是否为1
+        JNE ENCODE    ;否，有键压下，转去编码
+        ROL CL,01    ;循环，下行输出0
         MOV AL,CL
-        JMP NEXT_ROW    ；查看下行
+        JMP NEXT_ROW    ;查看下行
 
-ENCODE: MOV BX,000FH    ；建立地址指针，先指向F键对应的地址
-            IN  AL,DX    ；从B口读入行列状态
-NEXT_TRY:    CMP AL,TABLE[BX]    ；读入行列值与表中值是否相等
-        JE  DONE    ；相等，转出
-        DEC BX    ；不等，指向下一个键值
-        JNS NEXT_TRY    ；地址不为负继续查
-        MOV AH,01    ；地址为负，置错码01-&gt;AH
+ENCODE: MOV BX,000FH    ;建立地址指针，先指向F键对应的地址
+            IN  AL,DX    ;从B口读入行列状态
+NEXT_TRY:    CMP AL,TABLE[BX]    ;读入行列值与表中值是否相等
+        JE  DONE    ;相等，转出
+        DEC BX    ;不等，指向下一个键值
+        JNS NEXT_TRY    ;地址不为负继续查
+        MOV AH,01    ;地址为负，置错码01-&gt;AH
         JMP EXIT        ;退出
-DONE:MOV AL,TABLE1[BX]    ;读入行列值与LED段码表中是否相等  
-        MOV DX,282H    ；C口
-        OUT DX,AL    ；输出到数码管
-        JMP SEND    ；跳转A口送0阶段
+DONE:MOV AL,TABLE1[BX]    ; 数码管偏移地址
+        MOV DX,282H    ;C口
+        OUT DX,AL    ;输出到数码管
+        JMP SEND    ;跳转A口送0阶段
 EXIT:    HLT
-MOV AL,4CHA
+MOV AL,4CH
 INT 21H
 CODE    ENDS
 END START
 </code></pre><h1 id="利用0832产生锯齿波输出，并驱动直流电机工作。"><a href="#利用0832产生锯齿波输出，并驱动直流电机工作。" class="headerlink" title="利用0832产生锯齿波输出，并驱动直流电机工作。"></a>利用0832产生锯齿波输出，并驱动直流电机工作。</h1><pre><code>CODE SEGMENT
 ASSUME CS:CODE
 MOV DX,280H    ;输入寄存器
-START:    MOV AL,0FFH    ；初值为0FFH
-AGAIN:    INC AL    ；AL增1
-OUT DX,AL    ；D/A转换
-MOV BX,80H        ；初值为80H
+START:    MOV AL,0FFH    ;初值为0FFH
+AGAIN:    INC AL    ;AL增1
+OUT DX,AL    ;D/A转换
+MOV BX,80H        ;初值为80H
 DELAY :     MOV CX,16EAH        
 DELAY1: LOOP DELAY        ;延时20ms
 DEC BX    
 JNZ DELAY    ;双重延时
-JMP AGAIN    ；继续转换输出
+JMP AGAIN    ;继续转换输出
 </code></pre><h1 id="利用0809完成1个通道的模拟量采集，并利用8255输出二进制码"><a href="#利用0809完成1个通道的模拟量采集，并利用8255输出二进制码" class="headerlink" title="利用0809完成1个通道的模拟量采集，并利用8255输出二进制码"></a>利用0809完成1个通道的模拟量采集，并利用8255输出二进制码</h1><pre><code>CODE SEGMENT
 ASSUME CS:CODE
 START:    
-        MOV DX,283H    ；控制口寄存器
-        MOV AL,10010000B        ；A口方式0输入B口方式0输出C口输出
-        OUT DX,AL    
-
-
+    MOV DX,283H    ;控制口寄存器
+    MOV AL,10010000B        ;A口方式0输入B口方式0输出C口输出
+    OUT DX,AL    
 NEXT:
-        MOV DX,288H    ； 选中IN0通道
-        OUT DX,AL    ；启动转换
-        MOV DX,280H    ；A口寄存器
+    MOV DX,288H    ;选中IN0通道
+    OUT DX,AL    ;启动转换
+    MOV DX,280H    ;A口寄存器
 POLL:
-        IN AL,DX        ；读入
-        TEST AL,01H        ；测EOC是否为高
-        JZ POLL        ；EOC=1转换结束跳出
-        MOV DX,288H    ；IN0通道
-        IN AL,DX        ；读入
-        MOV DX,281H    ；B口寄存器
-        OUT DX,AL    ；输出
-        JMP NEXT    ；继续转换
+    IN AL,DX        ;读入
+    TEST AL,01H        ;测EOC是否为高
+    JZ POLL        ;EOC=1转换结束跳出
+    MOV DX,288H    ;IN0通道
+    IN AL,DX        ;读入
+    MOV DX,281H    ;B口寄存器
+    OUT DX,AL    ;输出
+    JMP NEXT    ;继续转换
 CODE ENDS
 END START
 </code></pre>

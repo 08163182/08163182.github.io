@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Windows家庭版添加组策略新建文本文档输入　@echo off 　　pushd “%~dp0” 　　dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &amp;gt;List.txt 　　dir /b C:\Windows\servicing\Packag">
+<meta name="description" content="Windows家庭版添加组策略新建文本文档输入    　@echo off pushd &amp;quot;%~dp0&amp;quot;    dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &amp;gt;List.txt    dir /b C:\Windows\se">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WindowsIIS服务问题解决（0x800F081F）">
 <meta property="og:url" content="http://yoursite.com/2018/07/08/IIS/index.html">
 <meta property="og:site_name" content="Jason&#39;s sky">
-<meta property="og:description" content="Windows家庭版添加组策略新建文本文档输入　@echo off 　　pushd “%~dp0” 　　dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &amp;gt;List.txt 　　dir /b C:\Windows\servicing\Packag">
+<meta property="og:description" content="Windows家庭版添加组策略新建文本文档输入    　@echo off pushd &amp;quot;%~dp0&amp;quot;    dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &amp;gt;List.txt    dir /b C:\Windows\se">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-07T03:04:52.759Z">
+<meta property="og:updated_time" content="2018-07-08T15:07:32.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WindowsIIS服务问题解决（0x800F081F）">
-<meta name="twitter:description" content="Windows家庭版添加组策略新建文本文档输入　@echo off 　　pushd “%~dp0” 　　dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &amp;gt;List.txt 　　dir /b C:\Windows\servicing\Packag">
+<meta name="twitter:description" content="Windows家庭版添加组策略新建文本文档输入    　@echo off pushd &amp;quot;%~dp0&amp;quot;    dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &amp;gt;List.txt    dir /b C:\Windows\se">
 
 
 
@@ -371,14 +371,28 @@
       
 
       
-        <h1 id="Windows家庭版添加组策略"><a href="#Windows家庭版添加组策略" class="headerlink" title="Windows家庭版添加组策略"></a>Windows家庭版添加组策略</h1><p>新建文本文档输入<br>　@echo off</p>
-<p>　　pushd “%~dp0”</p>
-<p>　　dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt</p>
-<p>　　dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt</p>
-<p>　　for /f %%i in (‘findstr /i . List.txt 2^&gt;nul’) do dism /online /norestart /add-package:”C:\Windows\servicing\Packages\%%i”</p>
-<p>　　pause</p>
-<p>另存为所有文件，文件名为.cmd,右键管理员运行。</p>
-<p>用小娜输入gpedit.msc打开组策略管理器</p>
+        <h1 id="Windows家庭版添加组策略"><a href="#Windows家庭版添加组策略" class="headerlink" title="Windows家庭版添加组策略"></a>Windows家庭版添加组策略</h1><p>新建文本文档输入<br>    　@echo off</p>
+<pre><code>pushd &quot;%~dp0&quot;
+
+
+
+dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt
+
+
+
+dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt
+
+
+
+for /f %%i in (&#39;findstr /i . List.txt 2^&gt;nul&#39;) do dism /online /norestart /add-package:&quot;C:\Windows\servicing\Packages\%%i&quot;
+
+
+
+pause
+
+
+另存为所有文件，文件名为.cmd,右键管理员运行。
+</code></pre><p>用小娜输入gpedit.msc打开组策略管理器</p>
 <h1 id="修改组策略"><a href="#修改组策略" class="headerlink" title="修改组策略"></a>修改组策略</h1><p>首先在微软官网下载镜像文件，制作U盘，然后在U盘下的sources\sxs文件实现.Net FrameWork的重新安装。</p>
 <p>找到计算机配置—-管理摸板—系统—-指定可选组件安装和组件修复的设置—编辑设置已启用，选择直接从Windows更新。确定应用，然后在WindowsPowerShell管理员模式下运行</p>
 <pre><code>Dism /online /enable-feature /featurename:NetFx3 /All /Source:&lt;drive&gt;:\sources\sxs /LimitAccess
