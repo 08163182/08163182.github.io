@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：     update mysql.user set authentication_string=password">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-23T15:19:07.139Z">
+<meta property="og:updated_time" content="2018-09-19T05:16:15.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql踩过的坑">
 <meta name="twitter:description" content="踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：     update mysql.user set authentication_string=password">
@@ -335,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  374
+                  403
                 </span>
               
 
@@ -351,7 +351,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -380,6 +380,7 @@ set authentication_string=password(&#39;wjx666&#39;)
 flush privileges;(刷新权限)
 quit;(退出登陆)
 </code></pre><p>重新登陆：<br><code>mysql -u root -p</code></p>
+<h1 id="重装系统mysql"><a href="#重装系统mysql" class="headerlink" title="重装系统mysql"></a>重装系统mysql</h1><p>进入mysql的bin目录 mysql.exe install重新安装<br>可以使用 mysql -uroot -p 来登录mysql .</p>
 <hr>
 <h1 id="Windows下mysql命令"><a href="#Windows下mysql命令" class="headerlink" title="Windows下mysql命令"></a>Windows下mysql命令</h1><p>执行<code>mysql -u root -p</code>(第一次为空)<br><code>mysqladmin -u root -p password</code>设置密码<br>修改root密码<code>set password for root@localhost = password(&#39;1234&#39;);</code>     </p>
 <p>启动:<code>net start MySQL</code></p>
@@ -447,8 +448,8 @@ quit;(退出登陆)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/21/css入门/" rel="next" title="css入门">
-                <i class="fa fa-chevron-left"></i> css入门
+              <a href="/2018/04/21/系统操作/" rel="next" title="双系统卸载Ubuntu">
+                <i class="fa fa-chevron-left"></i> 双系统卸载Ubuntu
               </a>
             
           </div>
@@ -540,7 +541,7 @@ quit;(退出登陆)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -614,7 +615,7 @@ quit;(退出登陆)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑区"><span class="nav-number">1.</span> <span class="nav-text">踩坑区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows下mysql命令"><span class="nav-number">2.</span> <span class="nav-text">Windows下mysql命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑区"><span class="nav-number">1.</span> <span class="nav-text">踩坑区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重装系统mysql"><span class="nav-number">2.</span> <span class="nav-text">重装系统mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows下mysql命令"><span class="nav-number">3.</span> <span class="nav-text">Windows下mysql命令</span></a></li></ol></div>
             
 
           </div>

