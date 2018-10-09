@@ -81,14 +81,14 @@
 
 <meta name="description" content="Linux 快捷键：终端:复制命令：Ctrl + Shift + C  组合键    .     粘贴命令：Ctrl + Shift + V  组合键            控制台：复制命令：Ctrl + Insert  组合键　　或　　用鼠标选中即是复制。          粘贴命令：Shift + Insert  组合键　　或　　单击鼠标滚轮即为粘贴。                  1.s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jason&#39;s sky">
+<meta property="og:title" content="网络安全实验">
 <meta property="og:url" content="http://yoursite.com/2018/09/22/Net security/index.html">
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="Linux 快捷键：终端:复制命令：Ctrl + Shift + C  组合键    .     粘贴命令：Ctrl + Shift + V  组合键            控制台：复制命令：Ctrl + Insert  组合键　　或　　用鼠标选中即是复制。          粘贴命令：Shift + Insert  组合键　　或　　单击鼠标滚轮即为粘贴。                  1.s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-08T09:18:43.715Z">
+<meta property="og:updated_time" content="2018-10-09T00:18:58.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jason&#39;s sky">
+<meta name="twitter:title" content="网络安全实验">
 <meta name="twitter:description" content="Linux 快捷键：终端:复制命令：Ctrl + Shift + C  组合键    .     粘贴命令：Ctrl + Shift + V  组合键            控制台：复制命令：Ctrl + Insert  组合键　　或　　用鼠标选中即是复制。          粘贴命令：Shift + Insert  组合键　　或　　单击鼠标滚轮即为粘贴。                  1.s">
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title> | Jason's sky</title>
+  <title>网络安全实验 | Jason's sky</title>
   
 
 
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">网络安全实验</h1>
         
 
         <div class="post-meta">
@@ -309,7 +309,7 @@
 
           
           
-             <span id="/2018/09/22/Net security/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/09/22/Net security/" class="leancloud_visitors" data-flag-title="网络安全实验">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -375,55 +375,51 @@
 <p>粘贴命令：Ctrl + Shift + V  组合键           </p>
 <p>控制台：<br>复制命令：Ctrl + Insert  组合键　　或　　用鼠标选中即是复制。         </p>
 <p>粘贴命令：Shift + Insert  组合键　　或　　单击鼠标滚轮即为粘贴。                 </p>
-<p>1.server-u<br>Nessus扫描主机。<br>serv-u目录遍历漏洞<br>CMD中输入:<br>ftp ip;<br>ftp； 匿名登陆<br>ls 查看目录，<br>get ../ftp/1.txt获取1.txt文件   </p>
+<h1 id="1-server-u"><a href="#1-server-u" class="headerlink" title="1.server-u"></a>1.server-u</h1><p>Nessus扫描主机。<br>serv-u目录遍历漏洞<br>CMD中输入:<br>ftp ip;<br>ftp； 匿名登陆<br>ls 查看目录，<br>get ../ftp/1.txt获取1.txt文件   </p>
 <p>503 服务器出错<br>404 网页程序出错   </p>
-<p>2.主机存活性<br>ping 发送四次ICMP报文得到回显。<br>ping 探测网段内存活主机。各种命令使用   </p>
+<h1 id="2-主机存活性"><a href="#2-主机存活性" class="headerlink" title="2.主机存活性"></a>2.主机存活性</h1><p>ping 发送四次ICMP报文得到回显。<br>ping 探测网段内存活主机。各种命令使用   </p>
 <p>Nmap superScan工具判断主机存活性<br><code>nmap -sn 172.17.135.6-172.17.135.122</code>  空扫描    </p>
 <p>Fping发现网段内存活主机探测。<br><code>fping –a –g 172.17.135.6 172.17.135.122</code> -a 响应目标 -g 起始地址和终止地址    </p>
-<p>3.主机信息探测<br>X-scan探测主机敏感信息<br>MBSA探测主机一些安全配置。   </p>
-<p>4.端口服务探测<br>公认端口；HTTP协议80端口<br>注册端口；<br>动态/私有端口；</p>
+<h1 id="3-主机信息探测"><a href="#3-主机信息探测" class="headerlink" title="3.主机信息探测"></a>3.主机信息探测</h1><p>X-scan探测主机敏感信息<br>MBSA探测主机一些安全配置。   </p>
+<h1 id="4-端口服务探测"><a href="#4-端口服务探测" class="headerlink" title="4.端口服务探测"></a>4.端口服务探测</h1><p>公认端口；HTTP协议80端口<br>注册端口；<br>动态/私有端口；</p>
 <p>netstat -a -n -o<br>-a 所有socket -n 网路地址代替名称+状态  -o 加上进程PID显示    </p>
 <p>ftp ip 测试21端口ftp服务<br>telnet ip 测试23端口telnet服务<br>mstsc /v ip 测试3389端口可远程连接   </p>
 <p>ScanPort扫描<br>SuperScan扫描<br>nmap扫描 nmap -T4 -A -v ip    </p>
-<p>5.Wireshark抓包实验<br>捕捉TCP包分析<br>捕捉PING命令发送的ICMP包一个request+一个reply;   </p>
-<p>6.端口扫描<br>RST比特用来复位，TCP连接三种情况：<br>1.不存在连接端口请求<br>2.异常终止一个链接。<br>3.检测半关闭连接  </p>
+<h1 id="5-Wireshark抓包实验"><a href="#5-Wireshark抓包实验" class="headerlink" title="5.Wireshark抓包实验"></a>5.Wireshark抓包实验</h1><p>捕捉TCP包分析<br>捕捉PING命令发送的ICMP包一个request+一个reply;   </p>
+<h1 id="6-端口扫描"><a href="#6-端口扫描" class="headerlink" title="6.端口扫描"></a>6.端口扫描</h1><p>RST比特用来复位，TCP连接三种情况：<br>1.不存在连接端口请求<br>2.异常终止一个链接。<br>3.检测半关闭连接  </p>
 <p>1.全TCP连接 connect()，<br>2.SYN半打开，（应答包含SYN和ACK，端口打开）<br>3.FIN秘密（应答RST端口关闭，否则丢包端口开启)变种 X-mas和Null  （打开和关闭标记）适用Unix主机<br>5.UDP ICMP （Windows适用 ）    </p>
 <p>命令总结：<br>-sT：扫描TCP数据包以建立的连接connect()</p>
 <p>-sS：扫描TCP数据包带有SYN数据的标记（发送SYN,收到SYN|ACK，发送RST代替ACK，连接终止，三次握手未实现。）</p>
 <p>-sP：以ping方式进行扫描</p>
 <p>-sU：以UDP数据包格式进行扫描</p>
 <p>-sF,-sX,-sN：以Fin,Xmas,Null方式扫描      </p>
-<p>7.Sniffer嗅探使用<br>捕获局域网之间的信息传输。<br>例如捕获FTP包和HTTP包。<br>Matrix — Capture— Decode.</p>
-<p>8.Linux路由信息探测<br>info traceroute查看路由信息<br>mii-tool查看当前网络<br>ifconfig eth0 ip netmask 子网掩码 up<br>route add default gw 网关<br>ifconfig查看配置信息<br>traceroute 域名</p>
-<p>9.域名信息探测<br>nslookup； 查询DNS记录；查看域名解析是否正常；<br>set type=any 所有类型记录；</p>
+<h1 id="7-Sniffer嗅探使用"><a href="#7-Sniffer嗅探使用" class="headerlink" title="7.Sniffer嗅探使用"></a>7.Sniffer嗅探使用</h1><p>捕获局域网之间的信息传输。<br>例如捕获FTP包和HTTP包。<br>Matrix — Capture— Decode.</p>
+<h1 id="8-Linux路由信息探测"><a href="#8-Linux路由信息探测" class="headerlink" title="8.Linux路由信息探测"></a>8.Linux路由信息探测</h1><p>info traceroute查看路由信息<br>mii-tool查看当前网络<br>ifconfig eth0 ip netmask 子网掩码 up<br>route add default gw 网关<br>ifconfig查看配置信息<br>traceroute 域名</p>
+<h1 id="9-域名信息探测"><a href="#9-域名信息探测" class="headerlink" title="9.域名信息探测"></a>9.域名信息探测</h1><p>nslookup； 查询DNS记录；查看域名解析是否正常；<br>set type=any 所有类型记录；</p>
 <p>10.路由信息探测</p>
-<p>11.主机信息探测实验<br>X-scan<br>MBSA</p>
+<h1 id="11-主机信息探测实验"><a href="#11-主机信息探测实验" class="headerlink" title="11.主机信息探测实验"></a>11.主机信息探测实验</h1><p>X-scan<br>MBSA</p>
 <p>12.交换式网络嗅探<br>集线器共享式网络<br>交换机交换式网络</p>
-<p>13.操作系统指纹探测<br>ping TTL=128Windows TTL=235左右 Unix家族</p>
-<p>14.<br>EIP 指令指针<br>EBP 栈底指针<br>ESP 栈顶指针</p>
-<p>15.scanport<br>扫描端口</p>
-<p>16.Stinger病毒查杀</p>
-<p>17.Jsky扫描网站漏洞</p>
-<p>18.IISwrite漏洞利用<br>WebDAV扩展的HTTP请求实现的文件存储服务，用类似HTTP请求方式上传下载同步文件。应用程序可对Web Server直接读写。</p>
+<h1 id="13-操作系统指纹探测"><a href="#13-操作系统指纹探测" class="headerlink" title="13.操作系统指纹探测"></a>13.操作系统指纹探测</h1><p>ping TTL=128Windows TTL=235左右 Unix家族</p>
+<h1 id="14"><a href="#14" class="headerlink" title="14."></a>14.</h1><p>EIP 指令指针<br>EBP 栈底指针<br>ESP 栈顶指针</p>
+<h1 id="15-scanport"><a href="#15-scanport" class="headerlink" title="15.scanport"></a>15.scanport</h1><p>扫描端口</p>
+<h1 id="16-Stinger病毒查杀"><a href="#16-Stinger病毒查杀" class="headerlink" title="16.Stinger病毒查杀"></a>16.Stinger病毒查杀</h1><h1 id="17-Jsky扫描网站漏洞"><a href="#17-Jsky扫描网站漏洞" class="headerlink" title="17.Jsky扫描网站漏洞"></a>17.Jsky扫描网站漏洞</h1><h1 id="18-IISwrite漏洞利用"><a href="#18-IISwrite漏洞利用" class="headerlink" title="18.IISwrite漏洞利用"></a>18.IISwrite漏洞利用</h1><p>WebDAV扩展的HTTP请求实现的文件存储服务，用类似HTTP请求方式上传下载同步文件。应用程序可对Web Server直接读写。</p>
 <p>IIS scanner可利用漏洞上传文件留后门</p>
-<p>19.APPSCAN扫描WEB漏洞</p>
-<p>20.owasp zap扫描网站漏洞<br>可扫描端口，扫描漏洞，爬取站点。</p>
-<p>21.WebCruiser扫描网站漏洞</p>
-<p>22.WSCAN扫描网站后台<br>（啊D和名小子）</p>
-<p>23.路由信息探测<br>ping -r <a href="http://www.baidu.com记录中间路由（类型为8数据报，每转发一次，IP地址写入一次，-1）" target="_blank" rel="noopener">www.baidu.com记录中间路由（类型为8数据报，每转发一次，IP地址写入一次，-1）</a><br>UDP协议路由探测：路由转发TTL-1，为0时ICMP超时确定路由<br>ICMP ECHO Request路由探测:发送端TTL+1，中转路由TTL-1</p>
-<p>24.安全漏洞探测<br>Fluxay漏洞扫描<br>Nessus漏洞扫描</p>
+<h1 id="19-APPSCAN扫描WEB漏洞"><a href="#19-APPSCAN扫描WEB漏洞" class="headerlink" title="19.APPSCAN扫描WEB漏洞"></a>19.APPSCAN扫描WEB漏洞</h1><h1 id="20-owasp-zap扫描网站漏洞"><a href="#20-owasp-zap扫描网站漏洞" class="headerlink" title="20.owasp zap扫描网站漏洞"></a>20.owasp zap扫描网站漏洞</h1><p>可扫描端口，扫描漏洞，爬取站点。</p>
+<h1 id="21-WebCruiser扫描网站漏洞"><a href="#21-WebCruiser扫描网站漏洞" class="headerlink" title="21.WebCruiser扫描网站漏洞"></a>21.WebCruiser扫描网站漏洞</h1><h1 id="22-WSCAN扫描网站后台"><a href="#22-WSCAN扫描网站后台" class="headerlink" title="22.WSCAN扫描网站后台"></a>22.WSCAN扫描网站后台</h1><p>（啊D和名小子）</p>
+<h1 id="23-路由信息探测"><a href="#23-路由信息探测" class="headerlink" title="23.路由信息探测"></a>23.路由信息探测</h1><p>ping -r <a href="http://www.baidu.com记录中间路由（类型为8数据报，每转发一次，IP地址写入一次，-1）" target="_blank" rel="noopener">www.baidu.com记录中间路由（类型为8数据报，每转发一次，IP地址写入一次，-1）</a><br>UDP协议路由探测：路由转发TTL-1，为0时ICMP超时确定路由<br>ICMP ECHO Request路由探测:发送端TTL+1，中转路由TTL-1</p>
+<h1 id="24-安全漏洞探测"><a href="#24-安全漏洞探测" class="headerlink" title="24.安全漏洞探测"></a>24.安全漏洞探测</h1><p>Fluxay漏洞扫描<br>Nessus漏洞扫描</p>
 <hr>
-<p>1.Linux系统密码破解<br>/etc/passwd文件 有UID信息，为0具有root权限<br>加密口令在 /etc/shadow文件 root权限<br>/etc/group,GID被映射到用户分组名称</p>
-<p>2.Linux密码修改<br>Centos<br>任意键进入grub引导–Centos(e编辑)–kernel(e)—输入single保存进入单用户—菜单按b进入—cat /etc/passwd查看账户信息—最后一个为常用登陆用户名。 passwd root修改密码—-useradd Jason;password Jason(新建用户)—-reboot</p>
-<p>3.Windows密码破解<br>NTLM算法</p>
+<h1 id="1-Linux系统密码破解"><a href="#1-Linux系统密码破解" class="headerlink" title="1.Linux系统密码破解"></a>1.Linux系统密码破解</h1><p>/etc/passwd文件 有UID信息，为0具有root权限<br>加密口令在 /etc/shadow文件 root权限<br>/etc/group,GID被映射到用户分组名称</p>
+<h1 id="2-Linux密码修改"><a href="#2-Linux密码修改" class="headerlink" title="2.Linux密码修改"></a>2.Linux密码修改</h1><p>Centos<br>任意键进入grub引导–Centos(e编辑)–kernel(e)—输入single保存进入单用户—菜单按b进入—cat /etc/passwd查看账户信息—最后一个为常用登陆用户名。 passwd root修改密码—-useradd Jason;password Jason(新建用户)—-reboot</p>
+<h1 id="3-Windows密码破解"><a href="#3-Windows密码破解" class="headerlink" title="3.Windows密码破解"></a>3.Windows密码破解</h1><p>NTLM算法</p>
 <p>LM算法</p>
 <p>Windows密码文件SAM文件存放c:\Windows\System32\config<br>无法复制破解，可嗅探Hash值，利用pwdump,SamInside工具进行爆破。包括暴力破解、字典攻击、彩虹表攻击，暴力破解。</p>
-<p>4.Md5破解<br>Md5Crack或在线破解</p>
-<p>5.压缩文件解密<br>AES算法</p>
+<h1 id="4-Md5破解"><a href="#4-Md5破解" class="headerlink" title="4.Md5破解"></a>4.Md5破解</h1><p>Md5Crack或在线破解</p>
+<h1 id="5-压缩文件解密"><a href="#5-压缩文件解密" class="headerlink" title="5.压缩文件解密"></a>5.压缩文件解密</h1><p>AES算法</p>
 <p>加密过程<br>（1）：先把源文件压缩，压成一段数据段。<br>（2）：再将压缩完的数据段加密。<br>加密流程<br>（1）获取密钥<br>（2）以Key和initVector来加密压缩数据：</p>
 <p>解密的过程是解密后的数据块进行解压缩，然后解成源文件，对该文件进行CRC校验，存在RAR文件中的源文件CRC校验码比较，相同则密码正确，不相同则密码错误。</p>
 <p>解密工具:ARPR</p>
-<p>6.OFFICE文件密码破解<br>hash函数（单向不可逆）<br>RC4流加密算法，对称体制加密。<br>加密过程：产生一个salt,口令+salt计算hash;</p>
+<h1 id="6-OFFICE文件密码破解"><a href="#6-OFFICE文件密码破解" class="headerlink" title="6.OFFICE文件密码破解"></a>6.OFFICE文件密码破解</h1><p>hash函数（单向不可逆）<br>RC4流加密算法，对称体制加密。<br>加密过程：产生一个salt,口令+salt计算hash;</p>
 <p>aoprsetup工具进行破解；<br>SingK可生成字典</p>
 
       
@@ -542,8 +538,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -626,6 +631,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-server-u"><span class="nav-number">1.</span> <span class="nav-text">1.server-u</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-主机存活性"><span class="nav-number">2.</span> <span class="nav-text">2.主机存活性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-主机信息探测"><span class="nav-number">3.</span> <span class="nav-text">3.主机信息探测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-端口服务探测"><span class="nav-number">4.</span> <span class="nav-text">4.端口服务探测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Wireshark抓包实验"><span class="nav-number">5.</span> <span class="nav-text">5.Wireshark抓包实验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-端口扫描"><span class="nav-number">6.</span> <span class="nav-text">6.端口扫描</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-Sniffer嗅探使用"><span class="nav-number">7.</span> <span class="nav-text">7.Sniffer嗅探使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-Linux路由信息探测"><span class="nav-number">8.</span> <span class="nav-text">8.Linux路由信息探测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-域名信息探测"><span class="nav-number">9.</span> <span class="nav-text">9.域名信息探测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-主机信息探测实验"><span class="nav-number">10.</span> <span class="nav-text">11.主机信息探测实验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-操作系统指纹探测"><span class="nav-number">11.</span> <span class="nav-text">13.操作系统指纹探测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14"><span class="nav-number">12.</span> <span class="nav-text">14.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15-scanport"><span class="nav-number">13.</span> <span class="nav-text">15.scanport</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#16-Stinger病毒查杀"><span class="nav-number">14.</span> <span class="nav-text">16.Stinger病毒查杀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#17-Jsky扫描网站漏洞"><span class="nav-number">15.</span> <span class="nav-text">17.Jsky扫描网站漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#18-IISwrite漏洞利用"><span class="nav-number">16.</span> <span class="nav-text">18.IISwrite漏洞利用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19-APPSCAN扫描WEB漏洞"><span class="nav-number">17.</span> <span class="nav-text">19.APPSCAN扫描WEB漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-owasp-zap扫描网站漏洞"><span class="nav-number">18.</span> <span class="nav-text">20.owasp zap扫描网站漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-WebCruiser扫描网站漏洞"><span class="nav-number">19.</span> <span class="nav-text">21.WebCruiser扫描网站漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#22-WSCAN扫描网站后台"><span class="nav-number">20.</span> <span class="nav-text">22.WSCAN扫描网站后台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#23-路由信息探测"><span class="nav-number">21.</span> <span class="nav-text">23.路由信息探测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#24-安全漏洞探测"><span class="nav-number">22.</span> <span class="nav-text">24.安全漏洞探测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Linux系统密码破解"><span class="nav-number">23.</span> <span class="nav-text">1.Linux系统密码破解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Linux密码修改"><span class="nav-number">24.</span> <span class="nav-text">2.Linux密码修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Windows密码破解"><span class="nav-number">25.</span> <span class="nav-text">3.Windows密码破解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Md5破解"><span class="nav-number">26.</span> <span class="nav-text">4.Md5破解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-压缩文件解密"><span class="nav-number">27.</span> <span class="nav-text">5.压缩文件解密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-OFFICE文件密码破解"><span class="nav-number">28.</span> <span class="nav-text">6.OFFICE文件密码破解</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
