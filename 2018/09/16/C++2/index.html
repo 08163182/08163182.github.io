@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Jason&#39;s sky">
 <meta property="og:description" content="类模板与模板类类模板：用户为类定义模式，参数取任意类型。（类型不确定）模板类：类模板实例化产物 指针char str[] 一个字符数组,例如‘a’,’b’char str[] 一个数组，类型是charchar* 指向字符串，是一个字符串数组，可以是”abc””123” swap函数void swap(int *x, int *y) { int temp=*x; *x=*y; *y=temp; }">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-30T04:59:45.604Z">
+<meta property="og:updated_time" content="2018-10-18T15:52:50.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++学习">
 <meta name="twitter:description" content="类模板与模板类类模板：用户为类定义模式，参数取任意类型。（类型不确定）模板类：类模板实例化产物 指针char str[] 一个字符数组,例如‘a’,’b’char str[] 一个数组，类型是charchar* 指向字符串，是一个字符串数组，可以是”abc””123” swap函数void swap(int *x, int *y) { int temp=*x; *x=*y; *y=temp; }">
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  168
+                  555
                 </span>
               
 
@@ -350,7 +350,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -391,6 +391,40 @@ int temp=*x;
 <p>cout&lt;&lt;fixed&lt;&lt;setprecision()&lt;&lt;ans&lt;&lt;endl;</p>
 <p>round()四舍五入函数。</p>
 <p>#define PI 定义宏，简单的文本替换。</p>
+<p><code>getchar()   //接受一個字符，需包含“#include&lt;string&gt;”
+ch=getchar();</code></p>
+<p><code>gets()        // 接受一個字符串，可以接收空格并輸出，需包含“#include&lt;string&gt;”
+gets(m);</code></p>
+<p>getline()     // 接受一個字符串，可以接收空格并输出<br>getline(cin,str);</p>
+<p>cin.getline()   // 接受一個字符串，可以接收空格并输出<br>cin.getline(m,5);   </p>
+<p> cin.get(字符变量名)可以用来接收字符        </p>
+<h1 id="sort函数"><a href="#sort函数" class="headerlink" title="sort函数"></a>sort函数</h1><p>（数组起始地址，数组结束地址，排序方法默认从小到大）</p>
+<h1 id="结构体学习"><a href="#结构体学习" class="headerlink" title="结构体学习"></a>结构体学习</h1><p>在声明类型的同时定义变量</p>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+int main(){
+    struct Student{      //声明一个结构体类型Student 
+        int num;         //声明一个整形变量num 
+        char name[20];   //声明一个字符型数组name 
+        char sex;        //声明一个字符型变量sex 
+        int age;         //声明一个整形变量age 
+        float score;     //声明一个单精度型变量 
+        char addr[30];   //声明一个字符型数组addr 
+   }student1,student2;//声明变量student1和student2
+   cout&lt;&lt;sizeof(Student)&lt;&lt;endl;
+   cout&lt;&lt;sizeof(student1)&lt;&lt;endl;
+   cout&lt;&lt;sizeof(student2)&lt;&lt;endl;     
+   return 0;
+}
+</code></pre><p>创建动态struct数组<br>Student * array=new Student[n];</p>
+<ul>
+<li><code>struct struct name * struct_array=new struct_name[struct_array_len]</code></li>
+<li>输入struct数组元素值<br><code>scanf(&quot;%d&quot;,&amp;struct_array[i].struct_member)</code></li>
+<li>排序<br><code>sort(struct_array,struct_array+struct_array_len,compare)</code></li>
+<li>释放<br><code>delete []struct_array</code></li>
+</ul>
+<h1 id="读取大数据"><a href="#读取大数据" class="headerlink" title="读取大数据"></a>读取大数据</h1><p>std::ios::sync_with_stdio(false)可取消cin和stdcin同步；节省开销<br>可以将cin和scanf的效率相匹敌；</p>
+<h1 id="memset"><a href="#memset" class="headerlink" title="memset"></a>memset</h1><p>void <em>memset(void </em>s, int ch, size_t n);<br>将s所指向的某一块内存中的前n个字节的内容全部设置为ch指定的ASCII值。这个函数通常为新申请的内存做初始化工作。其返回值为s。</p>
 
       
     </div>
@@ -537,7 +571,7 @@ int temp=*x;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -611,7 +645,7 @@ int temp=*x;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类模板与模板类"><span class="nav-number">1.</span> <span class="nav-text">类模板与模板类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指针"><span class="nav-number">2.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swap函数"><span class="nav-number">3.</span> <span class="nav-text">swap函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#double不以科学技术输出"><span class="nav-number">4.</span> <span class="nav-text">double不以科学技术输出</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类模板与模板类"><span class="nav-number">1.</span> <span class="nav-text">类模板与模板类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指针"><span class="nav-number">2.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swap函数"><span class="nav-number">3.</span> <span class="nav-text">swap函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#double不以科学技术输出"><span class="nav-number">4.</span> <span class="nav-text">double不以科学技术输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sort函数"><span class="nav-number">5.</span> <span class="nav-text">sort函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构体学习"><span class="nav-number">6.</span> <span class="nav-text">结构体学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读取大数据"><span class="nav-number">7.</span> <span class="nav-text">读取大数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#memset"><span class="nav-number">8.</span> <span class="nav-text">memset</span></a></li></ol></div>
             
 
           </div>

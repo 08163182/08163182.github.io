@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="将python3中的python.exe改为python3.exe命令行启动python2/3: python python3 pip2和pip3管理问题：  python2 -m pip install --upgrade pip python3 -m pip install --upgrade pip 查看pip版本： pip2 -v pip3 -v python2/3安装第三方模块： pip">
+<meta name="description" content="调用py -2调用python2py -2 hello.py py -3调用python3py -2 hello.py 不用参数文件开头加 #! python2 或者#! python3 pip包使用py -2 -m pip install XXXXpy -3 -m pip install XXXX 查看版本py -2 -m pip -Vpy -3 -m pip -V">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python2和python3共存问题">
 <meta property="og:url" content="http://yoursite.com/2018/05/11/python2与python3/index.html">
 <meta property="og:site_name" content="Jason&#39;s sky">
-<meta property="og:description" content="将python3中的python.exe改为python3.exe命令行启动python2/3: python python3 pip2和pip3管理问题：  python2 -m pip install --upgrade pip python3 -m pip install --upgrade pip 查看pip版本： pip2 -v pip3 -v python2/3安装第三方模块： pip">
+<meta property="og:description" content="调用py -2调用python2py -2 hello.py py -3调用python3py -2 hello.py 不用参数文件开头加 #! python2 或者#! python3 pip包使用py -2 -m pip install XXXXpy -3 -m pip install XXXX 查看版本py -2 -m pip -Vpy -3 -m pip -V">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T07:30:44.721Z">
+<meta property="og:updated_time" content="2018-11-08T09:10:50.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python2和python3共存问题">
-<meta name="twitter:description" content="将python3中的python.exe改为python3.exe命令行启动python2/3: python python3 pip2和pip3管理问题：  python2 -m pip install --upgrade pip python3 -m pip install --upgrade pip 查看pip版本： pip2 -v pip3 -v python2/3安装第三方模块： pip">
+<meta name="twitter:description" content="调用py -2调用python2py -2 hello.py py -3调用python3py -2 hello.py 不用参数文件开头加 #! python2 或者#! python3 pip包使用py -2 -m pip install XXXXpy -3 -m pip install XXXX 查看版本py -2 -m pip -Vpy -3 -m pip -V">
 
 
 
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  59
+                  61
                 </span>
               
 
@@ -371,19 +371,14 @@
       
 
       
-        <p>将python3中的python.exe改为python3.exe<br>命令行启动python2/3:</p>
-<pre><code>python
-python3
-</code></pre><p>pip2和pip3管理问题：</p>
-<pre><code> python2 -m pip install --upgrade pip
-python3 -m pip install --upgrade pip
-</code></pre><p>查看pip版本：</p>
-<pre><code>pip2 -v
-pip3 -v
-</code></pre><p>python2/3安装第三方模块：</p>
-<pre><code>pip2 install xxx
-pip3 install xxx
-</code></pre>
+        <h1 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h1><p>py -2调用python2<br><code>py -2 hello.py</code></p>
+<p>py -3调用python3<br><code>py -2 hello.py</code></p>
+<h1 id="不用参数"><a href="#不用参数" class="headerlink" title="不用参数"></a>不用参数</h1><p>文件开头加</p>
+<p><code>#! python2</code></p>
+<p>或者<br><code>#! python3</code></p>
+<h1 id="pip包使用"><a href="#pip包使用" class="headerlink" title="pip包使用"></a>pip包使用</h1><p>py -2 -m pip install XXXX<br>py -3 -m pip install XXXX</p>
+<h1 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h1><p><code>py -2 -m pip -V</code><br><code>py -3 -m pip -V</code></p>
+
       
     </div>
     
@@ -500,8 +495,17 @@ pip3 install xxx
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -520,7 +524,7 @@ pip3 install xxx
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -584,6 +588,22 @@ pip3 install xxx
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#调用"><span class="nav-number">1.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不用参数"><span class="nav-number">2.</span> <span class="nav-text">不用参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pip包使用"><span class="nav-number">3.</span> <span class="nav-text">pip包使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看版本"><span class="nav-number">4.</span> <span class="nav-text">查看版本</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
