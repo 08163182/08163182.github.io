@@ -87,7 +87,7 @@
 <meta property="og:description" content="php与mysqlApache24\htdocs\phpMyAdmin\libraries\config.default.php 设置     $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;password&amp;#39;] = &amp;#39;sqlpassword&amp;#39;           localhost/phpMyAdmin/index.php 进入php数据库管理">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/rfF48EG.png">
-<meta property="og:updated_time" content="2018-09-22T10:26:58.661Z">
+<meta property="og:updated_time" content="2018-11-08T13:38:44.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql注入">
 <meta name="twitter:description" content="php与mysqlApache24\htdocs\phpMyAdmin\libraries\config.default.php 设置     $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;password&amp;#39;] = &amp;#39;sqlpassword&amp;#39;           localhost/phpMyAdmin/index.php 进入php数据库管理">
@@ -432,8 +432,17 @@ var_dump(sha1(&#39;aaO8zKZF&#39;) == sha1(&#39;aa3OFF9m&#39;));
 <h2 id="Refer作用"><a href="#Refer作用" class="headerlink" title="Refer作用"></a>Refer作用</h2><p>HTTP请求header一部分，表示一个网址或链接访问的来源。</p>
 <h1 id="备份文件是个好习惯"><a href="#备份文件是个好习惯" class="headerlink" title="备份文件是个好习惯"></a>备份文件是个好习惯</h1><p>备份文件后缀加  <em>.swp,</em>.bak<br>120.24.86.145:8002/web16/index.php默认访问index.php,打开index.php.bak</p>
 <h1 id="秋名山老司机"><a href="#秋名山老司机" class="headerlink" title="秋名山老司机"></a>秋名山老司机</h1><p>每次刷新会更换值，必须在2s以内完成</p>
-<p>跑脚本<br>    import requests<br>    import re<br>    url = ‘<a href="http://120.24.86.145:8002/qiumingshan/&#39;" target="_blank" rel="noopener">http://120.24.86.145:8002/qiumingshan/&#39;</a><br>    s = requests.Session()<br>    source = s.get(url)<br>    expression = re.search(r’(\d+[+-*])+(\d+)’, source.text).group()<br>    result = eval(expression)<br>    post = {‘value’: result}<br>    print(s.post(url, data = post).text)</p>
-<p>绘画对下个请求，引入正则匹配search，group()返回表达式字符串,<br>用Python内建方法eval()计算结果,打印post后的值得到flag</p>
+<p>跑脚本</p>
+<pre><code>import requests
+import re
+url = &#39;http://120.24.86.145:8002/qiumingshan/&#39;
+s = requests.Session()
+source = s.get(url)
+expression = re.search(r&#39;(\d+[+\-*])+(\d+)&#39;, source.text).group()
+result = eval(expression)
+post = {&#39;value&#39;: result}
+print(s.post(url, data = post).text)
+</code></pre><p>绘画对下个请求，引入正则匹配search，group()返回表达式字符串,<br>用Python内建方法eval()计算结果,打印post后的值得到flag</p>
 <h1 id="xss"><a href="#xss" class="headerlink" title="xss"></a>xss</h1><p>弹窗id=<srcipt>altert(123)<br>xml标记<br>&lt; &lt;<br>&gt; &lt;<br>&amp; &amp;<br>&apos; ‘   </srcipt></p>
 <p>Unicode编码构造绕过<br>u003c和u003e代替&lt;&gt;   </p>
 <pre><code>?id=\u003cimg src=1 onerror=alert(_key_)\u003e
