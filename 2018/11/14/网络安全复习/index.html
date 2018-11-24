@@ -90,11 +90,12 @@
 <meta property="og:image" content="https://i.imgur.com/c2bvuEQ.png">
 <meta property="og:image" content="https://i.imgur.com/yHdzyKa.png">
 <meta property="og:image" content="https://i.imgur.com/22ig6XD.png">
+<meta property="og:image" content="https://i.imgur.com/padWTTf.png">
 <meta property="og:image" content="https://i.imgur.com/C8f4S3m.png">
 <meta property="og:image" content="https://i.imgur.com/dJouaKB.png">
 <meta property="og:image" content="https://i.imgur.com/G8bPgEX.png">
 <meta property="og:image" content="https://i.imgur.com/ZdSOJCX.png">
-<meta property="og:updated_time" content="2018-11-24T08:00:01.985Z">
+<meta property="og:updated_time" content="2018-11-24T13:08:47.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络安全复习">
 <meta name="twitter:description" content="概论安全主要威胁 特洛伊木马 黑客攻击 内部、外部泄密 计算机病毒 信息丢失、篡改、销毁 内部、外部泄密 蠕虫 拒绝服务攻击 逻辑炸弹 后门、隐蔽通道  CIA三元组 机密性 完整性 可用性  网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击 攻击方式:主动、被动攻击 OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；   8种安全机制：访问控制、公证、路由控制、">
@@ -343,7 +344,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,245
+                  4,320
                 </span>
               
 
@@ -359,7 +360,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  16
+                  17
                 </span>
               
             </div>
@@ -593,7 +594,41 @@ call 函数地址(保存返回地址；跳转到调用函数入口)
 push ebp;
 move ebp,esp
 sub esp,xxx 分配XXX字节栈区空间
-</code></pre><h2 id="缓冲区溢出攻击的基本类型："><a href="#缓冲区溢出攻击的基本类型：" class="headerlink" title="缓冲区溢出攻击的基本类型："></a>缓冲区溢出攻击的基本类型：</h2><ul>
+</code></pre><p>overflow基于下图去理解<br>代码如下：</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define PASSWORD &quot;1234567&quot;
+
+int verify_password(char *password)
+{
+int authenticated;
+char buffer[8];
+authenticated=strcmp(password,PASSWORD);
+strcpy(buffer,password);
+return authenticated;    
+}
+
+main()
+{
+int valid_flag=0;
+char password[1024];
+while(1)
+{
+    printf(&quot;please input password:      &quot;);
+    scanf(&quot;%s&quot;,password);
+    valid_flag=verify_password(password);
+    if(valid_flag)
+    {
+        printf(&quot;incorrect password!\n\n&quot;);
+    }else
+    {
+        printf(&quot;Congratulation! You have passed the verification!\n&quot;);
+        break;
+    }
+}
+}
+</code></pre><p><img src="https://i.imgur.com/padWTTf.png" alt=""></p>
+<h2 id="缓冲区溢出攻击的基本类型："><a href="#缓冲区溢出攻击的基本类型：" class="headerlink" title="缓冲区溢出攻击的基本类型："></a>缓冲区溢出攻击的基本类型：</h2><ul>
 <li>栈溢出</li>
 <li>堆溢出</li>
 <li>BSS溢出</li>
