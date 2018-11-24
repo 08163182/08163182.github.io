@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://i.imgur.com/dJouaKB.png">
 <meta property="og:image" content="https://i.imgur.com/G8bPgEX.png">
 <meta property="og:image" content="https://i.imgur.com/ZdSOJCX.png">
-<meta property="og:updated_time" content="2018-11-24T07:54:39.931Z">
+<meta property="og:updated_time" content="2018-11-24T08:00:01.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络安全复习">
 <meta name="twitter:description" content="概论安全主要威胁 特洛伊木马 黑客攻击 内部、外部泄密 计算机病毒 信息丢失、篡改、销毁 内部、外部泄密 蠕虫 拒绝服务攻击 逻辑炸弹 后门、隐蔽通道  CIA三元组 机密性 完整性 可用性  网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击 攻击方式:主动、被动攻击 OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；   8种安全机制：访问控制、公证、路由控制、">
@@ -343,7 +343,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,244
+                  4,245
                 </span>
               
 
@@ -679,26 +679,31 @@ HTTP Get 泛洪
 <p>firece dns cumt.edu.cn   //dns扫描</p>
 <p>host 163.com  //  ip-主机名</p>
 <p>tracert 163.com    //路由追踪</p>
-<h2 id="主机扫描"><a href="#主机扫描" class="headerlink" title="主机扫描"></a>主机扫描</h2><p>nmap -sP 目标阻断ICMP包可换 TCP进行ping  nmap -PT 80</p>
-<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><p>主动连接目标系统的TCP和UDP端口以确定哪些服务正在运行或处于LISTENING（监听）状态。</p>
-<ul>
-<li>(TCP Connect()扫描;nmap -sT）</li>
-<li>TCP SYN扫描(半开扫描;nmap -sS)：向目标端口送<br>SYN数据包</li>
-<li>TCP FIN扫描(秘密扫描;nmap -sF): 向目标端口发送<br>FIN数据包(-xX -sN)</li>
-<li>TCP ACK扫描(nmap -sA),测试防火墙的规则集, 不能用来确定端口是否开放或者关闭</li>
-<li>TCP窗口扫描(nmap -sW): 测试特定目标系统（如AIX和<br>FreeBSD系统）上的端口是否开放、被过滤</li>
-<li>TCP Maimon扫描(nmap -sM) ：探测报文改为FIN/ACK外，<br>其原理与TCP FIN扫描一样；无论端口是否开放，都应响<br>应RST报文</li>
-<li>UDP扫描(nmap -sU) ：向目标端口发出UDP数据包</li>
-<li>激进扫描 ： nmap –A 控制时间：nmap –T(0-5) </li>
-</ul>
-<h2 id="旗标抓取-1"><a href="#旗标抓取-1" class="headerlink" title="旗标抓取"></a>旗标抓取</h2><p>telnet <a href="http://www.cumt.edu.cn" target="_blank" rel="noopener">www.cumt.edu.cn</a> 80<br>nc -v 163.com 80</p>
-<h3 id="密码修改"><a href="#密码修改" class="headerlink" title="密码修改"></a>密码修改</h3><p>su su -<br>passwd</p>
-<h3 id="修改文件权限："><a href="#修改文件权限：" class="headerlink" title="修改文件权限："></a>修改文件权限：</h3><p>chmod 777 file/chmod a=rwx file<br>chmod ug=rwx,o=x file/chmod 771 file  </p>
-<p>若要rwx属性则4+2+1=7；<br>若要rw-属性则4+2=6；<br>若要r-x属性则4+1=5。</p>
-<h3 id="修改用户账户"><a href="#修改用户账户" class="headerlink" title="修改用户账户"></a>修改用户账户</h3><p>usermod [-LU][-c &lt;备注&gt;][-d &lt;登入目录&gt;][-e &lt;有效期限&gt;][-f &lt;缓冲天数&gt;][-g &lt;群组&gt;][-G &lt;群组&gt;][-l &lt;帐号名称&gt;][-s <shell>][-u <uid>][用户帐号]</uid></shell></p>
-<p>更改登录目录<br>usermod -d /home/hnlinux root<br>改变用户的uid<br>usermod -u 777 root</p>
-<h1 id="欺骗"><a href="#欺骗" class="headerlink" title="欺骗"></a>欺骗</h1><p>arp -a //缓存表<br>arp -s 192.168.1.254 00-0f-7a-02-00-4b //设置静态</p>
-
+<h2 id="主机扫描"><a href="#主机扫描" class="headerlink" title="主机扫描"></a>主机扫描</h2><pre><code>nmap -sP 目标阻断ICMP包可换 TCP进行ping  nmap -PT 80
+</code></pre><h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><p>主动连接目标系统的TCP和UDP端口以确定哪些服务正在运行或处于LISTENING（监听）状态。</p>
+<pre><code>- TCP Connect()扫描;nmap -sT
+- TCP SYN扫描(半开扫描;nmap -sS)：向目标端口送SYN数据包 
+- TCP FIN扫描(秘密扫描;nmap -sF): 向目标端口发送FIN数据包(-xX -sN)
+- TCP ACK扫描(nmap -sA),测试防火墙的规则集, 不能用来确定端口是否开放或者关闭
+- TCP窗口扫描(nmap -sW): 测试特定目标系统（如AIX和FreeBSD系统）上的端口是否开放、被过滤
+- TCP Maimon扫描(nmap -sM) ：探测报文改为FIN/ACK外，其原理与TCP FIN扫描一样；无论端口是否开放，都应响应RST报文
+-  UDP扫描(nmap -sU) ：向目标端口发出UDP数据包
+-  激进扫描 ： nmap –A 控制时间：nmap –T(0-5) 
+</code></pre><h2 id="旗标抓取-1"><a href="#旗标抓取-1" class="headerlink" title="旗标抓取"></a>旗标抓取</h2><pre><code>telnet www.cumt.edu.cn 80
+nc -v 163.com 80
+</code></pre><h3 id="密码修改"><a href="#密码修改" class="headerlink" title="密码修改"></a>密码修改</h3><pre><code>su su -
+passwd
+</code></pre><h3 id="修改文件权限："><a href="#修改文件权限：" class="headerlink" title="修改文件权限："></a>修改文件权限：</h3><pre><code>chmod 777 file/chmod a=rwx file  
+chmod ug=rwx,o=x file/chmod 771 file  
+</code></pre><p>若要rwx属性则4+2+1=7；<br>若要rw-属性则4+2=6；<br>若要r-x属性则4+1=5。</p>
+<h3 id="修改用户账户"><a href="#修改用户账户" class="headerlink" title="修改用户账户"></a>修改用户账户</h3><pre><code>usermod [-LU][-c &lt;备注&gt;][-d &lt;登入目录&gt;][-e &lt;有效期限&gt;][-f &lt;缓冲天数&gt;][-g &lt;群组&gt;][-G &lt;群组&gt;][-l &lt;帐号名称&gt;][-s &lt;shell&gt;][-u &lt;uid&gt;][用户帐号]
+</code></pre><p>更改登录目录</p>
+<pre><code>usermod -d /home/hnlinux root
+</code></pre><p>改变用户的uid</p>
+<pre><code>usermod -u 777 root
+</code></pre><h1 id="欺骗"><a href="#欺骗" class="headerlink" title="欺骗"></a>欺骗</h1><pre><code>arp -a //缓存表
+arp -s 192.168.1.254 00-0f-7a-02-00-4b //设置静态
+</code></pre>
       
     </div>
     
