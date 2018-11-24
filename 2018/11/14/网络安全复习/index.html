@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://i.imgur.com/dJouaKB.png">
 <meta property="og:image" content="https://i.imgur.com/G8bPgEX.png">
 <meta property="og:image" content="https://i.imgur.com/ZdSOJCX.png">
-<meta property="og:updated_time" content="2018-11-24T13:08:47.248Z">
+<meta property="og:updated_time" content="2018-11-24T13:15:56.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络安全复习">
 <meta name="twitter:description" content="概论安全主要威胁 特洛伊木马 黑客攻击 内部、外部泄密 计算机病毒 信息丢失、篡改、销毁 内部、外部泄密 蠕虫 拒绝服务攻击 逻辑炸弹 后门、隐蔽通道  CIA三元组 机密性 完整性 可用性  网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击 攻击方式:主动、被动攻击 OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；   8种安全机制：访问控制、公证、路由控制、">
@@ -344,7 +344,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,320
+                  4,429
                 </span>
               
 
@@ -627,7 +627,9 @@ while(1)
     }
 }
 }
-</code></pre><p><img src="https://i.imgur.com/padWTTf.png" alt=""></p>
+</code></pre><p><img src="https://i.imgur.com/padWTTf.png" alt=""><br>overflow1:小于7个字符时，authenticated值为-1，补码表示0xffffffff,输入字符超过7个字符，authenticated值最低位恰好被覆盖为0，通过验证。<br>程序会崩溃。</p>
+<p>overflow2:将返回地址覆盖成验证通过的0x00401122,password文本输入，UltraEdit编辑，倒着输入0x00401122,通过验证，程序崩溃。</p>
+<p>原因:<br><strong>EBP被覆盖为无效值，程序在退出时堆栈无法平衡，导致崩溃。</strong></p>
 <h2 id="缓冲区溢出攻击的基本类型："><a href="#缓冲区溢出攻击的基本类型：" class="headerlink" title="缓冲区溢出攻击的基本类型："></a>缓冲区溢出攻击的基本类型：</h2><ul>
 <li>栈溢出</li>
 <li>堆溢出</li>
