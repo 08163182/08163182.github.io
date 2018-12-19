@@ -404,7 +404,7 @@ height:50vh;
         <p>#Web客户端和服务器</p>
 <p>##urlparse<br>处理URL字符串：   </p>
 <pre><code>import urllib.parse
-print(urllib.parse.urlparse(&#39;http://www.python.org/doc/FAQ.html&#39;))
+print(urllib.parse.urlparse(&apos;http://www.python.org/doc/FAQ.html&apos;))
 </code></pre><p><code>ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.python.org&#39;, path=&#39;/doc/FAQ.html&#39;, params=&#39;&#39;, query=&#39;&#39;)</code><br>scheme: 下载方案<br>path:/分割文件或CGI应用路径<br>params:可选参数<br>query：连接符&amp;分割的键值对<br>frag：指定文档特定锚部门   </p>
 <p>net_loc字符串： user:passwd@host:port<br>host:远程Web服务器计算机名称或地址 port:端口号   </p>
 <p>##urljoin<br>    import urllib.parse<br>    urllib.parse.urljoin(‘<a href="http://www.python.org/doc/FAQ.html&#39;,&#39;current/lib/lib.htm&#39;" target="_blank" rel="noopener">http://www.python.org/doc/FAQ.html&#39;,&#39;current/lib/lib.htm&#39;</a>)<br>net_loc及其前面完整路径与newurl链接</p>
@@ -418,10 +418,10 @@ urllib.request.urlopen( )
 <p>HTTP验证脚本</p>
 <pre><code>import urllib.request, urllib.error, urllib.parse
 
-LOGIN =&#39;wesley&#39;
-PASSWD = &quot;you&#39;llNeverGuess&quot;
-URL = &#39;http://localhost&#39;
-REALM = &#39;Secure Archive&#39;
+LOGIN =&apos;wesley&apos;
+PASSWD = &quot;you&apos;llNeverGuess&quot;
+URL = &apos;http://localhost&apos;
+REALM = &apos;Secure Archive&apos;
 
 def handler_version(url):
        hdlr = urllib.request.HTTPBasicAuthHandler()
@@ -433,15 +433,15 @@ def handler_version(url):
 def request_version(url):
     from base64 import encodestring
     req = urllib.request.Request(url)
-    b64str= encodestring(bytes (&#39;%s : %s&#39; % (LOGIN, PASSWD), &#39;utf-8&#39;))[:-1]
+    b64str= encodestring(bytes (&apos;%s : %s&apos; % (LOGIN, PASSWD), &apos;utf-8&apos;))[:-1]
     req.add_header(&quot;Authorization&quot;, &quot;Basic %s&quot; % b64str)
     return req
 
-for funcType in(&#39;handler&#39;, &#39;request&#39;):
-    print(&#39;*** Using %s:&#39; % funcType.upper())
-    url = eval(&#39;%s_version&#39; % funcType)(URL)
+for funcType in(&apos;handler&apos;, &apos;request&apos;):
+    print(&apos;*** Using %s:&apos; % funcType.upper())
+    url = eval(&apos;%s_version&apos; % funcType)(URL)
     f = urllib.request.urlopen(url)
-    print(str(f.readline(), &#39;utf-8&#39;))
+    print(str(f.readline(), &apos;utf-8&apos;))
     f.close()
 </code></pre>
     </article>
@@ -1503,6 +1503,74 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 48
@@ -1516,12 +1584,12 @@ top:50vh;
     
     
     
-    <div class="archive-year"> Invalid date </div>
+    <div class="archive-year"> 2018 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/11/hexo优化/" >hexo+next优化</a>
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/ctf/" >php函数</a>
         </li>
     
     
@@ -1559,11 +1627,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/ctf/" >php函数</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/2018/09/30/实验吧/" >实验吧Writeup</a>
         </li>
     
@@ -1573,9 +1636,97 @@ top:50vh;
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/11/html基础/" >html入门</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
             <span class="archive-post-date">09/16</span><a class="archive-post-title" href= "/2018/09/16/C++2/" >C++学习</a>
         </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/11/13/南邮/" >南邮CTF</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/03/30/Git学习笔记/" >Git学习笔记</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href= "/2018/04/25/mysql学习/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/28/PHP语言漏洞/" >php弱类型漏洞记录</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -1633,73 +1784,13 @@ top:50vh;
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/09/27/实战/" >攻击实践</a>
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2018/05/09/php学习/" >php基础语法</a>
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/03/30/Git学习笔记/" >Git学习笔记</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Python笔记1/" >Python学习笔记1</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/20/Wireshark/" >Wireshark使用</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/18/工具集合/" >工具大全收集</a>
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/系统操作/" >双系统卸载Ubuntu</a>
         </li>
     
     
@@ -1727,21 +1818,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2018/05/09/php学习/" >php基础语法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/25</span><a class="archive-post-title" href= "/2018/04/25/mysql学习/" >[Untitled Post]</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/系统操作/" >双系统卸载Ubuntu</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/Javascript入门/" >Javascript入门</a>
         </li>
     
@@ -1753,188 +1829,6 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python笔记3/" >Python笔记3</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/06/24/微机原理实验代码/" >微机实验代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Web安全入门/" >Web安全入门</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/09/22/Net security/" >网络安全实验</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2017 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2017/02/02/Markdown学习/" >markdown语法学习</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/21/css入门/" >css入门</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/11/13/南邮/" >南邮CTF</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python笔记2/" >Python笔记2</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/28/PHP语言漏洞/" >php弱类型漏洞记录</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2018/03/01/读《百年孤独》有感/" >百年孤独有感</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/11/14/网络安全复习/" >网络安全复习</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/14/Python语法基础/" >Python语法基础</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/08/06/编码问题/" >编码问题</a>
         </li>
     
     
@@ -1962,7 +1856,59 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/11/html基础/" >html入门</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/14/Python语法基础/" >Python语法基础</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Web安全入门/" >Web安全入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python笔记2/" >Python笔记2</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/29/矿大网络实训平台md/" >bxs网络平台</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Python笔记1/" >Python学习笔记1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2018/03/01/读《百年孤独》有感/" >百年孤独有感</a>
         </li>
     
     
@@ -1985,12 +1931,152 @@ top:50vh;
     
         </ul>
     
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2017/02/02/Markdown学习/" >markdown语法学习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/29/矿大网络实训平台md/" >bxs网络平台</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/11/hexo优化/" >hexo+next优化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/06/24/微机原理实验代码/" >微机实验代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/09/22/Net security/" >网络安全实验</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/11/14/网络安全复习/" >网络安全复习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/20/Wireshark/" >Wireshark使用</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/08/06/编码问题/" >编码问题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/09/27/实战/" >攻击实践</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/21/css入门/" >css入门</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/18/工具集合/" >工具大全收集</a>
         </li>
     
     </div>
@@ -2010,9 +2096,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
-    
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
     
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
