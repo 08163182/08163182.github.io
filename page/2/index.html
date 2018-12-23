@@ -359,25 +359,42 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/30/实验吧/" >
+        <a class="abstract-title" href = "/2018/11/05/网络安全复习/" >
             
-                <span>实验吧Writeup</span>
+                <span>网络安全复习</span>
         </a>
         <div class="abstract-content">
-            sql注入MYSQL #后面内容会被注释version()获取数据库版本@@version_compile_os获取操作系统
-天网管理系统查看源码md5弱类型构造user:s878926199a md5加密为0构造serialize，bool类型为True根据构造代码：
-&lt;?php
-$test1=array(&quot;user&quot;=&gt;true,&quot;pass&quot;=&gt;true);
-echo var_dump($test1);
-echo var_dump(serialize($test1));
-?&gt;
-pass修改拿flag
-忘记密码了key: ...
+            概论安全主要威胁
+特洛伊木马
+黑客攻击
+内部、外部泄密
+计算机病毒
+信息丢失、篡改、销毁
+内部、外部泄密
+蠕虫
+拒绝服务攻击
+逻辑炸弹
+后门、隐蔽通道
+
+CIA三元组
+机密性
+完整性
+可用性
+
+网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击
+攻击方式:
+主动:伪装、回答、修改报文、拒绝服务。
+被动攻击:报文内容泄露、通信分析。
+
+OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；  
+8种安全机制：访问控制、公证、路由控制、流量填充、身份认证交换、数字签名、信息完整性、加密   
+
+第一章 攻击流程和渗透测试黑客攻击流程踩点：确定目标地址范围、查询名字...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/30</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/05</span>
             </div>
             <!-- tags  -->
             
@@ -390,34 +407,7 @@ pass修改拿flag
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/27/实战/" >
-            
-                <span>攻击实践</span>
-        </a>
-        <div class="abstract-content">
-            ARP中间人攻击
-一面伪造网关，一面伪造源主机    
-Kali:ifconfig查看IP地址nmap -sP ip/24查看局域网网络echo 1 &gt;/proc/sys/net/ipv4/ip_forward 开启IP转发，不开启会断网arpspoof -i eth0 ip hostettercap -Tq -i eth0 监控流量driftnet -i eth0 捕获页面        
-ettercap -G 工具图形界面。            
-2.常用端口TCP:20:FTP数据21:FTP控制 文件传输22:SSH25:SMTP80:WWW(HTTP)110:POP4...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/27</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/25/墨者/" >
+        <a class="abstract-title" href = "/2018/10/29/墨者/" >
             
                 <span>墨者学院</span>
         </a>
@@ -434,7 +424,7 @@ Web文件上传漏洞
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/25</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/29</span>
             </div>
             <!-- tags  -->
             
@@ -447,22 +437,26 @@ Web文件上传漏洞
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/22/Net security/" >
+        <a class="abstract-title" href = "/2018/10/28/PHP语言漏洞/" >
             
-                <span>网络安全实验</span>
+                <span>php弱类型漏洞记录</span>
         </a>
         <div class="abstract-content">
-            Linux 快捷键：终端:复制命令：Ctrl + Shift + C  组合键    .    
-粘贴命令：Ctrl + Shift + V  组合键           
-控制台：复制命令：Ctrl + Insert  组合键　　或　　用鼠标选中即是复制。         
-粘贴命令：Shift + Insert  组合键　　或　　单击鼠标滚轮即为粘贴。                 
-server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 匿名登陆ls 查看目录，get ../ftp/1.txt获取1.txt文件   
-503 服务器出错...
+            类型判断
+is_set()是否初始化       
+empty()检测变量是否为空（0/false/array()/）               
+$a==null判断是否为null(必须初始化)      
+is_null()仅变量为null返回true。
+$a===null 仅为null返回true
+注意区分NULL和空            
+
+strpos()查找字符串在另一字符串出现的位置。
+
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/28</span>
             </div>
             <!-- tags  -->
             
@@ -475,96 +469,171 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/16/C++2/" >
+        <a class="abstract-title" href = "/2018/10/20/计网复习/" >
             
-                <span>C++学习</span>
+                <span>计算机网络复习</span>
         </a>
         <div class="abstract-content">
-            类模板与模板类类模板：用户为类定义模式，参数取任意类型。（类型不确定）模板类：类模板实例化产物
-指针char str[] 一个字符数组,例如‘a’,’b’char str[] 一个数组，类型是charchar* 指向字符串，是一个字符串数组，可以是”abc””123”
-swap函数void swap(int *x, int *y)
-{
-int temp=*x;
-*x=*y;
-*y=temp;
-}
-或者
-void swap(int&amp; a, int&amp; b)
-{
-    int swap = a;
-    a = b;
-    b = swap;
-}
-应该交换地址而非传递形参的...
+            重点勾勒电路交换，报文交换，分组交换特点计网性能指标协议三要素OSI，ＴＣＰ／ＩＰ，五层协议　分层比较与记忆常用编码方式和基本的带通调制方式信道复用技术：频分时分码分波分数据链路层三个基本问题：封装成帧，透明传输，差错检验差错检验：循环冗余校验集线器，交换机和网桥工作原理和特点比较使用以太网交换机进行 VLAN 的扩充3.07 3.30 3.314.20 4.21 4.26 4.27 4.30 4.37 4.42 4.435.09 5.23 5.31 5.34 
+5/.47DNS FTP/TFTP比较 URL，HTML    
+第一部分1.2.3章选择10，论述2，计算2第二部分1.6章...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/16</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/20</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/18/工具集合/" >
+            
+                <span>工具大全收集</span>
+        </a>
+        <div class="abstract-content">
+            首先是渗透流程
+
+综合扫描
+
+目录检测
+
+注入检测
+
+旁注与c段
+
+抓包改包
+
+webshell
+
+提权工具
+
+arp嗅探
+
+社会工程
+
+破解工具
+
+字典相关
+
+痕迹清理
+
+漏洞利用
+
+后门程序
+
+其他工具
+
+渗透学习
+
+
+工具细节：
+1.综合检测
+appscan、burp、JSky、safe3wvs、苹果FTP批量扫描工具、WebCruiser、WebSploit Toolkit V.1.9、wvs、x站神器3.7、x站神器3.7、cv6、百度新闻源挖掘机
+2.目录检测
+chrome后台扫描插件、Pker多线程后台极速扫描工具、WebRobot、WebScan、Wordpress爆路径...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/07/南邮/" >
+            
+                <span>南邮CTF</span>
+        </a>
+        <div class="abstract-content">
+            签到查看源码nctf{flag_admiaanaaaaaaaaaaa}
+md5弱类型比较==和=====先转化为一致的类型比较。===比较类型在比较字符串构造md5(‘240610708’)=md5(‘QNKCDZO’)payload：http://chinalover.sinaapp.com/web19?a=240610708
+cookieburp抓包，修改login=1;
+单身20年查看源码发现search_key.php，Burp抓包拿flag
+你从哪里来常用伪造方法：1234Client-Ip: 127.0.0.1X-Forwarded-For: 127.0.0.1Host: 1...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/07/实战/" >
+            
+                <span>攻击实践</span>
+        </a>
+        <div class="abstract-content">
+            ARP中间人攻击
+一面伪造网关，一面伪造源主机    
+Kali:ifconfig查看IP地址nmap -sP ip/24查看局域网网络echo 1 &gt;/proc/sys/net/ipv4/ip_forward 开启IP转发，不开启会断网arpspoof -i eth0 ip hostettercap -Tq -i eth0 监控流量driftnet -i eth0 捕获页面        
+ettercap -G 工具图形界面。            
+2.常用端口TCP:20:FTP数据21:FTP控制 文件传输22:SSH25:SMTP80:WWW(HTTP)110:POP4...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/01/mysql学习/" >
+            
+                <span>mysql踩过的坑</span>
+        </a>
+        <div class="abstract-content">
+            踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：    
+update mysql.user
+set authentication_string=password(&apos;wjx666&apos;)    
+  where user=&apos;root&apos; and Host =
+&apos;localhost&apos;;
+flush pr...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/01</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "program">program</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "GEEK">GEEK</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/12/Kali/" >
-            
-                <span>Kali踩坑</span>
-        </a>
-        <div class="abstract-content">
-            open vm toolsvi /etc/apt/sources.list
-更新源中科大kali源:
-deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib 
-deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib 
-deb http://mirrors.ustc.edu.cn/kali-security kali-current/updates main contrib non-free 
-deb-src h...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/12/算法/" >
-            
-                <span>算法学习</span>
-        </a>
-        <div class="abstract-content">
-            时间复杂度
-常数阶O(1),对数阶O(log2n),线性阶O(n), 线性对数阶O(nlog2n),平方阶O(n2)，立方阶O(n3),…， k次方阶O(nk),指数阶O(2n)。     
-Ο(1)＜Ο(log2n)＜Ο(n)＜Ο(nlog2n)＜Ο(n2)＜Ο(n3)＜…＜Ο(2n)＜Ο(n!)算法复杂度随着n不断增大    
-计算时间复杂度：1.算法基本语句执行次数最多2.基本语句执行次数数量级嵌套算最内层，并列相加    
-无循环时间复杂度O（1）
-顺序结构求和法则： T1(n)=O(f(n))和 T2(n)=O(g(n)),则 T1(n)+T2(n)=O(max(f(n), g...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/12</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -606,51 +675,22 @@ deb-src h...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/21/搭建SS/" >
+        <a class="abstract-title" href = "/2018/09/09/算法/" >
             
-                <span>ss+vultr</span>
+                <span>算法学习</span>
         </a>
         <div class="abstract-content">
-            1.下载Putty2.填写Host Name3.输入root4.输入服务器密码5.执行命令
-wget –no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
-
-chmod +x shadowsocks.sh
-
-./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log
-6.设置SS密码和端口号，选择加密方式77.按任意键等待部署
-
+            时间复杂度
+常数阶O(1),对数阶O(log2n),线性阶O(n), 线性对数阶O(nlog2n),平方阶O(n2)，立方阶O(n3),…， k次方阶O(nk),指数阶O(2n)。     
+Ο(1)＜Ο(log2n)＜Ο(n)＜Ο(nlog2n)＜Ο(n2)＜Ο(n3)＜…＜Ο(2n)＜Ο(n!)算法复杂度随着n不断增大    
+计算时间复杂度：1.算法基本语句执行次数最多2.基本语句执行次数数量级嵌套算最内层，并列相加    
+无循环时间复杂度O（1）
+顺序结构求和法则： T1(n)=O(f(n))和 T2(n)=O(g(n)),则 T1(n)+T2(n)=O(max(f(n), g...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/21</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/06/编码问题/" >
-            
-                <span>编码问题</span>
-        </a>
-        <div class="abstract-content">
-            常用编码汉字编码：/GBK2312：简体字集/GBK：简繁字集/GBK18030：汉字集标准/BIG5：台湾繁体字集     
-ASCII–&gt;UTF—&gt;UTF-8ASCII 一个字节(b7奇偶校验位) 一般用来表示127个字符（A-Z,a-z）Unicode 两个字节UTF-8可变长编码 （英文字母1个字节，汉字通常3个字节）(UTF-8是Unicode的一种实现)    
-UTF-16两个字节为编码单元    
-UTF-8GBK 通过Unicode实现    
-记事本（Unicode）—-&gt;文件(UTF-8)服务器（Unicode）—-&gt;浏览器(UTF-8网页)...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/06</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
             </div>
             <!-- tags  -->
             
@@ -1575,307 +1615,9 @@ UTF-8GBK 通过Unicode实现
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 50
+        Total : 46
         </div>
         <!-- search  -->
         
@@ -1885,34 +1627,6 @@ UTF-8GBK 通过Unicode实现
     
     
     
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/ctf -bugku/" >sql注入</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/黑客游戏/" >黑客游戏闯关</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
@@ -1929,117 +1643,83 @@ UTF-8GBK 通过Unicode实现
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/23</span><a class="archive-post-title" href= "/2018/11/23/算法复习/" >算法复习</a>
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2018/12/11/C++2/" >C++学习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2018/11/11/D03games/" >D0g3 Game Writeup</a>
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2018/12/04/实验吧/" >实验吧Writeup</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/ctf/" >php函数</a>
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href= "/2018/12/01/D03games/" >D0g3 Game Writeup</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/2018/09/30/实验吧/" >实验吧Writeup</a>
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2018/11/12/算法复习/" >算法复习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2018/09/25/墨者/" >墨者学院</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/11/html基础/" >html入门</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/16</span><a class="archive-post-title" href= "/2018/09/16/C++2/" >C++学习</a>
+            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2018/11/11/Kali/" >Kali踩坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href= "/2018/05/11/python2与python3/" >python2和python3共存问题</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2018/09/12/Kali/" >Kali踩坑</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/ctf/" >php函数</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2018/09/12/算法/" >算法学习</a>
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台md/" >bxs网络平台</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/11/13/南邮/" >南邮CTF</a>
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/Net security/" >网络安全实验</a>
         </li>
     
     
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/05</span><a class="archive-post-title" href= "/2018/11/05/网络安全复习/" >网络安全复习</a>
+        </li>
     
     
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/29</span><a class="archive-post-title" href= "/2018/10/29/墨者/" >墨者学院</a>
+        </li>
     
-        </ul>
     
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/28</span><a class="archive-post-title" href= "/2018/10/28/PHP语言漏洞/" >php弱类型漏洞记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/计网复习/" >计算机网络复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/工具集合/" >工具大全收集</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2018/10/01/mysql学习/" >mysql踩过的坑</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -2048,17 +1728,37 @@ UTF-8GBK 通过Unicode实现
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/21</span><a class="archive-post-title" href= "/2018/08/21/搭建SS/" >ss+vultr</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/09/09/算法/" >算法学习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/2018/07/09/计网复习/" >计算机网络复习</a>
+            <span class="archive-post-date">08/06</span><a class="archive-post-title" href= "/2018/08/06/编码问题/" >编码问题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/2018/06/18/后期PS/" >摄影后期干货</a>
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2018/07/26/后期PS/" >摄影后期干货</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/07/06/bugku_writeup/" >bugku_Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2018/06/22/css入门/" >css入门</a>
         </li>
     
     
@@ -2068,42 +1768,52 @@ UTF-8GBK 通过Unicode实现
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/01</span><a class="archive-post-title" href= "/2018/06/01/Python爬虫/" >爬虫</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/html基础/" >html入门</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href= "/2018/05/10/javascript学习/" >javascript学习</a>
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href= "/2018/05/13/操作系统知识汇总/" >操作系统知识点</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2018/05/09/php学习/" >php基础语法</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href= "/2018/05/11/hexo优化/" >hexo+next优化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/25</span><a class="archive-post-title" href= "/2018/04/25/mysql学习/" >[Untitled Post]</a>
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2018/05/09/javascript学习/" >javascript学习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/系统操作/" >双系统卸载Ubuntu</a>
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2018/05/03/Wireshark/" >Wireshark学习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/Javascript入门/" >Javascript入门</a>
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2018/04/17/Javascript入门/" >Javascript入门</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/01</span><a class="archive-post-title" href= "/2018/04/01/Web编程/" >Web编程</a>
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2018/04/14/Python语法基础/" >Python语法基础</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href= "/2018/04/10/Web编程/" >Web编程</a>
         </li>
     
     
@@ -2113,171 +1823,13 @@ UTF-8GBK 通过Unicode实现
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Web安全入门/" >Web安全入门</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web安全入门</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/06/24/微机原理实验代码/" >微机实验代码</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python笔记2/" >Python笔记2</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/09/22/Net security/" >网络安全实验</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/03/30/Git学习笔记/" >Git学习笔记</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/08/bugku_writeup/" >bugku_Writeup</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/11/hexo优化/" >hexo+next优化</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/29/矿大网络实训平台md/" >bxs网络平台</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/28/PHP语言漏洞/" >php弱类型漏洞记录</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/11/14/网络安全复习/" >网络安全复习</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/10/18/工具集合/" >工具大全收集</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/14/Python语法基础/" >Python语法基础</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -2286,77 +1838,17 @@ UTF-8GBK 通过Unicode实现
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2018/03/10/python2与python3/" >python2和python3共存问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2018/03/01/读《百年孤独》有感/" >百年孤独有感</a>
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/20/Wireshark/" >Wireshark使用</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/08/06/编码问题/" >编码问题</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/05/09/操作系统知识汇总/" >操作系统知识点</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/04/21/css入门/" >css入门</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/09/27/实战/" >攻击实践</a>
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2018/02/01/搭建SS/" >ss+vultr</a>
         </li>
     
     
@@ -2373,6 +1865,20 @@ UTF-8GBK 通过Unicode实现
             <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2017/02/02/Markdown学习/" >markdown语法学习</a>
         </li>
     
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/03/30/Git学习笔记/" >Git学习笔记</a>
+        </li>
+    
     </div>
   </div>
         <div class="sidebar-panel-tags">
@@ -2384,17 +1890,19 @@ UTF-8GBK 通过Unicode实现
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
-        <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
-    
-        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
-    
-        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+        <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
     
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
@@ -2436,6 +1944,8 @@ jsonContent:
 </div>
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     
