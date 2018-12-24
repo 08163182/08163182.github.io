@@ -22,7 +22,7 @@
     <meta name="description" content="一步一个脚印">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>categories · Supersnail&#39;s advance</title>
+    <title>Python · Supersnail&#39;s advance</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -340,15 +340,33 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h1 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h1><p>二进制，八进制，十六进制，全是str 类型，而十进制为 Int 类型</p>
+<h2 id="十进制"><a href="#十进制" class="headerlink" title="十进制"></a>十进制</h2><p>int(‘0xf’,16)<br>int(‘10100111110’,2)<br>int(‘17’,8)  </p>
+<h2 id="十六进制"><a href="#十六进制" class="headerlink" title="十六进制"></a>十六进制</h2><p>hex(1033)<br>hex(int(‘101010’,2))<br>hex(int(‘17’,8))</p>
+<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>bin(10)<br>bin(int(‘ff’,16))<br>bin(int(‘17’,8))</p>
+<h2 id="八进制"><a href="#八进制" class="headerlink" title="八进制"></a>八进制</h2><p>oct(0b1010)<br>oct(11)<br>oct(0xf)</p>
+<h2 id="整型转字符"><a href="#整型转字符" class="headerlink" title="整型转字符"></a>整型转字符</h2><p>chr(90)</p>
+<h2 id="字符转整型"><a href="#字符转整型" class="headerlink" title="字符转整型"></a>字符转整型</h2><p>ord(‘Z’)</p>
+<h2 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h2><p>zfill(width)<br>原字符串右对齐，前面填充0。</p>
+<h1 id="DES思路"><a href="#DES思路" class="headerlink" title="DES思路"></a>DES思路</h1><p>1.首先输入64bit密钥<br>2.将64bit密钥经过PC-1盒变成56bit<br>3.将56bit分为C0和D0，分别28bit<br>4.将C0，D0分别循环移位，得到C1，D1<br>5.将C1，D1拼接，经过PC-2盒变成48bit子密钥key1<br>6.重复步骤4<br>7.生成16组子密钥<br>这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排<br>F函数</p>
+<p>1.将输入的32bit的R经过E盒生成48bit<br>2.将该48bit值与子密钥异或<br>3.将异或后的值经过S盒置换，又变回32bit<br>4.将值经过P盒置换<br>5.将32bit值与L进行异或得到下一个R<br>加密程序</p>
+<p>1.输入64bit明文<br>2.经过IP盒置换打乱生成str<br>3.将str分为L0和R0，分别32bit<br>4.以下重复15次：<br>5.将Ri经过F函数处理，再与Li异或，然后将值赋给R(i+1)<br>6.将Ri赋值给L(i+1)<br>7.最后一轮，直接将Ri赋给R(i+1),再将Ri经过F函数处理，再与Li异或，然后将值赋给L(i+1)<br>8.将L和R合并后经过逆IP盒，得到密文C</p>
+<h1 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h1><ol>
+<li>update() 函数把字典参数 dict2 的 key/value(键/值) 对更新到字典 dict 里。</li>
+<li><p>hash.update(arg)<br>该方法只接受byte类型，否则会报错.<br>重复调用update(arg)方法，是会将传入的arg参数进行拼接，而不是覆盖</p>
+</li>
+<li><p>hash.new(name[,data])<br>name传入哈希机密算法名称(md5)</p>
+</li>
+</ol>
+
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://yoursite.com">Jason_xi</a>
-            <p>原文链接：<a href="http://yoursite.com/categories/index.html">http://yoursite.com/categories/index.html</a>
-            <p>发表日期：<a href="http://yoursite.com/categories/index.html">February 19th 2018, 2:11:33 pm</a>
-            <p>更新日期：<a href="http://yoursite.com/categories/index.html">February 19th 2018, 2:11:33 pm</a>
+            <p>原文链接：<a href="http://yoursite.com/记录学习笔记/Cryptography.html">http://yoursite.com/记录学习笔记/Cryptography.html</a>
+            <p>发表日期：<a href="http://yoursite.com/记录学习笔记/Cryptography.html">December 23rd 2018, 2:08:29 pm</a>
+            <p>更新日期：<a href="http://yoursite.com/记录学习笔记/Cryptography.html">December 21st 2018, 10:42:41 am</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     

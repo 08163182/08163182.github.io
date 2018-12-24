@@ -381,10 +381,13 @@
         </a>
         <div class="abstract-content">
             用优惠码买个X
-注册登陆给了一个15位优惠码，提交验证码发现需要24位，学习到了预测种子，然后产生对应的24位优惠码。御剑扫描发现后台www.zip，下载发现有生成优惠码源码和第二个页面验证代码。通过源码反推随机数，然后利用php_mt_seed进行种子预测。
+单引号里面的双引号中的变量不会解析！ 
+string substr ( string $string , int $start [, int $length ] )如果提供了负数的 length，那么 string 末尾处的 length 个字符将会被省略
+@错误抑制符
+rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
 
-(注意点：前8位对应$str_rand中的位置，便是随机数的结果，后7位对应的是反过来的位置)
-工具参考https://www.openwall.com/php_mt_seed/首先利用脚本反推1234567891011121314151617181920# -*- coding: UTF-8 -*-str1='abcdefgh...
+
+注册登陆给了一个15位优惠码，提交验证码发现需要24位，学习到了预测种子，然后产生对应的24位优惠码。御剑扫描发现后台www.zip，下载发现有生成优惠码源码和第二个页面验证代码。通过源码反推随机数，然后...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1350,30 +1353,6 @@ pass修改拿flag
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 46
@@ -1527,12 +1506,12 @@ pass修改拿flag
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
@@ -1639,11 +1618,11 @@ pass修改拿flag
     
         <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
-        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
-    
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
         <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
