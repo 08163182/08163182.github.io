@@ -346,19 +346,22 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/14/DES/" >
+        <a class="abstract-title" href = "/2018/12/27/MD5/" >
             
-                <span>DES实现</span>
+                <span>MD5实现</span>
         </a>
         <div class="abstract-content">
-            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
-1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
-1.输入64bit明文2.经过IP盒...
+            hash函数实现
+update() 函数把字典参数 dict2 的 key/value(键/值) 对更新到字典 dict 里。
+hash.update(arg)该方法只接受byte类型，否则会报错.重复调用update(arg)方法，是会将传入的arg参数进行拼接，而不是覆盖
+
+hash.new(name[,data])name传入哈希机密算法名称(md5)
+1234567891011def genearteMD5(str):    # 创建md5对象    hl = hashlib.md5()    # Tips    # 此处必须声明encode    # 否则报错为：hl.upda...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/14</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/27</span>
             </div>
             <!-- tags  -->
             
@@ -377,7 +380,7 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/14/RSA/" >
+        <a class="abstract-title" href = "/2018/12/25/RSA/" >
             
                 <span>RSA实现</span>
         </a>
@@ -395,7 +398,38 @@
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/14</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/12/21/DES/" >
+            
+                <span>DES实现</span>
+        </a>
+        <div class="abstract-content">
+            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
+1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
+1.输入64bit明文2.经过IP盒...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/21</span>
             </div>
             <!-- tags  -->
             
@@ -1246,9 +1280,92 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 49
+        Total : 50
         </div>
         <!-- search  -->
         
@@ -1264,12 +1381,17 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2018/12/24/中原理工writeup/" >中原工比赛</a>
+            <span class="archive-post-date">12/27</span><a class="archive-post-title" href= "/2018/12/27/MD5/" >MD5实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2018/12/24/中原理工writeup/" >中原工比赛</a>
         </li>
     
     
@@ -1279,12 +1401,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2018/12/14/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2018/12/14/DES/" >DES实现</a>
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/DES/" >DES实现</a>
         </li>
     
     
@@ -1354,12 +1476,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
         </li>
     
     
@@ -1516,27 +1638,27 @@
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
-    
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
         <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
-        <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
-    
         <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
-        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
-    
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
-        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
         <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
     

@@ -359,20 +359,31 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/06/10/Socket编程/" >
+        <a class="abstract-title" href = "/2018/06/13/Wireshark学习/" >
             
-                <span>Python Socket 编程详细介绍</span>
+                <span>Wireshark使用</span>
         </a>
         <div class="abstract-content">
-            Python 提供了两个基本的 socket 模块：            
-Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                   
-Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为0）来创建套接字                  
-socket 类型    描述socket.AF_UNIX    用于同一台机器上的进程通信（既本机通信）socket...
+            WireShark 主要分为这几个界面
+
+Display Filter(显示过滤器)，  用于过滤
+
+Packet List Pane(封包列表)， 显示捕获到的封包， 有源地址和目标地址，端口号。 颜色不同，代表
+
+Packet Details Pane(封包详细信息), 显示封包中的字段
+
+Dissector Pane(16进制数据)
+
+Miscellanous(地址栏，杂项)
+
+
+捕捉过滤器（CaptureFilters）：用于决定将什么样的信息记录在捕捉结果中。需要在开始捕捉前设置。
+显示过滤器（DisplayFilters）：在捕捉结果中进行详细查找。他们可以在得到捕捉结果后随...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/10</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/13</span>
             </div>
             <!-- tags  -->
             
@@ -394,6 +405,32 @@ socket 类型    描述socket.AF_UNIX    用于同一台机器上的进程通信
 
 基础知识：hypertext 超文本URL:Uniform Resource Identifier 统一资源标志符
 HTTP:Uniform Resourc...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/06/10/Socket编程/" >
+            
+                <span>Python Socket 编程详细介绍</span>
+        </a>
+        <div class="abstract-content">
+            Python 提供了两个基本的 socket 模块：            
+Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                   
+Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为0）来创建套接字                  
+socket 类型    描述socket.AF_UNIX    用于同一台机器上的进程通信（既本机通信）socket...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -620,39 +657,6 @@ len()计算字节数；1个中文3个字节 1个英文1个字节格...
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "人生苦短，我学Python">人生苦短，我学Python</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/04/10/Web编程/" >
-            
-                <span>Web编程</span>
-        </a>
-        <div class="abstract-content">
-            #Web客户端和服务器
-##urlparse处理URL字符串：   
-import urllib.parse
-print(urllib.parse.urlparse(&apos;http://www.python.org/doc/FAQ.html&apos;))
-ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.python.org&#39;, path=&#39;/doc/FAQ.html&#39;, params=&#39;&#39;, query=&#39;&#39;)scheme: 下载方案path:/分割文件或CGI应用路径p...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python核心编程">Python核心编程</a>
     
 </div>
             
@@ -1610,9 +1614,92 @@ ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.python.org&#39;, path=&#39;/d
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 49
+        Total : 50
         </div>
         <!-- search  -->
         
@@ -1628,12 +1715,17 @@ ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.python.org&#39;, path=&#39;/d
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2018/12/24/中原理工writeup/" >中原工比赛</a>
+            <span class="archive-post-date">12/27</span><a class="archive-post-title" href= "/2018/12/27/MD5/" >MD5实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2018/12/24/中原理工writeup/" >中原工比赛</a>
         </li>
     
     
@@ -1643,12 +1735,12 @@ ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.python.org&#39;, path=&#39;/d
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2018/12/14/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2018/12/14/DES/" >DES实现</a>
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/DES/" >DES实现</a>
         </li>
     
     
@@ -1718,12 +1810,12 @@ ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.python.org&#39;, path=&#39;/d
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
         </li>
     
     
@@ -1880,27 +1972,27 @@ ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.python.org&#39;, path=&#39;/d
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
-    
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
         <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
-        <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
-    
         <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
-        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
-    
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
-        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
         <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
     
