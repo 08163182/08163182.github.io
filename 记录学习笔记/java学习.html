@@ -352,6 +352,33 @@
 <li>布局组件</li>
 <li>处理由组件产生的事件</li>
 </ol>
+<h2 id="接口回调和向上转型"><a href="#接口回调和向上转型" class="headerlink" title="接口回调和向上转型"></a>接口回调和向上转型</h2><p>把实现某一接口的类创建的对象的引用赋给该接口声明的接口变量，那么该接口变量就可以调用被调用类实现的接口的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">People</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">peopleList</span><span class="params">()</span></span>; </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">People</span> </span>&#123; </span><br><span class="line">    <span class="function">publicvoid <span class="title">peopleList</span><span class="params">()</span> </span>&#123; </span><br><span class="line">       System.out.println(<span class="string">"I’m a student."</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> <span class="keyword">implements</span> <span class="title">People</span> </span>&#123; </span><br><span class="line">    <span class="function">publicvoid <span class="title">peopleList</span><span class="params">()</span> </span>&#123; </span><br><span class="line">       System.out.println(<span class="string">"I’m a teacher."</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line">publicclass Example &#123; </span><br><span class="line">    <span class="function">publicstaticvoid <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </span><br><span class="line">       People a; <span class="comment">// 声明接口变量 </span></span><br><span class="line">       a = <span class="keyword">new</span> Student(); <span class="comment">// 实例化，接口变量中存放对象的引用 </span></span><br><span class="line">       a.peopleList(); <span class="comment">// 接口回调 </span></span><br><span class="line">       a = <span class="keyword">new</span> Teacher(); <span class="comment">// 实例化，接口变量中存放对象的引用 </span></span><br><span class="line">       a.peopleList(); <span class="comment">// 接口回调 </span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>向上转型和向下转型<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;&#125; </span><br><span class="line">  </span><br><span class="line">publicclass A &#123; </span><br><span class="line">    <span class="function">publicstaticvoid <span class="title">main</span><span class="params">(String[] argts)</span></span>&#123; </span><br><span class="line">       A a1=<span class="keyword">new</span> A(); </span><br><span class="line">       A a2=<span class="keyword">new</span> B();<span class="comment">//Upcasting向上转型 </span></span><br><span class="line">       B b1=<span class="keyword">new</span> B(); </span><br><span class="line">       B b2=(B) <span class="keyword">new</span> A();<span class="comment">//DownCasting向下转型,[注意]:此处(B)进行了强制转换! </span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>从实现了某接口的对象，得到对此接口的引用，与向上转型为这个对象的基类，实质上效果是一样的。这些对象都可以调用基类型提供的方法，对于接口来说就是回调接口中的方法，对于父类来说就是调用父类的方法。当然在向上转型的情况下，还牵涉到子类重写（Override）父类方法的情形。</p>
+<p>## </p>
+<h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><ol>
+<li>创建非静态内部类的对象时一定要确保已经有一个外部类对象。</li>
+<li>创建内部类还可以在除外部类中的其它类中，但是要确保该类具有访问内部类的权限，并且已经创建了一个外部类对象。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Outer.Inner1 ib1 = ob.new Inner1(<span class="string">"InnerClass1 Object!"</span>);   <span class="comment">//需要使用外部类对象创建内部类对象</span></span><br><span class="line">Inner2 ib2=<span class="keyword">new</span> Inner2(<span class="string">"InnerClass2 Object!"</span>);   <span class="comment">//静态类可直接创建对象,不需要外部类对象</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="java基本类库1"><a href="#java基本类库1" class="headerlink" title="java基本类库1"></a>java基本类库1</h1><p>java.lang:Java自动import了Java.lang</p>
+<h2 id="三种字符串类"><a href="#三种字符串类" class="headerlink" title="三种字符串类"></a>三种字符串类</h2><p>String,StringBuffer,StringBuilder</p>
+<h2 id="数据类型类"><a href="#数据类型类" class="headerlink" title="数据类型类"></a>数据类型类</h2><p>Boolean,Character,Double,Float,Integer,Long</p>
+<h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>Integer.parseInt(s);    str-int<br>Integer.toString(i);     int-str</p>
+<p>BigInteger：  任意精度的整数运算<br>BigDecimal：任意精度的浮点数运算</p>
+<p>ceil(double a)  返回大于或等于a的最小整数值<br>floor(double a) 返回小于或等于a的最大整数值<br>rint(double a)  返回四舍五入后的整数值                 （上面三个方法的返回类型均为double型）<br>round(float a)  返回四舍五入后的整数值, 返回int型<br>round(double a) 返回四舍五入后的整数值, 返回long型<br>double c=Math.random(); //得到一个[0,1)之间的随机数</p>
+<p>System.out.println（object）时首先会调用类中的toString()方法。<br>因此重写toSring()方法很关键</p>
+<ol>
+<li><p>java只有按值传递，所谓的按地址(引用)传递，也属于按值传递，只不过这个“值”是个地址;</p>
+</li>
+<li><p>函数的形式参数，是传入参数的拷贝；引用变量之间拷贝的是【地址】，基本变量之间拷贝的是 内存中的值 （被称为直接量）；</p>
+</li>
+<li>3.对象本身，与对象的地址 是2个东西，函数之间如果想【传递对象】，只能通过传递对象的地址来实现</li>
+</ol>
+<p>按值传递不能修改，引用传递可修改。</p>
+<p><strong>对于参数传递，如果是简单数据类型，那么它传递的是值拷贝，对于类的实例它传递的是类的引用。需要注意的是，这条规则只适用于参数传递</strong></p>
+<p># </p>
 
     </article>
     <!-- license  -->
@@ -359,8 +386,8 @@
         <div class="license-wrapper">
             <p>原文作者：<a href="http://yoursite.com">Jason_xi</a>
             <p>原文链接：<a href="http://yoursite.com/记录学习笔记/java学习.html">http://yoursite.com/记录学习笔记/java学习.html</a>
-            <p>发表日期：<a href="http://yoursite.com/记录学习笔记/java学习.html">December 24th 2018, 11:21:59 pm</a>
-            <p>更新日期：<a href="http://yoursite.com/记录学习笔记/java学习.html">December 24th 2018, 11:21:59 pm</a>
+            <p>发表日期：<a href="http://yoursite.com/记录学习笔记/java学习.html">January 4th 2019, 8:14:38 pm</a>
+            <p>更新日期：<a href="http://yoursite.com/记录学习笔记/java学习.html">January 4th 2019, 8:14:38 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -1248,9 +1275,64 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 50
+        Total : 51
         </div>
         <!-- search  -->
         
@@ -1260,6 +1342,20 @@
     
     
     
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/java编程/" >java编程</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
@@ -1361,12 +1457,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
         </li>
     
     
@@ -1396,12 +1492,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
@@ -1531,19 +1627,21 @@
     
         <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
-        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
-    
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
-        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
-    
-        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
-        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
     
@@ -1591,6 +1689,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     
         <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
+    
+        <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
