@@ -346,23 +346,26 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/04/java编程/" >
+        <a class="abstract-title" href = "/2019/01/05/密码学/" >
             
-                <span>java编程</span>
+                <span>密码学复习</span>
         </a>
         <div class="abstract-content">
-            类编程  类Person:          属性：编号、姓名、性别；          构造方法：确定编号和姓名；          一般方法：修改编号、姓名，获取编号、姓名。      类Teacher：继承类Person并增加：          属性：系别；          构造方法：调用父类的构造方法；          一般方法：修改、获取系别。      类Student：继承类Person并增加：          属性：班级；          构造方法：调用父类的构造方法；          一般方法：修改、获取班级属性值。      类Classes：      ...
+            古典密码仿射加解密加密变换：  𝐶＝ 𝑘1∗𝑚＋𝑘2 𝑚𝑜𝑑 26  
+𝐾1=1时，移位密码𝐾2=1时，乘数密码     解密变换：  𝑚＝ (𝐶−𝑘2)∗〖𝑘1〗^(−1) 𝑚𝑜𝑑 26
+密钥空间: n(n)
+Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2同行，则密文𝑐1和𝑐2分别紧靠𝑚1，𝑚2右端的字母，其中第一列看做最后一列的右方若𝑚1和𝑚2同列，则密文𝑐1和𝑐2分别是紧靠𝑚1，𝑚2下方的字母，其中第一行看做最后一行的下方若𝑚1和𝑚2不同行也不同列，则𝑐1和𝑐2是𝑚1，𝑚2确定的矩形的其...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/04</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/05</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
     
 </div>
             
@@ -1267,26 +1270,6 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 51
@@ -1305,7 +1288,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/java编程/" >java编程</a>
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2019/01/05/密码学/" >密码学复习</a>
         </li>
     
     
@@ -1324,12 +1307,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
         </li>
     
     
@@ -1414,12 +1397,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
         </li>
     
     
@@ -1449,12 +1432,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
@@ -1574,9 +1557,9 @@
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
-    
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
@@ -1590,19 +1573,17 @@
     
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
-        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
-    
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
-        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
     
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
-    
-        <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
     
         <span class="sidebar-tag-name" data-tags="读书笔记"><span class="iconfont-archer">&#xe606;</span>读书笔记</span>
     
@@ -1641,13 +1622,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
-        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
-    
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     
-        <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
     
-        <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
+        <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

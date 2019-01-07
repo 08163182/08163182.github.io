@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-28T08:01:39.871Z</updated>
+  <updated>2019-01-07T07:03:01.304Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>密码学复习</title>
+    <link href="http://yoursite.com/2019/01/05/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    <id>http://yoursite.com/2019/01/05/密码学/</id>
+    <published>2019-01-04T16:00:00.000Z</published>
+    <updated>2019-01-07T07:03:01.304Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="古典密码"><a href="#古典密码" class="headerlink" title="古典密码"></a>古典密码</h1><h2 id="仿射"><a href="#仿射" class="headerlink" title="仿射"></a>仿射</h2><h3 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h3><pre><code>加密变换：  𝐶＝ 𝑘1∗𝑚＋𝑘2 𝑚𝑜𝑑 26  </code></pre><p>𝐾1=1时，移位密码<br>𝐾2=1时，乘数密码<br>     解密变换：  𝑚＝ (𝐶−𝑘2)∗〖𝑘1〗^(−1) 𝑚𝑜𝑑 26</p><p>密钥空间: n(n)</p><h2 id="Playfair"><a href="#Playfair" class="headerlink" title="Playfair"></a>Playfair</h2><h3 id="加解密-1"><a href="#加解密-1" class="headerlink" title="加解密"></a>加解密</h3><p>对每一对明文𝑚1, 𝑚2加密如下：<br>若𝑚1和𝑚2同行，则密文𝑐1和𝑐2分别紧靠𝑚1，𝑚2右端的字母，其中第一列看做最后一列的右方<br>若𝑚1和𝑚2同列，则密文𝑐1和𝑐2分别是紧靠𝑚1，𝑚2下方的字母，其中第一行看做最后一行的下方<br>若𝑚1和𝑚2不同行也不同列，则𝑐1和𝑐2是𝑚1，𝑚2确定的矩形的其他两角的字母，并𝑐1和𝑚1，𝑐2和𝑚2同行<br>若出现重复字母，即𝑚1=𝑚2，则在其中插入字母Q<br>如明文字母是单数，将Q放在明文的末端<br>      llylq ly<br>      查表：<br>             QZ  KZ</p><p>密钥空间：25！</p><h2 id="Vigenere"><a href="#Vigenere" class="headerlink" title="Vigenere"></a>Vigenere</h2><h3 id="加解密-2"><a href="#加解密-2" class="headerlink" title="加解密"></a>加解密</h3><p>密钥：𝑘=𝑘1𝑘2𝑘3 · · · 𝑘𝑛<br>明文：𝑚=𝑚1𝑚2𝑚3 · · · 𝑚𝑛 </p><p>加密：𝐸(𝑚)=𝐶=𝑐1𝑐2𝑐3 · · · 𝑐𝑛<br>                      𝑐𝑖=𝑚𝑖+𝑘_𝑖  𝑚𝑜𝑑 26</p><p>解密：𝑚𝑖=𝑐𝑖−𝑘_𝑖 𝑚𝑜𝑑 26</p><p>密钥空间：26^m</p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h3 id="穷举分析"><a href="#穷举分析" class="headerlink" title="穷举分析"></a>穷举分析</h3><p>蛮力攻击的次数：</p><ol><li>加同余密码：明文为英文字母表时，𝑘只有25种可能值。明文为8位扩展ASCII码时，𝑘只有255种值。穷举即可</li><li>乘数密码更易破译。密钥𝑘要满足条件(n, k )＝1，即𝑘只有≤ (n)个不同取值。去掉𝑘＝1恒等情况，𝑘只有(n)－1种<br>明文为英文字母表时，𝑘只能取3，5，7，9，11，15，17，19，21，23，25共11种不同值</li><li>仿射密码保密性好一些。但密钥也只有n(n)－1种。(𝑚𝑖∗𝑘1+𝑘2 ，去掉 𝑚𝑖∗1+0)<br>对英文字母表的情况，密钥只有26×12－1＝311种<br>古代密码分析者用穷举法破译可能会有一定困难，但对计算机来说微不足道</li></ol><h1 id="攻击方法"><a href="#攻击方法" class="headerlink" title="攻击方法"></a>攻击方法</h1><p>攻击者知道密码算法<br>方式分为:</p><ul><li><p>唯密文攻击（Ciphertext-only attack）—被动攻击<br>密码分析者仅能根据截获的密文进行分析，以得出明文或密钥。<br>穷举攻击和统计分析都是唯密文攻击</p></li><li><p>已知明文攻击（Plaintext-known attack） —被动攻击<br>密码分析者除了有截获的密文外，还有一些已知的“明文—密文对”来破译密码   </p></li><li><p>选择明文攻击（Chosen-plaintext attack） —主动攻击<br>密码分析者除得到一些“明文—密文对”外，还可以选择被加密的明文，并获得相应的密文；密码破译者暂时控制<strong>加密机</strong><br>变体：自适应选择明文攻击（Adaptive-chosen-plaintext attack）</p></li><li><p>选择密文攻击(Chosen-ciphertext attack) —主动攻击<br>指密码分析者可以选择一些密文，并得到相应的明文；密码破译者暂时控制<strong>解密机</strong></p></li></ul><p>自适应选择密文攻击（Adaptive-chosen-ciphetext attack ）</p><h1 id="分组密码"><a href="#分组密码" class="headerlink" title="分组密码"></a>分组密码</h1><h2 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h2><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ol><li><p>DES：明文分组和密文分组均为64比特，有效密钥56比特</p></li><li><p>DES由初始置换，16轮迭代，逆初始置换组成</p></li><li><p>DES的加解密算法相同，只是解密子密钥与加密子密钥的使用顺序相反</p></li></ol><p>加解密<br><img src="https://i.imgur.com/nD6pEK7.png" alt=""><br>16轮迭代<br><img src="https://i.imgur.com/cZkvuUR.png" alt=""><br>S盒计算<br><img src="https://i.imgur.com/XBtU1D5.png" alt=""><br>密钥产生<br><img src="https://i.imgur.com/jBguSYc.png" alt="">   </p><h3 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h3><p>二重DES不能提高密钥长度，抵抗穷举攻击不能抵抗中途相遇攻击。(57bit)</p><p>三重DES：<br>    EEE3：C=EK1(EK2(EK3(P)))<br>    EDE3：C=EK1(DK2(EK3(P)))<br>    EEE2：C=EK1(EK2(EK2(P)))<br>    EDE2：C=EK1(DK2(EK1(P)))或者C=EK1(DK1(EK2(P)))<br>密钥长度增加到112bit或168bit。避免了穷举攻击</p><h3 id="数学语言描述"><a href="#数学语言描述" class="headerlink" title="数学语言描述"></a>数学语言描述</h3><p><img src="https://i.imgur.com/vVhlIFD.png" alt=""></p><h3 id="安全性能分析"><a href="#安全性能分析" class="headerlink" title="安全性能分析"></a>安全性能分析</h3><ol><li><p>DES存在一些弱密钥和半弱密钥</p></li><li><p>DES的56位密钥无法抵抗穷举攻击</p></li><li><p>代数结构存在互补对称性</p></li></ol><p>    弱密钥：用相同的密钥两次加密后，结果等于明文，存在4个。<br>         𝑬𝒌(𝑬𝒌(𝒎))= 𝒎  和  𝑫𝒌(𝑫𝒌(𝒎))= 𝒎</p><p>    半弱密钥：两个不同的密钥，他们加密的结果相同，至少有12个。<br>        𝐸<em>(𝑘^′ ) (𝐸</em>𝑘 (𝑚))=𝐸<em>𝑘 (𝐸</em>(𝑘^′ ) (𝑚))=𝑚              </p><p>互补性 </p><ol><li>互补性使DES在选择明文攻击下所需的工作量减半（2^55）<br> c1=Ek(m) c2=Ek(~m)   ~c2=E~k(m)<br>所以对𝑚加密，如果密文为𝑐1，则加密密钥为𝑘, 如果密文为~c2,则加密密钥为~𝑘</li></ol><h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>采用SP结构的迭代型分组密码<br>分组长度和密钥长度都可变，各自可以为128、192、256比特</p><p>加解密<br><img src="https://i.imgur.com/gTgxnAB.png" alt=""><br>密钥扩展<br>对𝑤数组扩展40个新列，构成44列的密钥数组：<br>如果𝑖不是4的倍数，则第𝑖列为：<br>    𝑤[𝑖]=𝑤[𝑖−4]⊕𝑤[𝑖−1]<br>如果𝑖是4的倍数，则第𝑖列为：<br>    𝑤[𝑖]=𝑤[𝑖−4]⊕𝑇(𝑤[𝑖−1])</p><p><img src="https://i.imgur.com/0LzVPMj.png" alt=""><br>T函数：字循环、字节代换和轮常量异或</p><h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><ol><li>加密解密不一致，避免弱密钥</li><li>抵抗差分分析和线性分析</li><li>密钥穷举攻击平均需要2^127次AES运算</li></ol><h2 id="DES和AES"><a href="#DES和AES" class="headerlink" title="DES和AES"></a>DES和AES</h2><ol><li>相同之处<br>二者的轮函数都是由三层构成，非线性层、线性混合层、子密钥异或，只是顺序不同<br>AES的子密钥异或对应于DES中S盒之前的子密钥异或<br>AES的列混合运算的目的是让不同的字节相互影响，而DES中F函数的输出与左边一半数据相加也有类似的效果<br>AES的非线性运算是字节代替(ByteSub)，对应于DES中惟一的非线性运算S盒<br>行移位运算保证了每一行的字节不仅仅影响其它行对应的字节，而且影响其它行所有的字节，这与DES中置换P相似</li></ol><p>2.不同之处<br>AES的密钥长度(128位、192位、256位)是可变的，而DES的密钥长度固定为56位<br>DES是面向比特的运算，AES是面向字节的运算<br>AES的加密运算和解密运算不一致，因而加密器不能同时用作解密器，DES则无此限制</p><h3 id="分组密码工作模式"><a href="#分组密码工作模式" class="headerlink" title="分组密码工作模式"></a>分组密码工作模式</h3><p>明文错误扩散： 加密前明文某个错误对解密后恢复明文的影响。<br>密文错误扩散： 加密后密文某个错误对解密后恢复明文分组的影响。</p><p><img src="https://i.imgur.com/dqgrU10.png" alt=""><br>CBC<br><img src="https://i.imgur.com/IKqy9xf.png" alt=""></p><p>CFB和OFB解密将P和C互换位置<br>CFB<br><img src="https://i.imgur.com/1gRqwGI.png" alt=""><br>OFB<br><img src="https://i.imgur.com/3VZmWXn.png" alt=""><br>CTR<br><img src="https://i.imgur.com/a5XPzIs.png" alt=""><br><img src="https://i.imgur.com/Odoc6MR.jpg" alt=""></p><h1 id="序列密码"><a href="#序列密码" class="headerlink" title="序列密码"></a>序列密码</h1><h2 id="线性反馈移位寄存器"><a href="#线性反馈移位寄存器" class="headerlink" title="线性反馈移位寄存器"></a>线性反馈移位寄存器</h2><ol><li>线性反馈移位寄存器(liner feedback shift register,LFSR)是一种特殊的FSR，其反馈函数是移位寄存器中某些位的异或，参与运算的这些位叫做抽头位</li><li>选择合适反馈函数可使序列周期达到最大值2^n -1，周期达到最大值的序列称为m序列</li><li>若n次不可约多项式𝑝(𝑥)的阶为2^𝑛－1，则称𝑝(𝑥)是n次本原多项式</li></ol><h1 id="Hash函数"><a href="#Hash函数" class="headerlink" title="Hash函数"></a>Hash函数</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>函数 y=H(x)满足    </p><ol><li>将任意长度的比特串x压缩成为固定长度的比特串y   </li><li>已知x，计算y=H(x)很容易；已知y，找一个x满足y=H(x)在计算上不可行——单向性   </li><li>找(x1，x2)，x1≠x2，满足H(x1)= H(x2)在计算上是不可行的———抗碰撞性<br>这样的函数称为杂凑函数(Hash函数)    </li></ol><h2 id="数据填充"><a href="#数据填充" class="headerlink" title="数据填充"></a>数据填充</h2><p>填充的方法是填充一个1和n个0，信息的长度就为N*512+448(bit),将原始消息长度用64位附加在填充结果后，消息长度为512比特整数倍。</p><h2 id="安全性-1"><a href="#安全性-1" class="headerlink" title="安全性"></a>安全性</h2><ol><li>单向性</li><li><p>抗弱碰撞性<br>对任意给定的消息𝑚，寻找与𝑚不同的消息𝑚’，使得ℎ(𝑚)=ℎ(𝑚’)在计算上不可行</p></li><li><p>抗强碰撞性：<br>寻找任意两个不同的消息𝑚和𝑚’,使得ℎ(𝑚)=ℎ(𝑚’)在计算上不可行</p></li></ol><h1 id="公钥密码"><a href="#公钥密码" class="headerlink" title="公钥密码"></a>公钥密码</h1><h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><p>基于大整数分解问题</p><ol><li>密钥的生成<ol><li>选择两个大素数 𝑝和𝑞,（𝑝≠𝑞，需要保密，步骤4以后建议销毁）  </li><li>计算𝑛=𝑝×𝑞， (𝑛)=(𝑝－1)×(𝑞－1)  </li><li>选择整数 𝑒 使 ((𝑛)，𝑒) =1,   1&lt;𝑒&lt; (𝑛)    </li><li>计算𝑑，使𝑑=𝑒－1 𝑚𝑜𝑑 (𝑛),<br>得到：公钥为{𝑒, 𝑛}； 私钥为{𝑑}  </li></ol></li><li>加密(用𝒆，𝒏)： 明文𝑀&lt;𝑛， 密文𝐶=𝑀^𝑒 (𝑚𝑜𝑑 𝑛).  </li><li><p>解密(用𝒅，𝒏)： 密文𝐶， 明文𝑀 =𝐶^𝑑 (𝑚𝑜𝑑 𝑛)    </p></li><li><p>正确性验证<br>1.若gcd⁡(𝒎,𝒏)=𝟏,<br>𝐶𝑑 𝑚𝑜𝑑 𝑛=(𝒎^𝒆)𝑑 𝑚𝑜𝑑 𝑛 =𝒎^𝒆𝒅  𝑚𝑜𝑑 𝑛≡𝑚 𝑚𝑜𝑑 𝑛<br>2.若gcd⁡(𝒎,𝒏)&gt;𝟏,由于𝒏=𝒑𝒒,所以gcd⁡(𝒎,𝒏)必含𝒑,𝒒之一，设gcd⁡(𝒎,𝒏)=𝒑或𝒎=𝒄𝒑, 𝟏≤𝒄≤𝒒,由欧拉定理得：<br>𝒎^(𝝋(𝒒))=𝟏(𝒎𝒐𝒅 𝒒).<br>𝒎^(𝒒−𝟏)(𝒑−𝟏)𝒌=𝟏(𝒎𝒐𝒅 𝒒)<br> 即 𝒎^(𝒌𝝋(n))=𝟏(𝒎𝒐𝒅 𝒒) 或 𝟏=𝒎^(𝒌𝝋(n))+𝒉𝒒<br> 由假定𝒎=𝒄𝒑得：<br>   𝒎=𝒎^(𝒌𝝋(n)+𝟏)+𝒄𝒉𝒑𝒒=𝒎^(𝒌𝝋(n)+𝟏)+𝒂𝒏 (其中𝒂=𝒄𝒉),<br>即𝒎^(𝒌𝝋(n)+𝟏)=𝒎 (𝒎𝒐𝒅 𝒏)        </p><h3 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h3></li><li>选择密文攻击：不要用RSA对陌生消息进行签名，签名前先使用散列函数加密</li><li>公共模攻击：不要使用相同的模数n</li><li>小加密指数攻击：选择大加密指数</li><li>小解密指数攻击：选择大解密指数</li><li>时间性攻击：使用随机延迟或盲化。</li></ol><h2 id="ElGamal"><a href="#ElGamal" class="headerlink" title="ElGamal"></a>ElGamal</h2><h2 id="算法-2"><a href="#算法-2" class="headerlink" title="算法"></a>算法</h2><p>基于有限域上的离散对数问题。</p><p>1.密钥的生成<br>   选取大素数𝑝，𝑔∈〖𝑍_𝑝〗^∗是一个生成元，𝑝,𝑔 作为系统参数所有用户共享<br>   系统中每个用户U都随机挑选整数𝑥，2≤𝑥≤ 𝑝－2，并计算：<br>                         𝑦=𝑔𝑥(𝑚𝑜𝑑 𝑝)，<br>   𝑦, 𝑝”,”   𝑔作为用户U的公钥，而𝑥作为用户U的私钥<br>2.加密   </p><ol><li>用户A先把明文𝑀编码为一个在 0 到𝑝－1之间的整数𝑚 ；</li><li>用户A挑选一个秘密随机数 𝑟 ( 2≤ 𝑟 ≤ 𝑝－2 )，       并计算：     3.                         <pre><code>𝑐1＝ 𝑔^𝑟 (𝑚𝑜𝑑 𝑝)；𝑐2 ＝ 𝑚∙𝑦^𝑟(𝑚𝑜𝑑 𝑝)</code></pre></li></ol><ul><li>用户A把二元组 (𝒄𝟏 ,𝒄𝟐) 作为密文传送给用户B</li></ul><p>3.解密<br>用户B接收到密文二元组(𝑐1 ,𝑐2)后，做解密计算：<br>m=c2 * (c1^x)-1 mod p</p><p>明文空间为Zp<em>，而密文空间为Zp</em> <em> Zp</em></p><h1 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h1><h2 id="RSA签名"><a href="#RSA签名" class="headerlink" title="RSA签名"></a>RSA签名</h2><h2 id="算法-3"><a href="#算法-3" class="headerlink" title="算法"></a>算法</h2><ol><li>密钥的生成（与加密系统一样）：<pre><code>公钥𝑃𝑘={𝑒,𝑛};私钥𝑆𝑘={𝑑}</code></pre></li><li>签名过程 (𝑑,𝑛)：用户A对消息𝑀∈𝑍_𝑛进行签名，计算<pre><code>𝑆=𝑆𝑖𝑔(𝐻(𝑀))=𝐻(𝑀)𝑑 𝑚𝑜𝑑 𝑛；</code></pre> 并将𝑆附在消息𝑀后</li><li>验证过程 (𝑒,𝑛)：<br>  给定(𝑀,𝑆)，𝑉𝑒𝑟(𝑀,𝑆)为真⟺<pre><code>𝐻(𝑀)=𝑆^𝑒  (𝑚𝑜𝑑 𝑛)成立</code></pre></li></ol><h2 id="安全分析"><a href="#安全分析" class="headerlink" title="安全分析"></a>安全分析</h2><ol><li>假设RSA直接对消息进行签名： Hash函数</li><li>利用已有签名进行攻击： 对数据的Hash值签名（𝑆𝑖𝑔(𝑀1𝑀2) = 𝑆𝑖𝑔(𝑀1)𝑆𝑖𝑔(𝑀2)）</li><li>利用签名获得明文： 对数据的Hash值签名</li></ol><h2 id="ElGamal签名"><a href="#ElGamal签名" class="headerlink" title="ElGamal签名"></a>ElGamal签名</h2><h2 id="算法-4"><a href="#算法-4" class="headerlink" title="算法"></a>算法</h2><ol><li>系统初始化过程：公钥为(𝑝,𝑔,𝑦)，私钥为𝑥 (1≤𝑥＜𝑝−1)，其中𝒚=g^𝒙  𝒎𝒐𝒅 𝒑</li><li>签名过程：给定消息𝑀，签名者如下计算：<br> ①选择随机数𝑘∈〖𝑍_𝑝〗^∗，且𝑘与(𝑝－1)互素；<br> ②首先计算消息𝑀的哈希值𝐻(𝑀)，然后计算:<pre><code>    𝑟=g^𝒌 𝑚𝑜𝑑 𝑝；𝑠 =(𝐻(𝑀)−𝑥𝑟) 𝑘^(−1)   (𝑚𝑜𝑑 𝑝－1) </code></pre> ③ 将(𝑟，𝑠)作为签名，与𝑀一起发送给接收方<br>3.验证签名过程:接收方收到𝑀与其签名(𝑟,𝑠)后：<pre><code>① 计算消息𝑀的Hash值𝐻(𝑀)；② 验证公式 𝒚^𝒓 𝒓^𝒔＝𝒈^(𝑯(𝑴)) 𝒎𝒐𝒅 𝒑 </code></pre>  成立则确认(𝑟,𝑠)为有效签名，否则认为签名是伪造的</li></ol><h2 id="安全性-2"><a href="#安全性-2" class="headerlink" title="安全性"></a>安全性</h2><ol><li><p>非确定性数字签名算法，同一消息𝑀的签名依赖于随机数𝒌</p></li><li><p>安全性基于有限域上计算离散对数的困难性</p></li><li><p>随机数𝒌不能被泄露(已知𝒌可以计算𝑥)</p></li><li><p>随机数𝒌不能被重复使用（泄露𝑥 ）</p></li><li><p>多次签名选取的多个𝒌无关联（泄露𝑥 ）</p></li><li><p>不使用Hash函数则易受到攻击</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;古典密码&quot;&gt;&lt;a href=&quot;#古典密码&quot; class=&quot;headerlink&quot; title=&quot;古典密码&quot;&gt;&lt;/a&gt;古典密码&lt;/h1&gt;&lt;h2 id=&quot;仿射&quot;&gt;&lt;a href=&quot;#仿射&quot; class=&quot;headerlink&quot; title=&quot;仿射&quot;&gt;&lt;/a&gt;仿射&lt;/h
+      
+    
+    </summary>
+    
+      <category term="crypto" scheme="http://yoursite.com/categories/crypto/"/>
+    
+    
+      <category term="crypto" scheme="http://yoursite.com/tags/crypto/"/>
+    
+  </entry>
   
   <entry>
     <title>MD5实现</title>
@@ -469,29 +494,6 @@
 &lt;li&gt;&lt;p&gt;抓包改包&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;we
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>攻击实践</title>
-    <link href="http://yoursite.com/2018/10/07/%E5%AE%9E%E6%88%98/"/>
-    <id>http://yoursite.com/2018/10/07/实战/</id>
-    <published>2018-10-06T16:00:00.000Z</published>
-    <updated>2018-12-23T04:20:40.347Z</updated>
-    
-    <content type="html"><![CDATA[<p>ARP中间人攻击</p><p>一面伪造网关，一面伪造源主机    </p><p>Kali:ifconfig查看IP地址<br>nmap -sP ip/24查看局域网网络<br>echo 1 &gt;/proc/sys/net/ipv4/ip_forward 开启IP转发，不开启会断网<br>arpspoof -i eth0 ip host<br>ettercap -Tq -i eth0 监控流量<br>driftnet -i eth0 捕获页面        </p><p>ettercap -G 工具图形界面。            </p><p>2.常用端口<br>TCP:<br>20:FTP数据<br>21:FTP控制 文件传输<br>22:SSH<br>25:SMTP<br>80:WWW(HTTP)<br>110:POP<br>443:SSL<br>443:HTTPS<br>1080:SOCKS<br>UDP:<br>7:ECHO<br>53:DNS<br>69:TFTP<br>数据库端口<br>1433:SQL SERVER<br>3306:MYSQL</p><p>3.添加账户<br>添加管理员用户 net user hacker 123456 /add<br>添加管理员组 net loaclagroup administrators hacker /add</p><p>4.提权<br>server-u 43958提权</p><p>5.完整渗透<br>注入漏洞—获得管理员密码进入后台—数据库备份拿到webshell-登陆webshell，提权拿下服务器权限。</p><p>6.web渗透<br>String.fromCharCode()接受Unicode值，返回字符串<br>XSS漏洞弹窗xss<br>绕过方式<br>1.<script>alert(“XSS”);;;;;;</scrpit>分号截断。<br>2.<script>alert（String.fromCharCode(120,115,115)）</scrpit><br>3.console输入alert(‘xss’)<br>4.msg=xss;<br>5.sql注入</p><ul><li>检查注入点’</li><li>查询列数</li><li>查询回显位置</li><li>回显位置插入语句</li><li></li></ul></script></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;ARP中间人攻击&lt;/p&gt;
-&lt;p&gt;一面伪造网关，一面伪造源主机    &lt;/p&gt;
-&lt;p&gt;Kali:ifconfig查看IP地址&lt;br&gt;nmap -sP ip/24查看局域网网络&lt;br&gt;echo 1 &amp;gt;/proc/sys/net/ipv4/ip_forward 开启IP转发
       
     
     </summary>
