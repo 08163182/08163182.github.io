@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">2,663</span>阅读时长: <span class="post-count reading-time">10 min</span></span>
+                        <span>Word count: <span class="post-count word-count">2,696</span>Reading time: <span class="post-count reading-time">10 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -490,15 +490,12 @@ height:50vh;
 </ol>
 <h1 id="公钥密码"><a href="#公钥密码" class="headerlink" title="公钥密码"></a>公钥密码</h1><h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><p>基于大整数分解问题</p>
 <ol>
-<li>密钥的生成<ol>
+<li><p>密钥的生成</p>
+<ol>
 <li>选择两个大素数 𝑝和𝑞,（𝑝≠𝑞，需要保密，步骤4以后建议销毁）  </li>
-<li>计算𝑛=𝑝×𝑞， (𝑛)=(𝑝－1)×(𝑞－1)  </li>
-<li>选择整数 𝑒 使 ((𝑛)，𝑒) =1,   1&lt;𝑒&lt; (𝑛)    </li>
-<li>计算𝑑，使𝑑=𝑒－1 𝑚𝑜𝑑 (𝑛),<br>得到：公钥为{𝑒, 𝑛}； 私钥为{𝑑}  </li>
+<li>计算n=pq。计算φ(n)=(p-1)(q-1)<br>3.随机选择一个整数e，条件是1&lt; e &lt; φ(n)，gcd(e,φ(n))=1</li>
+<li>计算ed ≡ 1 (mod φ(n)) (e对于φ(n)的模反元素d)<br>得到：公钥为{𝑒, 𝑛}； 私钥为{𝑑}<br>加密(用𝒆，𝒏)： 明文𝑀&lt;𝑛， 密文𝐶=𝑀^𝑒 (𝑚𝑜𝑑 𝑛).<br>解密(用𝒅，𝒏)： 密文𝐶， 明文𝑀 =𝐶^𝑑 (𝑚𝑜𝑑 𝑛)        </li>
 </ol>
-</li>
-<li>加密(用𝒆，𝒏)： 明文𝑀&lt;𝑛， 密文𝐶=𝑀^𝑒 (𝑚𝑜𝑑 𝑛).  </li>
-<li><p>解密(用𝒅，𝒏)： 密文𝐶， 明文𝑀 =𝐶^𝑑 (𝑚𝑜𝑑 𝑛)    </p>
 </li>
 <li><p>正确性验证<br>1.若gcd⁡(𝒎,𝒏)=𝟏,<br>𝐶𝑑 𝑚𝑜𝑑 𝑛=(𝒎^𝒆)𝑑 𝑚𝑜𝑑 𝑛 =𝒎^𝒆𝒅  𝑚𝑜𝑑 𝑛≡𝑚 𝑚𝑜𝑑 𝑛<br>2.若gcd⁡(𝒎,𝒏)&gt;𝟏,由于𝒏=𝒑𝒒,所以gcd⁡(𝒎,𝒏)必含𝒑,𝒒之一，设gcd⁡(𝒎,𝒏)=𝒑或𝒎=𝒄𝒑, 𝟏≤𝒄≤𝒒,由欧拉定理得：<br>𝒎^(𝝋(𝒒))=𝟏(𝒎𝒐𝒅 𝒒).<br>𝒎^(𝒒−𝟏)(𝒑−𝟏)𝒌=𝟏(𝒎𝒐𝒅 𝒒)<br> 即 𝒎^(𝒌𝝋(n))=𝟏(𝒎𝒐𝒅 𝒒) 或 𝟏=𝒎^(𝒌𝝋(n))+𝒉𝒒<br> 由假定𝒎=𝒄𝒑得：<br>   𝒎=𝒎^(𝒌𝝋(n)+𝟏)+𝒄𝒉𝒑𝒒=𝒎^(𝒌𝝋(n)+𝟏)+𝒂𝒏 (其中𝒂=𝒄𝒉),<br>即𝒎^(𝒌𝝋(n)+𝟏)=𝒎 (𝒎𝒐𝒅 𝒏)        </p>
 <h3 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h3></li>
@@ -562,10 +559,10 @@ height:50vh;
     <!-- license  -->
     
         <div class="license-wrapper">
-            <p>原文作者：<a href="http://yoursite.com">Jason_xi</a>
+            <p>Author：<a href="http://yoursite.com">Jason_xi</a>
             <p>原文链接：<a href="http://yoursite.com/2019/01/05/密码学复习/">http://yoursite.com/2019/01/05/密码学复习/</a>
             <p>发表日期：<a href="http://yoursite.com/2019/01/05/密码学复习/">January 5th 2019, 12:00:00 am</a>
-            <p>更新日期：<a href="http://yoursite.com/2019/01/05/密码学复习/">January 7th 2019, 3:03:01 pm</a>
+            <p>更新日期：<a href="http://yoursite.com/2019/01/05/密码学复习/">January 7th 2019, 3:16:51 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -1477,6 +1474,36 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 51
@@ -1514,12 +1541,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
         </li>
     
     
@@ -1529,12 +1556,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
@@ -1639,12 +1666,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
@@ -1762,9 +1789,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
@@ -1772,11 +1799,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
     
-        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
-    
         <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
@@ -1827,9 +1854,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
-    
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
+    
+        <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
     
