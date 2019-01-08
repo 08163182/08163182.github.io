@@ -526,20 +526,14 @@ hash.new(name[,data])name传入哈希机密算法名称(md5)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/RSA/" >
+        <a class="abstract-title" href = "/2018/12/25/DES/" >
             
-                <span>RSA实现</span>
+                <span>DES实现</span>
         </a>
         <div class="abstract-content">
-              临近期末了，剩下Java和密码学两门课了，正好有密码学课程设计，借此机会记录自己写的算法，每写一个算法就当巩固之前的算法知识和信息安全数学基础的知识了。
-预备知识
-乘法逆元如果ax≡1 (mod p),且gcd(a,p)=1（a与p互质），则称a关于模p的乘法逆元为x。
-费马小定理假如a是一个整数，p是一个质数，那么a^p - a是p的倍数，可以表示为a^p≡a(mod p)a^(p-1)≡1(mod p)
-扩展欧几里得定理ax+by=gcd(a,b)
-逆元求解
-
-扩展欧几里得出发 ax≡1(mod m)—-&gt;  ax-my≡1
-费马小定理 a^(p-1)≡1（mod p） —...
+            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
+1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
+1.输入64bit明文2.经过IP盒...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -563,14 +557,20 @@ hash.new(name[,data])name传入哈希机密算法名称(md5)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/DES/" >
+        <a class="abstract-title" href = "/2018/12/25/RSA/" >
             
-                <span>DES实现</span>
+                <span>RSA实现</span>
         </a>
         <div class="abstract-content">
-            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
-1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
-1.输入64bit明文2.经过IP盒...
+              临近期末了，剩下Java和密码学两门课了，正好有密码学课程设计，借此机会记录自己写的算法，每写一个算法就当巩固之前的算法知识和信息安全数学基础的知识了。
+预备知识
+乘法逆元如果ax≡1 (mod p),且gcd(a,p)=1（a与p互质），则称a关于模p的乘法逆元为x。
+费马小定理假如a是一个整数，p是一个质数，那么a^p - a是p的倍数，可以表示为a^p≡a(mod p)a^(p-1)≡1(mod p)
+扩展欧几里得定理ax+by=gcd(a,b)
+逆元求解
+
+扩展欧几里得出发 ax≡1(mod m)—-&gt;  ax-my≡1
+费马小定理 a^(p-1)≡1（mod p） —...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1724,6 +1724,20 @@ rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 55
@@ -1776,12 +1790,12 @@ rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
         </li>
     
     
@@ -1866,12 +1880,12 @@ rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
         </li>
     
     
@@ -2031,19 +2045,19 @@ rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
-    
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
-        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
-    
         <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
@@ -2098,9 +2112,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
-        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
-    
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
+    
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
     
         <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
     
