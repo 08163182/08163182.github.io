@@ -346,6 +346,50 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/08/微机原理实验代码/" >
+            
+                <span>微机实验代码</span>
+        </a>
+        <div class="abstract-content">
+            显示一段以$结尾字符串;利用9号功能调用显示
+DATA    SEGMENT
+MESS    DB &quot;HELLO$&quot;
+DATA    ENDS
+
+CODE    SEGMENT
+ASSUME    CS:CODE,DS:DATA
+
+START:
+MOV AX,DATA
+MOV    DX,AX
+LEA    DX,MESS
+MOV    AH,9
+INT    21H
+MOV    AH,4CH
+INT    21H
+CODE ENDS
+END    START
+实现加法运算;转换BCD输出，十进制字符加32
+CODE    SEGMENT
+START:
+MOV AH...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/07/08/IIS/" >
             
                 <span>WindowsIIS服务问题解决（0x800F081F）</span>
@@ -485,15 +529,15 @@ Miscellanous(地址栏，杂项)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/06/10/Socket编程/" >
+        <a class="abstract-title" href = "/2018/06/10/Python爬虫/" >
             
-                <span>Python Socket 编程详细介绍</span>
+                <span>爬虫</span>
         </a>
         <div class="abstract-content">
-            Python 提供了两个基本的 socket 模块：            
-Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                   
-Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为0）来创建套接字                  
-socket 类型    描述socket.AF_UNIX    用于同一台机器上的进程通信（既本机通信）socket...
+            请求库：RequestsSelenium ：自动化测试工具ChromeDriver:浏览器配合自动化测试工具PhantomJS： 无界面·可脚本编程WebKit浏览器引擎aiohttp： 提供异步服务lxml： 解析库，支持HTML和XMLBeautiful Soup：HTML或XML解析库pyquery: 网页解析工具，可解析HTML文档tesserocr:对tesseract做Python API封装，OCR识别库      
+
+基础知识：hypertext 超文本URL:Uniform Resource Identifier 统一资源标志符
+HTTP:Uniform Resourc...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -511,15 +555,15 @@ socket 类型    描述socket.AF_UNIX    用于同一台机器上的进程通信
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/06/10/Python爬虫/" >
+        <a class="abstract-title" href = "/2018/06/10/Socket编程/" >
             
-                <span>爬虫</span>
+                <span>Python Socket 编程详细介绍</span>
         </a>
         <div class="abstract-content">
-            请求库：RequestsSelenium ：自动化测试工具ChromeDriver:浏览器配合自动化测试工具PhantomJS： 无界面·可脚本编程WebKit浏览器引擎aiohttp： 提供异步服务lxml： 解析库，支持HTML和XMLBeautiful Soup：HTML或XML解析库pyquery: 网页解析工具，可解析HTML文档tesserocr:对tesseract做Python API封装，OCR识别库      
-
-基础知识：hypertext 超文本URL:Uniform Resource Identifier 统一资源标志符
-HTTP:Uniform Resourc...
+            Python 提供了两个基本的 socket 模块：            
+Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                   
+Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为0）来创建套接字                  
+socket 类型    描述socket.AF_UNIX    用于同一台机器上的进程通信（既本机通信）socket...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -641,35 +685,6 @@ HTML框架&lt;html&gt;#文本描述网页
         <a class="post-tag" href="javascript:void(0);" data-tags = "GEEK">GEEK</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/05/11/hexo优化/" >
-            
-                <span>hexo+next优化</span>
-        </a>
-        <div class="abstract-content">
-            鼠标出♥
-把love.js放到 \themes\next\source\js\src 文件目录下
-
-找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：     
-&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/love.js&quot;&gt;&lt;/script&gt;
-代码优化./config.yml
- highlight:   enable: false   line_number: true   autoi_detect: true ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/05/11</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1557,9 +1572,56 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 54
+        Total : 55
         </div>
         <!-- search  -->
         
@@ -1589,6 +1651,11 @@ HTML框架&lt;html&gt;#文本描述网页
         </li>
     
     
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2019/01/03/java编程/" >java_code</a>
+        </li>
+    
+    
     
     
     
@@ -1604,12 +1671,12 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
         </li>
     
     
@@ -1754,12 +1821,12 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
         </li>
     
     
@@ -1859,9 +1926,9 @@ HTML框架&lt;html&gt;#文本描述网页
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
@@ -1869,11 +1936,11 @@ HTML框架&lt;html&gt;#文本描述网页
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
+        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
+    
         <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
-    
-        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
@@ -1926,9 +1993,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
-        <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
-    
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     
         <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
     

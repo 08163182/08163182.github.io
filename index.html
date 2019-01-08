@@ -463,6 +463,35 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/03/java编程/" >
+            
+                <span>java_code</span>
+        </a>
+        <div class="abstract-content">
+            类编程类Person:          属性：编号、姓名、性别；          构造方法：确定编号和姓名；          一般方法：修改编号、姓名，获取编号、姓名。      类Teacher：继承类Person并增加：          属性：系别；          构造方法：调用父类的构造方法；          一般方法：修改、获取系别。      类Student：继承类Person并增加：          属性：班级；          构造方法：调用父类的构造方法；          一般方法：修改、获取班级属性值。      类Classes：        ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/12/27/MD5/" >
             
                 <span>MD5实现</span>
@@ -497,14 +526,20 @@ hash.new(name[,data])name传入哈希机密算法名称(md5)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/DES/" >
+        <a class="abstract-title" href = "/2018/12/25/RSA/" >
             
-                <span>DES实现</span>
+                <span>RSA实现</span>
         </a>
         <div class="abstract-content">
-            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
-1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
-1.输入64bit明文2.经过IP盒...
+              临近期末了，剩下Java和密码学两门课了，正好有密码学课程设计，借此机会记录自己写的算法，每写一个算法就当巩固之前的算法知识和信息安全数学基础的知识了。
+预备知识
+乘法逆元如果ax≡1 (mod p),且gcd(a,p)=1（a与p互质），则称a关于模p的乘法逆元为x。
+费马小定理假如a是一个整数，p是一个质数，那么a^p - a是p的倍数，可以表示为a^p≡a(mod p)a^(p-1)≡1(mod p)
+扩展欧几里得定理ax+by=gcd(a,b)
+逆元求解
+
+扩展欧几里得出发 ax≡1(mod m)—-&gt;  ax-my≡1
+费马小定理 a^(p-1)≡1（mod p） —...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -528,20 +563,14 @@ hash.new(name[,data])name传入哈希机密算法名称(md5)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/RSA/" >
+        <a class="abstract-title" href = "/2018/12/25/DES/" >
             
-                <span>RSA实现</span>
+                <span>DES实现</span>
         </a>
         <div class="abstract-content">
-              临近期末了，剩下Java和密码学两门课了，正好有密码学课程设计，借此机会记录自己写的算法，每写一个算法就当巩固之前的算法知识和信息安全数学基础的知识了。
-预备知识
-乘法逆元如果ax≡1 (mod p),且gcd(a,p)=1（a与p互质），则称a关于模p的乘法逆元为x。
-费马小定理假如a是一个整数，p是一个质数，那么a^p - a是p的倍数，可以表示为a^p≡a(mod p)a^(p-1)≡1(mod p)
-扩展欧几里得定理ax+by=gcd(a,b)
-逆元求解
-
-扩展欧几里得出发 ax≡1(mod m)—-&gt;  ax-my≡1
-费马小定理 a^(p-1)≡1（mod p） —...
+            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
+1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
+1.输入64bit明文2.经过IP盒...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -650,50 +679,6 @@ rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/11/C++2/" >
-            
-                <span>C++学习</span>
-        </a>
-        <div class="abstract-content">
-            类模板与模板类类模板：用户为类定义模式，参数取任意类型。（类型不确定）模板类：类模板实例化产物
-指针char str[] 一个字符数组,例如‘a’,’b’char str[] 一个数组，类型是charchar* 指向字符串，是一个字符串数组，可以是”abc””123”
-swap函数void swap(int *x, int *y)
-{
-int temp=*x;
-*x=*y;
-*y=temp;
-}
-或者
-void swap(int&amp; a, int&amp; b)
-{
-    int swap = a;
-    a = b;
-    b = swap;
-}
-应该交换地址而非传递形参的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "program">program</a>
     
 </div>
             
@@ -1692,9 +1677,56 @@ void swap(int&amp; a, int&amp; b)
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 54
+        Total : 55
         </div>
         <!-- search  -->
         
@@ -1724,6 +1756,11 @@ void swap(int&amp; a, int&amp; b)
         </li>
     
     
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2019/01/03/java编程/" >java_code</a>
+        </li>
+    
+    
     
     
     
@@ -1739,12 +1776,12 @@ void swap(int&amp; a, int&amp; b)
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
         </li>
     
     
@@ -1889,12 +1926,12 @@ void swap(int&amp; a, int&amp; b)
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
         </li>
     
     
@@ -1994,9 +2031,9 @@ void swap(int&amp; a, int&amp; b)
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
-    
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
@@ -2004,11 +2041,11 @@ void swap(int&amp; a, int&amp; b)
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
+        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
+    
         <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
-    
-        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
@@ -2061,9 +2098,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
-        <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
-    
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     
         <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
     
