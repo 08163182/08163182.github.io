@@ -346,6 +346,49 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/07/java复习/" >
+            
+                <span>java_review</span>
+        </a>
+        <div class="abstract-content">
+            基础
+局部变量在使用前必须给定初值，否则编译出错类成员变量无此要求  
+final  类型    常量名=值;  
+类静态成员常量只能在定义时初始化  
+正数在计算机中是用二进制表示的，负数在计算机中使用补码表示的
+整数默认是 int 类型，小数默认是 double 类型  
+类常量：成员变量同时被static和final修饰，则它在类的所有对象中都有唯一值，且无法改变。一定要在定义时就给定初始值  
+类方法是对整个类而言的，方法体中不能有与对象有关的内容。一些通用的、公用型的方法与类的对象无关，常被作为类方法实现  
+
+类
+
+
+
+private 同一个类  
+缺省 同一个类/同一个包 ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/01/05/密码学复习/" >
             
                 <span>密码学复习</span>
@@ -366,6 +409,35 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/04/java实验/" >
+            
+                <span>java_code</span>
+        </a>
+        <div class="abstract-content">
+            类编程  类Person:          属性：编号、姓名、性别；          构造方法：确定编号和姓名；          一般方法：修改编号、姓名，获取编号、姓名。      类Teacher：继承类Person并增加：          属性：系别；          构造方法：调用父类的构造方法；          一般方法：修改、获取系别。      类Student：继承类Person并增加：          属性：班级；          构造方法：调用父类的构造方法；          一般方法：修改、获取班级属性值。      类Classes：      ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
     
 </div>
             
@@ -609,69 +681,6 @@ void swap(int&amp; a, int&amp; b)
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "program">program</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/04/实验吧/" >
-            
-                <span>实验吧Writeup</span>
-        </a>
-        <div class="abstract-content">
-            sql注入MYSQL #后面内容会被注释version()获取数据库版本@@version_compile_os获取操作系统
-天网管理系统查看源码md5弱类型构造user:s878926199a md5加密为0构造serialize，bool类型为True根据构造代码：
-&lt;?php
-$test1=array(&quot;user&quot;=&gt;true,&quot;pass&quot;=&gt;true);
-echo var_dump($test1);
-echo var_dump(serialize($test1));
-?&gt;
-pass修改拿flag
-忘记密码了key: ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/01/D03games/" >
-            
-                <span>D0g3 Game Writeup</span>
-        </a>
-        <div class="abstract-content">
-            xss1
-标签之内&lt;input type=&quot;text&quot; value=&quot;[输出]&quot;/&gt;  
-闭合属性,onmouseover事件触发脚本&quot; onmouseover=alert(1) x=闭合属性后闭合标签，执行脚本&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;  
-输入类型为隐藏的输入字段&lt;input type=&quot;hidden&quot; value=&quot;[输出]&quot; /&gt;输入1&quot; onmouseover=alert(1) type=...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
     
 </div>
             
@@ -1542,9 +1551,28 @@ pass修改拿flag
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 51
+        Total : 54
         </div>
         <!-- search  -->
         
@@ -1560,7 +1588,17 @@ pass修改拿flag
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2019/01/07/java复习/" >java_review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2019/01/05/密码学复习/" >密码学复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/java实验/" >java_code</a>
         </li>
     
     
@@ -1729,12 +1767,17 @@ pass修改拿flag
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/php学习/" >php基础语法</a>
         </li>
     
     
@@ -1831,9 +1874,9 @@ pass修改拿flag
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
-        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
-    
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
         <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
     
@@ -1841,9 +1884,9 @@ pass修改拿flag
     
         <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
-        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
-    
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
@@ -1852,6 +1895,8 @@ pass修改拿flag
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
     
@@ -1899,6 +1944,10 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
     
         <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
+    
+        <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
+    
+        <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
