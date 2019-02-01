@@ -346,6 +346,105 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/08/06/编码问题/" >
+            
+                <span>编码问题</span>
+        </a>
+        <div class="abstract-content">
+            常用编码汉字编码：/GBK2312：简体字集/GBK：简繁字集/GBK18030：汉字集标准/BIG5：台湾繁体字集     
+ASCII–&gt;UTF—&gt;UTF-8ASCII 一个字节(b7奇偶校验位) 一般用来表示127个字符（A-Z,a-z）Unicode 两个字节UTF-8可变长编码 （英文字母1个字节，汉字通常3个字节）(UTF-8是Unicode的一种实现)    
+UTF-16两个字节为编码单元    
+UTF-8GBK 通过Unicode实现    
+记事本（Unicode）—-&gt;文件(UTF-8)服务器（Unicode）—-&gt;浏览器(UTF-8网页)...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/06</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/26/后期PS/" >
+            
+                <span>摄影后期干货</span>
+        </a>
+        <div class="abstract-content">
+            色相 饱和度 明度H=色相决定是什么颜色S=纯度决定颜色浓淡B=明度决定照射在颜色上的白光有多亮
+饱和度饱和度，别名”彩度”，也称之为色彩的纯度，是色彩三属性之一。饱和度取决于该色中含色成分与消色成分（灰色）的比例。消色成分越大，饱和度越小。纯的颜色都是高度饱和的，如鲜红，鲜绿；完全不饱和的颜色根本没有色调，如黑白之间的各种灰色。
+明度
+情况1：每一种纯色都有与其相应的明度；黄色明度最高，蓝紫色明度最低，红、绿色为中间明度。ps: 按不同色相来区别；
+
+情况2：同一色相不同明度。如同一颜色在强光照射下显得明亮，弱光照射下显得较灰暗模糊；同一颜色加黑或加白掺和以后也能产生各种不同的明暗层次...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/26</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/08/微机原理实验代码/" >
+            
+                <span>微机实验代码</span>
+        </a>
+        <div class="abstract-content">
+            显示一段以$结尾字符串;利用9号功能调用显示
+DATA    SEGMENT
+MESS    DB &quot;HELLO$&quot;
+DATA    ENDS
+
+CODE    SEGMENT
+ASSUME    CS:CODE,DS:DATA
+
+START:
+MOV AX,DATA
+MOV    DX,AX
+LEA    DX,MESS
+MOV    AH,9
+INT    21H
+MOV    AH,4CH
+INT    21H
+CODE ENDS
+END    START
+实现加法运算;转换BCD输出，十进制字符加32
+CODE    SEGMENT
+START:
+MOV AH...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/07/08/IIS/" >
             
                 <span>WindowsIIS服务问题解决（0x800F081F）</span>
@@ -564,112 +663,6 @@ EOF模式下单双引号自动转义；var_dump()返回变量的数据类型和�
         <a class="post-tag" href="javascript:void(0);" data-tags = "GEEK">GEEK</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/05/22/html基础/" >
-            
-                <span>html入门</span>
-        </a>
-        <div class="abstract-content">
-            html超文本标记语言html文档由html元素定义   
-&lt;h1-h6&gt;#标题
-&lt;a href =&quot;www.baidu.com&quot;&gt;This is link&lt;/a&gt;#链接
-&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot;&gt;#图像
-HTML框架&lt;html&gt;#文本描述网页
-&lt;body&gt;#文本可见内容
-
-&lt;h1&gt;标题&lt;/h1&gt;
-
-&lt;p&gt;段落&lt;/p&gt;
-
-&lt;/body&gt;
-&lt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/05/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web前端">web前端</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/05/13/操作系统知识汇总/" >
-            
-                <span>操作系统知识点</span>
-        </a>
-        <div class="abstract-content">
-            操作系统概论进程管理：进程如何使用CPU存储管理：管理内存资源设备管理：管理输入输出设备文件管理：对文件进行组织、管理，向用户提供方便的存取访问和可靠共享   
-操作系统接口分为程序接口和操作接口程序接口包括系统调用和API操作接口包括命令界面、图形界面、作业控制命令
-应用程序获得系统服务，就必须利用系统调用：用户进程-&gt;系统调用-&gt;内核；系统调用由中断驱动，机制为“陷阱或异常处理机制”；系统调用-&gt;功能号-&gt;入口地址表-&gt;入口地址
-进程管理1
-
-程序： 静态的代码文件
-进程： 程序在某个数据集合的一次执行，系统资源分配的基本单位
-作业： 批处理系统要装入系...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/05/13</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "GEEK">GEEK</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/05/11/hexo优化/" >
-            
-                <span>hexo+next优化</span>
-        </a>
-        <div class="abstract-content">
-            鼠标出♥
-把love.js放到 \themes\next\source\js\src 文件目录下
-
-找到 \themes\next\layout_layout.swing 文件， 在文件的后面， 标签之前 添加以下代码：     
-&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/love.js&quot;&gt;&lt;/script&gt;
-代码优化./config.yml
- highlight:   enable: false   line_number: true   autoi_detect: true ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/05/11</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1597,9 +1590,86 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 54
+        Total : 57
         </div>
         <!-- search  -->
         
@@ -1612,6 +1682,21 @@ HTML框架&lt;html&gt;#文本描述网页
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2019/01/30/文字识别/" >基于图片的文字识别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/28</span><a class="archive-post-title" href= "/2019/01/28/cumt1月月赛/" >cumt双月赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/24</span><a class="archive-post-title" href= "/2019/01/24/杂项/" >ctf中一些知识总结</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1659,12 +1744,12 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
@@ -1769,12 +1854,12 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
@@ -1897,13 +1982,13 @@ HTML框架&lt;html&gt;#文本描述网页
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
-        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
     
@@ -1919,15 +2004,19 @@ HTML框架&lt;html&gt;#文本描述网页
     
         <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
     
-        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
-    
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
     
         <span class="sidebar-tag-name" data-tags="读书笔记"><span class="iconfont-archer">&#xe606;</span>读书笔记</span>
     
@@ -1964,17 +2053,21 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
+    
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
     
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
-    
-        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
         <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
     
         <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
     
         <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+    
+        <span class="sidebar-category-name" data-categories="misc"><span class="iconfont-archer">&#xe60a;</span>misc</span>
+    
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
