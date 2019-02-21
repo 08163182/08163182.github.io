@@ -346,6 +346,35 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/02/21/upload-labs/" >
+            
+                <span>upload-labs writeup</span>
+        </a>
+        <div class="abstract-content">
+            前端112345678910    var allow_ext = ".jpg|.png|.gif";    //提取上传文件的类型    var ext_name = file.substring(file.lastIndexOf("."));    //判断上传文件类型是否允许上传    if (allow_ext.indexOf(ext_name + "|") == -1) &#123;        var errMsg = "该文件不允许上传，请上传" + allow_ext + "类型的文件,当前文件类型为：" + ext_name;        alert(errMsg)...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "writeup">writeup</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/01/30/文字识别/" >
             
                 <span>基于图片的文字识别</span>
@@ -572,37 +601,6 @@ hash.new(name[,data])name传入哈希机密算法名称(md5)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/DES/" >
-            
-                <span>DES实现</span>
-        </a>
-        <div class="abstract-content">
-            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
-1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
-1.输入64bit明文2.经过IP盒...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2018/12/25/RSA/" >
             
                 <span>RSA实现</span>
@@ -640,26 +638,25 @@ hash.new(name[,data])name传入哈希机密算法名称(md5)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/24/中原理工writeup/" >
+        <a class="abstract-title" href = "/2018/12/25/DES/" >
             
-                <span>中原工比赛</span>
+                <span>DES实现</span>
         </a>
         <div class="abstract-content">
-            签到查看响应头发现tips:4he9e.txt然后访问之后有段代码12345678&lt;?php$flag = "***";if (isset($_GET['repo'])) &#123;      if (strcmp($_GET['repo'], $flag) == 0)         die('Flag: '.$flag);      else          print 'No';  &#125;
-strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
-文件上传常规上传上传成功之后不回显路径。修改phtml,php5..等无果。应该就是一个简单的黑名单检测。
-最...
+            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
+1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
+1.输入64bit明文2.经过IP盒...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/24</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/25</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
     
 </div>
             
@@ -1645,30 +1642,9 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 57
+        Total : 58
         </div>
         <!-- search  -->
         
@@ -1681,6 +1657,11 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/upload-labs/" >upload-labs writeup</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1728,12 +1709,12 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
         </li>
     
     
@@ -1743,12 +1724,12 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
@@ -1853,12 +1834,12 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
@@ -1981,9 +1962,9 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
-    
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
@@ -1997,19 +1978,19 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
     
         <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
-        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
-    
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
         <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
-    
         <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
@@ -2052,9 +2033,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
-    
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     

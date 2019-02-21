@@ -346,23 +346,26 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/22/安恒月赛Writeup/" >
+        <a class="abstract-title" href = "/2018/12/24/中原理工writeup/" >
             
-                <span>安恒杯12月月赛</span>
+                <span>中原工比赛</span>
         </a>
         <div class="abstract-content">
-            easy12345678910111213141516171819202122232425262728293031323334353637 &lt;?php  @error_reporting(1); include 'flag.php';class baby &#123;       public $file;    function __toString()          &#123;                  if(isset($this-&gt;file))         &#123;            $filename = "./&#123;$this-&g...
+            签到查看响应头发现tips:4he9e.txt然后访问之后有段代码12345678&lt;?php$flag = "***";if (isset($_GET['repo'])) &#123;      if (strcmp($_GET['repo'], $flag) == 0)         die('Flag: '.$flag);      else          print 'No';  &#125;
+strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
+文件上传常规上传上传成功之后不回显路径。修改phtml,php5..等无果。应该就是一个简单的黑名单检测。
+最...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/24</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
     
 </div>
             
@@ -399,6 +402,35 @@ rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "writeup">writeup</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/12/22/安恒月赛Writeup/" >
+            
+                <span>安恒杯12月月赛</span>
+        </a>
+        <div class="abstract-content">
+            easy12345678910111213141516171819202122232425262728293031323334353637 &lt;?php  @error_reporting(1); include 'flag.php';class baby &#123;       public $file;    function __toString()          &#123;                  if(isset($this-&gt;file))         &#123;            $filename = "./&#123;$this-&g...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
     
 </div>
             
@@ -620,34 +652,6 @@ payload:http://bxs.cumt.edu.cn/challenge/web/logic/submit.php?emailAddress=cheny
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/07/Net security/" >
-            
-                <span>网络安全实验</span>
-        </a>
-        <div class="abstract-content">
-            Linux 快捷键：终端:复制命令：Ctrl + Shift + C  组合键    .    
-粘贴命令：Ctrl + Shift + V  组合键           
-控制台：复制命令：Ctrl + Insert  组合键　　或　　用鼠标选中即是复制。         
-粘贴命令：Shift + Insert  组合键　　或　　单击鼠标滚轮即为粘贴。                 
-server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 匿名登陆ls 查看目录，get ../ftp/1.txt获取1.txt文件   
-503 服务器出错...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/07</span>
             </div>
             <!-- tags  -->
             
@@ -1633,30 +1637,9 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 57
+        Total : 58
         </div>
         <!-- search  -->
         
@@ -1669,6 +1652,11 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/upload-labs/" >upload-labs writeup</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1716,12 +1704,12 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
         </li>
     
     
@@ -1731,12 +1719,12 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
@@ -1841,12 +1829,12 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
@@ -1969,9 +1957,9 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
-    
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
@@ -1985,19 +1973,19 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
     
         <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
     
-        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
-    
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
         <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
-    
         <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
@@ -2040,9 +2028,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
-    
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     
