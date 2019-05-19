@@ -22,7 +22,7 @@
     <meta name="description" content="一步一个脚印">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Supersnail&#39;s advance</title>
+    <title>安恒2月月赛 writeup · Supersnail&#39;s advance</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -338,343 +338,74 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/27/MD5/" >
-            
-                <span>MD5实现</span>
-        </a>
-        <div class="abstract-content">
-            hash函数实现
-update() 函数把字典参数 dict2 的 key/value(键/值) 对更新到字典 dict 里。
-hash.update(arg)该方法只接受byte类型，否则会报错.重复调用update(arg)方法，是会将传入的arg参数进行拼接，而不是覆盖
-
-hash.new(name[,data])name传入哈希机密算法名称(md5)
-1234567891011def genearteMD5(str):    # 创建md5对象    hl = hashlib.md5()    # Tips    # 此处必须声明encode    # 否则报错为：hl.upda...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="来玩个游戏吧"><a href="#来玩个游戏吧" class="headerlink" title="来玩个游戏吧"></a>来玩个游戏吧</h2><p>打开exe文件发现两个关卡。 </p>
+<ul>
+<li>第一个考察点盲文解密</li>
+<li><p>第二个考察点MD5碰撞<br><code>⠏⠏⠄⠁⠄⠀⠂⡑⡒⡓⠄⡒⠂⡑⠇⠆⡒⠉⠇⠁⠉⡔⠉⠁⠁⠀⠁⠇⡓⠅⠉⠂=</code> 直接放到在线网站解密为??41402abc4b2a76b9719d911017c592<br><img src="https://i.imgur.com/icbPV2Y.jpg" alt=""></p>
+<p>百度搜索为hello </p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/XvgLsqf.png" alt=""></p>
+<p>提交之后通过第一关。 第二关MD5碰撞利用fastcoll工具产生两个具有相同MD5值得不同文件<br>Windows下可用<code>certutil -hashfile 路径 MD5</code>检测hash值<br><img src="https://i.imgur.com/JoGOOqO.png" alt=""></p>
+<p>提交之后得到一封邮件如下。<br><img src="https://i.imgur.com/VnGvgN1.jpg" alt=""></p>
+<p>根据提示栅格加密搜索找到解密网站。<br><img src="https://i.imgur.com/7H85y0k.png" alt=""></p>
+<h2 id="非常简单的流量分析"><a href="#非常简单的流量分析" class="headerlink" title="非常简单的流量分析"></a>非常简单的流量分析</h2><p>http过滤在流量包中发现robots.txt,追踪http流进行分析。</p>
+<p><img src="https://i.imgur.com/qPxIinD.png" alt=""><br>继续分析<code>http contains abc.html</code><br>跟踪HTTP流发现<br><img src="https://i.imgur.com/ttEqqMH.png" alt=""></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">md5 <span class="number">0x99a98e067af6b09e64f3740767096c96</span></span><br><span class="line"></span><br><span class="line">DES 0xb19b21e80c685bcb052988c11b987802d2f2808b2c2d8a0d	(129-&gt;143)</span><br><span class="line"></span><br><span class="line">DES 0x684a0857b767672d52e161aa70f6bdd07c0264876559cb8b	(143-&gt;129)</span><br></pre></td></tr></table></figure>
+<p>继续分析发现流量经过了IP Sec加密。<br><img src="https://i.imgur.com/gsJYHB1.png" alt=""><br>因此根据发现的信息和加密的方式在Wireshark中还原。<br><img src="https://i.imgur.com/n7JVU4J.png" alt=""></p>
+<p>Encryption Key填写DES对应的加密值，Authentication Key填写发现的md5值。SPI填写对应的SPI。还原之后的内容发现一些奇怪的ascii码值。</p>
+<p><img src="https://i.imgur.com/3dt2RYS.png" alt=""><br>将对应的ascii码值进行解密得到flag<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">asc=[<span class="number">102</span>,<span class="number">108</span>,<span class="number">97</span>,<span class="number">103</span>,<span class="number">123</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">98</span>,<span class="number">48</span>,<span class="number">51</span>,<span class="number">98</span>,<span class="number">55</span>,<span class="number">53</span>,<span class="number">56</span>,<span class="number">102</span>,<span class="number">50</span>,<span class="number">53</span>,<span class="number">53</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">54</span>,<span class="number">101</span>,<span class="number">53</span>,<span class="number">97</span>,<span class="number">57</span>,<span class="number">56</span>,<span class="number">100</span>,<span class="number">97</span>,<span class="number">48</span>,<span class="number">101</span>,<span class="number">49</span>,<span class="number">57</span>,<span class="number">52</span>,<span class="number">55</span>,<span class="number">98</span>,<span class="number">101</span>,<span class="number">100</span>,<span class="number">125</span>]</span><br><span class="line"></span><br><span class="line">res=<span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> asc:</span><br><span class="line">    res+=chr(i)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/E7qWryi.png" alt=""></p>
+<h1 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h1><h2 id="hahahaha"><a href="#hahahaha" class="headerlink" title="hahahaha"></a>hahahaha</h2><p>CRC（循环冗余校验）,是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种散列函数，CRC32则表示会产生一个32bit（8位十六进制数）的校验值。主要用来检测或校验数据传输或者保存后可能出现的错误。CRC32源数据块的每一位都参与了运算，因此即使数据块中只有一位发生改变也会得到不同的CRC32值，数据算出对应CRC，逆推根据CRC推测出数据，低位数CRC通过爆破即可。</p>
+<p>具体参考<a href="https://www.anquanke.com/post/id/86211" target="_blank" rel="noopener">https://www.anquanke.com/post/id/86211</a></p>
+<p>打开zip文件发现加密，并且压缩包有四个txt，可通过CRC32爆破内容<br><img src="https://i.imgur.com/6WwpDzo.png" alt=""></p>
+<p><img src="https://i.imgur.com/9fd93G3.png" alt=""></p>
+<p>依次爆破可以看到隐藏信息 <code>tanny_is_very_beautifu1_</code></p>
+<p>解密flag.pdf看到<br><img src="https://i.imgur.com/Iu6Gu9y.jpg" alt=""><br>根据提示按键生成字典长度为13<code>12!@eshcn</code><br>进行组合可以发现存在<code>flag{}</code>按键，所以仅需将剩下的7位爆破即可<br>得到sha1值<code>e6079c5ce56e781a50f4bf853cdb5302e0d8f054</code></p>
+<p>脚本如下<br>利用<code>permutations生成字典序列</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">str=<span class="string">'1!2@eshcn'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> itertools.permutations(str,<span class="number">7</span>):</span><br><span class="line">    <span class="comment">#print i</span></span><br><span class="line">    res=<span class="string">'flag&#123;'</span>+<span class="string">''</span>.join(i)+<span class="string">'&#125;'</span></span><br><span class="line">    <span class="keyword">if</span> hashlib.sha1(res).hexdigest()==<span class="string">"e6079c5ce56e781a50f4bf853cdb5302e0d8f054"</span>:</span><br><span class="line">        <span class="keyword">print</span> res</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/7IXPI1d.png" alt=""></p>
+<h2 id="密码本"><a href="#密码本" class="headerlink" title="密码本"></a>密码本</h2><p>百度一次性密码本。<br>加密方法<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">举个例子，若要加密讯息“This is an example”，而用以加密的一次性密码本如下所示：</span><br><span class="line">MASKL NSFLD FKJPQ</span><br><span class="line">则利用指定数字的方法，可分别将两者给做以下的转换：</span><br><span class="line">This is an example → <span class="number">19</span> <span class="number">7</span> <span class="number">8</span> <span class="number">18</span> <span class="number">8</span> <span class="number">18</span> <span class="number">0</span> <span class="number">13</span> <span class="number">4</span> <span class="number">23</span> <span class="number">0</span> <span class="number">12</span> <span class="number">15</span> <span class="number">11</span> <span class="number">4</span></span><br><span class="line">MASKL NSFLD FKJPQ → <span class="number">12</span> <span class="number">0</span> <span class="number">18</span> <span class="number">10</span> <span class="number">11</span> <span class="number">13</span> <span class="number">18</span> <span class="number">5</span> <span class="number">11</span> <span class="number">3</span> <span class="number">5</span> <span class="number">10</span> <span class="number">9</span> <span class="number">15</span> <span class="number">16</span></span><br><span class="line">两者依序相加后得到的讯息如下：</span><br><span class="line"><span class="number">31</span> <span class="number">7</span> <span class="number">26</span> <span class="number">28</span> <span class="number">19</span> <span class="number">31</span> <span class="number">18</span> <span class="number">18</span> <span class="number">15</span> <span class="number">26</span> <span class="number">5</span> <span class="number">22</span> <span class="number">24</span> <span class="number">26</span> <span class="number">20</span></span><br><span class="line">将以上得到的讯息模<span class="number">26</span>后可得：</span><br><span class="line"><span class="number">5</span> <span class="number">7</span> <span class="number">0</span> <span class="number">2</span> <span class="number">7</span> <span class="number">5</span> <span class="number">8</span> <span class="number">8</span> <span class="number">11</span> <span class="number">0</span> <span class="number">5</span> <span class="number">22</span> <span class="number">24</span> <span class="number">0</span> <span class="number">20</span></span><br><span class="line">它也就变成了</span><br><span class="line">FHACHFIILAFWYAU</span><br><span class="line">而若要解密以上信息，反向操作即可。</span><br></pre></td></tr></table></figure></p>
+<p>附解密脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">key=&apos;year&apos;</span><br><span class="line">cip1=&apos;rlojsfklecby&apos;</span><br><span class="line">cip2=&apos;ulakqfgfsjlu&apos;</span><br><span class="line">cip3=&apos;dpaxwxtjgtay&apos;</span><br><span class="line">pl1=&apos;&apos;</span><br><span class="line">pl2=&apos;&apos;</span><br><span class="line">pl3=&apos;&apos;</span><br><span class="line">for i in range(len(key)):</span><br><span class="line">    pl1 += chr((((ord(cip1[i]) - ord(&apos;a&apos;)) - (ord(key[i]) - ord(&apos;a&apos;))) % 26) + ord(&apos;a&apos;))</span><br><span class="line">    pl2 += chr((((ord(cip2[i]) - ord(&apos;a&apos;)) - (ord(key[i]) - ord(&apos;a&apos;))) % 26) + ord(&apos;a&apos;))</span><br><span class="line">    pl3 += chr((((ord(cip3[i]) - ord(&apos;a&apos;)) - (ord(key[i]) - ord(&apos;a&apos;))) % 26) + ord(&apos;a&apos;))</span><br><span class="line"></span><br><span class="line">print pl1</span><br><span class="line">print pl2</span><br><span class="line">print pl3</span><br></pre></td></tr></table></figure></p>
+<p>出现<img src="https://i.imgur.com/FVSvXnf.jpg" alt=""><br>推测thos下一个字母是e<br>经过测试key的下一个字母为o<br><img src="https://i.imgur.com/h5slhXD.png" alt=""><br><code>yearo</code>解密之后如下<img src="https://i.imgur.com/A1QFW7y.png" alt=""></p>
+<p>然后可以猜测flagi后面为s，进行测试，探测出<code>yearof</code><br><img src="https://i.imgur.com/49DUU7Z.png" alt=""><br>根据whatca可推测下一个字母为n,进行测试,探测<code>yearoft</code><br><img src="https://i.imgur.com/nsfm7AM.png" alt=""><br>根据thosear推测e,探测出<code>yearofth</code><br>whatcanyou推测出<code>yearofthep</code><br>flagisaccess推测出<code>yearofthepig</code></p>
+<h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="my-email"><a href="#my-email" class="headerlink" title="my_email"></a>my_email</h2>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/DES/" >
-            
-                <span>DES实现</span>
-        </a>
-        <div class="abstract-content">
-            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
-1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
-1.输入64bit明文2.经过IP盒...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">Jason_xi</a>
+            <p>原文链接：<a href="http://yoursite.com/记录学习笔记/安恒2月月赛Writeup.html">http://yoursite.com/记录学习笔记/安恒2月月赛Writeup.html</a>
+            <p>发表日期：<a href="http://yoursite.com/记录学习笔记/安恒2月月赛Writeup.html">February 27th 2019, 12:00:00 am</a>
+            <p>更新日期：<a href="http://yoursite.com/记录学习笔记/安恒2月月赛Writeup.html">March 10th 2019, 11:54:43 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/RSA/" >
-            
-                <span>RSA实现</span>
-        </a>
-        <div class="abstract-content">
-              临近期末了，剩下Java和密码学两门课了，正好有密码学课程设计，借此机会记录自己写的算法，每写一个算法就当巩固之前的算法知识和信息安全数学基础的知识了。
-预备知识
-乘法逆元如果ax≡1 (mod p),且gcd(a,p)=1（a与p互质），则称a关于模p的乘法逆元为x。
-费马小定理假如a是一个整数，p是一个质数，那么a^p - a是p的倍数，可以表示为a^p≡a(mod p)a^(p-1)≡1(mod p)
-扩展欧几里得定理ax+by=gcd(a,b)
-逆元求解
-
-扩展欧几里得出发 ax≡1(mod m)—-&gt;  ax-my≡1
-费马小定理 a^(p-1)≡1（mod p） —...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/24/中原理工writeup/" >
-            
-                <span>中原工比赛</span>
-        </a>
-        <div class="abstract-content">
-            签到查看响应头发现tips:4he9e.txt然后访问之后有段代码12345678&lt;?php$flag = "***";if (isset($_GET['repo'])) &#123;      if (strcmp($_GET['repo'], $flag) == 0)         die('Flag: '.$flag);      else          print 'No';  &#125;
-strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
-文件上传常规上传上传成功之后不回显路径。修改phtml,php5..等无果。应该就是一个简单的黑名单检测。
-最...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/22/Swpuctf_writeup/" >
-            
-                <span>Swpuctf复现</span>
-        </a>
-        <div class="abstract-content">
-            用优惠码买个X
-单引号里面的双引号中的变量不会解析！ 
-string substr ( string $string , int $start [, int $length ] )如果提供了负数的 length，那么 string 末尾处的 length 个字符将会被省略
-@错误抑制符
-rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
-
-
-注册登陆给了一个15位优惠码，提交验证码发现需要24位，学习到了预测种子，然后产生对应的24位优惠码。御剑扫描发现后台www.zip，下载发现有生成优惠码源码和第二个页面验证代码。通过源码反推随机数，然后...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "writeup">writeup</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/22/安恒12月月赛Writeup/" >
-            
-                <span>安恒杯12月月赛</span>
-        </a>
-        <div class="abstract-content">
-            easy12345678910111213141516171819202122232425262728293031323334353637 &lt;?php  @error_reporting(1); include 'flag.php';class baby &#123;       public $file;    function __toString()          &#123;                  if(isset($this-&gt;file))         &#123;            $filename = "./&#123;$this-&g...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/11/C++2/" >
-            
-                <span>C++学习</span>
-        </a>
-        <div class="abstract-content">
-            类模板与模板类类模板：用户为类定义模式，参数取任意类型。（类型不确定）模板类：类模板实例化产物
-指针char str[] 一个字符数组,例如‘a’,’b’char str[] 一个数组，类型是charchar* 指向字符串，是一个字符串数组，可以是”abc””123”
-swap函数void swap(int *x, int *y)
-{
-int temp=*x;
-*x=*y;
-*y=temp;
-}
-或者
-void swap(int&amp; a, int&amp; b)
-{
-    int swap = a;
-    a = b;
-    b = swap;
-}
-应该交换地址而非传递形参的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "program">program</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/04/实验吧/" >
-            
-                <span>实验吧Writeup</span>
-        </a>
-        <div class="abstract-content">
-            sql注入MYSQL #后面内容会被注释version()获取数据库版本@@version_compile_os获取操作系统
-天网管理系统查看源码md5弱类型构造user:s878926199a md5加密为0构造serialize，bool类型为True根据构造代码：
-&lt;?php
-$test1=array(&quot;user&quot;=&gt;true,&quot;pass&quot;=&gt;true);
-echo var_dump($test1);
-echo var_dump(serialize($test1));
-?&gt;
-pass修改拿flag
-忘记密码了key: ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/01/D03games/" >
-            
-                <span>D0g3 Game Writeup</span>
-        </a>
-        <div class="abstract-content">
-            xss1
-标签之内&lt;input type=&quot;text&quot; value=&quot;[输出]&quot;/&gt;  
-闭合属性,onmouseover事件触发脚本&quot; onmouseover=alert(1) x=闭合属性后闭合标签，执行脚本&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;  
-输入类型为隐藏的输入字段&lt;input type=&quot;hidden&quot; value=&quot;[输出]&quot; /&gt;输入1&quot; onmouseover=alert(1) type=...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "web">web</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/12/算法复习/" >
-            
-                <span>算法复习</span>
-        </a>
-        <div class="abstract-content">
-            动态规划0-1背包1234567891011121314151617181920212223242526272829303132333435	#include &lt;iostream&gt;	#include&lt;algorithm&gt;	int b[1005][1005];	using namespace std;	struct Bag &#123;	int cost, val;	&#125;m[1005];	int main()	&#123;		int t, c, n;	cin &gt;&gt; t;	while (t--) &#123;		cin &gt;&gt; c &gt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="page-number" href="/archives/2018/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2018/page/5/">5</a><a class="extend next" rel="next" href="/archives/2018/page/2/">NEXT &#62;</a>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
