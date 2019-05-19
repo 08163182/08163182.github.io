@@ -78,6 +78,8 @@
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -201,10 +203,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -220,34 +220,21 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            SuperSnail's Advance
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                it's better to burn out than to fade away
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -359,383 +346,30 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/01/D03games/" >
+        <a class="abstract-title" href = "/2018/02/01/搭建SS/" >
             
-                <span>D0g3 Game Writeup</span>
+                <span>ss+vultr</span>
         </a>
         <div class="abstract-content">
-            xss1
-标签之内&lt;input type=&quot;text&quot; value=&quot;[输出]&quot;/&gt;  
-闭合属性,onmouseover事件触发脚本&quot; onmouseover=alert(1) x=闭合属性后闭合标签，执行脚本&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;  
-输入类型为隐藏的输入字段&lt;input type=&quot;hidden&quot; value=&quot;[输出]&quot; /&gt;输入1&quot; onmouseover=alert(1) type=...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/12/算法复习/" >
-            
-                <span>Algorithm_Review</span>
-        </a>
-        <div class="abstract-content">
-            动态规划0-1背包1234567891011121314151617181920212223242526272829303132333435	#include &lt;iostream&gt;	#include&lt;algorithm&gt;	int b[1005][1005];	using namespace std;	struct Bag &#123;	int cost, val;	&#125;m[1005];	int main()	&#123;		int t, c, n;	cin &gt;&gt; t;	while (t--) &#123;		cin &gt;&gt; c &gt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/11/Kali学习记录/" >
-            
-                <span>Kali_Record</span>
-        </a>
-        <div class="abstract-content">
-            open vm toolsvi /etc/apt/sources.list
-更新源中科大kali源:
-deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib 
-deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib 
-deb http://mirrors.ustc.edu.cn/kali-security kali-current/updates main contrib non-free 
-deb-src h...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "operate system">operate system</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/10/ctf/" >
-            
-                <span>php函数</span>
-        </a>
-        <div class="abstract-content">
-            php函数strpos 返回字符串首次出现位置stripos 返回字符串首次出现位置不区分大小写highlight_file()对文件进行高亮显示
-serialize与unserializeunserialize函数在重构对象后自动调用_wakeup成员方法，跳过_wakeup执行，序列化字符串中，如果表示对象属性个数的值大于真实的属性个数时就会跳过__wakeup的执行。
-O:&lt;length&gt;:&quot;&lt;class name&gt;&quot;:&lt;n&gt;:{&lt;field name 1&gt;&lt;field value 1&gt;&lt;fiel...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/08/矿大网络实训平台/" >
-            
-                <span>bxs网络平台</span>
-        </a>
-        <div class="abstract-content">
-            WebWriteup 
-Logic
-Burp抓包发现管理员账号chenyurui@gmail.com
-看到隐藏信息。Vim编辑.
-验证转入submit.php.
-访问./submit.php发现不是管理员。根据Vim备份漏洞，存在隐藏文件.swp,访问./submit.php.swp访问之后查看源码，构造Token值绕过验证.
+            1.下载Putty2.填写Host Name3.输入root4.输入服务器密码5.执行命令
+wget –no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
 
+chmod +x shadowsocks.sh
 
-payload:http://bxs.cumt.edu.cn/challenge/web/logic/submit.php?emailAddress=chenyurui@gmail.com&amp;token=0e00000000
-听说你会面向对象看到想到反序...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/07/Net security/" >
-            
-                <span>网络安全实验</span>
-        </a>
-        <div class="abstract-content">
-            Linux 快捷键：终端:复制命令：Ctrl + Shift + C  组合键    .    
-粘贴命令：Ctrl + Shift + V  组合键           
-控制台：复制命令：Ctrl + Insert  组合键　　或　　用鼠标选中即是复制。         
-粘贴命令：Shift + Insert  组合键　　或　　单击鼠标滚轮即为粘贴。                 
-server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 匿名登陆ls 查看目录，get ../ftp/1.txt获取1.txt文件   
-503 服务器出错...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Penetration">Penetration</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/05/网络安全复习/" >
-            
-                <span>CyberSecurity_Review</span>
-        </a>
-        <div class="abstract-content">
-            概论安全主要威胁
-特洛伊木马
-黑客攻击
-内部、外部泄密
-计算机病毒
-信息丢失、篡改、销毁
-内部、外部泄密
-蠕虫
-拒绝服务攻击
-逻辑炸弹
-后门、隐蔽通道
-
-CIA三元组
-机密性
-完整性
-可用性
-
-网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击
-攻击方式:
-主动:伪装、回答、修改报文、拒绝服务。
-被动攻击:报文内容泄露、通信分析。
-
-OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；  
-8种安全机制：访问控制、公证、路由控制、流量填充、身份认证交换、数字签名、信息完整性、加密   
-
-第一章 攻击流程和渗透测试黑客攻击流程踩点：确定目标地址范围、查询名字...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "cyber_security">cyber_security</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/28/PHP语言漏洞/" >
-            
-                <span>php弱类型漏洞记录</span>
-        </a>
-        <div class="abstract-content">
-            类型判断
-is_set()是否初始化       
-empty()检测变量是否为空（0/false/array()/）               
-$a==null判断是否为null(必须初始化)      
-is_null()仅变量为null返回true。
-$a===null 仅为null返回true
-注意区分NULL和空            
-
-strpos()查找字符串在另一字符串出现的位置。
+./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log
+6.设置SS密码和端口号，选择加密方式77.按任意键等待部署
 
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/28</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/02/01</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/20/计网复习/" >
-            
-                <span>计算机网络复习</span>
-        </a>
-        <div class="abstract-content">
-            重点勾勒电路交换，报文交换，分组交换特点计网性能指标协议三要素OSI，ＴＣＰ／ＩＰ，五层协议　分层比较与记忆常用编码方式和基本的带通调制方式信道复用技术：频分时分码分波分数据链路层三个基本问题：封装成帧，透明传输，差错检验差错检验：循环冗余校验集线器，交换机和网桥工作原理和特点比较使用以太网交换机进行 VLAN 的扩充3.07 3.30 3.314.20 4.21 4.26 4.27 4.30 4.37 4.42 4.435.09 5.23 5.31 5.34 
-5/.47DNS FTP/TFTP比较 URL，HTML    
-第一部分1.2.3章选择10，论述2，计算2第二部分1.6章...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "computer network">computer network</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/18/工具集合/" >
-            
-                <span>工具大全收集</span>
-        </a>
-        <div class="abstract-content">
-            首先是渗透流程
-
-综合扫描
-
-目录检测
-
-注入检测
-
-旁注与c段
-
-抓包改包
-
-webshell
-
-提权工具
-
-arp嗅探
-
-社会工程
-
-破解工具
-
-字典相关
-
-痕迹清理
-
-漏洞利用
-
-后门程序
-
-其他工具
-
-渗透学习
-
-
-工具细节：
-1.综合检测
-appscan、burp、JSky、safe3wvs、苹果FTP批量扫描工具、WebCruiser、WebSploit Toolkit V.1.9、wvs、x站神器3.7、x站神器3.7、cv6、百度新闻源挖掘机
-2.目录检测
-chrome后台扫描插件、Pker多线程后台极速扫描工具、WebRobot、WebScan、Wordpress爆路径...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Penetration">Penetration</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "shadowsocks">shadowsocks</a>
     
 </div>
             
@@ -744,121 +378,8 @@ chrome后台扫描插件、Pker多线程后台极速扫描工具、WebRobot、We
     
     <!-- paginator  -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">NEXT &#62;</a>
-    </nav>
-    
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/boy.jpg >
-    <div class="profile-name">Supersnail</div>
-    
-    <div class="profile-signature">
-        Be My Personal Best
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:15896427883@163.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="https://github.com/08163182" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title=wechat>
-                  
-                  <img class="profile-qr" src="/assets/wechat.jpg" />
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="https://www.zhihu.com/people/wang-jia-xi-5" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
-            
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= http://www.shiyanbar.com/ target="_black">friendA</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= https://www.google.com/ target="_black">friendB</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= https://altman.vip/ target="_black">friendC</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
