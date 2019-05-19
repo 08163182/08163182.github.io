@@ -359,56 +359,6 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/08/微机原理实验代码/" >
-            
-                <span>微机实验代码</span>
-        </a>
-        <div class="abstract-content">
-            显示一段以$结尾字符串;利用9号功能调用显示
-DATA    SEGMENT
-MESS    DB &quot;HELLO$&quot;
-DATA    ENDS
-
-CODE    SEGMENT
-ASSUME    CS:CODE,DS:DATA
-
-START:
-MOV AX,DATA
-MOV    DX,AX
-LEA    DX,MESS
-MOV    AH,9
-INT    21H
-MOV    AH,4CH
-INT    21H
-CODE ENDS
-END    START
-实现加法运算;转换BCD输出，十进制字符加32
-CODE    SEGMENT
-START:
-MOV AH...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Microcomputer">Microcomputer</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2018/07/06/bugku_writeup/" >
             
                 <span>bugku_Writeup</span>
@@ -518,6 +468,32 @@ Miscellanous(地址栏，杂项)
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/06/10/Socket编程/" >
+            
+                <span>Python Socket 编程详细介绍</span>
+        </a>
+        <div class="abstract-content">
+            Python 提供了两个基本的 socket 模块：            
+Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                   
+Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为0）来创建套接字                  
+socket 类型    描述socket.AF_UNIX    用于同一台机器上的进程通信（既本机通信）socket...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/06/10/Python_Spider/" >
             
                 <span>python_Spider</span>
@@ -540,32 +516,6 @@ HTTP:Uniform Resourc...
         <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/06/10/Socket编程/" >
-            
-                <span>Python Socket 编程详细介绍</span>
-        </a>
-        <div class="abstract-content">
-            Python 提供了两个基本的 socket 模块：            
-Socket 它提供了标准的BSD Socket API。SocketServer 它提供了服务器重心，可以简化网络服务器的开发。下面讲解下 Socket模块功能。                   
-Socket 类型套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为0）来创建套接字                  
-socket 类型    描述socket.AF_UNIX    用于同一台机器上的进程通信（既本机通信）socket...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/10</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -715,6 +665,32 @@ HTML框架&lt;html&gt;#文本描述网页
         <a class="post-tag" href="javascript:void(0);" data-tags = "Web">Web</a>
     
 </div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/05/09/javascript学习/" >
+            
+                <span>javascript学习</span>
+        </a>
+        <div class="abstract-content">
+            
+DOM：一套对文档的内容进行抽象和概念化的方法；
+解释型程序设计语言，它是一种弱类型语言，Web浏览器负责完成有关的解释和执行工作。注释分为/* */ 或者//       
+入门语法…包含JS代码console.log(a)显示变量内容+字符串连接`…`显示多行字符串toUpperCase()大写字符串toLowerCase()小写字符串indexOf()搜索字符串出现位置substring（）返回指定索引区间字符串slice()截取Array部分元素返回新Arraypush()Array末尾添加元素pop()Array最后元素删除unshift()Array头部添加元素shift(...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/05/09</span>
+            </div>
+            <!-- tags  -->
             
         </div>
     </article>
@@ -1934,20 +1910,9 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 64
+        Total : 63
         </div>
         <!-- search  -->
         
@@ -1960,11 +1925,6 @@ HTML框架&lt;html&gt;#文本描述网页
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/01</span><a class="archive-post-title" href= "/2019/05/01/Linux_Learn/" >Linux_Learn</a>
-        </li>
     
     
         <li class="archive-post-item">
@@ -2057,12 +2017,12 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
@@ -2097,12 +2057,12 @@ HTML框架&lt;html&gt;#文本描述网页
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台md/" >bxs网络平台</a>
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台/" >bxs网络平台</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台/" >bxs网络平台</a>
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台md/" >bxs网络平台</a>
         </li>
     
     
@@ -2303,15 +2263,15 @@ HTML框架&lt;html&gt;#文本描述网页
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
-    
         <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
+    
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
         <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
     
-        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
-    
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
     
@@ -2321,25 +2281,27 @@ HTML框架&lt;html&gt;#文本描述网页
     
         <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
     
-        <span class="sidebar-tag-name" data-tags="Photography"><span class="iconfont-archer">&#xe606;</span>Photography</span>
-    
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
+    
+        <span class="sidebar-tag-name" data-tags="Photography"><span class="iconfont-archer">&#xe606;</span>Photography</span>
     
         <span class="sidebar-tag-name" data-tags="Microcomputer"><span class="iconfont-archer">&#xe606;</span>Microcomputer</span>
     
         <span class="sidebar-tag-name" data-tags="pop up"><span class="iconfont-archer">&#xe606;</span>pop up</span>
     
-        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
-    
         <span class="sidebar-tag-name" data-tags="Operate System"><span class="iconfont-archer">&#xe606;</span>Operate System</span>
+    
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+        <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
     
         <span class="sidebar-tag-name" data-tags="Computer Network"><span class="iconfont-archer">&#xe606;</span>Computer Network</span>
     
-        <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
+        <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+    
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2382,9 +2344,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
     
-        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
-    
         <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+    
+        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
     
         <span class="sidebar-category-name" data-categories="Web"><span class="iconfont-archer">&#xe60a;</span>Web</span>
     
@@ -2400,17 +2362,19 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="pop-up"><span class="iconfont-archer">&#xe60a;</span>pop-up</span>
     
-        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
-    
         <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
+    
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
         <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
     
-        <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+        <span class="sidebar-category-name" data-categories="CyberSecurity"><span class="iconfont-archer">&#xe60a;</span>CyberSecurity</span>
     
         <span class="sidebar-category-name" data-categories="Network"><span class="iconfont-archer">&#xe60a;</span>Network</span>
     
-        <span class="sidebar-category-name" data-categories="CyberSecurity"><span class="iconfont-archer">&#xe60a;</span>CyberSecurity</span>
+        <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+    
+        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

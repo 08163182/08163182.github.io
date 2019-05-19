@@ -346,49 +346,6 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/07/java复习/" >
-            
-                <span>java_review</span>
-        </a>
-        <div class="abstract-content">
-            基础
-局部变量在使用前必须给定初值，否则编译出错类成员变量无此要求  
-final  类型    常量名=值;  
-类静态成员常量只能在定义时初始化  
-正数在计算机中是用二进制表示的，负数在计算机中使用补码表示的
-整数默认是 int 类型，小数默认是 double 类型  
-类常量：成员变量同时被static和final修饰，则它在类的所有对象中都有唯一值，且无法改变。一定要在定义时就给定初始值  
-类方法是对整个类而言的，方法体中不能有与对象有关的内容。一些通用的、公用型的方法与类的对象无关，常被作为类方法实现  
-
-类
-
-
-
-private 同一个类  
-缺省 同一个类/同一个包 ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/01/05/密码学复习/" >
             
                 <span>密码学复习</span>
@@ -484,14 +441,20 @@ hash.new(name[,data])name传入哈希机密算法名称(md5)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/DES/" >
+        <a class="abstract-title" href = "/2018/12/25/RSA/" >
             
-                <span>DES_Achieve</span>
+                <span>RSA_Achieve</span>
         </a>
         <div class="abstract-content">
-            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
-1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
-1.输入64bit明文2.经过IP盒...
+              临近期末了，剩下Java和密码学两门课了，正好有密码学课程设计，借此机会记录自己写的算法，每写一个算法就当巩固之前的算法知识和信息安全数学基础的知识了。
+预备知识
+乘法逆元如果ax≡1 (mod p),且gcd(a,p)=1（a与p互质），则称a关于模p的乘法逆元为x。
+费马小定理假如a是一个整数，p是一个质数，那么a^p - a是p的倍数，可以表示为a^p≡a(mod p)a^(p-1)≡1(mod p)
+扩展欧几里得定理ax+by=gcd(a,b)
+逆元求解
+
+扩展欧几里得出发 ax≡1(mod m)—-&gt;  ax-my≡1
+费马小定理 a^(p-1)≡1（mod p） —...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -515,20 +478,14 @@ hash.new(name[,data])name传入哈希机密算法名称(md5)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/25/RSA/" >
+        <a class="abstract-title" href = "/2018/12/25/DES/" >
             
-                <span>RSA_Achieve</span>
+                <span>DES_Achieve</span>
         </a>
         <div class="abstract-content">
-              临近期末了，剩下Java和密码学两门课了，正好有密码学课程设计，借此机会记录自己写的算法，每写一个算法就当巩固之前的算法知识和信息安全数学基础的知识了。
-预备知识
-乘法逆元如果ax≡1 (mod p),且gcd(a,p)=1（a与p互质），则称a关于模p的乘法逆元为x。
-费马小定理假如a是一个整数，p是一个质数，那么a^p - a是p的倍数，可以表示为a^p≡a(mod p)a^(p-1)≡1(mod p)
-扩展欧几里得定理ax+by=gcd(a,b)
-逆元求解
-
-扩展欧几里得出发 ax≡1(mod m)—-&gt;  ax-my≡1
-费马小定理 a^(p-1)≡1（mod p） —...
+            DES思路1.首先输入64bit密钥2.将64bit密钥经过PC-1盒变成56bit3.将56bit分为C0和D0，分别28bit4.将C0，D0分别循环移位，得到C1，D15.将C1，D1拼接，经过PC-2盒变成48bit子密钥key16.重复步骤47.生成16组子密钥这里真实加密只用到56bit，后面会有文章借助一道DES题目细致讲解这个密钥编排F函数
+1.将输入的32bit的R经过E盒生成48bit2.将该48bit值与子密钥异或3.将异或后的值经过S盒置换，又变回32bit4.将值经过P盒置换5.将32bit值与L进行异或得到下一个R加密程序
+1.输入64bit明文2.经过IP盒...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -584,19 +541,12 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/22/Swpuctf_writeup/" >
+        <a class="abstract-title" href = "/2018/12/22/安恒12月月赛Writeup/" >
             
-                <span>Swpuctf复现</span>
+                <span>安恒杯12月月赛</span>
         </a>
         <div class="abstract-content">
-            用优惠码买个X
-单引号里面的双引号中的变量不会解析！ 
-string substr ( string $string , int $start [, int $length ] )如果提供了负数的 length，那么 string 末尾处的 length 个字符将会被省略
-@错误抑制符
-rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
-
-
-注册登陆给了一个15位优惠码，提交验证码发现需要24位，学习到了预测种子，然后产生对应的24位优惠码。御剑扫描发现后台www.zip，下载发现有生成优惠码源码和第二个页面验证代码。通过源码反推随机数，然后...
+            easy12345678910111213141516171819202122232425262728293031323334353637 &lt;?php  @error_reporting(1); include 'flag.php';class baby &#123;       public $file;    function __toString()          &#123;                  if(isset($this-&gt;file))         &#123;            $filename = "./&#123;$this-&g...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -620,12 +570,19 @@ rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/22/安恒12月月赛Writeup/" >
+        <a class="abstract-title" href = "/2018/12/22/Swpuctf_writeup/" >
             
-                <span>安恒杯12月月赛</span>
+                <span>Swpuctf复现</span>
         </a>
         <div class="abstract-content">
-            easy12345678910111213141516171819202122232425262728293031323334353637 &lt;?php  @error_reporting(1); include 'flag.php';class baby &#123;       public $file;    function __toString()          &#123;                  if(isset($this-&gt;file))         &#123;            $filename = "./&#123;$this-&g...
+            用优惠码买个X
+单引号里面的双引号中的变量不会解析！ 
+string substr ( string $string , int $start [, int $length ] )如果提供了负数的 length，那么 string 末尾处的 length 个字符将会被省略
+@错误抑制符
+rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
+
+
+注册登陆给了一个15位优惠码，提交验证码发现需要24位，学习到了预测种子，然后产生对应的24位优惠码。御剑扫描发现后台www.zip，下载发现有生成优惠码源码和第二个页面验证代码。通过源码反推随机数，然后...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -681,6 +638,43 @@ void swap(int&amp; a, int&amp; b)
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "program">program</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/12/04/实验吧/" >
+            
+                <span>实验吧Writeup</span>
+        </a>
+        <div class="abstract-content">
+            sql注入MYSQL #后面内容会被注释version()获取数据库版本@@version_compile_os获取操作系统
+天网管理系统查看源码md5弱类型构造user:s878926199a md5加密为0构造serialize，bool类型为True根据构造代码：
+&lt;?php
+$test1=array(&quot;user&quot;=&gt;true,&quot;pass&quot;=&gt;true);
+echo var_dump($test1);
+echo var_dump(serialize($test1));
+?&gt;
+pass修改拿flag
+忘记密码了key: ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
     
 </div>
             
@@ -1793,20 +1787,9 @@ void swap(int&amp; a, int&amp; b)
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 64
+        Total : 63
         </div>
         <!-- search  -->
         
@@ -1819,11 +1802,6 @@ void swap(int&amp; a, int&amp; b)
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/01</span><a class="archive-post-title" href= "/2019/05/01/Linux_Learn/" >Linux_Learn</a>
-        </li>
     
     
         <li class="archive-post-item">
@@ -1916,12 +1894,12 @@ void swap(int&amp; a, int&amp; b)
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
@@ -1956,12 +1934,12 @@ void swap(int&amp; a, int&amp; b)
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台md/" >bxs网络平台</a>
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台/" >bxs网络平台</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台/" >bxs网络平台</a>
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台md/" >bxs网络平台</a>
         </li>
     
     
@@ -2162,15 +2140,15 @@ void swap(int&amp; a, int&amp; b)
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
-        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
-    
         <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
+    
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
         <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
     
-        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
-    
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
     
@@ -2180,25 +2158,27 @@ void swap(int&amp; a, int&amp; b)
     
         <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
     
-        <span class="sidebar-tag-name" data-tags="Photography"><span class="iconfont-archer">&#xe606;</span>Photography</span>
-    
         <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
+    
+        <span class="sidebar-tag-name" data-tags="Photography"><span class="iconfont-archer">&#xe606;</span>Photography</span>
     
         <span class="sidebar-tag-name" data-tags="Microcomputer"><span class="iconfont-archer">&#xe606;</span>Microcomputer</span>
     
         <span class="sidebar-tag-name" data-tags="pop up"><span class="iconfont-archer">&#xe606;</span>pop up</span>
     
-        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
-    
         <span class="sidebar-tag-name" data-tags="Operate System"><span class="iconfont-archer">&#xe606;</span>Operate System</span>
+    
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
-        <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+        <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
     
         <span class="sidebar-tag-name" data-tags="Computer Network"><span class="iconfont-archer">&#xe606;</span>Computer Network</span>
     
-        <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
+        <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+    
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2241,9 +2221,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
     
-        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
-    
         <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+    
+        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
     
         <span class="sidebar-category-name" data-categories="Web"><span class="iconfont-archer">&#xe60a;</span>Web</span>
     
@@ -2259,17 +2239,19 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="pop-up"><span class="iconfont-archer">&#xe60a;</span>pop-up</span>
     
-        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
-    
         <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
+    
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
         <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
     
-        <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+        <span class="sidebar-category-name" data-categories="CyberSecurity"><span class="iconfont-archer">&#xe60a;</span>CyberSecurity</span>
     
         <span class="sidebar-category-name" data-categories="Network"><span class="iconfont-archer">&#xe60a;</span>Network</span>
     
-        <span class="sidebar-category-name" data-categories="CyberSecurity"><span class="iconfont-archer">&#xe60a;</span>CyberSecurity</span>
+        <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+    
+        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
