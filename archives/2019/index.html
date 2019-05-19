@@ -13,9 +13,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
-    <meta name="author" content="Jason_xi">
+    <meta name="author" content="Jason Voorhees">
     <meta name="renderer" content="webkit">
-    <meta name="copyright" content="Jason_xi">
+    <meta name="copyright" content="Jason Voorhees">
     
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
@@ -346,6 +346,69 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/19/Anaconda_Learn/" >
+            
+                <span>Anaconda_Learn</span>
+        </a>
+        <div class="abstract-content">
+            前言：因为写爬虫遇到环境的配置，为了省去麻烦，就直接用Anaconda配置各种库了。固记下这些命令省去查阅的功夫。
+源更换之前更新的清华源已经因为版权服务不能使用了，只能回到默认源了。添加源的方法如下：默认源恢复： conda config --remove-key channels
+修改源：123conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/ma...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "anaconda">anaconda</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/19/Python2与Python3的编码探索/" >
+            
+                <span>python3 and python2 编码之路</span>
+        </a>
+        <div class="abstract-content">
+            Introduction:  由于Python课老师布置了一个题目，做完之后前半学期不用去上课，我选了一个关于天气爬虫的项目，耗时大概一周，磕磕绊绊的才发现自己对Python的掌握还是不够熟练，基于上述遇到的一个比较头疼的问题就是Python2关于字符编码的问题，Python2和Python3对于字符的处理机制是不一样的，固闲暇时间静下心来处理一下编码这个版块的问题
+编码发展8bit=1byte  1byte-&gt;255 2byte-&gt;65535 4byte-&gt;4294967295
+初期： ASCII 127个字符编码中期： Unicode后期： UTF-8
+因为汉字不能...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/04/19/Leetcode刷题记录/" >
             
                 <span>Leetcode_practice</span>
@@ -587,81 +650,6 @@ GUI编程FlowLayout是Panel类的默认布局管理器。BorderLayout...
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "code">code</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/07/java复习/" >
-            
-                <span>java_review</span>
-        </a>
-        <div class="abstract-content">
-            基础
-局部变量在使用前必须给定初值，否则编译出错类成员变量无此要求  
-final  类型    常量名=值;  
-类静态成员常量只能在定义时初始化  
-正数在计算机中是用二进制表示的，负数在计算机中使用补码表示的
-整数默认是 int 类型，小数默认是 double 类型  
-类常量：成员变量同时被static和final修饰，则它在类的所有对象中都有唯一值，且无法改变。一定要在定义时就给定初始值  
-类方法是对整个类而言的，方法体中不能有与对象有关的内容。一些通用的、公用型的方法与类的对象无关，常被作为类方法实现  
-
-类
-
-
-
-private 同一个类  
-缺省 同一个类/同一个包 ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/01/05/密码学复习/" >
-            
-                <span>密码学复习</span>
-        </a>
-        <div class="abstract-content">
-            古典密码仿射加解密加密变换：  𝐶＝ 𝑘1∗𝑚＋𝑘2 𝑚𝑜𝑑 26  
-𝐾1=1时，移位密码𝐾2=1时，乘数密码     解密变换：  𝑚＝ (𝐶−𝑘2)∗〖𝑘1〗^(−1) 𝑚𝑜𝑑 26
-密钥空间: n(n)
-Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2同行，则密文𝑐1和𝑐2分别紧靠𝑚1，𝑚2右端的字母，其中第一列看做最后一列的右方若𝑚1和𝑚2同列，则密文𝑐1和𝑐2分别是紧靠𝑚1，𝑚2下方的字母，其中第一行看做最后一行的下方若𝑚1和𝑚2不同行也不同列，则𝑐1和𝑐2是𝑚1，𝑚2确定的矩形的其...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
     
 </div>
             
@@ -1730,9 +1718,83 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 61
+        Total : 63
         </div>
         <!-- search  -->
         
@@ -1745,6 +1807,16 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/Python2与Python3的编码探索/" >python3 and python2 编码之路</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/Anaconda_Learn/" >Anaconda_Learn</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1832,12 +1904,12 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
@@ -1937,12 +2009,12 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
@@ -1962,12 +2034,12 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
@@ -2067,19 +2139,21 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+        <span class="sidebar-tag-name" data-tags="anaconda"><span class="iconfont-archer">&#xe606;</span>anaconda</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
-        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
     
-        <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
-    
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+    
+        <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
@@ -2095,11 +2169,11 @@ Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2�
     
         <span class="sidebar-tag-name" data-tags="penetration"><span class="iconfont-archer">&#xe606;</span>penetration</span>
     
+        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
+    
         <span class="sidebar-tag-name" data-tags="microcomputer"><span class="iconfont-archer">&#xe606;</span>microcomputer</span>
     
         <span class="sidebar-tag-name" data-tags="operate System"><span class="iconfont-archer">&#xe606;</span>operate System</span>
-    
-        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
     
         <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
     
@@ -2146,15 +2220,17 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
-        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
+        <span class="sidebar-category-name" data-categories="anaconda"><span class="iconfont-archer">&#xe60a;</span>anaconda</span>
     
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
     
         <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
-        <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
+        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
     
         <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+    
+        <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
     
         <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
     
@@ -2170,11 +2246,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="penetration"><span class="iconfont-archer">&#xe60a;</span>penetration</span>
     
+        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
+    
         <span class="sidebar-category-name" data-categories="Microcomputer"><span class="iconfont-archer">&#xe60a;</span>Microcomputer</span>
     
         <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
-    
-        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
     
         <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
@@ -2195,7 +2271,7 @@ jsonContent:
     <script>
     var siteMeta = {
         root: "/",
-        author: "Jason_xi"
+        author: "Jason Voorhees"
     }
 </script>
     <!-- CDN failover -->

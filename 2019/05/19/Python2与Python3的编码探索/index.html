@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Jason Voorhees">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Jason Voorhees">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="一步一个脚印">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>python3 and python2 编码之路 · Supersnail&#39;s advance</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/boy.jpg" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >SuperSnail&#39;s Advance</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">python3 and python2 编码之路</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>SuperSnail's Advance</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            python3 and python2 编码之路
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1,857</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/05/19</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p><strong>Introduction</strong>:<br>  由于Python课老师布置了一个题目，做完之后前半学期不用去上课，我选了一个关于天气爬虫的项目，耗时大概一周，磕磕绊绊的才发现自己对Python的掌握还是不够熟练，基于上述遇到的一个比较头疼的问题就是Python2关于字符编码的问题，Python2和Python3对于字符的处理机制是不一样的，固闲暇时间静下心来处理一下编码这个版块的问题</p>
+<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h2><p><code>8bit=1byte  1byte-&gt;255 2byte-&gt;65535 4byte-&gt;4294967295</code></p>
+<p>初期： ASCII 127个字符编码<br>中期： Unicode<br>后期： UTF-8</p>
+<p>因为汉字不能用1个字节编码，还有其他各种语言，于是出现了统一的编码Unicode,可是Unicode占2个字节存储空间扩大一倍，固出现了UTF-8的可变长编码，英文1byte,汉字3byte。</p>
+<p><code>ASCII-&gt;1byte Unicode-&gt;2byte (ASCII码前面补0)</code></p>
+<p><strong>编码的意思是将Unicode字符按照编码规则（如UTF-8）编成字节序列</strong><br><img src="https://i.imgur.com/bRJFe0B.png" alt=""></p>
+<h2 id="Python3一些存储特性"><a href="#Python3一些存储特性" class="headerlink" title="Python3一些存储特性"></a>Python3一些存储特性</h2><ol>
+<li>计算机内存 Unicode编码，保存硬盘或传输转换为UTF-8编码。</li>
+<li><code>ord()</code>整数表示;<code>chr()</code>编码转化字符。</li>
+<li>字符串类型为str,保存到磁盘str转化为bytes</li>
+<li>英文str用ASCII <code>encode()</code>为<code>bytes</code>,含中文<code>str</code>只能用<code>UTF-8</code>编码为<code>bytes</code>;否则会报<strong>UnicodeEncodeError</strong></li>
+<li>读取磁盘或网络为bytes流，需要<code>decode()</code>,bytes中无法显示的ASCII字符的字节用<code>\x##</code>表示</li>
+<li>一小部分错误字节可传入参数<code>errors=&#39;ignore&#39;</code>忽略。</li>
+<li>len()计算str字符数，计算bytes的字节数。</li>
+<li>1中文经utf-8编码占3个字节，英文1个字节</li>
+</ol>
+<h1 id="Python2和Python3共性与区别"><a href="#Python2和Python3共性与区别" class="headerlink" title="Python2和Python3共性与区别"></a>Python2和Python3共性与区别</h1><p>Python3  Python2<br>str——-unicode 字符串<br>bytes——str  字节串</p>
+<h2 id="共性"><a href="#共性" class="headerlink" title="共性"></a>共性</h2><p>在Windows系统中需要使用gbk来解码， 无论utf-8还是gbk都只是一种编码编码规则，一种把Unicode数据编码成字节数据的规则。</p>
+<h2 id="不同"><a href="#不同" class="headerlink" title="不同"></a>不同</h2><ul>
+<li>python3中将utf-8或者gbk等编码的字节数据解码为Python3中的str类型， utf-8编码的bytes &lt;—&gt; str</li>
+</ul>
+<ul>
+<li>python2中将 utf-8或者gbk等编码的str解码为Python2中的Unicode， utf-8编码的str &lt;—&gt; unicode</li>
+</ul>
+<h1 id="Python2编码"><a href="#Python2编码" class="headerlink" title="Python2编码"></a>Python2编码</h1><p><strong>str类型和Unicode类型，分别存储的是字节数据和Unicode数据</strong></p>
+<h2 id="Python2-str-s-和unicode-s"><a href="#Python2-str-s-和unicode-s" class="headerlink" title="Python2 str(s)和unicode(s)"></a>Python2 str(s)和unicode(s)</h2><p>str(s)和unicode(s)是两个工厂方法，分别返回str字符串对象和unicode字符串对象，<strong>str(s)等价s.encode(‘ascii’)</strong><br><strong>unicode(s)等价于s.decode(‘ascii’)</strong></p>
+<p>固解析如u’你好’这类的unicode编码需指定正确编码如GBK或ASCII</p>
+<h2 id="Python2-乱码本质原因"><a href="#Python2-乱码本质原因" class="headerlink" title="Python2 乱码本质原因"></a>Python2 乱码本质原因</h2><p><strong>所有出现乱码的原因都可以归结为字符经过不同编码解码在编码的过程中使用的编码格式不一致</strong></p>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>对于变量内容本身为unicode形式的字符串：<br><code>s = &#39;id\u003d215903184\u0026index\u003d0\u0026st\u003d52\u0026sid’</code></p>
+<p><code>s.decode(&#39;unicode-escape&#39;)</code></p>
+<h1 id="常见编码"><a href="#常见编码" class="headerlink" title="常见编码"></a>常见编码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> sys.getdefaultencoding()    <span class="comment">#系统默认编码</span></span><br><span class="line"><span class="keyword">print</span> sys.getfilesystemencoding() <span class="comment">#文件系统编码</span></span><br><span class="line"><span class="keyword">print</span> locale.getdefaultlocale()   <span class="comment">#系统当前编码</span></span><br><span class="line"><span class="keyword">print</span> sys.stdin.encoding          <span class="comment">#终端输入编码</span></span><br><span class="line"><span class="keyword">print</span> sys.stdout.encoding         <span class="comment">#终端输出编码</span></span><br></pre></td></tr></table></figure>
+<p>Window下输出<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ascii</span></span><br><span class="line"><span class="selector-tag">mbcs</span></span><br><span class="line">(<span class="string">'zh_CN'</span>, <span class="string">'cp936'</span>)</span><br><span class="line"><span class="selector-tag">cp936</span></span><br><span class="line"><span class="selector-tag">cp936</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="操作系统编码"><a href="#操作系统编码" class="headerlink" title="操作系统编码"></a>操作系统编码</h2><h3 id="Error"><a href="#Error" class="headerlink" title="Error:"></a>Error:</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! -*- coding:utf-8 -*-</span></span><br><span class="line">a=<span class="string">u"中文"</span></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">f.write(a)</span><br></pre></td></tr></table></figure>
+<p>出现<br><img src="https://i.imgur.com/thI8G8s.png" alt=""></p>
+<p>Reason:<br>Python2对unicode对象进行隐式编码等同于<code>b.encode(&#39;ascii&#39;)</code><br>所以ascii不支持中文报错。</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"><span class="function"><span class="title">reload</span><span class="params">(sys)</span></span></span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="python编码"><a href="#python编码" class="headerlink" title="python编码"></a>python编码</h2><p>python2.x从外部获取的内容都是string编码，其内部分为String编码与Unicode编码，而String编码又分为UTF-8，GBK，GB2312等等。因此为了避免不同编码造成的报错，python内部最好都转化为unicode编码，在输出时再转化为str编码 。可以用encode()/decode()函数，将string与unicode编码互换。</p>
+<h2 id="源代码编码"><a href="#源代码编码" class="headerlink" title="源代码编码"></a>源代码编码</h2><p>源代码编码指的是python程序本身的编码，默认为ascii,会隐式编码encode(‘ascii’)。<br><img src="https://i.imgur.com/608qZmH.png" alt=""></p>
+<h2 id="文件编码"><a href="#文件编码" class="headerlink" title="文件编码"></a>文件编码</h2><p>python程序从文件中获取的内容的编码格式,<code>sys.getfilesystemencoding()</code>得到。</p>
+<h3 id="Error-1"><a href="#Error-1" class="headerlink" title="Error"></a>Error</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"r"</span>)</span><br><span class="line"><span class="built_in">content</span>=f.<span class="built_in">read</span>()</span><br><span class="line"><span class="built_in">print</span> type(<span class="built_in">content</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="built_in">content</span></span><br></pre></td></tr></table></figure>
+<p>输出无异常，与Python程序结合可能会造成异常.</p>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p>从文件中读取的编码格式为Str，GBK格式;可使用codecs转化为unicode<br><code>f=codecs.open(&quot;test.txt&quot;, encoding=&#39;gbk&#39;).read()</code><br>or<br><code>open(“”,”r”).read().decode(“gbk”)</code></p>
+<h2 id="网页编码"><a href="#网页编码" class="headerlink" title="网页编码"></a>网页编码</h2><h3 id="Error-2"><a href="#Error-2" class="headerlink" title="Error"></a>Error</h3><p>还是在于从网页中获取的源码编码与终端编码，甚至python内部编码不一致的情况</p>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p>依照之前做法，先将其转化为unicode。而相应的正则也可以为unicode编码，如：res=r’’+u”新成员”。可以通过chardet模块判断网页编码类型，返回的是一个带概率的字典。</p>
+<h2 id="编码判断"><a href="#编码判断" class="headerlink" title="编码判断"></a>编码判断</h2><h3 id="判断字符串编码类型"><a href="#判断字符串编码类型" class="headerlink" title="判断字符串编码类型"></a>判断字符串编码类型</h3><p><code>isinstance(obj, (str, unicode))</code></p>
+<h3 id="网页编码-1"><a href="#网页编码-1" class="headerlink" title="网页编码"></a>网页编码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">body=urllib2.urlopen(<span class="string">"http://thief.one"</span>).read()</span><br><span class="line">chardet.detect(body)</span><br></pre></td></tr></table></figure>
+<h2 id="Python2编码tips"><a href="#Python2编码tips" class="headerlink" title="Python2编码tips"></a>Python2编码tips</h2><h3 id="tip1"><a href="#tip1" class="headerlink" title="tip1"></a>tip1</h3><ul>
+<li><p>python代码内部请全部使用unicode编码，在获取外部内容时，先decode为unicode，向外输出时再encode为str</p>
+</li>
+<li><p>在定义变量或者正则时，也定义unicode字符，如a=u”中文”；res=r””+u”正则”。</p>
+</li>
+</ul>
+<h3 id="tip2"><a href="#tip2" class="headerlink" title="tip2"></a>tip2</h3><p>出现下述原因<br><img src="https://i.imgur.com/Z85Yqap.png" alt=""></p>
+<p>调用 print 语句的时候，默认进行了隐式解码，为的是让人类看见友好的字符数据 ，也就是默认的进行了<strong>str()</strong>包装</p>
+<h3 id="tip3"><a href="#tip3" class="headerlink" title="tip3"></a>tip3</h3><p>这部分参考nmask博客关于字符串变量编码以及字符串内容编码的分析。<br><code>a=&quot;\\u8fdd\\u6cd5\\u8fdd\\u89c4&quot;</code><br>a本身是str格式字符串，内容本身是unicode编码后字符串。</p>
+<p><img src="https://i.imgur.com/sQWuxus.png" alt=""></p>
+<p><code>print a   #相当于a.encode(&quot;utf-8&quot;)</code><br>可以发现print a从unicode变成str，去掉<code>\</code><br>继续测试<br><img src="https://i.imgur.com/Kg2Tlpw.png" alt=""><br>将上面打印的值赋值b,为unicode，加u’’打印，我靠转化为中文了。</p>
+<p><strong>也就是print将变量和内容都会变为str.</strong></p>
+<p>换组测试<br><img src="https://i.imgur.com/McKT1hm.png" alt=""><br>a变量为unicode,内容为str-utf-8,故print在转化时，utf-8与gbk不统一。用GBK编码格式转str出现错误。</p>
+<p>反之成功<br><img src="https://i.imgur.com/642kcSG.png" alt=""></p>
+<p>继续看一组测试<br><img src="https://i.imgur.com/BpGlGpU.png" alt=""><br>也就是说双斜杠的那一串是两次unicode解码后的内容</p>
+<h3 id="内置函数解决tip3问题"><a href="#内置函数解决tip3问题" class="headerlink" title="内置函数解决tip3问题"></a>内置函数解决tip3问题</h3><ul>
+<li><p>“反编码”就是我得到unicode编码，如下，进行反编码得到对应汉字<br><img src="https://i.imgur.com/APEfhxZ.png" alt=""><br>a的内容为<code>unicode</code>编码，变量<code>a</code>为<code>str</code>编码。</p>
+</li>
+<li><p><img src="https://i.imgur.com/xYRPJdN.png" alt=""><br><code>a</code>的内容为<code>string</code>编码,<code>a</code>变量为<code>string</code>编码</p>
+</li>
+</ul>
+<h3 id="unicode-escape和utf-8区别"><a href="#unicode-escape和utf-8区别" class="headerlink" title="unicode-escape和utf-8区别"></a>unicode-escape和utf-8区别</h3><p><img src="https://i.imgur.com/vgVy0qe.png" alt=""><br>也就是<code>a.decode(&#39;utf-8&#39;)</code>的时候a类型从<code>str</code>变<code>unicode</code>,内容做utf-8解码，故加斜杠。<br><img src="https://i.imgur.com/P3rU7vt.png" alt=""><br>这个例子就很清楚了，用<code>unicode-escape</code>解码只有变量本身被<code>decode</code>成<code>unicode</code>,内容没加斜杠说明没有变换。</p>
+<h3 id="tip4"><a href="#tip4" class="headerlink" title="tip4"></a>tip4</h3><p>出现列表字段为unicode<br><img src="https://i.imgur.com/MuvUI1U.png" alt=""><br>输出进行utf-8编码在用<strong>str</strong>‘反解码’出现汉字</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>print函数将变量和变量内容都encode(‘x’)为str,So上述可输出中文，<br>第一个例子输出unicode还是unicode,因为它进行了两次unicode解码，还需encode一次。</p>
+<p>故所有的问题<strong>最直接有效的方法就是将所有外部的字符串转变为unicode格式</strong></p>
+<p>最终转换<br><img src="https://i.imgur.com/FkEYAyo.png" alt=""> </p>
+<h1 id="Python3编码"><a href="#Python3编码" class="headerlink" title="Python3编码"></a>Python3编码</h1><p><strong>str和bytes； str类型存unicode数据，bytes类型存bytes数据</strong></p>
+<p>源代码从ascii改为了utf-8,外部接收自动转换str,输出编码为bytes</p>
+<h2 id="系统编码-and-源代码"><a href="#系统编码-and-源代码" class="headerlink" title="系统编码 and 源代码"></a>系统编码 and 源代码</h2><p><img src="https://i.imgur.com/oCAxYng.png" alt=""><br>可以看到都是utf-8,<br><img src="https://i.imgur.com/76NzadD.png" alt=""><br>可以看到类型是str,对应python2中的unicode。<br><img src="https://i.imgur.com/67VHNhn.png" alt=""><br>编码一下就是bytes类型</p>
+<h2 id="网页编码-2"><a href="#网页编码-2" class="headerlink" title="网页编码"></a>网页编码</h2><p>返回为bytes类型，decode一下转化为str</p>
+<h2 id="文件编码-1"><a href="#文件编码-1" class="headerlink" title="文件编码"></a>文件编码</h2><p>读出的是str,不用转码<br><img src="https://i.imgur.com/3O51BOm.png" alt=""></p>
+<p><img src="https://i.imgur.com/7Moynhd.png" alt=""></p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">Jason Voorhees</a>
+            <p>原文链接：<a href="http://yoursite.com/2019/05/19/Python2与Python3的编码探索/">http://yoursite.com/2019/05/19/Python2与Python3的编码探索/</a>
+            <p>发表日期：<a href="http://yoursite.com/2019/05/19/Python2与Python3的编码探索/">May 19th 2019, 12:00:00 am</a>
+            <p>更新日期：<a href="http://yoursite.com/2019/05/19/Python2与Python3的编码探索/">May 19th 2019, 11:45:40 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/05/19/Anaconda_Learn/" title= "Anaconda_Learn">
+                    <div class="nextTitle">Anaconda_Learn</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/04/19/Leetcode刷题记录/" title= "Leetcode_practice">
+                    <div class="prevTitle">Leetcode_practice</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:15896427883@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/08163182" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://www.zhihu.com/people/wang-jia-xi-5" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#编码"><span class="toc-number">1.</span> <span class="toc-text">编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#发展"><span class="toc-number">1.1.</span> <span class="toc-text">发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python3一些存储特性"><span class="toc-number">1.2.</span> <span class="toc-text">Python3一些存储特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python2和Python3共性与区别"><span class="toc-number">2.</span> <span class="toc-text">Python2和Python3共性与区别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#共性"><span class="toc-number">2.1.</span> <span class="toc-text">共性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同"><span class="toc-number">2.2.</span> <span class="toc-text">不同</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python2编码"><span class="toc-number">3.</span> <span class="toc-text">Python2编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python2-str-s-和unicode-s"><span class="toc-number">3.1.</span> <span class="toc-text">Python2 str(s)和unicode(s)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python2-乱码本质原因"><span class="toc-number">3.2.</span> <span class="toc-text">Python2 乱码本质原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技巧"><span class="toc-number">3.3.</span> <span class="toc-text">技巧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见编码"><span class="toc-number">4.</span> <span class="toc-text">常见编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统编码"><span class="toc-number">4.1.</span> <span class="toc-text">操作系统编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error"><span class="toc-number">4.1.1.</span> <span class="toc-text">Error:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-number">4.1.2.</span> <span class="toc-text">Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python编码"><span class="toc-number">4.2.</span> <span class="toc-text">python编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源代码编码"><span class="toc-number">4.3.</span> <span class="toc-text">源代码编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件编码"><span class="toc-number">4.4.</span> <span class="toc-text">文件编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-1"><span class="toc-number">4.4.1.</span> <span class="toc-text">Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution-1"><span class="toc-number">4.4.2.</span> <span class="toc-text">Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网页编码"><span class="toc-number">4.5.</span> <span class="toc-text">网页编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-2"><span class="toc-number">4.5.1.</span> <span class="toc-text">Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution-2"><span class="toc-number">4.5.2.</span> <span class="toc-text">Solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编码判断"><span class="toc-number">4.6.</span> <span class="toc-text">编码判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断字符串编码类型"><span class="toc-number">4.6.1.</span> <span class="toc-text">判断字符串编码类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网页编码-1"><span class="toc-number">4.6.2.</span> <span class="toc-text">网页编码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python2编码tips"><span class="toc-number">4.7.</span> <span class="toc-text">Python2编码tips</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tip1"><span class="toc-number">4.7.1.</span> <span class="toc-text">tip1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tip2"><span class="toc-number">4.7.2.</span> <span class="toc-text">tip2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tip3"><span class="toc-number">4.7.3.</span> <span class="toc-text">tip3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内置函数解决tip3问题"><span class="toc-number">4.7.4.</span> <span class="toc-text">内置函数解决tip3问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unicode-escape和utf-8区别"><span class="toc-number">4.7.5.</span> <span class="toc-text">unicode-escape和utf-8区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tip4"><span class="toc-number">4.7.6.</span> <span class="toc-text">tip4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.7.7.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python3编码"><span class="toc-number">5.</span> <span class="toc-text">Python3编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统编码-and-源代码"><span class="toc-number">5.1.</span> <span class="toc-text">系统编码 and 源代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网页编码-2"><span class="toc-number">5.2.</span> <span class="toc-text">网页编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件编码-1"><span class="toc-number">5.3.</span> <span class="toc-text">文件编码</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 63
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/Python2与Python3的编码探索/" >python3 and python2 编码之路</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/Anaconda_Learn/" >Anaconda_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2019/04/19/Leetcode刷题记录/" >Leetcode_practice</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href= "/2019/02/27/安恒2月月赛Writeup/" >安恒2月月赛 writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/upload-labs/" >upload-labs writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2019/01/30/文字识别/" >基于图片的文字识别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/28</span><a class="archive-post-title" href= "/2019/01/28/cumt1月月赛/" >cumt双月赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/24</span><a class="archive-post-title" href= "/2019/01/24/杂项/" >ctf中一些知识总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Python_Decimal/" >python_Decimal</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2019/01/10/java学习/" >java_basis</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2019/01/07/java复习/" >java_review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2019/01/05/密码学复习/" >密码学复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/java实验/" >java_code</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/27</span><a class="archive-post-title" href= "/2018/12/27/MD5/" >MD5实现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA_Achieve</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES_Achieve</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2018/12/24/中原理工writeup/" >中原工比赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2018/12/11/C++_Learn/" >C++ Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2018/12/04/实验吧/" >实验吧Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href= "/2018/12/01/D03games/" >D0g3 Game Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2018/11/12/算法复习/" >Algorithm_Review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2018/11/11/Kali学习记录/" >Kali_Record</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/ctf/" >php函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台/" >bxs网络平台</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/Net security/" >网络安全实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/05</span><a class="archive-post-title" href= "/2018/11/05/网络安全复习/" >CyberSecurity_Review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/28</span><a class="archive-post-title" href= "/2018/10/28/PHP语言漏洞/" >php弱类型漏洞记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/计网复习/" >计算机网络复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/工具集合/" >工具大全收集</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2018/10/01/mysql学习/" >mysql踩过的坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2018/09/12/VPS/" >vultr多端口开放</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/09/09/算法/" >Algorithm_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span><a class="archive-post-title" href= "/2018/08/06/编码问题/" >编码问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2018/07/26/后期PS/" >摄影后期干货</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/07/06/bugku_writeup/" >bugku_Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2018/06/22/css入门/" >CSS_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2018/06/13/Wireshark学习/" >Wireshark使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/php学习/" >php基础语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/html基础/" >html_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href= "/2018/05/13/操作系统知识汇总/" >操作系统知识点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href= "/2018/05/11/hexo优化/" >hexo+next优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2018/05/09/javascript学习/" >javascript学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2018/05/03/Wireshark/" >Wireshark学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2018/04/17/Javascript入门/" >Javascript入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2018/04/14/Python_Basis/" >Python_Basis</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href= "/2018/04/10/Web编程/" >Web_Code</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python_Learn2/" >Python_Learn2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Python_Learn1/" >Python_Learn1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2018/03/10/Python2 and Python3/" >python2 and python3</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span><a class="archive-post-title" href= "/2018/03/02/Git学习笔记/" >Git学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2018/03/01/读《百年孤独》有感/" >百年孤独有感</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2018/02/02/Markdown学习/" >markdown语法学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2018/02/01/搭建SS/" >ss+vultr</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
+    
+        <span class="sidebar-tag-name" data-tags="anaconda"><span class="iconfont-archer">&#xe606;</span>anaconda</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+    
+        <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
+    
+        <span class="sidebar-tag-name" data-tags="photography"><span class="iconfont-archer">&#xe606;</span>photography</span>
+    
+        <span class="sidebar-tag-name" data-tags="penetration"><span class="iconfont-archer">&#xe606;</span>penetration</span>
+    
+        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
+    
+        <span class="sidebar-tag-name" data-tags="microcomputer"><span class="iconfont-archer">&#xe606;</span>microcomputer</span>
+    
+        <span class="sidebar-tag-name" data-tags="operate System"><span class="iconfont-archer">&#xe606;</span>operate System</span>
+    
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
+    
+        <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
+    
+        <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
+    
+        <span class="sidebar-category-name" data-categories="anaconda"><span class="iconfont-archer">&#xe60a;</span>anaconda</span>
+    
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
+    
+        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
+    
+        <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+    
+        <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
+    
+        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
+    
+        <span class="sidebar-category-name" data-categories="Web"><span class="iconfont-archer">&#xe60a;</span>Web</span>
+    
+        <span class="sidebar-category-name" data-categories="misc"><span class="iconfont-archer">&#xe60a;</span>misc</span>
+    
+        <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
+    
+        <span class="sidebar-category-name" data-categories="database"><span class="iconfont-archer">&#xe60a;</span>database</span>
+    
+        <span class="sidebar-category-name" data-categories="photography"><span class="iconfont-archer">&#xe60a;</span>photography</span>
+    
+        <span class="sidebar-category-name" data-categories="penetration"><span class="iconfont-archer">&#xe60a;</span>penetration</span>
+    
+        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
+    
+        <span class="sidebar-category-name" data-categories="Microcomputer"><span class="iconfont-archer">&#xe60a;</span>Microcomputer</span>
+    
+        <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
+    
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
+    
+        <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
+    
+        <span class="sidebar-category-name" data-categories="CyberSecurity"><span class="iconfont-archer">&#xe60a;</span>CyberSecurity</span>
+    
+        <span class="sidebar-category-name" data-categories="Network"><span class="iconfont-archer">&#xe60a;</span>Network</span>
+    
+        <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Jason Voorhees"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

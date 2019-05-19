@@ -13,9 +13,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
-    <meta name="author" content="Jason_xi">
+    <meta name="author" content="Jason Voorhees">
     <meta name="renderer" content="webkit">
-    <meta name="copyright" content="Jason_xi">
+    <meta name="copyright" content="Jason Voorhees">
     
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
@@ -346,6 +346,81 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/07/java复习/" >
+            
+                <span>java_review</span>
+        </a>
+        <div class="abstract-content">
+            基础
+局部变量在使用前必须给定初值，否则编译出错类成员变量无此要求  
+final  类型    常量名=值;  
+类静态成员常量只能在定义时初始化  
+正数在计算机中是用二进制表示的，负数在计算机中使用补码表示的
+整数默认是 int 类型，小数默认是 double 类型  
+类常量：成员变量同时被static和final修饰，则它在类的所有对象中都有唯一值，且无法改变。一定要在定义时就给定初始值  
+类方法是对整个类而言的，方法体中不能有与对象有关的内容。一些通用的、公用型的方法与类的对象无关，常被作为类方法实现  
+
+类
+
+
+
+private 同一个类  
+缺省 同一个类/同一个包 ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/05/密码学复习/" >
+            
+                <span>密码学复习</span>
+        </a>
+        <div class="abstract-content">
+            古典密码仿射加解密加密变换：  𝐶＝ 𝑘1∗𝑚＋𝑘2 𝑚𝑜𝑑 26  
+𝐾1=1时，移位密码𝐾2=1时，乘数密码     解密变换：  𝑚＝ (𝐶−𝑘2)∗〖𝑘1〗^(−1) 𝑚𝑜𝑑 26
+密钥空间: n(n)
+Playfair加解密对每一对明文𝑚1, 𝑚2加密如下：若𝑚1和𝑚2同行，则密文𝑐1和𝑐2分别紧靠𝑚1，𝑚2右端的字母，其中第一列看做最后一列的右方若𝑚1和𝑚2同列，则密文𝑐1和𝑐2分别是紧靠𝑚1，𝑚2下方的字母，其中第一行看做最后一行的下方若𝑚1和𝑚2不同行也不同列，则𝑐1和𝑐2是𝑚1，𝑚2确定的矩形的其...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/05</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crypto">crypto</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/01/04/java实验/" >
             
                 <span>java_code</span>
@@ -509,19 +584,12 @@ strcmp传入数组与字符串比较时会返回0；构造?repo[]=1
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/22/Swpuctf_writeup/" >
+        <a class="abstract-title" href = "/2018/12/22/安恒12月月赛Writeup/" >
             
-                <span>Swpuctf复现</span>
+                <span>安恒杯12月月赛</span>
         </a>
         <div class="abstract-content">
-            用优惠码买个X
-单引号里面的双引号中的变量不会解析！ 
-string substr ( string $string , int $start [, int $length ] )如果提供了负数的 length，那么 string 末尾处的 length 个字符将会被省略
-@错误抑制符
-rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
-
-
-注册登陆给了一个15位优惠码，提交验证码发现需要24位，学习到了预测种子，然后产生对应的24位优惠码。御剑扫描发现后台www.zip，下载发现有生成优惠码源码和第二个页面验证代码。通过源码反推随机数，然后...
+            easy12345678910111213141516171819202122232425262728293031323334353637 &lt;?php  @error_reporting(1); include 'flag.php';class baby &#123;       public $file;    function __toString()          &#123;                  if(isset($this-&gt;file))         &#123;            $filename = "./&#123;$this-&g...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -545,12 +613,19 @@ rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/22/安恒12月月赛Writeup/" >
+        <a class="abstract-title" href = "/2018/12/22/Swpuctf_writeup/" >
             
-                <span>安恒杯12月月赛</span>
+                <span>Swpuctf复现</span>
         </a>
         <div class="abstract-content">
-            easy12345678910111213141516171819202122232425262728293031323334353637 &lt;?php  @error_reporting(1); include 'flag.php';class baby &#123;       public $file;    function __toString()          &#123;                  if(isset($this-&gt;file))         &#123;            $filename = "./&#123;$this-&g...
+            用优惠码买个X
+单引号里面的双引号中的变量不会解析！ 
+string substr ( string $string , int $start [, int $length ] )如果提供了负数的 length，那么 string 末尾处的 length 个字符将会被省略
+@错误抑制符
+rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
+
+
+注册登陆给了一个15位优惠码，提交验证码发现需要24位，学习到了预测种子，然后产生对应的24位优惠码。御剑扫描发现后台www.zip，下载发现有生成优惠码源码和第二个页面验证代码。通过源码反推随机数，然后...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -606,75 +681,6 @@ void swap(int&amp; a, int&amp; b)
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "program">program</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/04/实验吧/" >
-            
-                <span>实验吧Writeup</span>
-        </a>
-        <div class="abstract-content">
-            sql注入MYSQL #后面内容会被注释version()获取数据库版本@@version_compile_os获取操作系统
-天网管理系统查看源码md5弱类型构造user:s878926199a md5加密为0构造serialize，bool类型为True根据构造代码：
-&lt;?php
-$test1=array(&quot;user&quot;=&gt;true,&quot;pass&quot;=&gt;true);
-echo var_dump($test1);
-echo var_dump(serialize($test1));
-?&gt;
-pass修改拿flag
-忘记密码了key: ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/12/01/D03games/" >
-            
-                <span>D0g3 Game Writeup</span>
-        </a>
-        <div class="abstract-content">
-            xss1
-标签之内&lt;input type=&quot;text&quot; value=&quot;[输出]&quot;/&gt;  
-闭合属性,onmouseover事件触发脚本&quot; onmouseover=alert(1) x=闭合属性后闭合标签，执行脚本&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;  
-输入类型为隐藏的输入字段&lt;input type=&quot;hidden&quot; value=&quot;[输出]&quot; /&gt;输入1&quot; onmouseover=alert(1) type=...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
     
 </div>
             
@@ -1743,9 +1749,83 @@ pass修改拿flag
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 61
+        Total : 63
         </div>
         <!-- search  -->
         
@@ -1758,6 +1838,16 @@ pass修改拿flag
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/Python2与Python3的编码探索/" >python3 and python2 编码之路</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/Anaconda_Learn/" >Anaconda_Learn</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1845,12 +1935,12 @@ pass修改拿flag
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
@@ -1950,12 +2040,12 @@ pass修改拿flag
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
@@ -1975,12 +2065,12 @@ pass修改拿flag
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
@@ -2080,19 +2170,21 @@ pass修改拿flag
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+        <span class="sidebar-tag-name" data-tags="anaconda"><span class="iconfont-archer">&#xe606;</span>anaconda</span>
     
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
-        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
     
-        <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
-    
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+    
+        <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
@@ -2108,11 +2200,11 @@ pass修改拿flag
     
         <span class="sidebar-tag-name" data-tags="penetration"><span class="iconfont-archer">&#xe606;</span>penetration</span>
     
+        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
+    
         <span class="sidebar-tag-name" data-tags="microcomputer"><span class="iconfont-archer">&#xe606;</span>microcomputer</span>
     
         <span class="sidebar-tag-name" data-tags="operate System"><span class="iconfont-archer">&#xe606;</span>operate System</span>
-    
-        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
     
         <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
     
@@ -2159,15 +2251,17 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
-        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
+        <span class="sidebar-category-name" data-categories="anaconda"><span class="iconfont-archer">&#xe60a;</span>anaconda</span>
     
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
     
         <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
-        <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
+        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
     
         <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+    
+        <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
     
         <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
     
@@ -2183,11 +2277,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="penetration"><span class="iconfont-archer">&#xe60a;</span>penetration</span>
     
+        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
+    
         <span class="sidebar-category-name" data-categories="Microcomputer"><span class="iconfont-archer">&#xe60a;</span>Microcomputer</span>
     
         <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
-    
-        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
     
         <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
@@ -2208,7 +2302,7 @@ jsonContent:
     <script>
     var siteMeta = {
         root: "/",
-        author: "Jason_xi"
+        author: "Jason Voorhees"
     }
 </script>
     <!-- CDN failover -->
