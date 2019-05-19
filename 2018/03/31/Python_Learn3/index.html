@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Jason_xi">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Jason_xi">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="一步一个脚印">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Python_learn1 · Supersnail&#39;s advance</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/boy.jpg" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >SuperSnail&#39;s Advance</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Python_learn1</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>SuperSnail's Advance</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Python_learn1
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1,040</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/03/31</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="Web开发"><a href="#Web开发" class="headerlink" title="Web开发"></a>Web开发</h1><p>发展:<br>静态web页面–&gt;CGI(c/c++)–&gt;ASP(VBScript)/JSP(Java)/PHP–&gt;MVC   </p>
+<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p><code>GET/HTTP/1.1</code><br>GET读取请求，/URL路径，HTTP/1.1 HTTP协议版本1.1,<br><code>HOST:www.xxx.com</code>  域名<br><code>Context-Type: text/html</code>浏览器判断相应内容   </p>
+<p><strong>HTTP请求：</strong></p>
+<p><strong>1</strong>    浏览器向服务器发送HTTP请求<br>方法：<code>GET/POST</code><br>路径：<code>/full/url/path;</code><br>域名：<code>Host:www.xxx.com</code>（POST请求包括Body） </p>
+<p><strong>2</strong>    服务器向浏览器返回HTTP响应：   </p>
+<p>响应代码：<code>OK/3xx/4xx/5xx</code><br>响应类型：<code>Content-Type</code><br><strong>3</strong>可再次发出HTTP请求：<br>在HTML中可链入其他服务器资源，站点可链接其他站点       </p>
+<p>HTTP格式：Header和Body</p>
+<pre><code>GET/path HTTP/1.1
+Header1: Value1
+Header2: Value2
+Header3: Value3
+</code></pre><p>一行一个 \r\n</p>
+<pre><code>POST/path HTTP/1.1
+Header1: Value1
+Header2: Value2
+Header3: Value3
+
+body data
+</code></pre><p>连续两个\r\n Header还Body</p>
+<p><strong>响应:</strong></p>
+<pre><code>200 OK
+Header1: Value1
+Header2: Value2
+Header3: Value3
+
+body data 
+</code></pre><p><code>Content-Encoding：gzip</code>  Body数据压缩,解压缩获得数据</p>
+<h2 id="WCGI接口："><a href="#WCGI接口：" class="headerlink" title="WCGI接口："></a>WCGI接口：</h2><p>客户端</p>
+<pre><code>from wsgiref.simple_server import make_server
+from ja import application
+
+httpd=make_server(&apos;&apos;,8000,application)
+print(&apos;Serving HTTP on port 8000&apos;)
+httpd.serve_forever()    
+</code></pre><p>浏览器</p>
+<pre><code>def application(environ, start_response):
+    start_response(&apos;200 OK&apos;, [(&apos;Content-Type&apos;, &apos;text/html&apos;)])
+    return [b&apos;&lt;h1&gt;Hello, web!&lt;/h1&gt;&apos;]
+</code></pre><p>environ:HTTP请求信息的dict对象<br>start_response:发送HTTP响应函数</p>
+<p><strong>Web应用本质：</strong></p>
+<p><strong>1浏览器发送一个HTTP请求；</strong></p>
+<p><strong>2服务器收到请求，生成一个HTML文档；</strong></p>
+<p><strong>3服务器把HTML文档作为HTTP响应的Body发送给浏览器；</strong></p>
+<p><strong>4浏览器收到HTTP响应，从HTTP Body取出HTML文档并显示。</strong></p>
+<h2 id="使用Web框架"><a href="#使用Web框架" class="headerlink" title="使用Web框架"></a>使用Web框架</h2><ul>
+<li><p>Django：全能型Web框架； </p>
+</li>
+<li><p>web.py：一个小巧的Web框架；  </p>
+</li>
+<li><p>Bottle：和Flask类似的Web框架；  </p>
+</li>
+<li><p>Tornado：Facebook的开源异步Web框架。   </p>
+</li>
+</ul>
+<p>WEB框架 ：  URL+处理函数<br>Flask 通过<code>request.form[&#39;name&#39;]</code>获取表单内容</p>
+<pre><code>from flask import Flask
+from flask import request
+
+app = Flask(__name__)
+
+@app.route(&apos;/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])
+def home():
+     pass
+
+@app.route(&apos;/signin&apos;, methods=[&apos;GET&apos;])
+def signin_form():
+     pass
+
+@app.route(&apos;/signin&apos;, methods=[&apos;POST&apos;])
+def signin():
+    pass
+
+if __name__ == &apos;__main__&apos;:
+    app.run()
+</code></pre><p>app.py 处理三个请求<br>GET /：首页，返回Home；   </p>
+<p>GET /signin：登录页，显示登录表单；  </p>
+<p>POST /signin：处理登录表单，显示登录结果。  </p>
+<h2 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h2><p><img src="https://i.imgur.com/0EiHTXY.png" alt=""></p>
+<p>MVC–Mode-View-Controller<br>Python实现M和C</p>
+<pre><code>from flask import Flask, request, render_template
+app = Flask(__name__)
+
+@app.route(&apos;/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])
+def home():
+return render_template(&apos;home.html&apos;)
+
+@app.route(&apos;/signin&apos;, methods=[&apos;GET&apos;])
+def signin_form()：
+    return render_template(&apos;form.html&apos;)
+
+@app.route(&apos;/signin&apos;, methods=[&apos;POST&apos;])
+def signin():
+    pass
+if __name__ == &apos;__main__&apos;:
+    app.run()
+</code></pre><p>home.html</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Home&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 style=&quot;font-style:italic&quot;&gt;Home&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h1 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h1><p>当代码需要执行一个耗时的IO操作时，它只发出IO指令，并不等待IO结果，然后就去执行其他代码了。一段时间后，当IO返回结果时，再通知CPU进行处理。</p>
+<p>同步IO，主线程挂起，异步IO，在消息循环中,主线程不断重复读取-处理消息，线程可处理多个IO请求。</p>
+<pre><code>loop = get_event_loop()
+while True:
+    event = loop.get_event()
+    process_event(event)
+</code></pre><h2 id="asyncio"><a href="#asyncio" class="headerlink" title="asyncio"></a>asyncio</h2><p>提供异步支持，异步操作在coroutine通过yield from完成，多个coroutine可封装成一组Task并发执行。   </p>
+<pre><code>import threading
+import asyncio
+
+@asyncio.coroutine
+def hello():
+    print(&apos;Hello world! (%s)&apos; % threading.currentThread())
+    yield from asyncio.sleep(1)
+    print(&apos;Hello again! (%s)&apos; % threading.currentThread())
+
+loop = asyncio.get_event_loop()
+tasks = [hello(), hello()]
+loop.run_until_complete(asyncio.wait(tasks))
+loop.close()
+</code></pre><p>多个线程同时执行，当遇到<code>asynico.sleep()</code>线程不等待，中断进行下一个消息循环。返回时<code>yield from</code>拿到返回值（None）</p>
+<p>@asyncio.coroutine把generator标记为coroutine类型.</p>
+<p><code>with drain()</code> 循环调度写入操作并刷新缓冲区。</p>
+<h2 id="asyncio-await"><a href="#asyncio-await" class="headerlink" title="asyncio/await"></a>asyncio/await</h2><pre><code>async def hello():
+    print(&quot;Hello,world!&quot;)
+    r = await asyncio.sleep(1)
+    print(&quot;Hello again!&quot;)
+</code></pre><p>@asyncio.coroutine = async<br>yield from = await</p>
+<h2 id="aiohttp"><a href="#aiohttp" class="headerlink" title="aiohttp"></a>aiohttp</h2><p>基于asyncio实现的HTTP框架</p>
+<pre><code>import asyncio
+
+from aiohttp import web
+
+async def index(request):
+    await asyncio.sleep(0.5)
+    return web.Response(body=b&apos;&lt;h1&gt;Index&lt;/h1&gt;&apos;)
+
+async def hello(request):
+    await asyncio.sleep(0.5)
+    text = &apos;&lt;h1&gt;hello, %s!&lt;/h1&gt;&apos; % request.match_info[&apos;name&apos;]
+    return web.Response(body=text.encode(&apos;utf-8&apos;))
+
+async def init(loop):
+    app = web.Application(loop=loop)
+    app.router.add_route(&apos;GET&apos;, &apos;/&apos;, index)
+    app.router.add_route(&apos;GET&apos;, &apos;/hello/{name}&apos;, hello)
+    srv = await loop.create_server(app.make_handler(), &apos;127.0.0.1&apos;, 8000) #创建TCP服务
+    print(&apos;Server started at http://127.0.0.1:8000...&apos;)
+    return srv
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(init(loop))
+loop.run_forever()
+</code></pre><p>#实战<br>web app 框架：</p>
+<pre><code>import logging; logging.basicConfig(level=logging.INFO)
+
+import asyncio, os, json, time
+from datetime import datetime
+
+from aiohttp import web
+
+def index(request):
+return web.Response(body=&apos;&lt;h1&gt;Awesome&lt;/h1&gt;&apos;,  headers={&apos;content-type&apos;:&apos;text/html&apos;})
+
+@asyncio.coroutine
+def init(loop):
+    app = web.Application(loop=loop)
+       app.router.add_route(&apos;GET&apos;, &apos;/&apos;, index)
+    srv = yield from loop.create_server(app.make_handler(), &apos;127.0.0.1&apos;, 9000)
+    logging.info(&apos;server started at http://127.0.0.1:9000...&apos;)
+        return srv
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(init(loop))
+loop.run_forever()
+</code></pre>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">Jason_xi</a>
+            <p>原文链接：<a href="http://yoursite.com/2018/03/31/Python_Learn3/">http://yoursite.com/2018/03/31/Python_Learn3/</a>
+            <p>发表日期：<a href="http://yoursite.com/2018/03/31/Python_Learn3/">March 31st 2018, 12:00:00 am</a>
+            <p>更新日期：<a href="http://yoursite.com/2018/03/31/Python_Learn3/">May 19th 2019, 3:03:58 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/03/31/Web安全入门/" title= "Web_Security">
+                    <div class="nextTitle">Web_Security</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/03/29/Python_Learn2/" title= "Python_Learn2">
+                    <div class="prevTitle">Python_Learn2</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:15896427883@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/08163182" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://www.zhihu.com/people/wang-jia-xi-5" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web开发"><span class="toc-number">1.</span> <span class="toc-text">Web开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议"><span class="toc-number">1.1.</span> <span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WCGI接口："><span class="toc-number">1.2.</span> <span class="toc-text">WCGI接口：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Web框架"><span class="toc-number">1.3.</span> <span class="toc-text">使用Web框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用模板"><span class="toc-number">1.4.</span> <span class="toc-text">使用模板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#异步IO"><span class="toc-number">2.</span> <span class="toc-text">异步IO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#asyncio"><span class="toc-number">2.1.</span> <span class="toc-text">asyncio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asyncio-await"><span class="toc-number">2.2.</span> <span class="toc-text">asyncio/await</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aiohttp"><span class="toc-number">2.3.</span> <span class="toc-text">aiohttp</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 64
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span><a class="archive-post-title" href= "/2019/05/01/Linux_Learn/" >Linux_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2019/04/19/Leetcode刷题记录/" >Leetcode_practice</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href= "/2019/02/27/安恒2月月赛Writeup/" >安恒2月月赛 writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/upload-labs/" >upload-labs writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2019/01/30/文字识别/" >基于图片的文字识别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/28</span><a class="archive-post-title" href= "/2019/01/28/cumt1月月赛/" >cumt双月赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/24</span><a class="archive-post-title" href= "/2019/01/24/杂项/" >ctf中一些知识总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Python_Crypto/" >python_Decimal</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Python_Decimal/" >python_Decimal</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2019/01/10/java学习/" >java_basis</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2019/01/07/java复习/" >java_review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2019/01/05/密码学复习/" >密码学复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/java实验/" >java_code</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/27</span><a class="archive-post-title" href= "/2018/12/27/MD5/" >MD5实现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA_Achieve</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES_Achieve</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2018/12/24/中原理工writeup/" >中原工比赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2018/12/11/C++_Learn/" >C++ Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2018/12/04/实验吧/" >实验吧Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href= "/2018/12/01/D03games/" >D0g3 Game Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2018/11/12/算法复习/" >Algorithm_Review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2018/11/11/Kali学习记录/" >Kali_Record</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/ctf/" >php函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台md/" >bxs网络平台</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台/" >bxs网络平台</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/Net security/" >网络安全实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/05</span><a class="archive-post-title" href= "/2018/11/05/网络安全复习/" >CyberSecurity_Review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/28</span><a class="archive-post-title" href= "/2018/10/28/PHP语言漏洞/" >php弱类型漏洞记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/计网复习/" >计算机网络复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/工具集合/" >工具大全收集</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2018/10/01/mysql学习/" >mysql踩过的坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2018/09/12/VPS/" >vultr多端口开放</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/09/09/算法/" >Algorithm_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span><a class="archive-post-title" href= "/2018/08/06/编码问题/" >编码问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2018/07/26/后期PS/" >摄影后期干货</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/07/06/bugku_writeup/" >bugku_Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2018/06/22/css入门/" >CSS_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2018/06/13/Wireshark学习/" >Wireshark使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/php学习/" >php基础语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/html基础/" >html_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href= "/2018/05/13/操作系统知识汇总/" >操作系统知识点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href= "/2018/05/11/hexo优化/" >hexo+next优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2018/05/09/javascript学习/" >javascript学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2018/05/03/Wireshark/" >Wireshark学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2018/04/17/Javascript入门/" >Javascript入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2018/04/14/Python_Basis/" >Python_Basis</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href= "/2018/04/10/Web编程/" >Web_Code</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python_Learn2/" >Python_Learn2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Python_Learn1/" >Python_Learn1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2018/03/10/Python2 and Python3/" >python2 and python3</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span><a class="archive-post-title" href= "/2018/03/02/Git学习笔记/" >Git学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2018/03/01/读《百年孤独》有感/" >百年孤独有感</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2018/02/02/Markdown学习/" >markdown语法学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2018/02/01/搭建SS/" >ss+vultr</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
+    
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+    
+        <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
+    
+        <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+    
+        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="读书笔记"><span class="iconfont-archer">&#xe606;</span>读书笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
+    
+        <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
+    
+        <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
+    
+        <span class="sidebar-tag-name" data-tags="Photography"><span class="iconfont-archer">&#xe606;</span>Photography</span>
+    
+        <span class="sidebar-tag-name" data-tags="pop up"><span class="iconfont-archer">&#xe606;</span>pop up</span>
+    
+        <span class="sidebar-tag-name" data-tags="Microcomputer principle"><span class="iconfont-archer">&#xe606;</span>Microcomputer principle</span>
+    
+        <span class="sidebar-tag-name" data-tags="Operate System"><span class="iconfont-archer">&#xe606;</span>Operate System</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+    
+        <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
+    
+        <span class="sidebar-tag-name" data-tags="Computer Network"><span class="iconfont-archer">&#xe606;</span>Computer Network</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
+    
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
+    
+        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
+    
+        <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
+    
+        <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
+    
+        <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+    
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
+    
+        <span class="sidebar-category-name" data-categories="misc"><span class="iconfont-archer">&#xe60a;</span>misc</span>
+    
+        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
+    
+        <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
+    
+        <span class="sidebar-category-name" data-categories="Web"><span class="iconfont-archer">&#xe60a;</span>Web</span>
+    
+        <span class="sidebar-category-name" data-categories="database"><span class="iconfont-archer">&#xe60a;</span>database</span>
+    
+        <span class="sidebar-category-name" data-categories="Photography"><span class="iconfont-archer">&#xe60a;</span>Photography</span>
+    
+        <span class="sidebar-category-name" data-categories="pop-up"><span class="iconfont-archer">&#xe60a;</span>pop-up</span>
+    
+        <span class="sidebar-category-name" data-categories="Microcomputer-principle"><span class="iconfont-archer">&#xe60a;</span>Microcomputer-principle</span>
+    
+        <span class="sidebar-category-name" data-categories="Operaten-System"><span class="iconfont-archer">&#xe60a;</span>Operaten-System</span>
+    
+        <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
+    
+        <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+    
+        <span class="sidebar-category-name" data-categories="cyber-security"><span class="iconfont-archer">&#xe60a;</span>cyber-security</span>
+    
+        <span class="sidebar-category-name" data-categories="Computer-Network"><span class="iconfont-archer">&#xe60a;</span>Computer-Network</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Jason_xi"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

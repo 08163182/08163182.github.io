@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Jason_xi">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Jason_xi">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="一步一个脚印">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Python_Basis · Supersnail&#39;s advance</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/boy.jpg" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >SuperSnail&#39;s Advance</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Python_Basis</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>SuperSnail's Advance</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Python_Basis
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2,571</span>阅读时长: <span class="post-count reading-time">11 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/04/14</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>Python语法基础：</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="字符串和编码"><a href="#字符串和编码" class="headerlink" title="字符串和编码"></a>字符串和编码</h2><p>编码：<br>ASCII-Unicode-UTF-8<br>记事本编辑：<br>文件(abc.txt)UTF-8编码–记事本(内存)Unicode编码<br>网页浏览：<br>服务器Unicode—浏览器UTF-8<br>字符串:<br><code>ord()</code>字符整数表示;<code>chr()</code>编码转换字符；网络传输或保存磁盘    </p>
+<p><strong>str-&gt;bytes</strong><br><code>x=b&#39;ABC&#39;</code> <code>&#39;ABC&#39;.encode(&#39;utf-8&#39;)</code><br><strong>bytes–&gt;str</strong><br><code>b&#39;ABC&#39;.decode(&#39;utf-8&#39;)</code></p>
+<p>len()计算字节数；1个中文3个字节 1个英文1个字节<br>格式化字符串：</p>
+<ul>
+<li>%d 整数</li>
+<li>%f 浮点数</li>
+<li>%s 字符串</li>
+<li><p>%x 十六进制整数<br><code>&#39;Hello, {0}, 成绩提升了 {1:.1f}%&#39;.format(&#39;小明&#39;, 17.125)</code></p>
+<h2 id="list与tuple"><a href="#list与tuple" class="headerlink" title="list与tuple"></a>list与tuple</h2><p>list:<br><code>append()</code>追加元素到末尾<br><code>insert()</code>元素插入指定位置<br><code>pop()</code>删除末尾元素<br><code>classmates[1] = &#39;Sarah&#39;</code>元素替换赋值给对应索引位置<br>tuple:<br>初始化后不能修改</p>
+<h2 id="dict和set"><a href="#dict和set" class="headerlink" title="dict和set"></a>dict和set</h2><p>dict的key是不可变对象(key-value)存储<br>dict:<br><code>d = {&#39;Michael&#39;: 95, &#39;Bob&#39;: 75, &#39;Tracy&#39;: 85}</code><br>查看key值是否存在<br><code>in or get()</code><br>set:<br>一组key集合，不存储value;<br><code>remove(key)</code>删除元素<br><code>s = set([1, 2, 3])</code><br>可进行交并数学运算<br><code>b = a.replace(&#39;a&#39;, &#39;A&#39;)</code>创建新的对象并返回  </p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>isinstance()判断类型<br>位置参数：<br>按位置传入数值<br>默认参数：<br>必须指向不变对象   </p>
+<p>  def add_end(L=None):</p>
+<pre><code>if L is None:
+    L = []
+L.append(&apos;END&apos;)
+return L
+</code></pre><p>可变参数：<br>*<em>args，接收tuple<br>list或tuple前加</em>号  </p>
+<p>  def person(name, age, **kw):</p>
+<pre><code>print(&apos;name:&apos;, name, &apos;age:&apos;, age, &apos;other:&apos;, kw)
+</code></pre><p><strong>extera把extra这个dict所有key-value用关键字参数传入**kw参数<br>关键字参数：   
+</strong>kw,接收dict<br>没有可变参数时,加*作为特殊分隔符</p>
+<p>  def person(name, age, *, city, job):</p>
+<pre><code>print(name, age, city, job)
+</code></pre></li>
+</ul>
+<p>参数组合：<br>必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</p>
+<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>计算n的阶乘：<code>fact(n)</code><br>尾递归：在函数返回时调用自身本身。没有循环语句的编程语言只能通过尾递归实现。</p>
+<h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><p><code>L[0:3]/L[:3]</code>索引0开始取,到3结束不包括3;<br><code>L[-1:-3]</code>索引倒着取,最后一个元素-1;<br>L[:10:2]前10个数每2个取1个；</p>
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>for循环遍历<br>判断对象是否可迭代:</p>
+<pre><code>from collections import Iterable
+isinstance(&apos;abc&apos;, Iterable)
+</code></pre><p><code>enumerate()</code>在for循环迭代索引和元素本身</p>
+<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p><code>[x * x for x in range(1, 11)]</code>生成式在列表前<br>dict的<code>items()</code>可同时迭代<code>key</code>和<code>value</code></p>
+<pre><code>d = {&apos;x&apos;: &apos;A&apos;, &apos;y&apos;: &apos;B&apos;, &apos;z&apos;: &apos;C&apos; }
+for k, v in d.items():
+print(k, &apos;=&apos;, v)
+</code></pre><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>[]–&gt;()可创建generator(可迭代对象)<br>斐波拉契数列：</p>
+<pre><code>def fib(max):
+    n, a, b = 0, 0, 1
+    while n &lt; max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return &apos;done&apos;   
+</code></pre><p><code>genator</code>调用<code>next()</code>执行,遇yield语句中断返回迭代值。再次执行从返回的yield下一条继续执行。得到返回值捕获<code>StopIteration</code>错误<br><code>range(n)</code>产生（0-n）的数，不包括n，range(0)无输出 。</p>
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>for循环可迭代对象： Iterable<br><code>next()</code>调用返回下一个值： <code>Iterator</code>  （惰性序列）<br><code>list/dict/st</code>r是Iterable不是Iterator,通过<code>iter()</code>可获得Iterator对象<br>for循环本质通过调用<code>next()</code>函数实现</p>
+<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>变量可以指向函数；<br><code>abs()</code> abs是函数本身，<code>abs()</code>是函数调用。<br>函数名也是变量；<br>abs是变量指向一个计算绝对值函数<br>传入函数;<br>函数作为参数传入,这样的函数称为高阶函数。</p>
+<h3 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h3><p><code>map(函数，Iterable序列)</code><br>函数作用于序列每个元素，结果作为新的Iterator返回。<br><code>reduce(f,[x1,x2,x3,x4]) = f(f(f(x1,x2),x3),x4)</code><br>reduce函数接收两个参数并把结果和序列的下一个元素做累积计算。</p>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p><code>filter(函数，Iterable序列)</code><br>函数作用于序列每个元素，根据结果为True或者False筛选。<br>strip()移除字符串头尾指定字符。<br>求素数的函数：</p>
+<pre><code>def primes():
+    yield 2
+    it = _odd_iter() # 初始序列
+    while True:
+        n = next(it) # 返回序列的第一个数
+        yield n
+        it = filter(_not_divisible(n), it) # 构造新序列
+</code></pre><h3 id="sorted"><a href="#sorted" class="headerlink" title="sorted"></a>sorted</h3><p>sorted高阶函数，可对list进行排序。<br><code>sorted([&#39;bob&#39;,&#39;about&#39;,&#39;Zoo&#39;],key=str.lower,reverse=True)</code> </p>
+<h2 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h2><p>函数作为返回值：</p>
+<pre><code>def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax + n
+        return ax
+    return sum   
+</code></pre><p>f是求和函数；f()返回最终结果；返回一个函数时函数并未执行；每次调用都返回新的函数；<br><strong>闭包：返回函数不要引用任何循环变量或后续会发生变化的变量。</strong><br>内部函数可以修改外部list中的元素，内部函数修改外部函数参数需声明<code>nonlocal</code>.</p>
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p><code>lambda x: x*x</code> 返回值为表达式结果，可赋值给变量，利用变量调用函数。</p>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>decorator:</p>
+<pre><code>@log(&apos;execute&apos;)
+def now():
+    print(&apos;2016&apos;)
+import functools
+
+def log(text):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print(&apos;%s %s():&apos; % (text, func.__name__))
+            return func(*args, **kw)
+            return wrapper
+    return decorator
+</code></pre><p>加上@functools.wraps()可把原始函数的<strong>name</strong>属性复制到wrapper函数中。</p>
+<h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2><p>参数太多，functools.partial可创建新的函数，可固定原函数的部分参数。偏函数可接受函数对象，*args,**kw 3个参数。</p>
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><p>sys模块的argv变量用list存储命令行所有参数。argv第一个参数为.py文件的名称。<br>作用域：<br>_abc/__abc为private函数或变量</p>
+<h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h2 id="类和实例"><a href="#类和实例" class="headerlink" title="类和实例"></a>类和实例</h2><pre><code>class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score#初始化实例（类的对象）的属性
+
+    def print_score(self):
+        print(&apos;%s: %s&apos; % (self.name, self.score))#建立对象的方法
+</code></pre><p><code>__init__</code>方法将属性绑定到<code>self</code>,<code>self</code>指向实例本身。传参数时不用穿self，Python会自动传入</p>
+<p>数据封装:<br>访问数据直接在类内定义访问数据的函数—&gt;类的方法</p>
+<h2 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h2><pre><code>class Student(object):
+
+    def __init__(self, name, score):
+        self.__name = name
+        self.__score = score
+</code></pre><p><code>__name</code>,<code>__score</code>外部代码无法访问<br>访问需定义<code>get_name</code>和<code>get_score</code>方法。修改定义<code>set_score</code>方法<br><code>__name==_Student__name</code></p>
+<h2 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h2><p>1 子类继承父类，子类可调用父类方法<br>2 多态性，重新定义方法覆盖继承父类的方法（开闭原则）<br>4 动态语言’鸭子类型’“看起来像鸭子，走起路来像鸭子”。定义的类保证传入的对象有相同方法便可继承      </p>
+<h2 id="获取对象信息"><a href="#获取对象信息" class="headerlink" title="获取对象信息"></a>获取对象信息</h2><p><code>type()</code>判断对象类型<br><code>isinstance()</code>对于类中的继承判断对象类型<br><code>dir()</code>获得对象的所有属性和方法<br><code>getattr(obj,&#39;z&#39;,404)</code>传入default参数，属性不存在返回默认值<br><code>hasattr(fp, &#39;read&#39;)</code>判断文件流fp是否存在read()方法<br><code>setattr()</code>  </p>
+<h2 id="实例属性和类属性"><a href="#实例属性和类属性" class="headerlink" title="实例属性和类属性"></a>实例属性和类属性</h2><pre><code>class Student(object):
+    name=&apos;Student&apos;  #类属性所有实例均可访问。
+</code></pre><h1 id="面向对象高级编程"><a href="#面向对象高级编程" class="headerlink" title="面向对象高级编程"></a>面向对象高级编程</h1><h2 id="slots"><a href="#slots" class="headerlink" title="slots"></a><strong>slots</strong></h2><pre><code>class Student(object):
+        __slots__ = (&apos;name&apos;, &apos;age&apos;)  
+</code></pre><p><strong>slots</strong>定义的属性仅对当前类实例起作用，可限制实例属性。</p>
+<h2 id="propetry"><a href="#propetry" class="headerlink" title="@propetry"></a>@propetry</h2><p>@propetry装饰器可把方法变成属性调用<br>定义只读属性 脂定义getter方法而不定义setter方法<br>    class Student(object):</p>
+<pre><code>@property
+def birth(self):
+    return self._birth
+
+@birth.setter
+def birth(self, value):
+    self._birth = value
+
+@property
+def age(self):
+    return 2015 - self._birth
+</code></pre><h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><p>多重继承，子类可同时获得多个父类的所有功能。<br>Mixln:通过多重继承来组合多个Mixln功能<br>多进程TCP服务：</p>
+<pre><code>class MyTCPServer(TCPServer, ForkingMixIn):
+    pass
+</code></pre><p>多线程UDP服务：</p>
+<pre><code>class MyUDPServer(UDPServer, ThreadingMixIn):
+    pass
+</code></pre><p>协程模式：</p>
+<pre><code>class MyTCPServer(TCPServer, CoroutineMixIn):
+    pass
+</code></pre><p><strong>拓扑排序</strong><br>DAG图选择入度为0顶点输出，删除顶点所对应有向边，重复直到DAG图为空。<br>Python多重继承遵循C3算法<br><img src="https://i.imgur.com/OBU0NlP.png" alt=""><br>执行顺序{D,C1,C2,A,B,object}</p>
+<h2 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h2><p><code>__str__()</code>返回用户看到的字符串<br><code>__repr__()</code>返回程序开发者看到的字符串（变量调用这个方法）<br><code>__iter__</code>返回一个迭代对象，for循环调用对象<code>__next__()</code>方法，遇<code>StopIteration</code>错误退出循环<br><code>__getitem__()</code>可用于list按下标取元素，参数可以作为key的object（str）<br><code>__setitem__()</code>把对象看作list或dict对集合赋值<br><code>__delitem__()</code>删除某个元素<br><code>__getattr__(self,attr)</code>动态返回一个属性<br><code>__call__</code>直接对实例进行调用<br><code>callable()</code>判断对象是否是”可调用”对象     </p>
+<pre><code>def __init__(self, path=&apos;&apos;):
+    self._path = path#接收变量
+
+def __call__(self, param):
+    return Chain(&apos;%s/:%s&apos; % (self._path, param))#函数调用
+
+def __getattr__(self, path):
+    return Chain(&apos;%s/%s&apos; % (self._path, path))#传递类未定义的变量
+
+def __str__(self):
+    return self._path
+
+__repr__ = __str__
+print(Chain().status.user.timeline.list)
+
+print(Chain().users(&apos;michael&apos;).repos)
+</code></pre><p>users调用getattr方法 ； (‘michael’)调用call方法</p>
+<h2 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h2><pre><code>from enum import Enum, unique
+Month=Enum(&apos;Month&apos;,(&apos;Jan&apos;,&apos;Feb&apos;....))
+</code></pre><p>获得Month枚举类，可用成员名称或value值引用枚举常量也可枚举成员。<br>    for name, member in Month.<strong>members</strong>.items():<br>        print(name, ‘=&gt;’, member, ‘,’, member.value)<br>派生自定义类</p>
+<pre><code>class Weekday(Enum):
+</code></pre><p>Enum把一组相关常量定义在一个class中，class不可变且成员可相互比较  </p>
+<h2 id="元类"><a href="#元类" class="headerlink" title="元类"></a>元类</h2><p>动态创建类：<br><code>Hello=type(&#39;Hello&#39;,(object,), dict(hello=fn))</code><br>创建一个class对象传入3个参数。class名称；继承的父类集合；class方法名称与函数绑定；</p>
+<h1 id="错误、调试、测试"><a href="#错误、调试、测试" class="headerlink" title="错误、调试、测试"></a>错误、调试、测试</h1><p>修复BUG，检查用户输入，异常处理    </p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p><code>try...except...finally</code>错误处理机制<br><code>except</code>可捕获当前类以及他的子类<br>所有错误从<code>BaseException</code>类派生<br><strong>出错应分析错误的调用栈信息，定位错误的位置。</strong><br><strong>logging</strong>模块可记录错误<br>程序也可用<code>raise</code>主动抛出错误让调用者处理</p>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>1<code>print()</code>打印变量的值<br>2<code>assert</code> 断言失败抛出<code>AssertionError</code> -0参数可关闭assert<br>3<code>logging</code>不抛出错误，可输出到文件。允许指定记录信息的级别，有<code>debug,info,warning,error</code>    </p>
+<pre><code>import logging
+logging.basicConfig(level=logging.INFO)
+</code></pre><p>4pdb.set_trace()<br>l查看代码 n单步执行代码 p 变量名查看变量 q结束调试退出程序</p>
+<pre><code>import pdb
+pdb.set_trace()#自动暂停 c继续执行
+</code></pre><h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>unittest<br>编写测试类从<code>unittest.TestCase</code>继承，以<code>test</code>开头方法为测试方法，测试的时候会被执行。<br>内置条件判断<code>assertEqual()</code><br>d.[‘empty’]访问不存在的key  </p>
+<pre><code>with self.assertRaises(KeyError):
+    value=d[&apos;empty&apos;]
+</code></pre><p>d.empty访问不存在的key</p>
+<pre><code>with self.assertRaises(AttributeError):
+    value = d.empty
+</code></pre><p>运行单元测试</p>
+<pre><code>if __name__ == &apos;__main__&apos;:
+    unittest.main()
+</code></pre><p>命令行加 <code>-m unittest</code><br>测试前执行<code>setUp()</code>  测试后执行<code>teadDown()</code></p>
+<h2 id="文档测试"><a href="#文档测试" class="headerlink" title="文档测试"></a>文档测试</h2><p>doctest可用来测试也可作为示例代码</p>
+<pre><code>if __name__==&apos;__main__&apos;:
+    import doctest
+    doctest.testmod()
+</code></pre><p>模块正常导入时，doctest不会被执行。</p>
+<p>测试Value错误：</p>
+<pre><code>Traceback (most recent call last):
+      ...
+ValueError:
+</code></pre>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">Jason_xi</a>
+            <p>原文链接：<a href="http://yoursite.com/2018/04/14/Python_Basis/">http://yoursite.com/2018/04/14/Python_Basis/</a>
+            <p>发表日期：<a href="http://yoursite.com/2018/04/14/Python_Basis/">April 14th 2018, 12:00:00 am</a>
+            <p>更新日期：<a href="http://yoursite.com/2018/04/14/Python_Basis/">May 19th 2019, 3:06:59 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/04/17/Javascript入门/" title= "Javascript入门">
+                    <div class="nextTitle">Javascript入门</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/04/10/Web编程/" title= "Web_Code">
+                    <div class="prevTitle">Web_Code</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:15896427883@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/08163182" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://www.zhihu.com/people/wang-jia-xi-5" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串和编码"><span class="toc-number">1.1.</span> <span class="toc-text">字符串和编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list与tuple"><span class="toc-number">1.2.</span> <span class="toc-text">list与tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dict和set"><span class="toc-number">1.3.</span> <span class="toc-text">dict和set</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-number">2.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#递归函数"><span class="toc-number">2.1.</span> <span class="toc-text">递归函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高级特性"><span class="toc-number">3.</span> <span class="toc-text">高级特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#切片"><span class="toc-number">3.1.</span> <span class="toc-text">切片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代"><span class="toc-number">3.2.</span> <span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表生成式"><span class="toc-number">3.3.</span> <span class="toc-text">列表生成式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成器"><span class="toc-number">3.4.</span> <span class="toc-text">生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代器"><span class="toc-number">3.5.</span> <span class="toc-text">迭代器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数式编程"><span class="toc-number">4.</span> <span class="toc-text">函数式编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#高阶函数"><span class="toc-number">4.1.</span> <span class="toc-text">高阶函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#map-reduce"><span class="toc-number">4.1.1.</span> <span class="toc-text">map/reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-number">4.1.2.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sorted"><span class="toc-number">4.1.3.</span> <span class="toc-text">sorted</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#返回函数"><span class="toc-number">4.2.</span> <span class="toc-text">返回函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名函数"><span class="toc-number">4.3.</span> <span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装饰器"><span class="toc-number">4.4.</span> <span class="toc-text">装饰器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#偏函数"><span class="toc-number">4.5.</span> <span class="toc-text">偏函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模块"><span class="toc-number">5.</span> <span class="toc-text">模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象编程"><span class="toc-number">6.</span> <span class="toc-text">面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类和实例"><span class="toc-number">6.1.</span> <span class="toc-text">类和实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问限制"><span class="toc-number">6.2.</span> <span class="toc-text">访问限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承和多态"><span class="toc-number">6.3.</span> <span class="toc-text">继承和多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取对象信息"><span class="toc-number">6.4.</span> <span class="toc-text">获取对象信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例属性和类属性"><span class="toc-number">6.5.</span> <span class="toc-text">实例属性和类属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象高级编程"><span class="toc-number">7.</span> <span class="toc-text">面向对象高级编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#slots"><span class="toc-number">7.1.</span> <span class="toc-text">slots</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#propetry"><span class="toc-number">7.2.</span> <span class="toc-text">@propetry</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多重继承"><span class="toc-number">7.3.</span> <span class="toc-text">多重继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定制类"><span class="toc-number">7.4.</span> <span class="toc-text">定制类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#枚举类"><span class="toc-number">7.5.</span> <span class="toc-text">枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元类"><span class="toc-number">7.6.</span> <span class="toc-text">元类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#错误、调试、测试"><span class="toc-number">8.</span> <span class="toc-text">错误、调试、测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误处理"><span class="toc-number">8.1.</span> <span class="toc-text">错误处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试"><span class="toc-number">8.2.</span> <span class="toc-text">调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单元测试"><span class="toc-number">8.3.</span> <span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档测试"><span class="toc-number">8.4.</span> <span class="toc-text">文档测试</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 64
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span><a class="archive-post-title" href= "/2019/05/01/Linux_Learn/" >Linux_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2019/04/19/Leetcode刷题记录/" >Leetcode_practice</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href= "/2019/02/27/安恒2月月赛Writeup/" >安恒2月月赛 writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span><a class="archive-post-title" href= "/2019/02/21/upload-labs/" >upload-labs writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2019/01/30/文字识别/" >基于图片的文字识别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/28</span><a class="archive-post-title" href= "/2019/01/28/cumt1月月赛/" >cumt双月赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/24</span><a class="archive-post-title" href= "/2019/01/24/杂项/" >ctf中一些知识总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Python_Crypto/" >python_Decimal</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Python_Decimal/" >python_Decimal</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2019/01/10/java学习/" >java_basis</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2019/01/07/java复习/" >java_review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2019/01/05/密码学复习/" >密码学复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href= "/2019/01/04/java实验/" >java_code</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/27</span><a class="archive-post-title" href= "/2018/12/27/MD5/" >MD5实现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA_Achieve</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES_Achieve</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2018/12/24/中原理工writeup/" >中原工比赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2018/12/11/C++_Learn/" >C++ Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2018/12/04/实验吧/" >实验吧Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href= "/2018/12/01/D03games/" >D0g3 Game Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2018/11/12/算法复习/" >Algorithm_Review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/11</span><a class="archive-post-title" href= "/2018/11/11/Kali学习记录/" >Kali_Record</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/ctf/" >php函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台md/" >bxs网络平台</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台/" >bxs网络平台</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/Net security/" >网络安全实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/05</span><a class="archive-post-title" href= "/2018/11/05/网络安全复习/" >CyberSecurity_Review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/28</span><a class="archive-post-title" href= "/2018/10/28/PHP语言漏洞/" >php弱类型漏洞记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/计网复习/" >计算机网络复习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/工具集合/" >工具大全收集</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2018/10/01/mysql学习/" >mysql踩过的坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/12</span><a class="archive-post-title" href= "/2018/09/12/VPS/" >vultr多端口开放</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/09/09/算法/" >Algorithm_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span><a class="archive-post-title" href= "/2018/08/06/编码问题/" >编码问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2018/07/26/后期PS/" >摄影后期干货</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/07/06/bugku_writeup/" >bugku_Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2018/06/22/css入门/" >CSS_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2018/06/13/Wireshark学习/" >Wireshark使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/php学习/" >php基础语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/html基础/" >html_Learn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href= "/2018/05/13/操作系统知识汇总/" >操作系统知识点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href= "/2018/05/11/hexo优化/" >hexo+next优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2018/05/09/javascript学习/" >javascript学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2018/05/03/Wireshark/" >Wireshark学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2018/04/17/Javascript入门/" >Javascript入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2018/04/14/Python_Basis/" >Python_Basis</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href= "/2018/04/10/Web编程/" >Web_Code</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python_Learn2/" >Python_Learn2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Python_Learn1/" >Python_Learn1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2018/03/10/Python2 and Python3/" >python2 and python3</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span><a class="archive-post-title" href= "/2018/03/02/Git学习笔记/" >Git学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2018/03/01/读《百年孤独》有感/" >百年孤独有感</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2018/02/02/Markdown学习/" >markdown语法学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2018/02/01/搭建SS/" >ss+vultr</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
+    
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+    
+        <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
+    
+        <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
+    
+        <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
+    
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
+    
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
+    
+        <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="读书笔记"><span class="iconfont-archer">&#xe606;</span>读书笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
+    
+        <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
+    
+        <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
+    
+        <span class="sidebar-tag-name" data-tags="Photography"><span class="iconfont-archer">&#xe606;</span>Photography</span>
+    
+        <span class="sidebar-tag-name" data-tags="pop up"><span class="iconfont-archer">&#xe606;</span>pop up</span>
+    
+        <span class="sidebar-tag-name" data-tags="Microcomputer principle"><span class="iconfont-archer">&#xe606;</span>Microcomputer principle</span>
+    
+        <span class="sidebar-tag-name" data-tags="Operate System"><span class="iconfont-archer">&#xe606;</span>Operate System</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+    
+        <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
+    
+        <span class="sidebar-tag-name" data-tags="Computer Network"><span class="iconfont-archer">&#xe606;</span>Computer Network</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
+    
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
+    
+        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
+    
+        <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
+    
+        <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
+    
+        <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+    
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
+    
+        <span class="sidebar-category-name" data-categories="misc"><span class="iconfont-archer">&#xe60a;</span>misc</span>
+    
+        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
+    
+        <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
+    
+        <span class="sidebar-category-name" data-categories="Web"><span class="iconfont-archer">&#xe60a;</span>Web</span>
+    
+        <span class="sidebar-category-name" data-categories="database"><span class="iconfont-archer">&#xe60a;</span>database</span>
+    
+        <span class="sidebar-category-name" data-categories="Photography"><span class="iconfont-archer">&#xe60a;</span>Photography</span>
+    
+        <span class="sidebar-category-name" data-categories="pop-up"><span class="iconfont-archer">&#xe60a;</span>pop-up</span>
+    
+        <span class="sidebar-category-name" data-categories="Microcomputer-principle"><span class="iconfont-archer">&#xe60a;</span>Microcomputer-principle</span>
+    
+        <span class="sidebar-category-name" data-categories="Operaten-System"><span class="iconfont-archer">&#xe60a;</span>Operaten-System</span>
+    
+        <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
+    
+        <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+    
+        <span class="sidebar-category-name" data-categories="cyber-security"><span class="iconfont-archer">&#xe60a;</span>cyber-security</span>
+    
+        <span class="sidebar-category-name" data-categories="Computer-Network"><span class="iconfont-archer">&#xe60a;</span>Computer-Network</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Jason_xi"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

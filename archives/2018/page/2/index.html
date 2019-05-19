@@ -411,6 +411,44 @@ O:&lt;length&gt;:&quot;&lt;class name&gt;&quot;:&lt;n&gt;:{&lt;field name 1&gt;&
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/11/08/矿大网络实训平台/" >
+            
+                <span>bxs网络平台</span>
+        </a>
+        <div class="abstract-content">
+            WebWriteup 
+Logic
+Burp抓包发现管理员账号chenyurui@gmail.com
+看到隐藏信息。Vim编辑.
+验证转入submit.php.
+访问./submit.php发现不是管理员。根据Vim备份漏洞，存在隐藏文件.swp,访问./submit.php.swp访问之后查看源码，构造Token值绕过验证.
+
+
+payload:http://bxs.cumt.edu.cn/challenge/web/logic/submit.php?emailAddress=chenyurui@gmail.com&amp;token=0e00000000
+听说你会面向对象看到想到反序...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/08</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/11/08/矿大网络实训平台md/" >
             
                 <span>bxs网络平台</span>
@@ -433,6 +471,12 @@ payload:http://bxs.cumt.edu.cn/challenge/web/logic/submit.php?emailAddress=cheny
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/08</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+</div>
             
         </div>
     </article>
@@ -462,6 +506,12 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
             </div>
             <!-- tags  -->
             
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Penetration">Penetration</a>
+    
+</div>
+            
         </div>
     </article>
     
@@ -473,7 +523,7 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
     <article class="index-post">
         <a class="abstract-title" href = "/2018/11/05/网络安全复习/" >
             
-                <span>网络安全复习</span>
+                <span>CyberSecurity_Review</span>
         </a>
         <div class="abstract-content">
             概论安全主要威胁
@@ -510,6 +560,12 @@ OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可
             </div>
             <!-- tags  -->
             
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "cyber_security">cyber_security</a>
+    
+</div>
+            
         </div>
     </article>
     
@@ -542,6 +598,12 @@ strpos()查找字符串在另一字符串出现的位置。
             </div>
             <!-- tags  -->
             
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+    
+</div>
+            
         </div>
     </article>
     
@@ -566,6 +628,12 @@ strpos()查找字符串在另一字符串出现的位置。
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/20</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Computer Network">Computer Network</a>
+    
+</div>
             
         </div>
     </article>
@@ -629,32 +697,11 @@ chrome后台扫描插件、Pker多线程后台极速扫描工具、WebRobot、We
             </div>
             <!-- tags  -->
             
-        </div>
-    </article>
+            <div class= abstract-tags >
     
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Penetration">Penetration</a>
     
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/07/实战/" >
-            
-                <span>攻击实践</span>
-        </a>
-        <div class="abstract-content">
-            ARP中间人攻击
-一面伪造网关，一面伪造源主机    
-Kali:ifconfig查看IP地址nmap -sP ip/24查看局域网网络echo 1 &gt;/proc/sys/net/ipv4/ip_forward 开启IP转发，不开启会断网arpspoof -i eth0 ip hostettercap -Tq -i eth0 监控流量driftnet -i eth0 捕获页面        
-ettercap -G 工具图形界面。            
-2.常用端口TCP:20:FTP数据21:FTP控制 文件传输22:SSH25:SMTP80:WWW(HTTP)110:POP4...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
+</div>
             
         </div>
     </article>
@@ -683,13 +730,19 @@ cookieburp抓包，修改login=1;
             </div>
             <!-- tags  -->
             
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+</div>
+            
         </div>
     </article>
     
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2018/">&#60; PREV</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="page-number" href="/archives/2018/page/4/">4</a><a class="page-number" href="/archives/2018/page/5/">5</a><a class="extend next" rel="next" href="/archives/2018/page/3/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/2018/">&#60; PREV</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="page-number" href="/archives/2018/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2018/page/6/">6</a><a class="extend next" rel="next" href="/archives/2018/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1737,9 +1790,115 @@ cookieburp抓包，修改login=1;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 62
+        Total : 64
         </div>
         <!-- search  -->
         
@@ -1790,7 +1949,12 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/python密码学/" >python进制转换</a>
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Python_Crypto/" >python_Decimal</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2019/01/21/Python_Decimal/" >python_Decimal</a>
         </li>
     
     
@@ -1829,12 +1993,12 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA_Achieve</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES_Achieve</a>
         </li>
     
     
@@ -1869,7 +2033,7 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2018/11/12/算法复习/" >算法复习</a>
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2018/11/12/算法复习/" >Algorithm_Review</a>
         </li>
     
     
@@ -1889,12 +2053,17 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/矿大网络实训平台/" >bxs网络平台</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/Net security/" >网络安全实验</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/05</span><a class="archive-post-title" href= "/2018/11/05/网络安全复习/" >网络安全复习</a>
+            <span class="archive-post-date">11/05</span><a class="archive-post-title" href= "/2018/11/05/网络安全复习/" >CyberSecurity_Review</a>
         </li>
     
     
@@ -1914,12 +2083,12 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
         </li>
     
     
@@ -1934,7 +2103,7 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/09/09/算法/" >算法学习</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/09/09/算法/" >Algorithm_Learn</a>
         </li>
     
     
@@ -1949,12 +2118,12 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
@@ -1964,7 +2133,7 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2018/06/22/css入门/" >css入门</a>
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href= "/2018/06/22/css入门/" >CSS_Learn</a>
         </li>
     
     
@@ -1979,7 +2148,7 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
         </li>
     
     
@@ -1989,7 +2158,7 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/html基础/" >html入门</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/html基础/" >html_Learn</a>
         </li>
     
     
@@ -2019,37 +2188,37 @@ cookieburp抓包，修改login=1;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2018/04/14/Python语法基础/" >Python语法基础</a>
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href= "/2018/04/14/Python_Basis/" >Python_Basis</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/10</span><a class="archive-post-title" href= "/2018/04/10/Web编程/" >Web编程</a>
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href= "/2018/04/10/Web编程/" >Web_Code</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python笔记3/" >Python笔记3</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web安全入门</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python笔记2/" >Python笔记2</a>
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/Python_Learn2/" >Python_Learn2</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Python笔记1/" >Python学习笔记1</a>
+            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/2018/03/20/Python_Learn1/" >Python_Learn1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2018/03/10/python2与python3/" >python2和python3共存问题</a>
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2018/03/10/Python2 and Python3/" >python2 and python3</a>
         </li>
     
     
@@ -2079,29 +2248,23 @@ cookieburp抓包，修改login=1;
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
         <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
     
-        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
-    
-        <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
-    
-        <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
-    
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
-        <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
         <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
-    
-        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
@@ -2118,6 +2281,28 @@ cookieburp抓包，修改login=1;
         <span class="sidebar-tag-name" data-tags="misc"><span class="iconfont-archer">&#xe606;</span>misc</span>
     
         <span class="sidebar-tag-name" data-tags="读书笔记"><span class="iconfont-archer">&#xe606;</span>读书笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
+    
+        <span class="sidebar-tag-name" data-tags="Web"><span class="iconfont-archer">&#xe606;</span>Web</span>
+    
+        <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
+    
+        <span class="sidebar-tag-name" data-tags="Photography"><span class="iconfont-archer">&#xe606;</span>Photography</span>
+    
+        <span class="sidebar-tag-name" data-tags="pop up"><span class="iconfont-archer">&#xe606;</span>pop up</span>
+    
+        <span class="sidebar-tag-name" data-tags="Microcomputer principle"><span class="iconfont-archer">&#xe606;</span>Microcomputer principle</span>
+    
+        <span class="sidebar-tag-name" data-tags="Operate System"><span class="iconfont-archer">&#xe606;</span>Operate System</span>
+    
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+    
+        <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
+    
+        <span class="sidebar-tag-name" data-tags="Computer Network"><span class="iconfont-archer">&#xe606;</span>Computer Network</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2154,9 +2339,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
     
-        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
     
         <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
     
@@ -2164,11 +2351,33 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
     
-        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
-    
         <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
         <span class="sidebar-category-name" data-categories="misc"><span class="iconfont-archer">&#xe60a;</span>misc</span>
+    
+        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
+    
+        <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
+    
+        <span class="sidebar-category-name" data-categories="Web"><span class="iconfont-archer">&#xe60a;</span>Web</span>
+    
+        <span class="sidebar-category-name" data-categories="database"><span class="iconfont-archer">&#xe60a;</span>database</span>
+    
+        <span class="sidebar-category-name" data-categories="Photography"><span class="iconfont-archer">&#xe60a;</span>Photography</span>
+    
+        <span class="sidebar-category-name" data-categories="pop-up"><span class="iconfont-archer">&#xe60a;</span>pop-up</span>
+    
+        <span class="sidebar-category-name" data-categories="Microcomputer-principle"><span class="iconfont-archer">&#xe60a;</span>Microcomputer-principle</span>
+    
+        <span class="sidebar-category-name" data-categories="Operaten-System"><span class="iconfont-archer">&#xe60a;</span>Operaten-System</span>
+    
+        <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
+    
+        <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+    
+        <span class="sidebar-category-name" data-categories="cyber-security"><span class="iconfont-archer">&#xe60a;</span>cyber-security</span>
+    
+        <span class="sidebar-category-name" data-categories="Computer-Network"><span class="iconfont-archer">&#xe60a;</span>Computer-Network</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
