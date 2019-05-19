@@ -359,6 +359,120 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/11/12/算法复习/" >
+            
+                <span>算法复习</span>
+        </a>
+        <div class="abstract-content">
+            动态规划0-1背包1234567891011121314151617181920212223242526272829303132333435	#include &lt;iostream&gt;	#include&lt;algorithm&gt;	int b[1005][1005];	using namespace std;	struct Bag &#123;	int cost, val;	&#125;m[1005];	int main()	&#123;		int t, c, n;	cin &gt;&gt; t;	while (t--) &#123;		cin &gt;&gt; c &gt...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/12</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/11/11/Kali/" >
+            
+                <span>Kali踩坑</span>
+        </a>
+        <div class="abstract-content">
+            open vm toolsvi /etc/apt/sources.list
+更新源中科大kali源:
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib 
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib 
+deb http://mirrors.ustc.edu.cn/kali-security kali-current/updates main contrib non-free 
+deb-src h...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/11</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/11/10/ctf/" >
+            
+                <span>php函数</span>
+        </a>
+        <div class="abstract-content">
+            php函数strpos 返回字符串首次出现位置stripos 返回字符串首次出现位置不区分大小写highlight_file()对文件进行高亮显示
+serialize与unserializeunserialize函数在重构对象后自动调用_wakeup成员方法，跳过_wakeup执行，序列化字符串中，如果表示对象属性个数的值大于真实的属性个数时就会跳过__wakeup的执行。
+O:&lt;length&gt;:&quot;&lt;class name&gt;&quot;:&lt;n&gt;:{&lt;field name 1&gt;&lt;field value 1&gt;&lt;fiel...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/11/08/矿大网络实训平台md/" >
+            
+                <span>bxs网络平台</span>
+        </a>
+        <div class="abstract-content">
+            WebWriteup 
+Logic
+Burp抓包发现管理员账号chenyurui@gmail.com
+看到隐藏信息。Vim编辑.
+验证转入submit.php.
+访问./submit.php发现不是管理员。根据Vim备份漏洞，存在隐藏文件.swp,访问./submit.php.swp访问之后查看源码，构造Token值绕过验证.
+
+
+payload:http://bxs.cumt.edu.cn/challenge/web/logic/submit.php?emailAddress=chenyurui@gmail.com&amp;token=0e00000000
+听说你会面向对象看到想到反序...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/08</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/11/07/Net security/" >
             
                 <span>网络安全实验</span>
@@ -423,36 +537,6 @@ OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/05</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/29/墨者/" >
-            
-                <span>墨者学院</span>
-        </a>
-        <div class="abstract-content">
-            SVN信息漏洞Subversion
-URL后面加.svn/entries访问，如存在漏洞可显示成功
-svn1.7及以后版本则只在项目根目录生成一个.svn文件夹，目录内容有wc.db文件管理。查看内容
-Web文件上传漏洞
-0X00截断漏洞(http://xx/upfiles/lubr.php.jpg “.”换成0X00，“.”的ASII码值为0x2e)    
-构造服务器端扩展名检测上传（lubr.php改成lubr.php.abc）    
-绕过Content-Type检测文件类型上传(修改符合白名单)    
-构造图片木马，绕过文件内容检测上传Shell（文件内容验证    geti...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/29</span>
             </div>
             <!-- tags  -->
             
@@ -605,102 +689,10 @@ cookieburp抓包，修改login=1;
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/07/实战/" >
-            
-                <span>攻击实践</span>
-        </a>
-        <div class="abstract-content">
-            ARP中间人攻击
-一面伪造网关，一面伪造源主机    
-Kali:ifconfig查看IP地址nmap -sP ip/24查看局域网网络echo 1 &gt;/proc/sys/net/ipv4/ip_forward 开启IP转发，不开启会断网arpspoof -i eth0 ip hostettercap -Tq -i eth0 监控流量driftnet -i eth0 捕获页面        
-ettercap -G 工具图形界面。            
-2.常用端口TCP:20:FTP数据21:FTP控制 文件传输22:SSH25:SMTP80:WWW(HTTP)110:POP4...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/01/mysql学习/" >
-            
-                <span>mysql踩过的坑</span>
-        </a>
-        <div class="abstract-content">
-            踩坑区mysql root密码忘记解决办法：管理员模式：net stop mysqlcmd窗口执行:mysqld --skip-grant-tables(跳过安全检查)新打开第二个cmd窗口root连接mysql：mysql -u root切换数据库： use mysql;设置新密码：    
-update mysql.user
-set authentication_string=password(&apos;wjx666&apos;)    
-  where user=&apos;root&apos; and Host =
-&apos;localhost&apos;;
-flush pr...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "GEEK">GEEK</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/12/VPS/" >
-            
-                <span>vultr多端口开放</span>
-        </a>
-        <div class="abstract-content">
-            编辑vi /etc/shadowsocks.json
-
-{
-    &quot;server&quot;:&quot;0.0.0.0&quot;,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;port_password&quot;:{
-         &quot;23331&quot;:&quot;xxxx&quot;,  //开放端口和密码
-         &quot;23333&quot;:&quot;yyyy&quot;,  //开...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1785,9 +1777,70 @@ flush pr...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 58
+        Total : 61
         </div>
         <!-- search  -->
         
@@ -1800,6 +1853,26 @@ flush pr...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/Linux/" >[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/python密码学/" >python密码学</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/java学习/" >java项目学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2019/05/19/Leetcode/" >Leetcode刷题</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1852,12 +1925,12 @@ flush pr...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/RSA/" >RSA实现</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2018/12/25/DES/" >DES实现</a>
         </li>
     
     
@@ -1867,12 +1940,12 @@ flush pr...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
@@ -1918,11 +1991,6 @@ flush pr...
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/05</span><a class="archive-post-title" href= "/2018/11/05/网络安全复习/" >网络安全复习</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/29</span><a class="archive-post-title" href= "/2018/10/29/墨者/" >墨者学院</a>
         </li>
     
     
@@ -2002,12 +2070,12 @@ flush pr...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python爬虫/" >爬虫</a>
         </li>
     
     
@@ -2105,35 +2173,39 @@ flush pr...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
-    
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
-    
-        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
     
         <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
+        <span class="sidebar-tag-name" data-tags="仓库的搬运工"><span class="iconfont-archer">&#xe606;</span>仓库的搬运工</span>
+    
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
         <span class="sidebar-tag-name" data-tags="Fighting"><span class="iconfont-archer">&#xe606;</span>Fighting</span>
     
-        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
         <span class="sidebar-tag-name" data-tags="人生苦短我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短我学Python</span>
     
+        <span class="sidebar-tag-name" data-tags="system"><span class="iconfont-archer">&#xe606;</span>system</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
         <span class="sidebar-tag-name" data-tags="人生苦短，我学Python"><span class="iconfont-archer">&#xe606;</span>人生苦短，我学Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
     
         <span class="sidebar-tag-name" data-tags="学无止境"><span class="iconfont-archer">&#xe606;</span>学无止境</span>
     
         <span class="sidebar-tag-name" data-tags="Python核心编程"><span class="iconfont-archer">&#xe606;</span>Python核心编程</span>
     
-        <span class="sidebar-tag-name" data-tags="writeup"><span class="iconfont-archer">&#xe606;</span>writeup</span>
-    
         <span class="sidebar-tag-name" data-tags="web前端"><span class="iconfont-archer">&#xe606;</span>web前端</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
-        <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
-    
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="GEEK"><span class="iconfont-archer">&#xe606;</span>GEEK</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
@@ -2176,11 +2248,13 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
-    
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
         <span class="sidebar-category-name" data-categories="writeup"><span class="iconfont-archer">&#xe60a;</span>writeup</span>
+    
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="Liunx-study"><span class="iconfont-archer">&#xe60a;</span>Liunx-study</span>
     
         <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
     
