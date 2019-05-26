@@ -433,7 +433,7 @@ height:50vh;
 <p><code>s.decode(&#39;unicode-escape&#39;)</code></p>
 <h1 id="常见编码"><a href="#常见编码" class="headerlink" title="常见编码"></a>常见编码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> sys.getdefaultencoding()    <span class="comment">#系统默认编码</span></span><br><span class="line"><span class="keyword">print</span> sys.getfilesystemencoding() <span class="comment">#文件系统编码</span></span><br><span class="line"><span class="keyword">print</span> locale.getdefaultlocale()   <span class="comment">#系统当前编码</span></span><br><span class="line"><span class="keyword">print</span> sys.stdin.encoding          <span class="comment">#终端输入编码</span></span><br><span class="line"><span class="keyword">print</span> sys.stdout.encoding         <span class="comment">#终端输出编码</span></span><br></pre></td></tr></table></figure>
 <p>Window下输出<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ascii</span></span><br><span class="line"><span class="selector-tag">mbcs</span></span><br><span class="line">(<span class="string">'zh_CN'</span>, <span class="string">'cp936'</span>)</span><br><span class="line"><span class="selector-tag">cp936</span></span><br><span class="line"><span class="selector-tag">cp936</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="操作系统编码"><a href="#操作系统编码" class="headerlink" title="操作系统编码"></a>操作系统编码</h2><h3 id="Error"><a href="#Error" class="headerlink" title="Error:"></a>Error:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! -*- coding:utf-8 -*-</span></span><br><span class="line">a=<span class="string">u"中文"</span></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">f.write(a)</span><br></pre></td></tr></table></figure>
+<h2 id="操作系统编码"><a href="#操作系统编码" class="headerlink" title="操作系统编码"></a>操作系统编码</h2><h3 id="Error"><a href="#Error" class="headerlink" title="Error:"></a>Error:</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! -*- coding:utf-8 -*-</span></span><br><span class="line">a=<span class="string">u"中文"</span></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">f.write(a)</span><br></pre></td></tr></table></figure>
 <p>出现<br><img src="https://i.imgur.com/thI8G8s.png" alt=""></p>
 <p>Reason:<br>Python2对unicode对象进行隐式编码等同于<code>b.encode(&#39;ascii&#39;)</code><br>所以ascii不支持中文报错。</p>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"><span class="function"><span class="title">reload</span><span class="params">(sys)</span></span></span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
@@ -1631,6 +1631,98 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 64
@@ -1748,12 +1840,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
@@ -1853,12 +1945,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
@@ -1878,12 +1970,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
@@ -1933,12 +2025,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
         </li>
     
     
@@ -1981,23 +2073,23 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
-    
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
-    
         <span class="sidebar-tag-name" data-tags="anaconda"><span class="iconfont-archer">&#xe606;</span>anaconda</span>
     
-        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
-    
-        <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
+        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
+    
         <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
-        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+        <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
     
         <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
@@ -2007,6 +2099,8 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
+        <span class="sidebar-tag-name" data-tags="data_structure"><span class="iconfont-archer">&#xe606;</span>data_structure</span>
+    
         <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
     
         <span class="sidebar-tag-name" data-tags="photography"><span class="iconfont-archer">&#xe606;</span>photography</span>
@@ -2015,11 +2109,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="microcomputer"><span class="iconfont-archer">&#xe606;</span>microcomputer</span>
     
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
+    
         <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
     
         <span class="sidebar-tag-name" data-tags="operate System"><span class="iconfont-archer">&#xe606;</span>operate System</span>
-    
-        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
@@ -2028,8 +2122,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
     
         <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
-    
-        <span class="sidebar-tag-name" data-tags="data_structure"><span class="iconfont-archer">&#xe606;</span>data_structure</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2064,19 +2156,19 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
-    
-        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
-    
         <span class="sidebar-category-name" data-categories="anaconda"><span class="iconfont-archer">&#xe60a;</span>anaconda</span>
     
-        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
         <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
     
-        <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
         <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
+    
+        <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
     
         <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
     
@@ -2094,11 +2186,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Microcomputer"><span class="iconfont-archer">&#xe60a;</span>Microcomputer</span>
     
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
+    
         <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
     
         <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
-    
-        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
         <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
     

@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">3,967</span>阅读时长: <span class="post-count reading-time">16 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">3,968</span>阅读时长: <span class="post-count reading-time">16 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -454,7 +454,7 @@ height:50vh;
 <li>寻找pos位，然后将其分为两段数组，然后对这两段数组递归排序；<br>2、指定一个基数key（三数取中法），定义两个指针l一个指向起始位置，r一个指向最后一个元素的位置。l寻找比基数（key）大的数字，找到后将l的数据赋给r，l成为一个坑，然后r寻找比基数（key）小的数字，找到将r的数据赋给l，r成为一个新坑，循环这个过程，直到l指针与r指针相遇，然后将key的数据返回给那个坑</li>
 <li>递归操作。</li>
 </ol>
-<p>下面是挖坑法的代码的具体实现</p>
+<h1 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h1><p><img src="https://i.imgur.com/2wiKgMt.png" alt=""><br>下面是挖坑法的代码的具体实现</p>
 <h2 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partion</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l = left;</span><br><span class="line">	<span class="keyword">int</span> r = right;</span><br><span class="line">	<span class="keyword">int</span> key = arr[left];	<span class="comment">//左边为基准</span></span><br><span class="line">	<span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">		<span class="keyword">while</span> (l &lt; r&amp;&amp;arr[r] &gt;= key) &#123;		<span class="comment">//找到右边小的数填左边的坑</span></span><br><span class="line">			r--;</span><br><span class="line">		&#125;</span><br><span class="line">			arr[l] = arr[r];  <span class="comment">//右边成为新坑;</span></span><br><span class="line">		<span class="keyword">while</span> (l &lt; r&amp;&amp;arr[l] &lt;= key) &#123;		<span class="comment">//找到左边大的数填右边的坑</span></span><br><span class="line">			l++;</span><br><span class="line">		&#125;</span><br><span class="line">			arr[r] = arr[l];  <span class="comment">//左边成为新坑;</span></span><br><span class="line">	&#125;</span><br><span class="line">	arr[l] = key;	<span class="comment">//用key填坑</span></span><br><span class="line">	<span class="keyword">return</span> l;	<span class="comment">//返回中间位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> arr[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (left &lt; right)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> mid = partion(arr, left, right);</span><br><span class="line">		quickSort(arr, left, mid - <span class="number">1</span>);</span><br><span class="line">		quickSort(arr, mid + <span class="number">1</span>, right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="思考-1"><a href="#思考-1" class="headerlink" title="思考"></a>思考</h2><p>  基准数的位置如果在左边就要从右边开始扫描，因为在最后两个指针相遇的时候，要交换基准数到相遇的位置。一般选取第一个数作为基准数，那么就是在左边，所以最后相遇的数要和基准数交换，那么相遇的数一定要比基准数小。所以右指针先移动才能先找到比基准数小的数。反之亦然。</p>
 <h1 id="merge-sort"><a href="#merge-sort" class="headerlink" title="merge_sort"></a>merge_sort</h1><h2 id="思想-5"><a href="#思想-5" class="headerlink" title="思想"></a>思想</h2><p>采用分治法进行排序；分而治之，分也就是先将问题分解成小的问题，然后递归求解。治就是将分的阶段得到的序列合并在一起。</p>
@@ -513,8 +513,9 @@ height:50vh;
 <ol>
 <li>构造最大堆（Build Max Heap）：首先将当前元素放入最大堆下一个位置，然后将此元素依次和它的父节点比较，如果大于父节点就和父节点交换，直到比较到根节点。重复执行到最后一个元素。</li>
 <li>最大堆调整（Max Heapify）：调整最大堆即将根节点移除后重新整理堆。整理方法为将根节点和最后一个节点交换，然后把堆看做n-1长度，将当前根节点逐步移动到其应该在的位置。</li>
-<li>堆排序（HeapSort）：重复执行2，直到所有根节点都已移除。<br><img src="https://i.imgur.com/Byc0NDx.png" alt=""><h2 id="动态过程-3"><a href="#动态过程-3" class="headerlink" title="动态过程"></a>动态过程</h2></li>
+<li>堆排序（HeapSort）：重复执行2，直到所有根节点都已移除。</li>
 </ol>
+<h2 id="过程-1"><a href="#过程-1" class="headerlink" title="过程"></a>过程</h2><p><img src="https://i.imgur.com/DP183ns.png" alt=""><br><img src="https://i.imgur.com/81yl3R8.png" alt=""></p>
 <h2 id="代码实现-6"><a href="#代码实现-6" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HeapSort</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">max_heapfiy</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;arr, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;	</span><br><span class="line">		<span class="keyword">int</span> dad = start;			<span class="comment">//当前节点i</span></span><br><span class="line">		<span class="keyword">int</span> son = <span class="number">2</span> * dad + <span class="number">1</span>;			<span class="comment">//左孩子2i+1</span></span><br><span class="line">		<span class="keyword">while</span> (son &lt; end) &#123;			<span class="comment">//节点在范围之内</span></span><br><span class="line">			<span class="keyword">if</span> (son + <span class="number">1</span> &lt;= end &amp;&amp; arr[son] &lt; arr[son + <span class="number">1</span>])			<span class="comment">//左孩子小于右孩子</span></span><br><span class="line">			&#123;</span><br><span class="line">				son++;			<span class="comment">//指向右孩子</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (arr[son] &lt; arr[dad]) &#123;			<span class="comment">//所有的孩子都小于父亲结束</span></span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;			<span class="comment">//孩子大于父亲，则交换</span></span><br><span class="line">				swap(arr[dad], arr[son]);</span><br><span class="line">				dad = son;</span><br><span class="line">				son = <span class="number">2</span> * dad + <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> len = arr.size();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = len / <span class="number">2</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;			<span class="comment">//从下至上，从右至左；从倒数第一个节点开始调整</span></span><br><span class="line">			max_heapfiy(arr, i, len<span class="number">-1</span>);			<span class="comment">//调整为大顶堆</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = len<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">			swap(arr[<span class="number">0</span>], arr[i]);			<span class="comment">//交换根节点和最后一个节点。</span></span><br><span class="line">			max_heapfiy(arr, <span class="number">0</span>, i<span class="number">-1</span>);				<span class="comment">//调整为大顶堆；</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="思考-3"><a href="#思考-3" class="headerlink" title="思考"></a>思考</h2><p>整体主要由构建初始堆+交换堆顶元素和末尾元素并重建堆两部分组成。<br>构建堆复杂度为O（n）,交换并重建需要交换n-1次；重建堆，根据完全二叉树的性质，[log2(n-1),log2(n-2)…1]逐步递减，近似为nlogn。固时间复杂度近似为O（nlogn）。</p>
 <p>参考：<br><a href="http://yansu.org/2015/09/07/sort-algorithms.html" target="_blank" rel="noopener">维基百科</a><br><a href="http://yansu.org/2015/09/07/sort-algorithms.html" target="_blank" rel="noopener">yansuBlog</a><br><a href="https://www.cnblogs.com/chengxiao/p/6104371.html" target="_blank" rel="noopener">dreamcatcher-cx</a><br><a href="https://github.com/francistao/LearningNotes/blob/master/Part3/Algorithm/Sort/%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84%2010%20%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93.md" target="_blank" rel="noopener">Github</a><br><a href="https://www.cnblogs.com/chengxiao/p/6194356.html" target="_blank" rel="noopener">chengxiao</a></p>
@@ -526,7 +527,7 @@ height:50vh;
             <p>原文作者：<a href="http://yoursite.com">Jason Voorhees</a>
             <p>原文链接：<a href="http://yoursite.com/2019/05/25/sort/">http://yoursite.com/2019/05/25/sort/</a>
             <p>发表日期：<a href="http://yoursite.com/2019/05/25/sort/">May 25th 2019, 12:00:00 am</a>
-            <p>更新日期：<a href="http://yoursite.com/2019/05/25/sort/">May 26th 2019, 7:32:11 pm</a>
+            <p>更新日期：<a href="http://yoursite.com/2019/05/25/sort/">May 26th 2019, 7:45:46 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -666,7 +667,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bubble-sort"><span class="toc-number">2.</span> <span class="toc-text">bubble_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想"><span class="toc-number">2.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">2.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#insertion-sort"><span class="toc-number">3.</span> <span class="toc-text">insertion_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-1"><span class="toc-number">3.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态过程"><span class="toc-number">3.2.</span> <span class="toc-text">动态过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-1"><span class="toc-number">3.3.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考"><span class="toc-number">3.4.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shell-sort"><span class="toc-number">4.</span> <span class="toc-text">shell_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-2"><span class="toc-number">4.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过程"><span class="toc-number">4.2.</span> <span class="toc-text">过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-2"><span class="toc-number">4.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#selection-sort"><span class="toc-number">5.</span> <span class="toc-text">selection_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-3"><span class="toc-number">5.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态过程-1"><span class="toc-number">5.2.</span> <span class="toc-text">动态过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-3"><span class="toc-number">5.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#quick-sort"><span class="toc-number">6.</span> <span class="toc-text">quick_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-4"><span class="toc-number">6.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-4"><span class="toc-number">6.2.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考-1"><span class="toc-number">6.3.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#merge-sort"><span class="toc-number">7.</span> <span class="toc-text">merge_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-5"><span class="toc-number">7.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概述："><span class="toc-number">7.2.</span> <span class="toc-text">概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递归流程"><span class="toc-number">7.3.</span> <span class="toc-text">递归流程:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态过程-2"><span class="toc-number">7.4.</span> <span class="toc-text">动态过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-5"><span class="toc-number">7.5.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考-2"><span class="toc-number">7.6.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#heap-sort"><span class="toc-number">8.</span> <span class="toc-text">heap_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#预备知识"><span class="toc-number">8.1.</span> <span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树"><span class="toc-number">8.1.1.</span> <span class="toc-text">二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆"><span class="toc-number">8.1.2.</span> <span class="toc-text">堆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-6"><span class="toc-number">8.2.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态过程-3"><span class="toc-number">8.3.</span> <span class="toc-text">动态过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-6"><span class="toc-number">8.4.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考-3"><span class="toc-number">8.5.</span> <span class="toc-text">思考</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bubble-sort"><span class="toc-number">2.</span> <span class="toc-text">bubble_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想"><span class="toc-number">2.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">2.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#insertion-sort"><span class="toc-number">3.</span> <span class="toc-text">insertion_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-1"><span class="toc-number">3.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态过程"><span class="toc-number">3.2.</span> <span class="toc-text">动态过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-1"><span class="toc-number">3.3.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考"><span class="toc-number">3.4.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shell-sort"><span class="toc-number">4.</span> <span class="toc-text">shell_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-2"><span class="toc-number">4.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过程"><span class="toc-number">4.2.</span> <span class="toc-text">过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-2"><span class="toc-number">4.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#selection-sort"><span class="toc-number">5.</span> <span class="toc-text">selection_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-3"><span class="toc-number">5.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态过程-1"><span class="toc-number">5.2.</span> <span class="toc-text">动态过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-3"><span class="toc-number">5.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#quick-sort"><span class="toc-number">6.</span> <span class="toc-text">quick_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-4"><span class="toc-number">6.1.</span> <span class="toc-text">思想</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流程图"><span class="toc-number">7.</span> <span class="toc-text">流程图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-4"><span class="toc-number">7.1.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考-1"><span class="toc-number">7.2.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#merge-sort"><span class="toc-number">8.</span> <span class="toc-text">merge_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-5"><span class="toc-number">8.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概述："><span class="toc-number">8.2.</span> <span class="toc-text">概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递归流程"><span class="toc-number">8.3.</span> <span class="toc-text">递归流程:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态过程-2"><span class="toc-number">8.4.</span> <span class="toc-text">动态过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-5"><span class="toc-number">8.5.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考-2"><span class="toc-number">8.6.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#heap-sort"><span class="toc-number">9.</span> <span class="toc-text">heap_sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#预备知识"><span class="toc-number">9.1.</span> <span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树"><span class="toc-number">9.1.1.</span> <span class="toc-text">二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆"><span class="toc-number">9.1.2.</span> <span class="toc-text">堆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思想-6"><span class="toc-number">9.2.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过程-1"><span class="toc-number">9.3.</span> <span class="toc-text">过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现-6"><span class="toc-number">9.4.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考-3"><span class="toc-number">9.5.</span> <span class="toc-text">思考</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -679,6 +680,98 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1782,12 +1875,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
@@ -1887,12 +1980,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
@@ -1912,12 +2005,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
@@ -1967,12 +2060,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
         </li>
     
     
@@ -2015,23 +2108,23 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
-    
-        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
-    
         <span class="sidebar-tag-name" data-tags="anaconda"><span class="iconfont-archer">&#xe606;</span>anaconda</span>
     
-        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
-    
-        <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
+        <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
         <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
+        <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
+    
         <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
-        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+        <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
     
         <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
@@ -2041,6 +2134,8 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
+        <span class="sidebar-tag-name" data-tags="data_structure"><span class="iconfont-archer">&#xe606;</span>data_structure</span>
+    
         <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
     
         <span class="sidebar-tag-name" data-tags="photography"><span class="iconfont-archer">&#xe606;</span>photography</span>
@@ -2049,11 +2144,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="microcomputer"><span class="iconfont-archer">&#xe606;</span>microcomputer</span>
     
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
+    
         <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
     
         <span class="sidebar-tag-name" data-tags="operate System"><span class="iconfont-archer">&#xe606;</span>operate System</span>
-    
-        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
@@ -2062,8 +2157,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
     
         <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
-    
-        <span class="sidebar-tag-name" data-tags="data_structure"><span class="iconfont-archer">&#xe606;</span>data_structure</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2098,19 +2191,19 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
-    
-        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
-    
         <span class="sidebar-category-name" data-categories="anaconda"><span class="iconfont-archer">&#xe60a;</span>anaconda</span>
     
-        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
+        <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
         <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
     
-        <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
+        <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
         <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
+    
+        <span class="sidebar-category-name" data-categories="php"><span class="iconfont-archer">&#xe60a;</span>php</span>
     
         <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
     
@@ -2128,11 +2221,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Microcomputer"><span class="iconfont-archer">&#xe60a;</span>Microcomputer</span>
     
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
+    
         <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
     
         <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
-    
-        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
         <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
     
