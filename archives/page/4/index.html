@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/20/计网复习/" >
+            
+                <span>计算机网络复习</span>
+        </a>
+        <div class="abstract-content">
+            重点勾勒电路交换，报文交换，分组交换特点计网性能指标协议三要素OSI，ＴＣＰ／ＩＰ，五层协议　分层比较与记忆常用编码方式和基本的带通调制方式信道复用技术：频分时分码分波分数据链路层三个基本问题：封装成帧，透明传输，差错检验差错检验：循环冗余校验集线器，交换机和网桥工作原理和特点比较使用以太网交换机进行 VLAN 的扩充3.07 3.30 3.314.20 4.21 4.26 4.27 4.30 4.37 4.42 4.435.09 5.23 5.31 5.34 
+5/.47DNS FTP/TFTP比较 URL，HTML    
+第一部分1.2.3章选择10，论述2，计算2第二部分1.6章...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "computer network">computer network</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/10/18/工具集合/" >
             
                 <span>工具大全收集</span>
@@ -414,39 +445,6 @@ chrome后台扫描插件、Pker多线程后台极速扫描工具、WebRobot、We
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/07/南邮/" >
-            
-                <span>南邮CTF</span>
-        </a>
-        <div class="abstract-content">
-            签到查看源码nctf{flag_admiaanaaaaaaaaaaa}
-md5弱类型比较==和=====先转化为一致的类型比较。===比较类型在比较字符串构造md5(‘240610708’)=md5(‘QNKCDZO’)payload：http://chinalover.sinaapp.com/web19?a=240610708
-cookieburp抓包，修改login=1;
-单身20年查看源码发现search_key.php，Burp抓包拿flag
-你从哪里来常用伪造方法：1234Client-Ip: 127.0.0.1X-Forwarded-For: 127.0.0.1Host: 1...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2018/10/07/实战/" >
             
                 <span>攻击实践</span>
@@ -468,6 +466,39 @@ ettercap -G 工具图形界面。
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "penetration">penetration</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/07/南邮/" >
+            
+                <span>南邮CTF</span>
+        </a>
+        <div class="abstract-content">
+            签到查看源码nctf{flag_admiaanaaaaaaaaaaa}
+md5弱类型比较==和=====先转化为一致的类型比较。===比较类型在比较字符串构造md5(‘240610708’)=md5(‘QNKCDZO’)payload：http://chinalover.sinaapp.com/web19?a=240610708
+cookieburp抓包，修改login=1;
+单身20年查看源码发现search_key.php，Burp抓包拿flag
+你从哪里来常用伪造方法：1234Client-Ip: 127.0.0.1X-Forwarded-For: 127.0.0.1Host: 1...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
     
 </div>
             
@@ -672,56 +703,6 @@ for...
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
             </div>
             <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/08/微机原理实验代码/" >
-            
-                <span>微机实验代码</span>
-        </a>
-        <div class="abstract-content">
-            显示一段以$结尾字符串;利用9号功能调用显示
-DATA    SEGMENT
-MESS    DB &quot;HELLO$&quot;
-DATA    ENDS
-
-CODE    SEGMENT
-ASSUME    CS:CODE,DS:DATA
-
-START:
-MOV AX,DATA
-MOV    DX,AX
-LEA    DX,MESS
-MOV    AH,9
-INT    21H
-MOV    AH,4CH
-INT    21H
-CODE ENDS
-END    START
-实现加法运算;转换BCD输出，十进制字符加32
-CODE    SEGMENT
-START:
-MOV AH...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "microcomputer">microcomputer</a>
-    
-</div>
             
         </div>
     </article>
@@ -1821,50 +1802,9 @@ MOV AH...
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 63
+        Total : 64
         </div>
         <!-- search  -->
         
@@ -1877,6 +1817,11 @@ MOV AH...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2019/05/25/sort/" >sort</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1974,12 +1919,12 @@ MOV AH...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
@@ -2104,12 +2049,12 @@ MOV AH...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Socket编程/" >Python Socket 编程详细介绍</a>
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2018/06/10/Python_Spider/" >python_Spider</a>
         </li>
     
     
@@ -2159,12 +2104,12 @@ MOV AH...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
         </li>
     
     
@@ -2209,19 +2154,19 @@ MOV AH...
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="anaconda"><span class="iconfont-archer">&#xe606;</span>anaconda</span>
-    
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="anaconda"><span class="iconfont-archer">&#xe606;</span>anaconda</span>
     
         <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
-    
         <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
     
-        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
         <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
     
@@ -2239,9 +2184,9 @@ MOV AH...
     
         <span class="sidebar-tag-name" data-tags="penetration"><span class="iconfont-archer">&#xe606;</span>penetration</span>
     
-        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
-    
         <span class="sidebar-tag-name" data-tags="microcomputer"><span class="iconfont-archer">&#xe606;</span>microcomputer</span>
+    
+        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
     
         <span class="sidebar-tag-name" data-tags="operate System"><span class="iconfont-archer">&#xe606;</span>operate System</span>
     
@@ -2254,6 +2199,8 @@ MOV AH...
         <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
     
         <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+    
+        <span class="sidebar-tag-name" data-tags="data_structure"><span class="iconfont-archer">&#xe606;</span>data_structure</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2290,9 +2237,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
-        <span class="sidebar-category-name" data-categories="anaconda"><span class="iconfont-archer">&#xe60a;</span>anaconda</span>
-    
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
+    
+        <span class="sidebar-category-name" data-categories="anaconda"><span class="iconfont-archer">&#xe60a;</span>anaconda</span>
     
         <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
@@ -2316,9 +2263,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="penetration"><span class="iconfont-archer">&#xe60a;</span>penetration</span>
     
-        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
-    
         <span class="sidebar-category-name" data-categories="Microcomputer"><span class="iconfont-archer">&#xe60a;</span>Microcomputer</span>
+    
+        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
     
         <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
     
