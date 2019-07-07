@@ -359,6 +359,71 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/12/22/Swpuctf_writeup/" >
+            
+                <span>Swpuctf复现</span>
+        </a>
+        <div class="abstract-content">
+            用优惠码买个X
+单引号里面的双引号中的变量不会解析！ 
+string substr ( string $string , int $start [, int $length ] )如果提供了负数的 length，那么 string 末尾处的 length 个字符将会被省略
+@错误抑制符
+rand() 和 mt_rand() 产生的最大随机数都是2147483647，为2^31-1,
+
+
+注册登陆给了一个15位优惠码，提交验证码发现需要24位，学习到了预测种子，然后产生对应的24位优惠码。御剑扫描发现后台www.zip，下载发现有生成优惠码源码和第二个页面验证代码。通过源码反推随机数，然后...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/12/22/安恒12月月赛Writeup/" >
+            
+                <span>安恒杯12月月赛</span>
+        </a>
+        <div class="abstract-content">
+            easy12345678910111213141516171819202122232425262728293031323334353637 &lt;?php  @error_reporting(1); include 'flag.php';class baby &#123;       public $file;    function __toString()          &#123;                  if(isset($this-&gt;file))         &#123;            $filename = "./&#123;$this-&g...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ctf">ctf</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/12/11/C++_Learn/" >
             
                 <span>C++ Learn</span>
@@ -626,98 +691,6 @@ server-uNessus扫描主机。serv-u目录遍历漏洞CMD中输入:ftp ip;ftp； 
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Penetration">Penetration</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/05/网络安全复习/" >
-            
-                <span>CyberSecurity_Review</span>
-        </a>
-        <div class="abstract-content">
-            概论安全主要威胁
-特洛伊木马
-黑客攻击
-内部、外部泄密
-计算机病毒
-信息丢失、篡改、销毁
-内部、外部泄密
-蠕虫
-拒绝服务攻击
-逻辑炸弹
-后门、隐蔽通道
-
-CIA三元组
-机密性
-完整性
-可用性
-
-网络攻击类型安全属性分5类:阻断、截取、篡改、伪造、重放攻击
-攻击方式:
-主动:伪装、回答、修改报文、拒绝服务。
-被动攻击:报文内容泄露、通信分析。
-
-OSI安全体系：5类安全服务:机密性、完整性、访问控制、不可否认、鉴别；  
-8种安全机制：访问控制、公证、路由控制、流量填充、身份认证交换、数字签名、信息完整性、加密   
-
-第一章 攻击流程和渗透测试黑客攻击流程踩点：确定目标地址范围、查询名字...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "cyber_security">cyber_security</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/28/PHP语言漏洞/" >
-            
-                <span>php弱类型漏洞记录</span>
-        </a>
-        <div class="abstract-content">
-            类型判断
-is_set()是否初始化       
-empty()检测变量是否为空（0/false/array()/）               
-$a==null判断是否为null(必须初始化)      
-is_null()仅变量为null返回true。
-$a===null 仅为null返回true
-注意区分NULL和空            
-
-strpos()查找字符串在另一字符串出现的位置。
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
     
 </div>
             
@@ -1934,95 +1907,9 @@ strpos()查找字符串在另一字符串出现的位置。
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 64
+        Total : 66
         </div>
         <!-- search  -->
         
@@ -2035,6 +1922,16 @@ strpos()查找字符串在另一字符串出现的位置。
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/web安全开发复习md/" >web_security_review</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2019/07/07/web安全开发复习/" >web_security_review</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -2137,12 +2034,12 @@ strpos()查找字符串在另一字符串出现的位置。
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/安恒12月月赛Writeup/" >安恒杯12月月赛</a>
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2018/12/22/Swpuctf_writeup/" >Swpuctf复现</a>
         </li>
     
     
@@ -2207,12 +2104,12 @@ strpos()查找字符串在另一字符串出现的位置。
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/实战/" >攻击实践</a>
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2018/10/07/南邮/" >南邮CTF</a>
         </li>
     
     
@@ -2242,12 +2139,12 @@ strpos()查找字符串在另一字符串出现的位置。
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/微机原理实验代码/" >微机实验代码</a>
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/2018/07/08/IIS/" >WindowsIIS服务问题解决（0x800F081F）</a>
         </li>
     
     
@@ -2322,12 +2219,12 @@ strpos()查找字符串在另一字符串出现的位置。
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Web安全入门/" >Web_Security</a>
+            <span class="archive-post-date">03/31</span><a class="archive-post-title" href= "/2018/03/31/Python_Learn3/" >Python_learn1</a>
         </li>
     
     
@@ -2374,15 +2271,15 @@ strpos()查找字符串在另一字符串出现的位置。
     
         <span class="sidebar-tag-name" data-tags="program"><span class="iconfont-archer">&#xe606;</span>program</span>
     
-        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
-    
         <span class="sidebar-tag-name" data-tags="crypto"><span class="iconfont-archer">&#xe606;</span>crypto</span>
     
         <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
-        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
+        <span class="sidebar-tag-name" data-tags="ctf"><span class="iconfont-archer">&#xe606;</span>ctf</span>
     
         <span class="sidebar-tag-name" data-tags="operate system"><span class="iconfont-archer">&#xe606;</span>operate system</span>
+    
+        <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
         <span class="sidebar-tag-name" data-tags="Penetration"><span class="iconfont-archer">&#xe606;</span>Penetration</span>
     
@@ -2396,29 +2293,31 @@ strpos()查找字符串在另一字符串出现的位置。
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
-        <span class="sidebar-tag-name" data-tags="data_structure"><span class="iconfont-archer">&#xe606;</span>data_structure</span>
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
     
         <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
     
+        <span class="sidebar-tag-name" data-tags="data_structure"><span class="iconfont-archer">&#xe606;</span>data_structure</span>
+    
         <span class="sidebar-tag-name" data-tags="photography"><span class="iconfont-archer">&#xe606;</span>photography</span>
+    
+        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
     
         <span class="sidebar-tag-name" data-tags="penetration"><span class="iconfont-archer">&#xe606;</span>penetration</span>
     
         <span class="sidebar-tag-name" data-tags="microcomputer"><span class="iconfont-archer">&#xe606;</span>microcomputer</span>
     
-        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
-    
-        <span class="sidebar-tag-name" data-tags="shadowsocks"><span class="iconfont-archer">&#xe606;</span>shadowsocks</span>
-    
         <span class="sidebar-tag-name" data-tags="operate System"><span class="iconfont-archer">&#xe606;</span>operate System</span>
+    
+        <span class="sidebar-tag-name" data-tags="tensflow"><span class="iconfont-archer">&#xe606;</span>tensflow</span>
     
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
         <span class="sidebar-tag-name" data-tags="cyber_security"><span class="iconfont-archer">&#xe606;</span>cyber_security</span>
     
-        <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
-    
         <span class="sidebar-tag-name" data-tags="Read"><span class="iconfont-archer">&#xe606;</span>Read</span>
+    
+        <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2457,11 +2356,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="code"><span class="iconfont-archer">&#xe60a;</span>code</span>
     
-        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
-    
         <span class="sidebar-category-name" data-categories="crypto"><span class="iconfont-archer">&#xe60a;</span>crypto</span>
     
         <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
+    
+        <span class="sidebar-category-name" data-categories="ctf"><span class="iconfont-archer">&#xe60a;</span>ctf</span>
     
         <span class="sidebar-category-name" data-categories="Penetration"><span class="iconfont-archer">&#xe60a;</span>Penetration</span>
     
@@ -2475,27 +2374,29 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
     
+        <span class="sidebar-category-name" data-categories="web"><span class="iconfont-archer">&#xe60a;</span>web</span>
+    
         <span class="sidebar-category-name" data-categories="database"><span class="iconfont-archer">&#xe60a;</span>database</span>
     
         <span class="sidebar-category-name" data-categories="photography"><span class="iconfont-archer">&#xe60a;</span>photography</span>
+    
+        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
     
         <span class="sidebar-category-name" data-categories="penetration"><span class="iconfont-archer">&#xe60a;</span>penetration</span>
     
         <span class="sidebar-category-name" data-categories="Microcomputer"><span class="iconfont-archer">&#xe60a;</span>Microcomputer</span>
     
-        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
-    
-        <span class="sidebar-category-name" data-categories="shadowsocks"><span class="iconfont-archer">&#xe60a;</span>shadowsocks</span>
-    
         <span class="sidebar-category-name" data-categories="System"><span class="iconfont-archer">&#xe60a;</span>System</span>
+    
+        <span class="sidebar-category-name" data-categories="tensflow"><span class="iconfont-archer">&#xe60a;</span>tensflow</span>
     
         <span class="sidebar-category-name" data-categories="algorithm"><span class="iconfont-archer">&#xe60a;</span>algorithm</span>
     
         <span class="sidebar-category-name" data-categories="CyberSecurity"><span class="iconfont-archer">&#xe60a;</span>CyberSecurity</span>
     
-        <span class="sidebar-category-name" data-categories="Network"><span class="iconfont-archer">&#xe60a;</span>Network</span>
-    
         <span class="sidebar-category-name" data-categories="Read"><span class="iconfont-archer">&#xe60a;</span>Read</span>
+    
+        <span class="sidebar-category-name" data-categories="Network"><span class="iconfont-archer">&#xe60a;</span>Network</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
